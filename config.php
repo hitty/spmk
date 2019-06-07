@@ -28,10 +28,10 @@ return array(
     ),  
     'mysql' => array(
         'host' => 'localhost',
-        'user' =>  DEBUG_MODE ? 'root' : 'arerusru_awards' ,
-        'pass' => DEBUG_MODE ? 'root' : 'J7gj1tDTtIYIe01vIgpg' ,
+        'user' =>  DEBUG_MODE ? 'root' : 'cj32843_spmk' ,
+        'pass' => DEBUG_MODE ? 'root' : 'Hitty11))' ,
         'charset' => 'utf8',
-        'db' => DEBUG_MODE ? 'spmk' : 'arerusru_awards',
+        'db' => DEBUG_MODE ? 'spmk' : 'cj32843_spmk',
         'lc_time_names' => 'ru_RU'
     ),
     'elasticsearch' => array(      // настройки Elasticsearch

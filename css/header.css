@@ -1,0 +1,58 @@
+header {
+    background: var(--main-color);
+    height: 80px;
+    align-items: center;
+    padding: 0 30px;
+}
+
+header .logo {
+    width: 150px;
+    display: block;
+    border: none;
+}
+
+header .logo img {
+    display: block;
+}
+
+header .actions {
+    color: #fff;
+    font-family: var(--secondary-font);
+    font-size: 24px;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+header .actions .send.button {
+    margin: 0 30px;
+    font-size: 24px;
+    padding-left: 70px;
+}
+
+header .actions .send.button:before {
+    background-image: url('/img/send-icon.svg');
+    left: 19px;
+}
+
+header .actions .email {
+    margin: 0 30px;
+    border: none;
+}
+
+header .actions .email:before {
+    background-image: url('/img/email-icon.svg');
+}
+
+header .actions .phone {
+    margin: 0 30px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    cursor: pointer;
+}
+
+header .actions .phone:before {
+    background-image: url('/img/phone-icon.svg');
+}
+
+header .menu {
+}
