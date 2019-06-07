@@ -1,0 +1,28 @@
+{include /templates/includes/main_head_part.html}
+</head>
+<body id="clear-template">
+    {if!empty $payed_format}                  
+        <div class="fullscreen-banner bg-cover"{if!empty $photos[0]} style="background-image:url('/img/uploads/big/{$photos[0]['subfolder']}/{$photos[0]['name']}')"{/if}></div>
+    {/if}    
+    
+    {include /templates/includes/main_header_part.html}
+    
+    <div class="shadow-container" id="shadow-container">
+    
+        <div class="content">
+            {$content}
+        </div> <!--/#content-->
+    </div>
+    
+    {include /templates/includes/main_footer_part.html}
+    
+{ifempty $debug}
+    <script type="text/javascript">
+        var __cs = __cs || [];
+        __cs.push(["setCsAccount", "D9r7kvRp51o_EZ6sc4ng3Yh4kB8xgoNW"]);
+        __cs.push(["setCsHost", "//server.comagic.ru/comagic"]);
+    </script>
+    <script type="text/javascript" async src="//app.comagic.ru/static/cs.min.js"></script>
+{/if}
+</body>
+</html>

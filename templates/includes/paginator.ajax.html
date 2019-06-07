@@ -1,0 +1,12 @@
+{if!empty $paginator['right']}
+    {ifempty $paginator_empty}
+        <div class="clearfix"></div>
+        <div class="ajax-pagination-container button" data-link="{$paginator['link']}{$paginator['right']}">
+            <div id="circleG">
+                <div id="circleG_1" class="circleG"></div>
+                <div id="circleG_2" class="circleG"></div>
+                <div id="circleG_3" class="circleG"></div>
+            </div>
+        </div>
+    {/if}
+{/if}

@@ -1,0 +1,372 @@
+
+
+
+
+
+
+
+
+
+
+.m-upload-filesButton {
+    display: none;
+}
+
+.m-upload-filesButton.disabled {
+    color: #e6e6e6;
+}
+
+.file_upload_queue .uploadifyButton {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    cursor: pointer;
+    border: 1px dashed var(--violet)!important;
+    -webkit-transition: .3s all;
+    -moz-transition: .3s all;
+    -ms-transition: .3s all;
+    -o-transition: .3s all;
+    height: 60px;
+}
+
+.file_upload_queue .uploadifyButton:hover {
+    background: var(--violet-light);
+}
+
+.file_upload_queue .uploadifyButton:before {
+    font-size: 24px;
+    margin: 0 auto;
+    color: var(--violet);
+    display: block;
+    text-align: center;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    left: 50%;
+    margin-left: -12px;
+    top: 50%;
+    margin-top: -12px;
+}
+
+.file_upload_queue .uploadifyButton .uploadInput{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    font-size: 23px;
+    direction: ltr;
+    cursor: pointer;
+    height: 60px;
+    line-height: 60px;
+}
+
+.file_upload_queue li {
+    -webkit-transition: .2s all ease-in-out;
+    -moz-transition: .2s all ease-in-out;
+    -ms-transition: .2s all ease-in-out;
+    -o-transition: .2s all ease-in-out;
+    transition: .2s all ease-in-out;
+}
+
+.file_upload_queue li.uploadifyButton span {
+    font-size: 12px;
+    margin-top: 32px;
+    display: block;
+    color: #b9b9b9;
+}
+
+.file_upload_queue li.uploadifyButton span.file_upload_queue li.uploadifyButton:hover span {
+    color: #999;
+}
+
+.file_upload_queue {
+    margin: 0;
+    padding: 0;
+    width: 590px;
+    font-family: "Roboto", Tahoma;
+    background-color: #fff;
+    min-height: 130px;
+}
+
+.file_upload_queue li {
+    font: 12px "Roboto", Tahoma;
+    width: 100%;
+    min-height: 30px;
+    display: block;
+    text-align: center;
+    position: relative;
+    float: left;
+    overflow: hidden;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--gray-light);
+}
+.file_upload_queue li:last-of-type{
+    border-bottom: none;
+}
+.file_upload_queue li:first-of-type{
+    padding: 0;
+    margin-bottom: 20px;                       
+}
+.file_upload_queue li span {
+    color: var(--violet);
+    font-size: 14px;
+    display: inline-block;
+}
+
+.file_upload_queue li .filename_wrap {
+    display: none;
+}
+
+.file_upload_queue li .fileinfo_wrap {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;    
+    color: var(--violet);
+    font-size: 14px;
+    font-weight: 600;
+}
+.file_upload_queue .itemsContainer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+}
+
+.file_upload_queue .progressbar-container {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.file_upload_queue .progress {
+    background: #E5E5E5;
+    margin: 0;
+    width: 100%;
+    position: relative;
+    height: 100%;
+}
+
+.file_upload_queue .progress-bar {
+    background-color: var(--violet-light);
+    top: 0;
+    width: 1px;
+    position: relative;
+    bottom: 0;
+    height: 100%;
+}
+
+.file_upload_queue .filename {
+    width: 100%;
+    display: block;
+}
+
+.file_upload_queue .data {
+    width: 100%;
+    text-align: center;
+}
+
+.m-upload-filesError {
+    background-color: #FDE5DD !important;
+}
+
+.file_upload_queue .file_upload_queue .completed {
+    background-color: #E5E5E5;
+}
+
+.file_upload_queue .itemsContainer:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: block;
+}
+
+.file_upload_queue .boxcaption-wrap {
+    position: absolute;
+    z-index: 100;
+    right: 0;
+    top: 50%;
+    margin-top: -20px;
+    background: #fff;
+    height: 40px;
+    display: table;
+    width: 30px;
+    -webkit-transition: bottom .2s ease-in-out;
+    -moz-transition: bottom .2s ease-in-out;
+    -ms-transition: bottom .2s ease-in-out;
+    -o-transition: bottom .2s ease-in-out;
+    transition: bottom .2s ease-in-out;
+    
+}
+
+.file_upload_queue .boxcaption-wrap div {
+    color: var(--gray);
+    cursor: pointer;
+    -webkit-transition: all .1s ease-in-out;
+    -moz-transition: all .1s ease-in-out;
+    -ms-transition: all .1s ease-in-out;
+    -o-transition: all .1s ease-in-out;
+    transition: all .1s ease-in-out;
+    margin: 0;
+    text-align: center;
+    vertical-align: middle;
+    display: table-cell;
+    align-items: center;
+    text-align: center;
+}
+
+.file_upload_queue .boxcaption-wrap div:hover {
+    color: var(--violet);
+}
+
+.file_upload_queue .boxcaption-wrap div:before {
+    float: none;
+}
+
+.file_upload_queue #file_upload {
+    margin-top: 10px;
+    width: 100%;
+    height: 25px;
+}
+
+.file_upload_queue .inactive .uploadInput {
+    display: none;
+}
+
+.file_upload_queue .inactive {
+    opacity:0;
+    cursor: default;
+    visibility: hidden;
+}
+
+.m-upload-files {
+    display: none;
+}
+
+.file_upload_queue .fileUploadStat {
+    padding: 0;
+    line-height: 130px;
+    color: var(--violet);
+}
+
+.file_upload_queue .preloadImg {
+    margin: 5px 6px 1px 6px;
+}
+
+.file_upload_queue .preloadImg .itemsContainer {
+    background: #ffffff;
+}
+
+.file_upload_queue li .set_title-wrap {
+    position: absolute;
+    top: -12px;
+    width: 154px;
+    left: 50%;
+    margin-left: -85px;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+    opacity: 0;
+}
+
+.file_upload_queue li {
+    z-index: 100;
+}
+
+.file_upload_queue li:hover {
+    z-index: 1000;
+}
+
+form .row .uploadifile_queue-item.error {
+    width: 100%;
+    position: relative;
+    left: auto;
+    top: auto;
+    bottom: auto;
+    right: auto;
+    border-color: var(--red);
+}
+
+.file_upload_queue .file-type-ico {
+    display: block;
+    float: left;
+    margin-top: 20px;
+}
+.form-default .file_upload_queue .title,
+.file_upload_queue .title {
+    font-size: 18px;
+    color: var(--black);
+    display: block;
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    margin: 0 20px;
+    width: 400px;
+    margin-top: 20px;
+    text-align: left;
+    border: 1px solid rgba(0,0,0,0);
+    overflow: hidden; 
+    overflow-wrap: break-word; 
+    height: 30px;
+    position: relative;
+    z-index: 100;
+}
+.form-default .file_upload_queue .title:focus,
+.file_upload_queue .title:focus,
+.form-default .file_upload_queue .title:active,
+.file_upload_queue .title:active {
+    border: 1px solid var(--violet-light);
+}
+.file_upload_queue .size {
+    font-size: 16px;
+    color: var(--gray);
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    margin-top: 20px;
+}
+.audio-list-container .file_upload_queue li:not(.uploadifyButton) {
+    overflow: visible;
+    height: 90px;
+}
+
+.audio-list-container .file_upload_queue li .title {
+    display: block;
+    margin-left: 0;
+    background: none;
+}
+
+.audio-list-container .file_upload_queue li audio {
+    float: left;
+    width: 440px;
+}
+
+.audio-list-container .file_upload_queue li .size {
+    float: right;
+    margin-right: 60px;
+    margin-top: 12px;
+}
+.audio-list-container .file_upload_queue .boxcaption-wrap div{
+    
+}
+
+.form-default fieldset .audio-list-container.row .tip-text,
+.form-default fieldset .files-list-container.row .tip-text{
+    top: 40px;
+    left: calc( 100% + 90px );
+}

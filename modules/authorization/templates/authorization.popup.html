@@ -1,0 +1,31 @@
+ 
+
+<div id="modal-enter" class="modal modal-enter">
+    <a href="#" class="modal-close-btn closebutton"></a>
+    <div class="modal-title">Вход</div>
+    <div class="modal-desc">Проголосовать за проекты могут только члены Экспертного совета.</div>
+    <form action="/authorization/" class="modal-form">
+        <div class="form-block">
+            <div class="form-block-title">Логин</div>
+            <label class="input-block">
+                <input type="text" id="auth_login" name="auth_login" value="" class="input" required="required">
+            </label>
+        </div>
+        <div class="form-block">
+            <div class="form-block-title-row flex-row">
+                <div class="form-block-title-col flex-row-item">
+                    <div class="form-block-title">Пароль</div>
+                </div>
+                <div class="form-block-title-col flex-row-item">
+                    <a href="#lostpass" class="popup" data-url="/lostpassword/popup/" data-location="popup-lostpassword">Восстановить</a>
+                </div>
+            </div>
+            <label class="input-block"> 
+                <input type="password" id="auth_passwd" name="auth_passwd" value="" class="input" required="required">
+            </label>
+        </div>
+        <div class="submit-wrapp button-container">
+            <button type="submit" class="btn btn-big btn-block submit">ВОЙТИ</button>
+        </div>
+    </form>
+</div>

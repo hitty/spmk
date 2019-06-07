@@ -1,0 +1,11 @@
+<h1>Ваши проекты</h1>
+
+<div class="projects-list clearfix">
+    {loop $list,$k,$item}
+        {include /projects/templates/project.item.block.html}
+    {/loop $list}
+    <div class="item add-button bbox transition" data-url="/projects/popup/add/">
+        <span>новый проект</span>
+    </div>
+</div>
+    

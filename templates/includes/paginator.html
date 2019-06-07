@@ -1,0 +1,13 @@
+{if!empty $paginator}
+    {ifgt $paginator['pages_count'];1}
+        <ul class="pagination">
+            {if!empty $paginator['left']}
+                <li><a href="{ifeq $paginator['left'],1}{php:echo rtrim(str_replace('page=','',$paginator['link']),'&?')}{else}{$paginator['link']}{$paginator['left']}{/if}" title="Предыдущая">Предыдущая</a></li>
+            {/if}
+            <li>СТРАНИЦА <b>{$paginator['active_page']}</b> ИЗ {$paginator['pages_count']}</li>
+            {if!empty $paginator['right']}
+                <li><a href="{$paginator['link']}{$paginator['right']}" title="Следующая">Следующая</a></li>
+            {/if}
+        </ul>
+    {/if}
+{/if}

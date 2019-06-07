@@ -1,0 +1,4 @@
+<div class="item shadow-hover transition" data-id="{$item['type']}">
+    <a href="{if!eq $item['type'],'news'}/{if!empty $item['category_chpu_title']}{$item['category_chpu_title']}/{/if}{else}/news/{/if}{$item['chpu_title']}" class="title transition-text">{$item['title']}</span>
+    <span class="date">{$item['normal_date']}</span>
+</div>

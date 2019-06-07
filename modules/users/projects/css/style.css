@@ -1,0 +1,85 @@
+.item-block {
+    background: #fff;
+    padding: 15px 0;
+    text-align: left;
+    line-height: 18px;
+    color: var(--gray);
+    margin: 0;
+}
+
+.item-block + .item-block {
+    margin-top: 0;
+}
+
+.item-block:nth-child(even) {
+    background: #f7f7f7;
+}
+
+.item-block:hover {
+    color: var(--violet);
+}
+
+.list-container .admin {
+    width: 50px;
+}
+
+.item-block .admin span {
+}
+
+.list-container .name {
+    width: 200px;
+}
+
+.list-container .login,
+.list-container .name,
+.list-container .lastname {
+    color: var(--black);
+    display: block;
+    border: none;
+    cursor: pointer;
+    width: 200px;
+}
+
+.list-container .company,
+.list-container .email {
+    width: 160px;
+}
+
+.list-container .date {
+    width: 100px;
+}
+
+.list-container .actions {
+    width: 98px;
+    opacity: 0;
+    visibility: hidden;
+    right: 45px;
+}
+
+.item-block:nth-child(odd) .date .actions {
+    background: #fff;
+}
+
+.list-container .item-block:hover .actions {
+    opacity: 1;
+    visibility: visible;
+    right: 45px;
+}
+
+.item-block .visibility {
+    width: 20px;
+    color: var(--red);
+    float: right;
+}
+
+.item-block .visibility span {
+    cursor: pointer;
+}
+
+.item-block .visibility .active {
+    color: var(--green);
+}
+
+.item-block .visibility .active:before {
+    content: "visibility";
+}

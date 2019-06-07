@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Вход в личный кабинет</title>
+<script src="/js/{$js_id}/"></script>
+<link rel="stylesheet" href="/css/{$css_id}/" media="all">
+</head>
+<body class="error-403 bg-cover">
+    <div class="central-container">
+        {php:$params = Request::GetParameters( METHOD_POST )}
+        <h1>СПМК</h1>
+        {if!empty $authorized}
+            <p>Вашего уровня доступа не достаточно для доступа к этой странице.</p>
+            <form method="post" action="{$curent_page['requested_url']}">
+                <input type="submit" name="logoff" value="Выход">
+            </form>
+        {else}
+            {if!empty $params['submit']}<div class="notification msgerror" >Неверная пара логин / пароль</div>{/if}
+            <form method="post" action="/{$current_page['requested_url']}{if!empty $current_page['requested_url']}/{/if}">
+                <div class="row title">
+                    Вход в личный кабинет
+                    <span class="gray">Для создания и редактирования страниц, пожалуйста авторизуйтесь.</span>
+                </div>
+                
+                <div class="row full-width">
+                    <label>Логин</label>
+                    <input type="text" name="auth_login" value="" />
+                </div>
+
+                <div class="row full-width">
+                    <label>Пароль</label>
+                    <input type="password" name="auth_passwd" value="" />
+                </div>
+                
+                <div class="row full-width">
+                    <input type="hidden" name="auth_cookie_save" id="auth_cookie_save" value="2">
+                    <label class="selector-title checkbox">
+                        <input type="checkbox" id="checkbox_auth_cookie_save" class="lf" name="checkbox_auth_cookie_save" value="2" rel="auth_cookie_save" data-true-value="1" data-false-value="2">
+                        Запомнить меня                                            
+                    </label>
+                </div>
+                <div class="row full-width">
+                    <button value="Войти">Войти</button>
+                </div>
+                <input type="hidden" name="submit" value="1" />
+                
+            </form>
+        {/if}
+    </div>
+</body>

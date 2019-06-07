@@ -1,0 +1,44 @@
+<div class="list-container seo">
+    <div class="caption-container">
+        <a href="/projects/seo/add/" class="button orange">Добавить запись</a>
+    </div>
+    <div class="filter">
+        <span class="active">SEO</span>
+    </div>
+    <div class="filters-container clearfix flex" data-url="/projects/seo/">
+        
+        <div class="url" data-icon="search">
+            <input type="text" id="f_url"  name="f_url" value="{$get_array['f_url']}" placeholder="URL">
+        </div>
+        <div class="pretty-url" data-icon="search">
+            <input type="text" id="f_pretty_url"  name="f_pretty_url" value="{$get_array['f_pretty_url']}" placeholder="Подменный URL">
+        </div>
+        
+    </div>
+    {if!empty $list}
+        <div class="list clearfix">
+            <div class="header item-block clearfix flex">
+                <div class="id">ID</div>
+                <div class="alias">Адреса</div>
+                <div class="info">Заголовки</div>
+            </div>
+               
+            {loop $list,$key,$item}
+                <div class="item-block clearfix flex" id="item_{$item['id']}">
+                    <div class="id"><a href="/projects/seo/edit/{$item['id']}/">{$item['id']}</a></div>
+                    <div class="alias">
+                        {if!empty $item['url']}<p>URL: <strong><a href="/projects/seo/edit/{$item['id']}/">{$item['url']}</a></strong></p>{/if}
+                        {if!empty $item['pretty_url']}<p class="small_text grey">Подменный URL: <strong>{$item['pretty_url']}</strong></p>{/if}
+                    </div>
+                    <div class="info">
+                        {if!empty $item['title']}<p class="small_text">TITLE: {$item['title']}</p>{/if}
+                        {if!empty $item['h1_title']}<p class="small_text">H1: {$item['h1_title']}</p>{/if}
+                    </div>
+                    <span data-icon="delete" class="delete red" data-url="/projects/seo/delete/{$item['id']}/"></span>
+                </div>
+            {/loop $list}
+        </div>
+        {include /projects/templates/paginator.html}
+    {/if}
+        
+</div>

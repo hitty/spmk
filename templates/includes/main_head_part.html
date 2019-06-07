@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru" itemscope itemtype="http://webmaster.yandex.ru/vocabularies/term-def.xml">
+<head itemscope itemtype="http://schema.org/WebSite">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">        
+    <title itemprop='name'>{stripall:$metadata['title']}{ifempty $mainpage}{ifempty $metadata['replace']} - СПМК.{/if}{/if}</title>
+    <meta name="description" content="{quoted:$metadata['description']}">
+    <meta name="keywords" content="">
+    <meta name="revisit-after" content="14 days">
+    <meta name="alternateName" content="" />
+    <meta name="robots" content="index,follow">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link type="image/x-icon" rel="shortcut icon" href="/favicon.ico">
+    <link type="image/x-icon" rel="icon" href="/favicon.ico">
+
+    <link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16" />
+   
+    {if!empty $meta_canonical}
+        <link rel="canonical" href="{$current_page['full_host']}{$meta_canonical}"  itemprop="url"/>
+    {/if}
+    <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,initial-scale=1,user-scalable=no">
+    {if!empty $debug}
+        <script src="/js/{$js_id}.js"></script>
+        <link rel="stylesheet" href="/css/{$css_id}.css" media="all">
+        
+    {elseif!empty $id_admin}
+        <script src="/js/{$js_id}.js"></script>
+        <link rel="stylesheet" href="/css/{$css_id}.css" media="all">
+    {else}
+        <style>{$css_content}</style>
+    {/if} 
+
+    {if!empty $open_graph}
+        <meta content="article" property="og:type"/>
+        <meta  property="og:site_name" content="{$current_page['full_host']}" />
+        <meta  property="og:title" content="{stripall:$open_graph['title']}"/>
+        <meta property="og:url" content="{$current_page['full_host']}{$meta_canonical}" />
+        <meta  property="og:image" content="{stripall:$open_graph['image']}"/>   
+        <meta  property="og:image:width" content="355" />
+        <meta  property="og:image:height" content="221" /> 
+        <meta content="{quoted:$open_graph['description']}" property="og:description"/>
+    {/if}

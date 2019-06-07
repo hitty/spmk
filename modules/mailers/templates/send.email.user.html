@@ -1,0 +1,26 @@
+{include /modules/mailers/templates/simple.header.html}
+<tr> <!-- content - title -->
+    <td valign="top" style="border-collapse:collapse; padding:0 0 20px 0; font-size: 24px; line-height: 24px;" align="left"> 
+    Спасибо за регистрацию! 
+    </td>
+</tr>
+<tr> <!-- content - text -->
+    <td valign="top" style="border-collapse:collapse; padding: 0; font-size: 16px; line-height: 30px; padding-top: 30px" align="left"> 
+        Уважаемый(-ая) {$data['name']}, вы зарегистрировались на 
+        
+        {ifempty $parameters['id']}
+            учебную программу <a style="color: #C02482;" href="https://brokerage.pro-conference.ru/">«Брокеридж в офисной недвижимости»</a>, 
+            которая пройдет с 1 по 3 марта 2018 года в Санкт-Петербурге, по адресу Бизнес-школа ИМИСП, 9-я линия В.О, 50 (<a style="color: #C02482;" href="https://yandex.ru/maps/2/saint-petersburg/?mode=search&ll=30.273414%2C59.944359&z=17sll%3D30.315868%2C59.939095&ol=biz&oid=1343017166">смотреть на карте</a>)
+        {elseifeq $parameters['id'],2}
+            обучающий семинар <a style="color: #C02482;" href="https://brokerage.pro-conference.ru/">«Комплексный маркетинг жилой недвижимости»</a>, 
+            которая пройдет 27 марта 2018 в Казань, (<a style="color: #C02482;" href="https://yandex.ru/maps/2/saint-petersburg/?mode=search&ll=30.273414%2C59.944359&z=17sll%3D30.315868%2C59.939095&ol=biz&oid=1343017166">смотреть на карте</a>)
+        {/if}
+
+        {if!empty $parameters['promocode']}<br /><br />Ваш промо-код принят на рассмотрение, подтверждение особых условий - по почте{/if}
+        <br /><br />
+        <b>Будем рады видеть вас!</b>
+        
+    </td>
+</tr>
+{include /modules/mailers/templates/simple.footer.html}
+                            
