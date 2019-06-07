@@ -73,9 +73,7 @@ $ajax_mode = (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && !empty($_SERVER['HTTP_
 if( empty( $ajax_mode ) ) {
     //подключение стилей и js-скриптов
     $GLOBALS['js_set'][] = '/js/jquery.min.js';
-    
     $GLOBALS['js_set'][] = '/js/inputmask/inputmask.min.js';
-
     $GLOBALS['js_set'][] = '/js/form.validate.js';
     $GLOBALS['js_set'][] = '/js/main.js';
     $GLOBALS['js_set'][] = '/js/interface.js';
@@ -83,10 +81,14 @@ if( empty( $ajax_mode ) ) {
 
     
     if( empty( $requested_page->is_projects_page ) ) {
+        $GLOBALS['css_set'][] = '/css/reset.css';
+        $GLOBALS['css_set'][] = '/css/common.css';
+        
+        $GLOBALS['css_set'][] = '/css/controls.css';
         $GLOBALS['css_set'][] = '/css/central.css';
+        $GLOBALS['css_set'][] = '/css/header.css';
         $GLOBALS['css_set'][] = '/js/popup.window/styles.css';    
     } else {
-        $GLOBALS['css_set'][] = '/projects/css/fonts.css';
         $GLOBALS['css_set'][] = '/projects/css/reset.css';
         $GLOBALS['css_set'][] = '/projects/css/common.css';
         $GLOBALS['css_set'][] = '/projects/css/content.css';

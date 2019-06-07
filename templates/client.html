@@ -1,19 +1,16 @@
 {include /templates/includes/main_head_part.html}
 </head>
 <body>
-    <div class="wrapper page-{if!empty $current_page['page_url']}{$current_page['page_url']}{else}front{/if}">
-        <div class="body">
-            {include /templates/includes/main_header_part.html}
-            {if!empty $mainpage}
-                {$content}
-                {include /templates/includes/main_footer_part.html}
-            {else}
-            <main class="main">
-                <div class="main-body">{$content}</div>
-                {include /templates/includes/main_footer_part.html}
-            </main>
-            {/if}
-        </div>
+    <div class="wrapper">
+        {include /templates/includes/main_header_part.html}
+        {if!empty $mainpage}
+            {$content}
+            {include /templates/includes/main_footer_part.html}
+        {else}
+            {$content}
+            {include /templates/includes/main_footer_part.html}
+        {/if}
+        
     </div>
 </body>
 </html>

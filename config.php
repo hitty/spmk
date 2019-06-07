@@ -22,7 +22,6 @@ return array(
     'string_per_page' => array(
         'nominees'     => 20              // база знакний
         , 'users'        => 20              // пользователи
-        , 'static_pages' => 20              // статичные страницы
         , 'news' => 10                       // новости
         , 'partners' => 10                       // новости
         , 'media' => 20                // фото-видео
@@ -32,7 +31,7 @@ return array(
         'user' =>  DEBUG_MODE ? 'root' : 'arerusru_awards' ,
         'pass' => DEBUG_MODE ? 'root' : 'J7gj1tDTtIYIe01vIgpg' ,
         'charset' => 'utf8',
-        'db' => DEBUG_MODE ? 'awards' : 'arerusru_awards',
+        'db' => DEBUG_MODE ? 'spmk' : 'arerusru_awards',
         'lc_time_names' => 'ru_RU'
     ),
     'elasticsearch' => array(      // настройки Elasticsearch
@@ -92,10 +91,7 @@ return array(
         'common_pages_seo' => 'common_pages_seo',
         'common_pages_map' => 'common_pages_map',
         
-        'static_pages' => 'static_pages',
-
         'applications' => 'applications',
-        'settings' => 'settings',
         
         'news' => 'news',
         'news_photos' => 'news_photos',
