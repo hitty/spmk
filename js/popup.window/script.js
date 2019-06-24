@@ -188,7 +188,8 @@ if($)(function(window, document, $, undefined){
             background_container    : '.modal-bg',           
             inner_container         : '.modal-slide',           
             close_container         : '.modal-close',           
-            close_template          : '<div class="modal-close"></div>',           
+            close_template          : '<div class="modal-close"></div>',   
+            closebutton_template    : '<span class="closebutton" data-icon="close"></span>',                   
             popup_redirect          : true,
             width                   : 0,           /* ширина внутреннего блока */
             popupCallback           : function(data){}, /* функция, предваряющая закрытие function(item_id){} */
@@ -258,6 +259,7 @@ if($)(function(window, document, $, undefined){
                             if(typeof o.onInit == "function"){
                                 o.onInit(container );
                             }
+                            jQuery( o.inner_container ).children(0).prepend( o.closebutton_template );
                             jQuery( o.inner_container ).append( o.close_template );
 
                         }, 20 );

@@ -118,7 +118,7 @@
     color: var(--red-pink);
 }
 .ajax-search-results.content-wrapper .item  .date{
-    font-family: 'Roboto';    
+    font-family: var(--main-font);    
     font-size: 18px;
     color: var(--grey);
     display: block;

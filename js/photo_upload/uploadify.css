@@ -11,7 +11,7 @@
     overflow: hidden;
     display: inline-block;
     cursor: pointer;
-    border: 1px dashed var(--violet);
+    border: 1px dashed var(--main-color);
     -webkit-transition: .3s all;
     -moz-transition: .3s all;
     -ms-transition: .3s all;
@@ -19,12 +19,12 @@
     
 }  
 .photo_upload_queue .uploadifyButton:hover{
-    background: var(--violet-light);
+    background: var(--main-color-light);
 }
 .photo_upload_queue .uploadifyButton:before{
     font-size: 24px;
     margin: 0 auto;
-    color: var(--violet);
+    color: var(--main-color);
     display: block;
     text-align: center;
     width: 24px;
@@ -55,7 +55,7 @@
     -ms-transition: .2s all ease-in-out;
     -o-transition: .2s all ease-in-out;
     transition: .2s all ease-in-out;
-    border: 1px solid var(--violet-light);
+    border: 1px solid var(--main-color-light);
 }
 .photo_upload_queue li.uploadifyButton span{
     font-size: 12px;
@@ -246,7 +246,7 @@
     text-align: center;
 }
 .photo_upload_queue .boxcaption-wrap div:hover{
-    color:var(--violet);
+    color:var(--main-color);
 }
 .photo_upload_queue .boxcaption-wrap div:before{
     float: none;    
@@ -292,7 +292,7 @@
 .photo_upload_queue .fileUploadStat{
     padding: 0;
     line-height: 130px;
-    color: var(--violet);
+    color: var(--main-color);
 }
 .photo_upload_queue .fileSorting{
     position: relative;

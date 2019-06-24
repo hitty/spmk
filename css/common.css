@@ -1,13 +1,6 @@
 @charset "UTF-8";
 
-:root {
-  --text: #202020;
-  --main-color: #3C88C8;
-  --secondary-color: #E11741;
-  --secondary-color-hover: #d1133a;
-  --main-font: 'Roboto', sans-serif;
-  --secondary-font: 'Roboto Condensed', sans-serif;
-}
+
 /* common correction elements */
 html{
     overflow-x: auto;
@@ -18,7 +11,6 @@ html{
 body,
 html {
     height: 100%;
-    background: #f3f3f3;
 }
 body {
     font: normal 16px var(--main-font);
@@ -37,7 +29,6 @@ body {
     -ms-flex-direction: column;
     flex-direction: column;
     width: 100%;
-    overflow: hidden;
 }    
 .wrapper{
     min-width: 100%;
@@ -87,23 +78,43 @@ sub {
 
 
 h1 {
-    font-size: 42px;
-    font-weight: 700;
+    font-size: 64px;
+    line-height: 1;
+    font-weight: bold;
     margin: 0px 0 40px 0;
     display: block;
     line-height: 52px;
     color: var(--brown);
+    text-align: center;
+    text-transform: uppercase;
 }
 
 .h2,h2 {
     margin: 0 0 60px 0;
-    font-size: 38px;
-    line-height: 48px;
+    font-size: 42px;
+    line-height: 1.5;
     text-align: center;
     font-weight: 700;
     color: var(--brown);
+    text-align: center;
+    text-transform: uppercase;
 }
-
+h2:before{
+    content: "";
+    display: inline-block;
+    width: 34px;
+    height: 30px;
+    mask: url(/img/h2-icon.svg);
+    -webkit-mask: url(/img/h2-icon.svg);
+    background-color: var(--main-color);
+    margin-right: 10px;   
+}
+.h2.invert,h2.invert{
+    color: var(--white);
+}
+h2.invert:before{
+    background-color: var(--white);
+}
 h3 {
     font-size: 20px;
     color: var(--brown);
@@ -146,6 +157,13 @@ sup {
     font-size: 70%;
     line-height: 100%;
     vertical-align: top;
+}
+section{
+    margin: 120px 0;
+}
+section.bg-cover{
+    margin: 0;
+    padding: 120px 0;
 }
 /* фиксированный размер блока */
 .bbox{
@@ -293,22 +311,12 @@ sup {
 .br3{
     border-radius: 3px;
 }
-.black-bg{
-    position: relative;
+.inner{
+    width: 1320px;
+    margin: 0 auto;
 }
-.black-bg:before{
-    content:""    ;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    background: rgba( 0, 0, 0, .7);
-    z-index: -1;
-    display: block;
-}
-.gray{
-    color: var(--gray);
+.white{
+    color: var(--white);
 }
 /* filter */
 .mobile-version{
@@ -348,9 +356,29 @@ sup {
     left: 0;
     top: 50%;
     transform:translateY(-50%);
-    background-position: left;
+    background-position: left;                                
     background-repeat: no-repeat;
     background-size: 100% auto;
     width: 30px;
     height: 100%;
+}
+.navigation{
+    margin: 30px auto;
+}
+.navigation span{
+    cursor: pointer;
+    color: var(--main-color);
+    border-bottom: 1px dashed var(--main-color);
+    transition: var(--link-transition);
+    margin: 0 10px;
+}
+.navigation span:hover{
+    border-bottom-color: transparent;
+    
+}
+.navigation span.active{
+    
+}
+h1 + .navigation{
+    margin-top: -20px;
 }

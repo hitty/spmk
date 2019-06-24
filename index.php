@@ -78,6 +78,9 @@ if( empty( $ajax_mode ) ) {
     $GLOBALS['js_set'][] = '/js/main.js';
     $GLOBALS['js_set'][] = '/js/interface.js';
     $GLOBALS['js_set'][] = '/js/fancybox.js';
+    
+    $GLOBALS['css_set'][] = '/css/variables.css';
+    $GLOBALS['css_set'][] = '/css/fonts.css';
 
     
     if( empty( $requested_page->is_projects_page ) ) {
@@ -90,6 +93,7 @@ if( empty( $ajax_mode ) ) {
         $GLOBALS['css_set'][] = '/js/popup.window/styles.css';    
     } else {
         $GLOBALS['css_set'][] = '/projects/css/reset.css';
+        $GLOBALS['css_set'][] = '/projects/css/fonts.css';
         $GLOBALS['css_set'][] = '/projects/css/common.css';
         $GLOBALS['css_set'][] = '/projects/css/content.css';
         $GLOBALS['css_set'][] = '/projects/css/popup.window.css';    

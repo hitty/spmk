@@ -1,6 +1,4 @@
 <?
-require_once('includes/class.video.php');
-
 if( $this_page->first_instance ){
     $GLOBALS['css_set'][] = '/projects/css/controls.css';
     $GLOBALS['css_set'][] = '/projects/css/style.css';
@@ -21,9 +19,9 @@ if( $this_page->first_instance ){
     
 }         
 $action = empty( $this_page->page_parameters[0] ) ? false : $this_page->page_parameters[0];
-if( ! ( $auth->id_group == 101 || $auth->admin == 1)  ) Host::Redirect( '/' );
+if( ! ( $auth->id_group == 101 )  ) Host::Redirect( '/' );
 
-if( empty( $action ) && ! ( $auth->id_group == 101 || $auth->admin == 1) ) Host::Redirect( '/' );
+if( empty( $action ) && ! ( $auth->id_group == 101 ) ) Host::Redirect( '/' );
 //меню
 $this_page->menuClear( 1 );
 $this_page->menuAdd( 'Разделы', 'projects' , 1, false, false, false, count($this_page->page_parameters) > 0 );

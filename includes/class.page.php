@@ -325,7 +325,14 @@ class Page {
                 //настройки сайта
                 
                 $this_page->menuClear( 1 );
-                $this_page->menuAdd( 'Контакты', 'contacts', 1 );
+                $this_page->menuAdd( 'О компании', 'about', 1 );
+                $this_page->menuAdd( 'Проектирование', 'proektirovanie', 1 );
+                $this_page->menuAdd( 'Изготовление', 'izgotovlenie', 1 );
+                $this_page->menuAdd( 'Монтаж', 'montazh', 1 );
+                $this_page->menuAdd( '«Под ключ»', 'pod_kluch', 1 );
+                $this_page->menuAdd( 'Объекты', 'objekty', 1 );
+                $this_page->menuAdd( 'Прайс', 'price', 1 );
+                
                 //###########################################################################
                 // подключение и выполнение модуля
                 //###########################################################################
@@ -355,7 +362,6 @@ class Page {
                         'email' => $auth->email,
                         'id' => $auth->id,
                         'id_group' => $auth->id_group,
-                        'admin' => $auth->admin,
                         'user_photo_folder' => Config::Get('img_folders')
                     );
                     Response::SetArray('auth',$auth_array);

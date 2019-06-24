@@ -16,7 +16,7 @@
 }
 
 .item-block:hover {
-    color: var(--violet);
+    color: var(--main-color);
 }
 
 .list-container .admin {

@@ -1,0 +1,19 @@
+:root {
+  --text: #202020;
+  --main-color: #3C88C8;
+  --main-color-light: #bedffb;
+  --secondary-color: #E11741;
+  --secondary-color-hover: #d1133a;
+  --main-font: 'Roboto', sans-serif;
+  --secondary-font: 'Roboto Condensed', sans-serif;
+  
+  --white: #ffffff;
+  --red: #CF4455;
+  --red-hover: #BA3D4C;
+  --gray: #9B9B9B;
+  --gray-light: #e8e8e8;
+  --green:#93C35E;
+  --green-hover:#84AF54;
+  
+  --link-transition: color .2s ease-in-out, border .2s ease-in-out
+}

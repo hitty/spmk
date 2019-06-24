@@ -2,17 +2,15 @@
     <a href="/" title="СПМК" class="logo">
         <img src="/img/logo.svg" alt="" />
     </a>
+    <nav>
+        {loop $mainmenu,$k,$menu}
+            <a href="/{if!empty $menu['url']}{$menu['url']}/{/if}" {if!empty $menu['active']}class="active"{/if}>{$menu['title']}</a>
+        {/loop $mainmenu}
+    </nav>
     
     <div class="actions flex">
-        <span class="send button popup icon" data-url="">
-            Получить расчет
-        </span>
         <a href="mailto:info@spmk.group" class="email icon" title="">info@spmk.group</a>
         <span class="phone icon" onclick="try{ document.location.href='tel:+78002507697'; return true; }catch(err){ }">8 (800) 250-76-97</span>
     </div>
     
-    <div class="menu">
-        
-    </div>
-        
 </header> 

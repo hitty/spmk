@@ -1,14 +1,32 @@
 {include /templates/includes/main_head_part.html}
 </head>
 <body>
-    <div class="wrapper">
-        {include /templates/includes/main_header_part.html}
-        <div class="hero flex bg-cover" style="background-image:url('/img/hero.png')">
+    <main class="mainpage">
+        <header class="flex">
+            <a href="/" title="СПМК" class="logo">
+                <img src="/img/logo.svg" alt="" />
+            </a>
+            
+            <div class="actions flex">
+                <span class="send button popup icon" data-url="/applications/popup/">
+                    Получить расчет
+                </span>
+                <a href="mailto:info@spmk.group" class="email icon" title="">info@spmk.group</a>
+                <span class="phone icon" onclick="try{ document.location.href='tel:+78002507697'; return true; }catch(err){ }">8 (800) 250-76-97</span>
+            </div>
+            
+            <div class="menu">
+                
+            </div>
+                
+        </header> 
+        <div class="hero bg-cover" style="background-image:url('/img/hero.png')">
     
             <div class="text">
                 <div class="inner">
                     <h1>СТРОИТЕЛЬНЫЕ МЕТАЛЛОКОНСТРУКЦИИ ОТ ПРОЕКТА ДО МОНТАЖА</h1>
                     <div class="lid">Больше 10 лет  в сфере гражданского и промышленного строительства</div>
+                    <a href="/about/" class=" transition br3">Подробнее</a>
                 </div>
             </div>
             
@@ -27,7 +45,7 @@
                 </span>
         
         </div>
-    </div>
+    </main>
 </body>
 </html>
 
