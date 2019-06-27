@@ -1,0 +1,8 @@
+            <div class="item transition clearfix flex shadow-hover">
+                <span class="hdr internal-link" data-link="/produktsiya/{if!empty $item['parent_chpu_title']}{$item['parent_chpu_title']}/{/if}{$item['chpu_title']}/"></span>
+                <span class="img filter-bg bg-cover lazy br4" data-src="/img/uploads/big/{$item['subfolder']}/{$item['photo']}"></span>
+                <div class="text">
+                    <a href="/produktsiya/{if!empty $item['parent_chpu_title']}{$item['parent_chpu_title']}/{/if}{$item['chpu_title']}/" title="{$item['title']}" class="title transition-text">{$item['title']}</a>
+                    {$item['content_short']}
+                </div>
+            </div> 

@@ -1,0 +1,73 @@
+
+<div class="central-container flex-top">
+    <article itemscope itemtype="http://schema.org/NewsArticle" class="col-3">
+        {if!empty $show_sub_production_list}
+            {if!empty $sub_production_list}
+                <div class="production-container short clearfix">
+                    {loop $sub_production_list,$k,$item}
+                        {if!eq $action,$item['chpu_title']}
+                            {include /modules/production/templates/list.block.item.html}
+                        {/if}
+                    {/loop $sub_production_list} 
+                </div>    
+            {/if}
+        {/if}
+
+        <div  class="content-container br4">
+            <div class="text">
+                {if!empty $content_item['content']}{$content_item['content']}
+                {elseif!empty $content_item['content_short']}{$content_item['content_short']}
+                {/if}
+            </div>
+            {include /templates/gallery.html}
+            {ifempty $current_page['is_amp']}
+                <div id="social-buttons-content">
+                    <script src="https://yastatic.net/share2/share.js" async="async"></script>
+                    <div class="ya-share2" data-size="s" data-services="vkontakte,facebook,twitter,odnoklassniki,gplus" data-counter></div>
+                </div>   
+            {/if}
+        </div>  
+        
+    </article>
+    <div  class=" col-1 bbox br4 desktop-version" id="sidebar">
+        <div class=" fixed-column  right-menu shadow br4">
+            <div class="header">Продукция</div>
+            <ul>
+                {loop $production_list,$pl,$pitem}
+                    <li>
+                        {php:$active = $pitem['chpu_title'] == $item['chpu_title'] || ( !empty( $item['parent_chpu_title'] ) && $pitem['chpu_title'] == $item['parent_chpu_title'] )}
+                        {if!empty $active}
+                            <span data-icon="chevron_left">{$pitem['title']}</span>
+                            
+                            {if!empty $sub_production_list}
+                                <ul>
+                                {loop $sub_production_list,$pl,$ppitem}
+                                    <li>
+                                        {ifeq $ppitem['chpu_title'],$action}
+                                            <span data-icon="chevron_left">{$ppitem['title']}</span>
+                                        {else}
+                                            <a href="/produktsiya/{$ppitem['parent_chpu_title']}/{$ppitem['chpu_title']}/" title="{$ppitem['title']}" class="transition" data-icon="chevron_left">{$ppitem['title']}</a>
+                                        {/if}
+                                    </li>
+                                {/loop $sub_production_list}
+                                </ul>
+                            {/if}
+                        {else}
+                            <a href="/produktsiya/{$pitem['chpu_title']}/" title="{$pitem['title']}" class="transition" data-icon="chevron_left">{$pitem['title']}</a>
+                        {/if}
+                    </li>
+                {/loop $production_list}
+            </ul>
+        </div>
+    </div>
+</div>
+ {ifempty $current_page['is_amp']}
+    <section class="projects-slider-container clearfix">
+        <h2>Выполненные проекты</h2>
+        <div class="central-container">
+            {block projects/block}
+        </div>
+    </section>
+{/if}
+
+

@@ -75,7 +75,7 @@ class mysqli_db extends mysqli{
         $this->last_query = $query;
         $query_time = microtime(true);
         $result = parent::query($query);   
-        if(!empty($_GET['path']) && strstr($_GET['path'],'/admin/') && preg_match('/UPDATE|DELETE|INSERT/msiU', $query)  && !preg_match('/last_enter|popup_notification = 1/msiU', $query) && !empty($auth->id)){
+        if(!empty($_GET['path']) && strstr($_GET['path'],'/manage/') && preg_match('/UPDATE|DELETE|INSERT/msiU', $query)  && !preg_match('/last_enter|popup_notification = 1/msiU', $query) && !empty($auth->id)){
             $date_now = new DateTime();
             $log_datetime = $date_now->format("Y-m-d H:i:s");
             $log_query = "INSERT INTO service.users_logs SET id_user = ".$auth->id.", `query` = '".$this->real_escape_string($query)."', uri = '".$_GET['path']."', datetime = '".$log_datetime."'";

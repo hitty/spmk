@@ -48,7 +48,7 @@ jQuery(document).ready(function(){
             data: {ajax: true, page_id: _page_id},
             success: function(msg){
                 if(typeof(msg)=='object' && msg.ok) {
-                    jQuery('.list_table').children('table').children('tbody').append("<tr><td><a title='"+msg.data.title+"' href="+msg.data.url+">"+msg.data.url+"</a></td> <td>"+msg.data.title+"</td> <td>"+msg.data.date_in+"</td> <td></td> <td class=\"small_icons ac\"><a href=\"/projects/pages/not_indexed/google/del/\" title=\"Удалить\" target=\"_blank\"><span class=\"ico_del\">Удалить</span></a></td></tr>");
+                    jQuery('.list_table').children('table').children('tbody').append("<tr><td><a title='"+msg.data.title+"' href="+msg.data.url+">"+msg.data.url+"</a></td> <td>"+msg.data.title+"</td> <td>"+msg.data.date_in+"</td> <td></td> <td class=\"small_icons ac\"><a href=\"/manage/pages/not_indexed/google/del/\" title=\"Удалить\" target=\"_blank\"><span class=\"ico_del\">Удалить</span></a></td></tr>");
                     jQuery('.page-index-add .inputbox_clear').click();
                 } else console.log(msg.alert);
             },
@@ -63,7 +63,7 @@ jQuery(document).ready(function(){
     jQuery('.page-index-add .button.check').on('click',function(){
         var _bot_alias = window.location.href.split('/')[6];
         var _page_id = jQuery('#autocomplete_value').val();
-        var _url = "/projects/pages/not_indexed/check/";
+        var _url = "/manage/pages/not_indexed/check/";
         jQuery.ajax({
             type: "POST", dataType: 'json',
             async: true, cache: false,
@@ -92,7 +92,7 @@ jQuery(document).ready(function(){
             date_end: jQuery('#date_end').val() 
         };
         var _bot_alias = window.location.href.split('/')[6];
-        var _url = '/projects/pages/not_indexed/'+_bot_alias+'/';
+        var _url = '/manage/pages/not_indexed/'+_bot_alias+'/';
         jQuery.ajax({
             type: "POST", async: true,
             dataType: 'json', cache: false,

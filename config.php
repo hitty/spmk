@@ -23,7 +23,7 @@ return array(
         'nominees'     => 20              // база знакний
         , 'users'        => 20              // пользователи
         , 'news' => 10                       // новости
-        , 'partners' => 10                       // новости
+        , 'projects' => 10                       // новости
         , 'media' => 20                // фото-видео
     ),  
     'mysql' => array(
@@ -97,9 +97,11 @@ return array(
         'news_photos' => 'news_photos',
         'news_categories' => 'news_categories',
 
-        'partners' => 'partners',
-        'partners_photos' => 'partners_photos',
-        'partners_categories' => 'partners_categories',
+        'projects' => 'projects',
+        'projects_photos' => 'projects_photos',
+
+        'production' => 'production',
+        'production_photos' => 'production_photos',
 
         'nominees' => 'nominees',
         'nominees_photos' => 'nominees_photos',

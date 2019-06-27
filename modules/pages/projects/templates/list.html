@@ -1,33 +1,33 @@
-<div class="list-container pages">
-    <div class="caption-container">
-        <a href="/projects/pages/add/" class="button orange">Новая страница</a>
-    </div>
-    <div class="filter">
-        <span class="active">Страницы сайта</span>
-    </div>
-    {if!empty $list}
-        <div class="list clearfix">
-            <div class="header item-block clearfix flex">
-                <div class="expand"></div>
-                <div class="id">ID</div>
-                <div class="alias">Алиас страницы</div>
-                <div class="info">Краткая информация</div>
-            </div>
-               
-            {loop $list,$key,$item}
-                <div class="item-block clearfix flex" id="item_{$item['id']}">
-                    <div class="expand">
-                        {if!empty $item['quantity']}
-                            <a href="/projects/pages/expand/{$item['id']}/" title="свернуть/развернуть" class="{if!empty $item['expanded']}expanded{else}collapsed{/if}">свернуть/развернуть</a>
-                        {/if}
-                    </div>
-                    <div class="id">{$item['id']}<br><span class="small_text grey">{$item['path']}</span></div>
-                    <div class="alias"><a href="/projects/pages/edit/{$item['id']}/">{$item['alias']}</a></div>
-                    <div class="info"><a href="/projects/pages/edit/{$item['id']}/">{$item['title']}</a><br><span class="small_text grey">{$item['url']}</span></div>
-                    <span data-icon="delete" class="delete red" data-url="/projects/pages/delete/{$item['id']}/"></span>
-                </div>
-            {/loop $list}
-        </div>
-    {/if}
-        
+<div class="list-container pages">
+    <div class="caption-container">
+        <a href="/manage/pages/add/" class="button orange">Новая страница</a>
+    </div>
+    <div class="filter">
+        <span class="active">Страницы сайта</span>
+    </div>
+    {if!empty $list}
+        <div class="list clearfix">
+            <div class="header item-block clearfix flex">
+                <div class="expand"></div>
+                <div class="id">ID</div>
+                <div class="alias">Алиас страницы</div>
+                <div class="info">Краткая информация</div>
+            </div>
+               
+            {loop $list,$key,$item}
+                <div class="item-block clearfix flex" id="item_{$item['id']}">
+                    <div class="expand">
+                        {if!empty $item['quantity']}
+                            <a href="/manage/pages/expand/{$item['id']}/" title="свернуть/развернуть" class="{if!empty $item['expanded']}expanded{else}collapsed{/if}">свернуть/развернуть</a>
+                        {/if}
+                    </div>
+                    <div class="id">{$item['id']}<br><span class="small_text grey">{$item['path']}</span></div>
+                    <div class="alias"><a href="/manage/pages/edit/{$item['id']}/">{$item['alias']}</a></div>
+                    <div class="info"><a href="/manage/pages/edit/{$item['id']}/">{$item['title']}</a><br><span class="small_text grey">{$item['url']}</span></div>
+                    <span data-icon="delete" class="delete red" data-url="/manage/pages/delete/{$item['id']}/"></span>
+                </div>
+            {/loop $list}
+        </div>
+    {/if}
+        
 </div>

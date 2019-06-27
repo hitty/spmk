@@ -1,4 +1,5 @@
 .carousel-vertical {
+    position: relative;
 }
 
 .carousel-vertical .filter {
@@ -60,7 +61,6 @@
     padding-bottom: 100px;
     position: relative;
 }
-
 .carousel-vertical .content .item {
     opacity: 0;
     visibility: hidden;
@@ -69,6 +69,7 @@
     top: 0;
     left: -80px;
     transition: all 1s;
+    width: 867px;
 }
 
 .carousel-vertical .content .item.active {
@@ -82,14 +83,21 @@
 }
 .carousel-vertical .content .item .title {
     font-weight: bold;
-    font-size: 72px;
-    line-height: 88px;
+    font-size: 66px;
+    line-height: 1.3;
     color: var(--white);
     text-transform: uppercase;
     margin-bottom: 30px;
     display: block;
 }
-
+.carousel-vertical .content .item .annotation{
+    color: var(--white);
+    font-size: 48px;
+    text-transform: uppercase;
+    text-align: left;
+    margin: -20px 0 50px 0;
+    border: none;
+}
 .carousel-vertical .content .item ul {
 }
 
@@ -98,6 +106,7 @@
     border-left: 4px solid var(--secondary-color);
     color: var(--white);
     padding-left: 20px;
+    line-height: 1.2;
 }
 
 .carousel-vertical .content .item ul li + li {
@@ -107,4 +116,10 @@
 .carousel-vertical .content .button {
     position: absolute;
     bottom: 0;
+}
+.carousel-vertical.main-color .filter li.active {
+    border-color: var(--main-color);
+}
+.carousel-vertical.main-color .content .item ul li {
+    border-left: 4px solid var(--main-color);
 }

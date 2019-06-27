@@ -81,29 +81,39 @@
 
 .socicon-vkontakte:before {
   content: "\e095";
-  color: #4C75A3;
+}
+.socicon-vkontakte:hover:before{
+    color: #4C75A3;
 }
 .socicon-facebook:before {
   content: "\e028";
-  color: #3e5b98;
+}
+.socicon-facebook:hover:before {
+    color: #3e5b98;
 }
 .socicon-telegram:before {
   content: "\e087";
+}
+.socicon-telegram:hover:before {
   color: #0088cc;
 }
 .socicon-youtube:before {
   content: "\e0a5";
+}
+.socicon-youtube:hover:before {
   color: #DA2724;
 }
-.socicon-odnoklassniki:before {
-  content: "\e05a";
-  color: #EE8208;
-}
+
 .socicon-twitter:before {
   content: "\e08d";
+}
+
+.socicon-twitter:hover:before {
   color: #3AA9DE;
 }
 .socicon-instagram:before {
   content: "\e044";
+}
+.socicon-instagram:hover:before {
   color: #3AA9DE;
 }

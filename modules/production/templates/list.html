@@ -1,0 +1,10 @@
+<article class="production-container">
+     <div class="content-container central-container bbox list br4 col-3">
+        {loop $list,$k,$item}
+            {include /modules/production/templates/list.block.item.html}
+        {/loop $list} 
+        {if!empty $current_page['page_content']}
+            <div class="page-content text">{$current_page['page_content']}</div>
+        {/if}
+    </div>  
+</article>

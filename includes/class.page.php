@@ -48,7 +48,7 @@ class Page {
     private $last_visited_page = "";            //последняя посещенная страница
     
     public $is_admin_page = false;
-    public $is_projects_page = false;
+    public $is_manage_page = false;
     public $is_teach_page = false;
     public $is_profile_page = false;
     public $is_edit_mode = false;
@@ -93,7 +93,7 @@ class Page {
         }           
         if(substr( $this->requested_path,0,5)=='admin') $this->is_admin_page = true;
         if(substr( $this->requested_path,0,5)=='teach') $this->is_teach_page = true;
-        if(substr( $this->requested_path,0,8)=='projects') $this->is_projects_page = true;
+        if(substr( $this->requested_path,0,8)=='manage') $this->is_manage_page = true;
         if(substr( $this->requested_path,0,7)=='profile') $this->is_profile_page = true;
         if( substr( $this->requested_path,0,5)=='pages' && !empty( $auth ) ) {
             Response::SetBoolean( 'edit_mode', true );
@@ -193,7 +193,7 @@ class Page {
         } elseif( $is_block)  $page_signature = 'block::'.$page_signature;
 
         
-        if( !$ajax_mode && $this->first_instance && !$this->is_admin_page && !$this->is_projects_page && !$this->is_teach_page && !Host::isBot( ) ) {
+        if( !$ajax_mode && $this->first_instance && !$this->is_admin_page && !$this->is_manage_page && !$this->is_teach_page && !Host::isBot( ) ) {
             //запоминание последней посещенной страницы
             $last_visited_page = Session::GetString('last_visited_page');
             $this->last_visited_page = !empty( $last_visited_page ) ? $last_visited_page : '';
@@ -344,7 +344,7 @@ class Page {
                     $this->error_message = "Page not found";
                 }
                 //добавление мета-тега canonical для chpu страниц
-                if( $this->first_instance && !$this->is_admin_page && !$this->is_projects_page && !$this->is_teach_page ){
+                if( $this->first_instance && !$this->is_admin_page && !$this->is_manage_page && !$this->is_teach_page ){
                     $canonical = !empty( $page_seo['pretty_url']) ? $page_seo['pretty_url'] : $this->requested_path;
                     $canonical_array = explode('/', trim( $canonical, '/' ) );
                     foreach( $canonical_array as $k=>$item) if( $k>3) unset( $canonical_array[$k]);
@@ -396,7 +396,7 @@ class Page {
                     
                     Response::SetArray('metadata', $this->metadata);
                     
-                    if( !( $this->is_admin_page && $this->is_projects_page && $this->is_teach_page && !empty( $module_content ) ) ) {
+                    if( !( $this->is_admin_page && $this->is_manage_page && $this->is_teach_page && !empty( $module_content ) ) ) {
                         if( empty( $module_template ) ) $this->http_code = 404;
                         else {
                             $tpl = new Template( $module_template, $this_page->module_path);
@@ -460,9 +460,9 @@ class Page {
                 Response::SetInteger('session_404_order', $session_404_order);
             } elseif ( $this->http_code == 403 ) {
                 $GLOBALS['css_set'][] = '/css/central.css';
-                $GLOBALS['css_set'][] = '/projects/css/style.css';
-                $GLOBALS['css_set'][] = '/projects/css/controls.css';
-                $GLOBALS['css_set'][] = '/projects/css/form.css';
+                $GLOBALS['css_set'][] = '/manage/css/style.css';
+                $GLOBALS['css_set'][] = '/manage/css/controls.css';
+                $GLOBALS['css_set'][] = '/manage/css/form.css';
                 $GLOBALS['css_set'][] = '/css/403.css';
                 
                 sendHTTPStatus(403);

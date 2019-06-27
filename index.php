@@ -83,7 +83,7 @@ if( empty( $ajax_mode ) ) {
     $GLOBALS['css_set'][] = '/css/fonts.css';
 
     
-    if( empty( $requested_page->is_projects_page ) ) {
+    if( empty( $requested_page->is_manage_page ) ) {
         $GLOBALS['css_set'][] = '/css/reset.css';
         $GLOBALS['css_set'][] = '/css/common.css';
         
@@ -92,11 +92,11 @@ if( empty( $ajax_mode ) ) {
         $GLOBALS['css_set'][] = '/css/header.css';
         $GLOBALS['css_set'][] = '/js/popup.window/styles.css';    
     } else {
-        $GLOBALS['css_set'][] = '/projects/css/reset.css';
-        $GLOBALS['css_set'][] = '/projects/css/fonts.css';
-        $GLOBALS['css_set'][] = '/projects/css/common.css';
-        $GLOBALS['css_set'][] = '/projects/css/content.css';
-        $GLOBALS['css_set'][] = '/projects/css/popup.window.css';    
+        $GLOBALS['css_set'][] = '/manage/css/reset.css';
+        $GLOBALS['css_set'][] = '/manage/css/fonts.css';
+        $GLOBALS['css_set'][] = '/manage/css/common.css';
+        $GLOBALS['css_set'][] = '/manage/css/content.css';
+        $GLOBALS['css_set'][] = '/manage/css/popup.window.css';    
     }
     $GLOBALS['js_set'][] = '/js/popup.window/script.js';
 }

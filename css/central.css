@@ -12,3 +12,61 @@ h2 + .annotation{
 .hero .application-form{
     margin-top: 60px;
 }
+footer{
+    background: var(--main-color);    
+    padding: 60px 0;
+    color: var(--white)    ;
+}
+footer .logo{
+    
+}
+footer .logo img{
+    display: block;
+    margin: 0 auto;    
+}
+footer .menu{
+    margin: 60px auto 80px auto;    
+    align-items: stretch;
+}
+footer .menu li{
+    font-size: 14px;
+    display: block;
+    text-transform: uppercase;
+}
+footer .menu li + li{
+    margin-top: 10px;
+}
+footer .menu li.title{
+    font-size: 18px;
+    font-family: var(--secondary-font);
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+footer .menu li a{
+    border: none;
+}
+footer .copyright{
+    opacity: 0.5;
+    text-align: center;
+    font-size: 14px;
+    line-height: 24px;
+}
+footer .social {
+    height: 30px;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    text-align: justify;
+    width: 270px;
+    margin: 30px auto;
+}
+
+footer .social li {
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    vertical-align: middle;
+    position: relative;
+    font-size: 30px;
+    color: var(--white);
+}

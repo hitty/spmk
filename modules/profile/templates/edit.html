@@ -1,29 +1,29 @@
-
-<section class="hero-container blured transition">
-    <div class="central-container clearfix">
-        <h1>{if!empty $h1}{$h1}{else}Настройки профиля{/if}</h1>
-    </div>
-</section>
-<div class="central-container clearfix narrow-container">
-
-    {if!empty $form_submit}
-        {if!empty $errors}
-            <div class="notification msgerror">
-                Ошибка. Проверьте правильность заполнения формы.
-            </div>
-        {else}
-            {if!empty $saved}
-                <div class="notification msgsuccess">
-                    Данные сохранены.
-                </div>
-            {else}
-                <div class="notification msgalert">
-                    Ошибка записи в БД.
-                </div>
-            {/if}
-        {/if}
-    {/if}
-    <form class="form-default profile" method="post" action="/profile/">
-        {include /projects/templates/form.default.html}
-    </form>
-</div>
+
+<section class="hero-container blured transition">
+    <div class="central-container clearfix">
+        <h1>{if!empty $h1}{$h1}{else}Настройки профиля{/if}</h1>
+    </div>
+</section>
+<div class="central-container clearfix narrow-container">
+
+    {if!empty $form_submit}
+        {if!empty $errors}
+            <div class="notification msgerror">
+                Ошибка. Проверьте правильность заполнения формы.
+            </div>
+        {else}
+            {if!empty $saved}
+                <div class="notification msgsuccess">
+                    Данные сохранены.
+                </div>
+            {else}
+                <div class="notification msgalert">
+                    Ошибка записи в БД.
+                </div>
+            {/if}
+        {/if}
+    {/if}
+    <form class="form-default profile" method="post" action="/profile/">
+        {include /manage/templates/form.default.html}
+    </form>
+</div>

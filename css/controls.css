@@ -155,6 +155,19 @@ button.white:focus:not(.disabled){
     background: #e5e5e5;
     color: #000;
 }
+.button.main-color,
+button.main-color{
+    color: var(--white);
+    background: var(--main-color);
+}
+.button.main-color:hover:not(.disabled),
+.button.main-color:active:not(.disabled),
+.button.main-color:focus:not(.disabled),
+button.main-color:hover:not(.disabled),
+button.main-color:active:not(.disabled),
+button.main-color:focus:not(.disabled){
+    background: var(--main-color-hover);
+}
 .button.big,
 button.big{
     height: 70px;

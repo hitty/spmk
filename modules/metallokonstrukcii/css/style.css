@@ -1,0 +1,62 @@
+.metallokonstrukcii-container{
+}
+.metallokonstrukcii-container .list{
+    
+}
+.metallokonstrukcii-container .item .text {
+    width: calc( 100% - 300px );
+    margin-right: 40px;
+}
+
+.metallokonstrukcii-container .item .img {
+    display: block;
+    position: relative;
+    width: 600px;
+    height: 340px;
+    float: left;
+    margin: 0 50px 0 0;
+}
+
+.metallokonstrukcii-container .item {
+    margin: 40px 0;
+    padding: 0;
+    background: #fff;
+}
+
+.metallokonstrukcii-container .item a {
+    font-size: 24px;
+    font-weight: 700;
+    border: none;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+
+.metallokonstrukcii-container .item:hover a {
+    color: var(--blue);
+}
+
+.metallokonstrukcii-container .item p {
+    padding: 0;
+    font-size: 16px;
+    line-height: 26px;
+    margin: 0;
+    font-weight: normal;
+    padding-top: 30px;
+}
+
+.metallokonstrukcii-container .item p + p {
+    padding-top: 10px;
+}
+
+.metallokonstrukcii-container .item p b,.metallokonstrukcii-container .item p strong {
+    font-weight: normal;
+}
+
+.metallokonstrukcii-container .item ul {
+    font-size: 14px;
+    line-height: 20px;
+    margin: 20px 0 0 20px;
+}
+
+.metallokonstrukcii-container .item ul li {
+}

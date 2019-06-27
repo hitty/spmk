@@ -1,0 +1,19 @@
+<article class="metallokonstrukcii-container">
+     <div class="central-container bbox list br4">
+        {loop $list,$k,$item}
+            <div class="item transition clearfix flex shadow-hover  br4">
+                <span class="hdr internal-link" data-link="/metallokonstrukcii/{$item['chpu_title']}/"></span>
+                <span class="img bg-cover lazy" data-src="/img/uploads/big/{$item['subfolder']}/{$item['photo']}"></span>
+                <div class="text">
+                    <a href="/metallokonstrukcii/{$item['chpu_title']}/" title="{$item['title']}" class="title transition-text">{$item['title']}</a>
+                    {$item['content_short']}
+                </div>
+            </div> 
+        {/loop $list} 
+    </div>  
+     {if!empty $current_page['page_content']}
+     <div class="content-container central-container br4 bbox">
+            <div class="text">{$current_page['page_content']}</div>
+     </div>
+     {/if}
+</article>

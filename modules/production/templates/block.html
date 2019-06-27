@@ -1,0 +1,7 @@
+{if!empty $list}
+    <div class="carousel">
+    {loop $list,$k,$item}
+        {include /modules/production/templates/block.item.html}
+    {/loop $list}
+    </div>
+{/if}

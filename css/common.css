@@ -98,6 +98,8 @@ h1 {
     color: var(--brown);
     text-align: center;
     text-transform: uppercase;
+    position: relative;
+    z-index: 5;
 }
 h2:before{
     content: "";
@@ -160,6 +162,7 @@ sup {
 }
 section{
     margin: 120px 0;
+    position: relative;
 }
 section.bg-cover{
     margin: 0;
@@ -381,4 +384,15 @@ section.bg-cover{
 }
 h1 + .navigation{
     margin-top: -20px;
+}
+.dark-bg:before{
+    content:"";
+    position: absolute;
+    z-index: 0;
+    background: rgba(0,0,0,.4);
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: block;
 }
