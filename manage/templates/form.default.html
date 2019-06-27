@@ -1,0 +1,146 @@
+{if!empty $ajax_mode}<span class="closebutton"></span>{/if}
+<fieldset>
+    {loop $data_mapping,$key,$field}
+        {ifempty $field['nodisplay']}
+            
+                {ifeq $field['fieldtype'];'title_row'}<div class="row title-row {if!empty $field['class']}{$field['class']}{/if}">{$field['tip']}
+                {elseifeq $field['fieldtype'];'tip_row'}<div class="row tip-row">{$field['tip']}
+                {elseifeq $field['fieldtype'];'hr'}<div class="row hr-row">{if!empty $field['label']}<span class="title">{$field['label']}</span>{/if}</div>
+                {elseifeq $field['fieldtype'];'hidden'}
+                    <input type="hidden" id="{$key}" name="{$key}" value="{quoted:$field['value']}">
+                {else}
+                <div
+                    class="row clearfix{if!empty $field['parent_class']} {$field['parent_class']}{/if}{if!empty $field['error']} error{/if}"
+                    {if!empty $field['tip']} title="{$field['tip']}"{/if}
+                	
+                	{if!empty $field['hidden']} style="display:none;"{/if} 
+                	id="field-{$key}"
+                >
+                <label{ifempty $field['allow_empty']} class="required"{/if}>{$field['label']}{if!eq $field['fieldtype'],'pending'}{ifempty $field['allow_empty']} *{/if}{/if}</label>
+                <div class="lf fieldwrapper clearfix">
+                    {ifeq $field['fieldtype'];'plaintext'}
+                        <span id="text_{$key}" class="{if!empty $field['class']}{$field['class']} {/if}lf plaintext">{quoted:$field['value']}</span>
+                    {elseifeq $field['fieldtype'];'text'}
+                        <input type="text" class="{if!empty $field['class']}{$field['class']} {/if}lf" {if!empty $field['autocomplete']}autocomplete="off"{/if} {ifeq $field['class'],'autocomplete_input'}autocomplete="off"{/if} {if!empty $field['maxlength']}maxlength="{$field['maxlength']}"{/if} id="{$key}" name="{$key}" value="{quoted:$field['value']}" {ifempty $field['allow_empty']} required="required"{/if} placeholder="{$field['placeholder']}" {if!empty $field['disabled']} disabled="disabled"{/if} {if!empty $field['url']} data-url="{$field['url']}"{/if} {if!empty $field['input']} data-input="{$field['input']}"{/if} {if!empty $data_mapping['id']['value']}data-id="{$data_mapping['id']['value']}"{/if} {if!empty $field['default']}value={$field['default']}{/if}>
+                        {ifeq $field['class'],'autocomplete_input'}
+                            <i class="clear-input{ifempty $field['value']} hidden{/if}"></i>
+                        {elseif!empty $field['autocomplete']}
+                            <i class="clear-input{ifempty $field['value']} hidden{/if}"></i>
+                        {/if}
+                    {elseifeq $field['fieldtype'];'email'}
+                        <input type="email" class="{if!empty $field['class']}{$field['class']} {/if}lf" {if!empty $field['autocomplete']}autocomplete="off"{/if} {if!empty $field['maxlength']}maxlength="{$field['maxlength']}"{/if} id="{$key}" name="{$key}" value="{quoted:$field['value']}" {ifempty $field['allow_empty']} required="required"{/if} placeholder="{$field['placeholder']}">
+                    {elseifeq $field['fieldtype'];'phone'}
+                        <input type="phone" class="{if!empty $field['class']}{$field['class']} {/if}lf" {if!empty $field['autocomplete']}autocomplete="off"{/if} {if!empty $field['maxlength']}maxlength="{$field['maxlength']}"{/if} id="{$key}" name="{$key}" value="{quoted:$field['value']}" {ifempty $field['allow_empty']} required="required"{/if} placeholder="{$field['placeholder']}">
+                    {elseifeq $field['fieldtype'];'password'}
+                        <input type="password" class="{if!empty $field['class']}{$field['class']} {/if}lf" {if!empty $field['autocomplete']}autocomplete="off"{/if} id="{$key}" name="{$key}" value="{quoted:$field['value']}">
+                    {elseifeq $field['fieldtype'];'textarea'}
+                        {if!empty $field['editor']}
+                            <textarea class="tinyMCE{if!empty $field['class']} {$field['class']}{/if}{if!empty $field['toolbar']} {$field['toolbar']}{/if}" id="tinyMCE_{$key}" name="{$key}" placeholder="{$field['placeholder']}"{if!empty $field['toolbar']} data-toolbar="{$field['toolbar']}"{/if}>{quoted:$field['value']}</textarea>
+                        {else}
+                            <textarea class="{if!empty $field['class']}{$field['class']} {/if}lf" id="{$key}" name="{$key}" {ifempty $field['allow_empty']} required="required"{/if} {if!empty $field['maxlength']}maxlength="{$field['maxlength']}"{/if} {if!empty $field['disabled']} disabled="disabled"{/if} placeholder="{$field['placeholder']}">{quoted:$field['value']}</textarea>
+                        {/if}
+                    {elseifeq $field['fieldtype'];'radio'}
+                        {php:$radioloop=$field['values']}
+                        {loop $radioloop,$rlk,$rlt}
+                            <label class="radio{ifeq $rlk,$field['value']} on{/if}" for="{$key}_{$rlk}" {if!empty $field['visibility_selector_values'][$rlk]}data-visibility-selector="{$field['visibility_selector_values'][$rlk]}"{/if}>
+                                <input type="radio" name="{$key}" value="{$rlk}"{ifeq $rlk,$field['value']} checked="checked"{/if} id="{$key}_{$rlk}" /> 
+                                {$rlt}
+                            </label>
+                        {/loop $radioloop}
+                    {elseifeq $field['fieldtype'];'switcher'}
+                        {if!empty $field['values'][1]}<span class="switcher-label">{$field['values'][1]}</span>{/if}
+                        <div class="switcher {ifeq $field['value'],1}active{/if}"{if!empty $field['visibility_selector']} data-visibility-selector='{$field['visibility_selector']}'{/if}>
+                            <input name="{$key}" type="hidden" value="{$field['value']}">
+                        </div>
+                        {if!empty $field['values'][2]}<span class="switcher-label">{$field['values'][2]}</span>{/if}
+                    {elseifeq $field['fieldtype'];'select'}
+                        {php:$selectloop=$field['values']}
+                        
+                        {if!empty $field['add_button']}
+                            <span class="add-button button" data-url="{$field['add_button']['url']}" title="{$field['add_button']['title']}"></span>
+                        {/if}
+                        <div class="list-selector{if!empty $field['class']} {$field['class']}{/if}{if!empty $field['select_filter']} select-filter{/if}" {if!empty $field['select_filter']}data-filter="{$field['select_filter']}"{/if}>
+                            <input type="text" name="list-selector-{$key}--{php:echo randomstring(10)}" class="pick" value="" placeholder=""  autocomplete="some-hash-value-{php:echo randomstring(10)}" />
+                            <a href="#" class="select">...</a>
+                            <input type="hidden" name="{$key}" value="{$field['value']}" />
+                            <ul class="list-data" data-simplebar="init">
+                                {loop $selectloop,$rlk,$rlt}
+                                    <li data-value="{$rlt['id']}"{if!empty $field['select_filter']}data-parent-id="{$rlt[$field['select_filter']]}"{/if} >{$rlt['title']}</li>
+                                {/loop $selectloop}
+                            </ul>
+                        </div>                        
+                    {elseifeq $field['fieldtype'];'plaintext+button'}
+                        <span class="{if!empty $field['class']}{$field['class']} {/if}lf plaintext" id="text_{$key}">{quoted:$field['value']}</span>
+                        <button id="btn_{$key}">{$field['tip']}</button>
+                    {elseifeq $field['fieldtype'];'text+button'}
+                        <input type="text" class="{if!empty $field['class']}{$field['class']} {/if}lf" name="{$key}" value="{quoted:$field['value']}">
+                        <button id="btn_{$key}">{$field['tip']}</button>
+                    {elseifeq $field['fieldtype'];'upload'}
+                        <input type="file" class="{if!empty $field['class']}{$field['class']} {/if}lf" name="{$key}" value="{quoted:$field['value']}">
+                        {if!empty $field['value']}
+                            <span class="attached-file">
+                                <a href="/{php:echo Config::Get('docs_folders')}/{$field['value']}">Посмотреть файл</a>
+                                <span class="delete-file" data-id="{$data_mapping['id']['value']}" data-type="{$key}" title="Удалить файл"></span>
+                            </span>
+                        {/if}          
+                    {elseifeq $field['fieldtype'];'date'}
+                        <input type="date" id="{$key}" name="{$key}" value="{quoted:$field['value']}">
+                    {elseifeq $field['fieldtype'];'datetime'}
+                        <input type="text" value="{quoted:$field['value']}" class="datetimepicker" name="{$key}" />
+                    {elseifeq $field['fieldtype'];'time'}
+                        <input type="time" id="{$key}" name="{$key}" value="{quoted:$field['value']}">
+                    {elseifeq $field['fieldtype'];'checkbox'}
+                        <label class="selector-title checkbox {ifeq $field['value'],$field['true_value']}on{/if}">
+                        <input type="hidden" name="{$key}" id="{$key}" value="{$field['value']}" />
+                        <input type="checkbox" id="checkbox_{$key}"  class="{if!empty $field['class']}{$field['class']} {/if}" name="checkbox_{$key}" value="1" {ifeq $field['value'],$field['true_value']}checked="checked"{/if} rel="{$key}" data-true-value="{$field['true_value']}" data-false-value="{$field['false_value']}">
+                            
+                        </label>
+                    {elseifeq $field['fieldtype'];'set'}
+                        <input type="hidden" name="{$key}" value="{$field['value']}" />
+                        {php:$selectloop=$field['values']}
+                        {loop $selectloop,$rlk,$rlt}
+                            {do:$set_up=$field['value']%(pow(2,$rlk))>=pow(2,$rlk-1)}
+                            <input class="radio" type="checkbox" name="{$key}_set[{$rlk}]" value="1"{if $set_up}checked="checked"{/if} /> {$rlt}<br />
+                        {/loop $selectloop}
+                    {elseifeq $field['fieldtype'],'pending'}
+                        <div id="{$key}" class="pending" data-url="{$field['url']}" data-id="{if!empty $data_mapping['id']['value']}{$data_mapping['id']['value']}{else}{$common_edit}{/if}">
+                        </div>
+                    {elseifeq $field['fieldtype'],'photos'}
+                        <input type="file" name="{$key}" id="photoupload-{if!empty $data_mapping['id']['value']}{$data_mapping['id']['value']}{else}{$common_edit}{/if}-{php: echo mt_rand(0,1000)}" class="photoupload" data-id="{if!empty $data_mapping['id']['value']}{$data_mapping['id']['value']}{else}{$common_edit}{/if}" data-url="{$field['url']}" data-limit="{$field['limit']}" data-session-id="{php:echo session_id();}" />
+                    {elseifeq $field['fieldtype'],'files'}
+                        <input type="file" name="file_upload" id="fileupload-{if!empty $data_mapping['id']['value']}{$data_mapping['id']['value']}{else}{$common_edit}{/if}-files-{php: echo mt_rand(0,1000)}" class="fileupload" data-id="{if!empty $data_mapping['id']['value']}{$data_mapping['id']['value']}{else}{$common_edit}{/if}" data-url="{$field['url']}" data-limit="{$field['limit']}" data-session-id="{php:echo session_id();}" data-filetypes="{if!empty $field['filetypes']}{$field['filetypes']}{else}application{/if}" />
+                    {elseifeq $field['fieldtype'],'video'}
+                        <input type="text" name="video_upload" class="videoupload" data-url="{if!empty $field['url']}{$field['url']}{/if}" data-id="{if!empty $data_mapping['id']['value']}{$data_mapping['id']['value']}{else}{$common_edit}{/if}" data-url="{$field['url']}" placeholder="{$field['placeholder']}"  data-limit="{$field['limit']}"/>
+                        <span class="error"></span>
+                        <span class="button add-video">Добавить ссылку</span>
+                        <div class="video-list-container"></div>
+                    {elseifeq $field['fieldtype'],'map'}
+                        <script src="//api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU"></script>
+                        <div id="map-box" class="br3"></div>
+                    {else}
+                        {quoted:$field['value']}
+                    {/if}
+                    {if!empty $field['error']}
+                        <span class="error">{$field['error']}</span>
+                    {/if}
+                    {if!empty  $field['tip']}
+                        {if!eq $field['tip'], $field['label']}
+                            <div class="tip-text green">
+                                <p>{$field['tip']}</<br>
+                            </div>
+                        {/if}
+                    {/if}
+                    {ifeq $field['fieldtype'],'text'}
+                        <span class="count-letters"></span>
+                    {/if}
+                </div>
+                </div>
+            {/if}
+        {/if}    
+    {/loop $data_mapping} 
+    {ifempty $not_show_submit_button}
+        <div class="full-width row">
+            <input type="submit" value="Сохранить" name="submit" class="button orange">
+        </div>
+    {/if}
+</fieldset>

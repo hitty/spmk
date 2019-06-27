@@ -1,0 +1,292 @@
+.breadcrumbs-container {
+    position: absolute;
+    top: -40px;
+}
+
+.breadcrumbs-container a {
+    color: var(--gray);
+    font-size: 16px;
+}
+
+.breadcrumbs-container a:before {
+    position: absolute;
+    left: -30px;
+    top: 4px;
+}
+.form-default body{
+    background: none;
+}
+.form-default{
+    padding: 30px;
+    background: #fff;
+}
+.form-default fieldset{
+    
+}
+.form-default fieldset .row{
+    width: 48%;    
+}
+.form-default fieldset .row.disabled{
+    display: none;
+}
+.form-default fieldset .row + .row{
+    margin-top: 30px;
+}
+.form-default fieldset .full-width{
+    width: 100%;    
+}  
+.form-default fieldset .quater-width{
+    width: 25%;    
+    display: inline-block;
+}  
+.form-default fieldset .row.inline{
+    display: inline-block;
+}
+.form-default fieldset .row.inline + .row.inline,
+.form-default fieldset .row.inline + .row.inline + .row.inline + .row.inline{
+    margin-left: 3%;
+}
+.form-default fieldset .row.inline + .row.inline + .row.inline{
+    margin-left: 0;
+}
+.form-default fieldset .row label{
+    font-size: 24px;
+    display: block;
+    margin-bottom: 20px;    
+}
+.form-default fieldset .row span{
+    
+}
+.form-default fieldset .row input{
+    height: 50px;
+    line-height: 50px;
+    font-size: 18px;
+    font-weight: normal;    
+}
+.form-default fieldset .row input[type="submit"],
+.form-default fieldset .row button{
+    margin-top: 60px;
+}
+.form-default fieldset .tinyMCE{
+    min-height: 200px;    
+}
+.form-default fieldset .tinyMCE.extended{
+    min-height: 600px;    
+}
+.form-default fieldset .row input::-webkit-input-placeholder{
+    color: var(--gray);
+    font-size: 18px;
+}
+.form-default fieldset .row.hr-row{
+    width: 100%;
+    height: 1px;
+    background: #E8E8E8;
+    border: none;
+    padding: 0;
+    margin: 60px 0;
+}
+.form-default fieldset .row.hr-row .title{
+    font-size: 16px;
+    display: block;
+    color: var(--main-color);
+    
+}
+.form-default fieldset .row.block-title{
+    background-color: var(--main-color-light);
+    height: 50px;
+    line-height: 50px;
+    padding: 0 10px;
+    font-weight: bold;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;    
+    -ms-box-sizing:border-box;    
+    -o-box-sizing:border-box;      
+}
+.form-default fieldset .row .tip-text {
+    position: absolute;
+    top: 0;
+    right: -100%;
+    left: calc( 100% + 60px );
+}
+
+.form-default fieldset .row .tip-text .title {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--main-color);
+    line-height: 21px;
+}
+
+.form-default fieldset .row .tip-text p {
+    font-size: 16px;
+    color: #4A4A4A;
+}
+.form-default fieldset .row .interval-selector span{
+    width: calc( 50% - 15px );
+    position: relative;
+}
+.form-default fieldset .row .interval-selector input{
+    width: 100%;
+}
+.form-default fieldset .row .interval-selector:before{
+    content: "-";
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    font-size: 42px;
+    margin-left: -5px;
+    line-height: 0px;
+}
+.form-default fieldset .row .add:before{
+    content: "+";
+    width: 24px;
+    height: 24px;
+    color: var(--main-color);
+    background-color: #fff;
+    display: inline-block;
+    line-height: 24px;
+    margin-right: 10px;      
+}
+.form-default fieldset .row .delete{
+    color: var(--red);
+    cursor: pointer;
+    text-align: center;
+    border-bottom: 1px dashed var(--red);
+    width: 100%;
+    display: inline;
+    margin: 0 auto;
+    line-height: 20px;
+}
+.form-default fieldset .row .delete:before{
+    line-height: 28px;
+    margin-right: 10px;    
+}
+.form-default fieldset .row .delete:hover{
+    border-bottom-color: transparent;
+}
+/* custom style */
+.form-default fieldset .row .dates{
+    position: relative;   
+    color: var(--main-color) ;
+}
+
+.form-default fieldset .row .dates span:before{
+    position: absolute;
+    right: 10px;
+    top: 16px;
+}
+
+.form-default fieldset .pending .item {
+    margin: 60px 0;
+    padding-bottom: 60px;
+    border-bottom: 1px solid #E8E8E8;
+}
+.form-default fieldset .pending .item:first-of-type{
+    margin-top: 30px;
+}
+
+/* switcher */
+.form-default fieldset .row.switcher-container .fieldwrapper,
+.form-default fieldset .row.switcher-container label{
+    display: inline-block;
+    float: left
+}
+.form-default fieldset .row.switcher-container .fieldwrapper{
+    margin-left: 10px;
+}
+
+.form-default fieldset .row .switcher{
+    position: relative;
+    width: 38px;
+    height: 20px;
+    display: inline-block;
+    margin: 0;
+    cursor: pointer;
+    border: 2px solid var(--red);;
+    border-radius: 13px;
+    background: var(--red);
+    z-index: 10;
+}
+
+.form-default fieldset .row .switcher:before {
+    content: "";
+    width: 16px;
+    height: 16px;
+    background: #fff;
+    margin-left: 20px;
+    position: absolute;
+    top: 2px;
+    transition: all .3s;
+    -webkit-transition: all .15s;
+    -moz-transition: all .15s;
+    -ms-transition: all .15s;
+    -o-transition: all .15s;
+    transition: all .15s;
+    border-radius: 14px;
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    -moz-transition: all 0.2s ease-out;
+    -o-transition: all 0.2s ease-out;
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    -moz-border-radius: 100px;
+    -webkit-border-radius: 100px;
+    border-radius: 100px;
+}
+
+.form-default fieldset .row .switcher.active {
+    border: 2px solid var(--green);;
+    background: var(--green);;
+}
+
+.form-default fieldset .row .switcher.active:before {
+    margin-left: 2px;
+}
+.form-default fieldset .row .switcher-label{
+    position: relative;
+    top: -5px;
+    margin-right: 8px;    
+}
+.form-default fieldset .row .switcher + .switcher-label{
+    margin-left: 5px;
+}
+
+.form-default fieldset .row label.radio{
+    font-size: 20px;
+    margin-right: 20px;    
+}
+/* notifications */
+.notification{
+    height: 80px;
+    line-height: 80px;   
+    color: #fff;
+    padding: 0 30px;
+    position: relative;
+    font-size: 24px;
+}
+.notification.msgerror,
+.notification.msgsuccess{
+    background: var(--green);
+}
+.notification.msgerror{
+    background: var(--red);
+}
+.notification.msgerror:before,
+.notification.msgsuccess:before{
+    font-family: 'Material Icons';
+    content:"check"    ;
+    position: relative;
+    color: #fff;
+    font-size: 42px;
+    float: left;
+    margin: 0;
+}
+.notification.msgerror:before{
+    content: "close";
+}

@@ -1,0 +1,15 @@
+<h1>Разделы проекта</h1>
+
+
+{if!empty $mainmenu}
+<div class="pages-list clearfix">
+    {loop $mainmenu,$k,$menu}    
+        {if!empty $k}
+        <div class="item item-block" >
+            <a href="/{$menu['url']}">{$menu['title']}</a>   
+        </div>
+        {/if}
+    {/loop $mainmenu}
+</div>
+{/if}
+    
