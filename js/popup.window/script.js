@@ -53,8 +53,8 @@ if($)(function(window, document, $, undefined){
                 _min_error_offset = 0;
                 init_selector.find( 'input, textarea' ).each(function(){
                     var _this = jQuery(this);
-                    _this.removeClass('red-border').closest('.form-block').find('.error').remove();
-                    if( _this.parent().hasClass( 'list-selector' )) _this.parent().removeClass( 'red-border' ).next( 'span' ).removeClass( 'active' );
+                    _this.removeClass('error').closest('.form-block').find('.error').remove();
+                    if( _this.parent().hasClass( 'list-selector' )) _this.parent().removeClass( 'error' ).next( 'span' ).removeClass( 'active' );
                     var _type = _this.attr( 'type' );
                     _required = _this.attr( 'required' );
                     _name = _this.attr( 'name' );
@@ -67,7 +67,7 @@ if($)(function(window, document, $, undefined){
                         if( ( _required == 'required' && ( _value == '' || _value == 0) || ( _name == 'phone' && (_value.replace(/\D/g,'')).length != 11)) || 
                             ( _name == 'email' && ( _value.length > 0 && _value.match(/([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/) == null) )) {
                                 //отдельно для селекторов
-                            if( _this.parent().hasClass( 'list-selector' )) _this.parent().addClass( 'red-border' ).parents( '.form-block' ).append(o.error_template);
+                            if( _this.parent().hasClass( 'list-selector' )) _this.parent().addClass( 'error' ).parents( '.form-block' ).append(o.error_template);
                             else  notification( _this, true, o.error_template ); 
                             if( o.scroll_to_error == true){
                                 _min_error_offset = _min_error_offset == 0 || _min_error_offset > _this.offset().top ? _this.offset().top : _min_error_offset;
@@ -167,9 +167,9 @@ if($)(function(window, document, $, undefined){
         var notification = function( _this, _error, _text ){
             
             if( _error == true ){
-                _this.addClass( 'red-border' ).closest( '.form-block' ).append( _text );
+                _this.addClass( 'error' ).closest( '.form-block' ).append( _text );
             } else {
-                _this.removeClass( 'red-border' ).closest( '.form-block' ).find( '.error' ).remove();
+                _this.removeClass( 'error' ).closest( '.form-block' ).find( '.error' ).remove();
             }
             
         }

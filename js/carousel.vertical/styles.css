@@ -21,6 +21,7 @@
     position: relative;
     transition: background .2s ease-in-out, border .2s ease-in-out;
 }
+/*
 .carousel-vertical .filter li:hover:before,
 .carousel-vertical .filter li.active:before{
     content: "";
@@ -40,6 +41,7 @@
 .carousel-vertical .filter li.active:before{
     opacity: 1;
 }
+*/
 .carousel-vertical .filter li + li {
     margin-top: 10px;
 }
@@ -50,7 +52,7 @@
 
 .carousel-vertical .filter li.active {
     border-color: var(--secondary-color);
-    border-right-color: transparent;
+    /* border-right-color: transparent; */
     background: rgba(0, 0, 0, 0.4);
     pointer-events: none;
 }

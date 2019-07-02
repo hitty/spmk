@@ -143,6 +143,53 @@
     
 </section>
 
+<section class="benefits inner">
+
+    <h2>Ваша выгода при работе с нами</h2>
+    
+    
+    <div class="item flex">
+        <div class="title" data-icon="check">Опыт и репутация больше 10 лет</div>
+        <div class="text">
+            Мы начинали в 2009 году с небольшой компании по оптовой продаже металлопроката. Сегодня мы уже группа компаний, в состав которой входят: собственный завод по изготовлению металлоконструкции, завод винтовых свай, строительно-монтажное управление, транспортная служба и конструкторское бюро. Нам доверяют крупные коммерческие заказчики и государственные структуры. Мы всегда выполняем взятые на себя обязательства. 
+            <b>Вы экономите нервы</b>
+        </div>
+    </div>
+    
+    <div class="item flex">
+        <div class="title" data-icon="check">Собственное производство</div>
+        <div class="text">
+            Весь остов конструкции на металлокаркасе мы изготавливаем на собственном производстве.  Приехав к Вам на объект, мы возводим здание из уже готовых узлов за короткие сроки. Таким образом, срок работы на объекте сокращается в несколько раз.
+            <b>Вы экономите ВРЕМЯ</b>
+        </div>
+    </div>
+  
+    <div class="item flex">
+        <div class="title" data-icon="check">Гибкие цены</div>
+        <div class="text">
+            Мы предоставляем подробный и понятный расчет стоимости проекта и обсуждаем с Вами все вопросы до полного понимания цены. Формируем персональные предложения при комплексном строительстве. Делаем скидки для постоянных заказчиков.
+            <b>Вы экономите деньги</b>
+        </div>
+    </div>
+    
+    <div class="item flex">
+        <div class="title" data-icon="check">Гарантия качества</div>
+        <div class="text">
+            Мы бесплатно исправим дефекты лакокрасочного покрытия в течение 1 года в случае, если они образовались не по вашей вине. На сами металлоконструкции и услуги монтажа гарантия 6 лет (при соблюдении условий эксплуатации).
+            <b>Вы экономите деньги дважды</b>        
+        </div>
+    </div>
+    
+    <div class="item flex">
+        <div class="title" data-icon="check">Конструкторское бюро</div>
+        <div class="text">
+            Наши квалифицированные инженеры-конструкторы грамотно и в разумные сроки разработают КМД, всегда заметят ошибки предыдущих разработчиков, сформируют предложения по усовершенствованию геометрии конструкций, сформируют список понятной документации.   
+            <b>Вы уверены в результате</b>        
+        </div>
+    </div>
+    
+</section>
+
 <section class="how-we-work">
     <h2>Как мы работаем?</h2>
     <ul class="flex inner">
@@ -197,7 +244,7 @@
 
 <section class="clients">
     <div class="inner">
-        <h2>Нам доверяют?</h2>
+        <h2>Нам доверяют</h2>
         <span class="annotation">Проектирование, изготовление и монтаж металлоконструкций такие компании,как</span>
         <div class="list">
             <div class="item">
@@ -367,11 +414,87 @@
     </div>
 </section>
 
+<section class="tour-form">
+    <form class="flex ajax" action="/applications/add/tour/">
+    
+        <div class="text">
+            <b>ЗАЯВКА НА ЭКСКУРСИЮ ПО ЗАВОДУ</b>
+            Хотите увидеть завод своими глазами? Оставьте заявку на экскурсию.<br/>
+            Мы вам перезвоним и договоримся о деталях визита.
+        </div>
+        <div class="row">
+            <input type="text" placeholder="Имя" name="name" required="required" />
+        </div>
+        <div class="row">
+            <input type="phone" placeholder="Телефон" name="phone" />
+        </div>
+        <div class="row">
+            <i  data-icon="date_range"></i>
+            <input type="text" placeholder="Дата визита" name="date"/>
+        </div>
+        <div class="row">
+            <span class="button">Отправить</span>
+        </div>
+    </form>        
+</section>
+
+
 <section class="production">
     <div class="inner">
         <h2>Ассортимент</h2>
     </div>
     {block production/block}
+</section>
+
+<section class="calculator-form">
+    <div class="title">КАЛЬКУЛЯТОР СТОИМОСТИ</div>
+
+    <form class="ajax" action="/applications/add/calculator/">
+        <div class="flex">
+            <div class="item">
+                <label class="checkbox on off">
+                    <input type="hidden" name="anvil" id="anvil" value="1">
+                    <input type="checkbox" id="checkbox_anvil" name="checkbox_anvil" checked="checked" value="1" rel="anvil" data-true-value="1" data-false-value="2">
+                </label>
+                <div class="text">
+                    Изготовление
+                    <b>Качественно и в срок</b>
+                </div>
+                <i class="icon anvil"></i>
+            </div>
+            
+            <i class="plus"></i>
+            
+            <div class="item">
+                <label class="checkbox">
+                    <input type="hidden" name="delivery" id="delivery" value="2">
+                    <input type="checkbox" id="checkbox_delivery" name="checkbox_delivery" value="2" rel="delivery" data-true-value="1" data-false-value="2">
+                </label>
+                <div class="text">
+                    Доставка
+                    <b>Быстро и надежно</b>
+                </div>
+                <i class="icon delivery"></i>
+            </div>
+            
+            <i class="plus"></i>
+            
+            <div class="item">
+                <label class="checkbox">
+                    <input type="hidden" name="safety" id="safety" value="2">
+                    <input type="checkbox" id="checkbox_safety" name="checkbox_safety" value="2" rel="safety" data-true-value="1" data-false-value="2">
+                </label>
+                <div class="text">
+                    Монтаж
+                    <b>Опытными мастерами</b>
+                </div>
+                <i class="icon safety"></i>
+            </div>
+        
+        </div>
+                            
+        <span class="button big">Рассчитать</span>
+    </form>        
 </section>
 
 <section class="preferences bg-cover" id="preferences" style="background-image:url(/img/preferences-bg.png)">
@@ -436,12 +559,13 @@
             </li>
         </ul>
         
-        <div class="map" data-lat="" data-lng="">
+        <script src="//api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
+        <div class="map" id="map-office" data-lat="54.668207" data-lng="39.635799">
             <div class="image bg-cover" style="background-image: url('/img/map-office.png');">
                 <span class="title">Наш офис</span>
             </div>
         </div>    
-        <div class="map" data-lat="" data-lng="">
+        <div class="map" id="map-production" data-lat="55.829067" data-lng="37.410556">
             <div class="image bg-cover" style="background-image: url('/img/map-production.png');">
                 <span class="title">Производство</span>
             </div>

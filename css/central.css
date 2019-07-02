@@ -70,3 +70,134 @@ footer .social li {
     font-size: 30px;
     color: var(--white);
 }
+
+
+.tour-form {
+    margin-top: 0px;
+    background: #000;
+}
+
+.tour-form .text {
+    flex: 0 1 calc( 34% - 10px );
+    color: var(--white);
+    margin: 30px 0;
+    position: relative;
+}
+
+.tour-form .text b {
+    display: block;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.tour-form form {
+    margin: 0 40px;
+}
+
+.tour-form form .row {
+    flex: 0 1 calc( 16% - 10px );
+}
+
+/* calculator-form */
+.calculator-form {
+    margin-top: -140px;
+    width: 1240px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    background: #fff;
+    padding: 40px;
+    border: 1px solid #838383;
+    box-sizing: border-box;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 3px;
+}
+
+.calculator-form .title {
+    font-weight: bold;
+    font-size: 24px;
+    text-align: center;
+}
+
+.calculator-form .flex {
+    margin: 30px 0;
+}
+
+.calculator-form form .item {
+    background: #F5F5F5;
+    border-radius: 3px;
+    width: 320px;
+    display: flex;
+    height: 40px;
+    align-items: center;
+    padding: 20px;
+    justify-content: inherit;
+}
+
+.calculator-form form .item .checkbox {
+    width: 30px;
+    height: 30px;
+}
+
+.calculator-form form .item .checkbox.on:before {
+    font-size: 60px;
+    transform: translate(-11px, -22px);
+}
+
+.calculator-form form .item .text {
+    font-size: 16px;
+    margin: 0 20px;
+}
+
+.calculator-form form .item .text b {
+    display: block;
+    font-size: 18px;
+}
+
+.calculator-form form .item .icon {
+    display: block;
+    width: 46px;
+    height: 44px;
+    padding: 0;
+}
+
+.calculator-form form .item .anvil {
+    background: url('/img/anvil-icon.svg') no-repeat center;
+}
+
+.calculator-form form .item .delivery {
+    background: url('/img/delivery-icon.svg') no-repeat center;
+}
+
+.calculator-form form .item .safety {
+    background: url('/img/safety-icon.svg') no-repeat center;
+}
+
+.calculator-form form .plus {
+    width: 24px;
+    height: 24px;
+    position: relative;
+}
+
+.calculator-form form .plus:after,.calculator-form form .plus:before {
+    content: "";
+    width: 100%;
+    height: 4px;
+    background: var(--main-color);
+    position: absolute;
+    top: 50%;
+    margin-top: -2px;
+    display: block;
+}
+
+.calculator-form form .plus:after {
+    transform: rotate(90deg);
+    position: absolute;
+}
+
+.calculator-form .button {
+    width: 400px;
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+}

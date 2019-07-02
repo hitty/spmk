@@ -23,6 +23,12 @@ header .actions {
     text-transform: uppercase;
 }
 
+header .actions .send:before {
+    background-image: url(/img/send-icon.svg);
+    left: 20px;
+    background-size: auto 27px;
+    width: 40px;
+}
 header .actions .phone:before {
     background-image: url('/img/phone-icon.svg');
 }

@@ -73,11 +73,14 @@ $ajax_mode = (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && !empty($_SERVER['HTTP_
 if( empty( $ajax_mode ) ) {
     //подключение стилей и js-скриптов
     $GLOBALS['js_set'][] = '/js/jquery.min.js';
+    $GLOBALS['css_set'][] = '/js/datetimepicker/jquery.datetimepicker.css';
+    $GLOBALS['js_set'][] = '/js/datetimepicker/jquery.datetimepicker.js';
     $GLOBALS['js_set'][] = '/js/inputmask/inputmask.min.js';
     $GLOBALS['js_set'][] = '/js/form.validate.js';
     $GLOBALS['js_set'][] = '/js/main.js';
     $GLOBALS['js_set'][] = '/js/interface.js';
     $GLOBALS['js_set'][] = '/js/fancybox.js';
+    $GLOBALS['js_set'][] = '/js/map.js';
     
     $GLOBALS['css_set'][] = '/css/variables.css';
     $GLOBALS['css_set'][] = '/css/fonts.css';
