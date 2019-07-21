@@ -1,0 +1,7 @@
+{if!empty $list}
+    <div class="carousel clearfix">
+    {loop $list,$k,$item}
+        {include /modules/news/templates/block.item.html}
+    {/loop $list}
+    </div>
+{/if}

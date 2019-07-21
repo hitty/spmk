@@ -1,0 +1,57 @@
+<div class="caption-container">
+    <a href="/manage/projects/add/" class="button">Добавить проект</a>
+</div>
+
+<h1 class="pageTitle">Проекты</h1>
+{if!empty $results['delete']}
+    {iflt $results['delete'];0}
+        <div class="notification msgerror">
+            <a class="close">Close</a>
+            Ошибка. Удаление элемента не выполнено.
+        </div>
+    {else}
+        <div class="notification msgsuccess">
+            <a class="close">Close</a>
+            Удаление элемента #{$results['delete']} произведено успешно.
+        </div>
+    {/if}
+{/if}
+
+<div class="filters-container clerfix" data-url="/manage/projects/">
+    
+    <label data-icon="search">
+        <input type="text" id="title"  name="title" value="{$get_array['title']}" placeholder="Название" autocomplete="off">
+    </label>
+  
+</div>
+<div class="list-container projects">
+    {if!empty $list}
+        {loop $list,$k,$item}
+            <div class="item-block clearfix">
+            
+                <div class="photo">         
+                    {if!empty $item['photo']}
+                        <img src="/img/uploads/sm/{$item['subfolder']}/{$item['photo']}" alt="{$item['title']}" class="" />
+                    {/if}
+                </div>
+                <div class="left-part">
+                    <span class="text-overflow title transition-text">{$item['title']}</span>
+                    <div class="text-overflow gray">
+                        {if!empty $item['parent_title']}
+                            {$item['parent_title']}
+                        {/if}
+                    </div>
+                </div>
+                <div class="actions transition">
+                    <div>
+                        <span data-icon="settings" class="edit internal-link" data-link="/manage/projects/edit/{$item['id']}/"></span>
+                        <span data-icon="delete" class="delete red" data-url="/manage/projects/delete/{$item['id']}/"></span>
+                    </div>
+                </div>
+                
+            </div>
+        {/loop $list}
+    {else}
+        <p style="padding:30px;">Запрошенные данные не найдены</p>
+    {/if}
+</div>

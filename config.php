@@ -20,11 +20,10 @@ return array(
         'coaches_block' => 7200               // блок преподавателей
     ),  
     'string_per_page' => array(
-        'nominees'     => 20              // база знакний
-        , 'users'        => 20              // пользователи
-        , 'news' => 10                       // новости
-        , 'projects' => 10                       // новости
-        , 'media' => 20                // фото-видео
+        'users'        => 20         // пользователи
+        , 'news' => DEBUG_MODE ? 6 : 9 // новости
+        , 'projects' => 10             // новости
+        , 'assortment' => 10           // новости
     ),  
     'mysql' => array(
         'host' => 'localhost',
@@ -100,8 +99,15 @@ return array(
         'projects' => 'projects',
         'projects_photos' => 'projects_photos',
 
+        'assortment' => 'assortment',
+        'assortment_photos' => 'assortment_photos',
+
         'production' => 'production',
         'production_photos' => 'production_photos',
+
+        'news' => 'news',
+        'news_categories' => 'news_categories',
+        'news_photos' => 'news_photos',
 
         'nominees' => 'nominees',
         'nominees_photos' => 'nominees_photos',

@@ -1,18 +1,18 @@
-{include /modules/mailers/templates/simple.header.html}
-<tr> <!-- content - title -->
-    <td valign="top" style="border-collapse:collapse; padding:0 0 20px 0; font-size: 24px; line-height: 24px;" align="left"> 
-    Получена заявка со <a href="{$url}">страницы  </a>
-    </td>
-</tr>
-<tr> <!-- content - text -->
-    <td valign="top" style="border-collapse:collapse; padding: 0; font-size: 16px; line-height: 30px; padding-top: 30px" align="left"> 
-        {loop $data,$d,$values}
-            <div style="display: block;font-size: 16px; line-height: 30px;">
-                <span style="display: inline-block; width: 180px;">{if!empty $values['title']}{$values['title']}{else}&nbsp;{/if}</span>
-                <b>{if!empty $values['value']}{$values['value']}{else}&nbsp;{/if}</b>
-            </div>
-        {/loop $data}
-    </td>
-</tr>
-{include /modules/mailers/templates/simple.footer.html}
+{include /modules/mailers/templates/simple.header.html}
+<tr> <!-- content - title -->
+    <td valign="top" style="border-collapse:collapse; padding:0 0 20px 0; font-size: 24px; line-height: 24px;" align="left"> 
+    Получена заявка со <a href="{$url}">страницы  </a>
+    </td>
+</tr>
+<tr> <!-- content - text -->
+    <td valign="top" style="border-collapse:collapse; padding: 0; font-size: 16px; line-height: 30px; padding-top: 30px" align="left"> 
+        {loop $data,$d,$values}
+            <div style="display: block;font-size: 16px; line-height: 30px;">
+                <span style="display: inline-block; width: 180px;">{if!empty $values['title']}{$values['title']}{else}&nbsp;{/if}</span>
+                <b>{if!empty $values['value']}{$values['value']}{else}&nbsp;{/if}</b>
+            </div>
+        {/loop $data}
+    </td>
+</tr>
+{include /modules/mailers/templates/simple.footer.html}
                             

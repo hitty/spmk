@@ -1,7 +1,8 @@
 <?php
 require_once('includes/class.paginator.php');
 require_once('includes/class.photos.php');
-
+$GLOBALS['css_set'][] = '/modules/projects/manage/css/style.css';
+$GLOBALS['js_set'][] = '/modules/projects/manage/js/script.js';
 // мэппинги модуля
 $mapping = include( dirname( __FILE__ ) . '/mapping.php' );
 
@@ -24,8 +25,7 @@ if(empty($page)) $page = 1;
 else $get_parameters['page'] = $page;
 
 // определяем запрошенный экшн
-$action = empty($this_page->page_parameters[1]) ? "" : $this_page->page_parameters[1];
-
+$action = empty($this_page->page_parameters[0]) ? "" : $this_page->page_parameters[0];
 // обработка action-ов
 switch( $action ){
         ////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -42,7 +42,7 @@ switch( $action ){
 
                 $ajax_result['error'] = '';
                 // переопределяем экшн
-                $action = empty($this_page->page_parameters[2]) ? "" : $this_page->page_parameters[2];
+                $action = empty($this_page->page_parameters[1]) ? "" : $this_page->page_parameters[1];
                 switch($action){
                     case 'list':
                         $id = Request::GetInteger('id', METHOD_POST);
@@ -129,7 +129,7 @@ switch( $action ){
     case 'add':
     case 'edit':
 
-        $id = empty($this_page->page_parameters[2]) ? 0 : $this_page->page_parameters[2];
+        $id = empty($this_page->page_parameters[1]) ? 0 : $this_page->page_parameters[1];
         
         if($action=='add'){
             // создание болванки новой записи
@@ -236,7 +236,7 @@ switch( $action ){
                 $ajax_result = array('ok' => true );
             } else {
                 //удаление
-                $id = empty($this_page->page_parameters[2]) ? 0 : $this_page->page_parameters[2];
+                $id = empty($this_page->page_parameters[1]) ? 0 : $this_page->page_parameters[1];
                 
                 $res = $db->query("DELETE FROM ".$sys_tables['projects']." WHERE id=?", $id);
                 $results['delete'] = ($res && $db->affected_rows) ? $id : -1;

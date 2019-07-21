@@ -1,0 +1,12 @@
+.item-block .expand{
+    width: 4%;
+}
+.item-block .id{
+   width: 6%;
+}
+.item-block .alias{
+   width: 20%;
+}
+.item-block .info{
+   width: 55%;
+}

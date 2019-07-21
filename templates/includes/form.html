@@ -1,7 +1,7 @@
         
 <div class="application-form{ifempty $middle} modal{/if}">      
-    <form class="send-message" action="/applications/add/" method="POST" autocomplete="off" enctype="multipart/form-data">
-        {ifempty $middle}<h1>Оставьте запрос на подготовку КП</h1>{/if}
+    <form class="send-message ajaxed" action="/applications/add/" method="POST" autocomplete="off" enctype="multipart/form-data">
+        {ifempty $middle}<h2 class="invert">Получить расчет</h2>{/if}
         {php:$random=randomstring(10)}
         {if!empty $middle}<div class="flex">{/if}
             <div class="row">
@@ -14,20 +14,23 @@
                 <input type="email" name="email" placeholder="Ваш email{if!empty $email_required}*{/if}"{if!empty $email_required} required="required"{/if} autocomplete="{$random}">
             </div>
         {if!empty $middle}</div>{/if}
+        {ifempty $reference}
+            <div class="upload-container row br3">
+                <textarea name="comment" placeholder="Описание запроса, дополнительные данные"></textarea>
+                <div class="file-upload">      
+                    <input type="file" name="file_upload[]" id="file_upload-{$random}" class="inputfile-{$random}" data-multiple-caption="files selected" multiple="">
+                    <label for="file_upload-{$random}" class="br4 attach-file " data-icon="attach_file">
+                        <strong class="br3 transition">Добавить файл</strong>
+                    </label>      
+                    <span class="text-overflow" data-icon="attach_file"></span> 
+                    <i class="close" data-icon="close"></i>
+                </div>
+            </div>     
+        {else}
             <div class="row">
                 <textarea name="comment" placeholder="Описание запроса, дополнительные данные"></textarea>
             </div>
-        {ifempty $reference}
-        <div class="upload-container">
-            <div class="row file-upload">      
-                <input type="file" name="file_upload[]" id="file_upload-{$random}" class="inputfile-{$random}" data-multiple-caption="files selected" multiple="">
-                <label for="file_upload-{$random}" class="br4 attach-file " data-icon="attach_file">
-                    <strong class="br3 transition">Добавить файл</strong>
-                </label>      
-                <span class="text-overflow"></span> 
-                <i class="close" data-icon="close"></i>
-            </div>
-        </div>     
+
         {/if}
         <div class="row terms">                        
             <span class="text">Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c <a href="#modal-terms" class="modal-open-btn">политикой конфиденциальности</a></span>

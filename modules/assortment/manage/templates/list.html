@@ -1,0 +1,34 @@
+<div class="list-container media">
+    <div class="caption-container">
+        <a href="/manage/assortment/add/" class="button orange">Добавить запись</a>
+    </div>
+    <div class="filter">
+        <span class="active">Ассортимент</span>
+    </div>
+
+    <div class="filters-container clearfix flex" data-url="/manage/assortment/">
+        
+        <div class="info">
+        </div>
+        <div class="title" data-icon="search">
+            <input type="text" id="title"  name="title" value="{$get_array['title']}" placeholder="Заголовок записи">
+        </div>
+        
+    </div>
+    <div class="list">
+        {if!empty $list}
+            {loop $list,$k,$item}
+                <div class="item-block clearfix flex">
+                    <div class="photo">
+                        {if!empty $item['photo']}<img src="/img/uploads/sm/{$item['subfolder']}/{$item['photo']}" />{/if}
+                    </div>
+                    <div class="title"><a href="/manage/assortment/edit/{$item['id']}/">{$item['title']}</a></div>
+                    <span data-icon="delete" class="delete red" data-url="/manage/assortment/delete/{$item['id']}/"></span>
+                </div>
+            {/loop $list}
+            {include /projects/templates/paginator.html} 
+        {else}
+            <p style="padding:30px; text-align: center; color: var(--gray);">Запрошенные данные не найдены</p>
+        {/if}
+    </div>
+</div>

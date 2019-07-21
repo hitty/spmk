@@ -1,12 +1,12 @@
- --{$redirect}--
-{if!empty $redirect}
-    {literal}
-        <script>
-            window.opener.location.reload();
-            self.close();
-        </script>
-    {/literal}
-{elseif!empty $error}
-    {$error}
-{else}
+ --{$redirect}--
+{if!empty $redirect}
+    {literal}
+        <script>
+            window.opener.location.reload();
+            self.close();
+        </script>
+    {/literal}
+{elseif!empty $error}
+    {$error}
+{else}
 {/if}

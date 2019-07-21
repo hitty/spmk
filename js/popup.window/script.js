@@ -19,6 +19,7 @@ if($)(function(window, document, $, undefined){
             scroll_to_error       : false,
             error_template        : '<span class="error">Обязательное поле</span>',
             notification_class    : 'form-block notifications',
+            uploader_index        : 0,
             onInit                : function(){},
             onFormSuccess         : function(data){}
         }
@@ -40,7 +41,11 @@ if($)(function(window, document, $, undefined){
                     }, 250);
                 }); 
             })
-
+            //обработка прикрепленных файлов
+            jQuery( 'input[class*="inputfile"]', init_selector ).each( function(){
+                manageUpload( jQuery(this) )
+                
+            } ) ;
             o.button.on( 'click', function(e){
                 
                 if( jQuery(this).hasClass( 'disabled' ) || jQuery(this).hasClass( 'waiting' )) return false;
@@ -103,9 +108,9 @@ if($)(function(window, document, $, undefined){
                                 init_selector.find( 'input, textarea' ).addClass('success');
                                 if( msg.success ) jQuery( '.button-container', init_selector ).html ( msg.success ).addClass( 'notifications success' );
 
-                                if( jQuery( '.modal-inner .closebutton' ).length > 0) {
+                                if( jQuery( '.modal-inner .closebutton, .modal-inner .modal-close-btn' ).length > 0) {
                                     setTimeout(function(){
-                                        jQuery( '.modal-inner .closebutton' ).click();
+                                        jQuery( '.modal-inner .closebutton, .modal-inner .modal-close-btn' ).click();
                                     }, typeof msg.html == 'string' && msg.html.length > 20 ? 3200 : 1500 );
                                 }
 
@@ -117,7 +122,7 @@ if($)(function(window, document, $, undefined){
                                     }, typeof msg.html == 'string' && msg.html.length > 20 ? 3500 : 1700 )
                                 } 
                                                           
-                            } else jQuery( '.modal-inner .closebutton' ).click();
+                            } else jQuery( '.modal-inner .closebutton, .modal-inner .modal-close-btn' ).click();
                                 if( jQuery( '.result-html', init_selector ).length > 0 && msg.success_text.length > 0 ) {
                                     jQuery( '.result-html', init_selector ).html( msg.success_text ).addClass( 'success' );
                                     jQuery( 'input,textarea,.list-selector', init_selector ).attr('disabled', 'disabled').addClass('disabled');
@@ -171,6 +176,37 @@ if($)(function(window, document, $, undefined){
             } else {
                 _this.removeClass( 'error' ).closest( '.form-block' ).find( '.error' ).remove();
             }
+            
+        }
+        //мультизагрузка файлов
+        var manageUpload = function( input ){
+            o.uploader_index++;
+            console.log( o.uploader_index );
+            var _parent = input.closest('div');
+            var _clone = _parent.clone();
+            jQuery( '.close', _parent ).on( 'click', function(){
+                _parent.remove();
+            })
+            var label = jQuery( 'label', _parent );  
+            labelVal  = label.html();
+            input.on('change', function(e){   
+                
+                var fileName = '';
+                fileName = e.target.value.split( '\\' ).pop();
+
+                if( fileName )
+                    jQuery( 'span', _parent ).html(fileName);
+                else
+                    label.html( labelVal );
+                    
+                _clone.insertBefore( _parent );
+                _parent.addClass( 'active' );
+                var _identificator = jQuery( '[id*="file_upload"]', _clone ).attr( 'id' ); 
+                jQuery( '[id*="file_upload"]', _clone ).attr( 'id', _identificator + o.uploader_index );
+                jQuery( 'label[for*="file_upload"]', _clone ).attr( 'for', _identificator + o.uploader_index );
+                manageUpload( jQuery( 'input', _clone ) )
+            })  
+            
             
         }
         return this.each(function(){

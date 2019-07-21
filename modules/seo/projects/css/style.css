@@ -1,0 +1,16 @@
+.item-block .id{
+    width: 10%;
+}
+.item-block .alias{
+    width: 40%;
+}
+.item-block .info{
+    width: 40%;
+}
+.filters-container .url{
+    width: 30%;
+}
+.filters-container .pretty-url{
+    width: 30%;
+}
+

@@ -50,7 +50,25 @@ return array(
             'label' => 'Описание',
             'tip' => ''
         ) 
-        
+        ,'place' => array(
+            'type' => TYPE_STRING,
+            'max' => 255,
+            'parent_class' => 'half-width inline', 
+            'allow_empty' => true, 
+            'allow_null' => true,
+            'fieldtype' => 'text',
+            'label' => 'Место',
+            'placeholder' => 'Место проекта'
+        )
+        ,'object_weight' => array(
+            'type' => TYPE_INTEGER,
+            'parent_class' => 'half-width inline', 
+            'allow_empty' => true, 
+            'allow_null' => true,
+            'fieldtype' => 'text',
+            'label' => 'Вес конструкции',
+            'placeholder' => 'Вес конструкции, т'
+        )
         ,'_hr_seo_' => array(
             'fieldtype' => 'hr'
         )

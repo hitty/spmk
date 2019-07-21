@@ -3,35 +3,35 @@
     height: 80px;
     align-items: center;
     padding: 0 30px;
+    position: relative;
 }
 
 .mainpage header .logo {
-    width: 150px;
+    width: 210px;
     display: block;
     border: none;
 }
 
 .mainpage header .logo img {
     display: block;
+    width: 100%;
 }
 
 .mainpage header .actions {
     font-size: 24px;
-    width: calc( 80% );
+    width: 760px;
 }
 
 .mainpage header .send.button {
     margin: 0;
     font-size: 24px;
-    padding-left: 70px;
     box-shadow: 0px 6px 7px rgba(0, 0, 0, 0.195968);
     border: none;
-}
-}
-
-.mainpage header .send.button:before {
-    background-image: url('/img/send-icon.svg');
-    left: 19px;
+    padding: 0 20px;
+    position: relative;
+    transform: none;
+    height: 40px;
+    line-height: 38px;
 }
 
 .mainpage header .email {
@@ -45,35 +45,129 @@
     padding-bottom: 5px;
     cursor: pointer;
 }
+header .actions .phone:after{
+    top: 30px;
+}
+@media (max-width: 1420px) {
+}
+
+@media (max-width: 1280px) {
+}
+
+.mainpage header .actions {
+    display: flex;
+}
+
+.mainpage header .actions a, .mainpage header .actions span {
+    font-size: 24px;
+}
+
 @media (max-width: 1024px) {
-    .mainpage header .actions{
-        font-size: 16px; 
-        width: calc( 75% );   
+    .mainpage header .actions {
+        width: 360px;
     }
-    .mainpage header .send.button{
+
+    .mainpage header .actions a,
+    .mainpage header .actions span {
+        font-size: 16px;
+    }
+
+    .mainpage header .send.button {
         font-size: 16px;
         height: 40px;
         line-height: 40px;
-        padding-left: 50px;
+        margin-top: 5px;
     }
-    .mainpage header .send.button:before{
+
+    .mainpage header .send.button:before {
         left: 12px;
         background-size: auto 20px;
     }
+    .mainpage header .actions .phone{
+        margin: 0;    
+    }
+    .mainpage header .actions .phone:after{
+            top: 23px;
+    }
 }
+
 @media (max-width: 768px) {
-    .mainpage header .actions{
-        
+    .hero{
+        height: calc( 100% - 50px );
     }
-    .mainpage header .send.button{
-        
+    .hero .text,
+    .hero .text .inner{
+        min-width: 300px;
+        width: calc( 100% - 20px );
+    }
+    .hero .text .inner{
+        width: 100%;
+    }
+    .mainpage header {
+        padding: 0 10px;
+        height: 50px;
+    }
+    .mainpage header .actions {
+        width: 80px;
+    }
+    .mainpage header .logo{
+        width: 110px;
+    }
+    .mainpage header .actions .phone {
+        height: 30px;
+        padding: 0;
+        width: 30px;
+    }
+
+    .mainpage header .actions .send:before {
+        left: auto;
+        width: 30px;
+        -webkit-mask-size: 17px auto;
+    }
+
+    .mainpage header .actions .phone:before {
+        height: 30px;
+        padding: 0;
+    }
+
+    .mainpage header .send.button {
+        height: 30px;
+        padding: 0;
+        margin: 0;
+        width: 30px;
+        box-shadow: none;
+    }   
+    .mainpage nav{
+        margin: 0;
+        width: calc( 100% - 20px );
+        transform: translateX(-110%);
+        top: 60px;   
+        padding: 0;
+        height: calc( 100% - 70px ); 
+        background: rgba(255,255,255,.95);
+    }
+    .menu-top-is-open .mainpage nav{
+        transform: translateX(0);    
+    }
+    .mainpage nav a{
+        font-size: 24px;
+        padding: 14px 20px;    
+        text-align: center;
+    }
+    .mainpage nav a:hover{
+        background: inherit;
+        color: inherit;
+        box-shadow: inherit;
     }
 }
+
 @media (max-width: 576px) {
-    .mainpage header .actions{
-        
+    .hero .text h1{
+        font-size: 24px;
     }
-    .mainpage header .send.button{
-        
+    .mainpage header .actions {
+    }
+
+    .mainpage header .send.button {
     }
 }

@@ -4,7 +4,7 @@
 
 NuSphere PHP Debugger (DBG) Helper script
 
-Copyright (c) 2007, 2016 NuSphere Corporation
+Copyright (c) 2007, 2019 NuSphere Corporation
 
 This library is free software; you can redistribute it and/or
 modify it under the terms of the GNU Lesser General Public
@@ -28,16 +28,19 @@ http://www.nusphere.com
 */
 ?>
 <?php
-
 	if (!defined('E_STRICT')) {
 		define('E_STRICT', 1<<11);
 	}
 	error_reporting(E_ALL & ~(E_NOTICE | E_STRICT));
 	//    ini_set('display_errors', 'off');
 	
-	define('DBG_WIZARD_VERSION', '3.8.3801');
-	define('DBG_VERSION', '8.2.7');
+	define('DBG_WIZARD_VERSION', '3.9.3914');
+	define('DBG_VERSION', '9.1.10');
 	
+	define('DBGWIZ_MIN_PHP_VERSION', '4.3.0');
+	define('DBGWIZ_BUNDLED_MIN_PHP_VERSION', '5.1.0');
+	define('DBGWIZ_MAX_PHP_VERSION', '7.3.99');
+
 	$expected_dbg = DBG_VERSION;
 	$expected_phpunit = '';
 
@@ -214,7 +217,9 @@ http://www.nusphere.com
 					$CPU = 'x86_64';
 					if (!$php_ts)
 						$CPU .= "_NTS";
-					if (isset($env['php_id'])&&stristr($env['php_id'],'vc14')!==false) {
+					if (isset($env['php_id'])&&stristr($env['php_id'],'vc15')!==false) {
+						$CPU .= '_VC15';
+					} else if (isset($env['php_id'])&&stristr($env['php_id'],'vc14')!==false) {
 						$CPU .= '_VC14';
 					} else if (isset($env['php_id'])&&stristr($env['php_id'],'vc11')!==false) {
 						$CPU .= '_VC11';
@@ -231,14 +236,14 @@ http://www.nusphere.com
 					$CPU = 'x86';
 					if (!$php_ts)
 						$CPU .= "_NTS";
-					if (isset($env['php_id'])&&stristr($env['php_id'],'vc14')!==false) {
+					if (isset($env['php_id'])&&stristr($env['php_id'],'vc15')!==false) {
+						$CPU .= '_VC15';
+					} else if (isset($env['php_id'])&&stristr($env['php_id'],'vc14')!==false) {
 						$CPU .= '_VC14';
 					} else if (isset($env['php_id'])&&stristr($env['php_id'],'vc11')!==false) {
 						$CPU .= '_VC11';
 					} else if (isset($env['php_id'])&&stristr($env['php_id'],'vc9')!==false) {
 						$CPU .= '_VC9';
-					} else if (isset($env['php_id'])&&stristr($env['php_id'],'vc8')!==false) {
-						$CPU .= '_VC8';
 					} else if (!empty($env['php_id'])) {
 						$platform_errmsg[] = "Unrecognized/unsuppoted Run-Time ({$env['php_id']})";
 						$platform_is_supported = false;
@@ -371,7 +376,7 @@ http://www.nusphere.com
 		}
 		elseif (stristr(PHP_OS, 'openbsd')!==false) {
 			$platform = (int)trim(php_uname('r')); //`uname -r|sed 's,\\([0-9]*\\).*,\\1,g'`;
-			if ($platform >= 4) {
+			if ($platform >= 5) {
 				$package = 'OpenBSD';
 			} else {
 				$platform_is_supported = false;
@@ -395,25 +400,20 @@ http://www.nusphere.com
 		elseif (stristr(PHP_OS, 'sunos')!==false||stristr(PHP_OS, 'solaris')!==false) {
 			$platform = trim(php_uname('r'));
 			$CPU = php_uname('m');
-			if (stristr('sun4u', $CPU)!==false) $CPU='sparc';
-			if (stristr('i86pc', $CPU)!==false) $CPU='i386';
-			if (version_compare($platform, '5.10', '>=') && !stristr($CPU, 'sparc')!==false) {
-				$package='SunOS';
-			} elseif (version_compare($platform, '5.8', '>=')) {
+			if (version_compare($platform, '5.10', '>=')) {
 				$package='SunOS';
 			} else {
 				$platform_is_supported = false;
 				$platform_errmsg[] = "Sun OS $platform is not supported";
 			}
+			if (stristr('i86pc', $CPU)!==false) 
+				$CPU='i386';
 			if (stristr($CPU, 'amd64')!==false||stristr($CPU, 'x86_64')!==false||stristr($CPU, 'i386')!==false||stristr($CPU, 'x86')!==false||stristr($CPU, 'i686')!==false||stristr($CPU, 'i586')!==false) {
 				if (@is_32bit()) {
 					$CPU = 'x86';
 				} else {
 					$CPU = 'x86_64';
 				}
-			} else if (stristr($CPU, 'sparc')!==false) {
-					if (!@is_32bit())
-						$CPU = 'sparc_64';
 			} else {
 				$platform_is_supported = false;
 				$platform_errmsg[] = "SUN platform under $CPU CPU is not supported";
@@ -434,6 +434,19 @@ http://www.nusphere.com
 
 		$platform = PHP_OS . (empty($platform) ? "" : "-$platform");
 
+		if (version_compare(PHP_VERSION, DBGWIZ_MIN_PHP_VERSION, '<')) {
+			$platform_errmsg[] = "Php version " . PHP_VERSION . " is too outdated and not supported by this product. Please update to " . DBGWIZ_MIN_PHP_VERSION . " or higher";
+			$platform_is_supported = false;
+		}
+		elseif (version_compare(PHP_VERSION, DBGWIZ_MAX_PHP_VERSION, '>')) {
+			$platform_errmsg[] = "Php version " . PHP_VERSION . " is not supported by this product. Please check for the product updates at https://shop.nusphere.com/";
+			$platform_is_supported = false;
+		}
+		elseif (version_compare(PHP_VERSION, DBGWIZ_BUNDLED_MIN_PHP_VERSION, '<')) {
+			$dbg_path = "";
+			$dbg_arch = "";
+			$dbg_loc_instr = "$dbg_module is supported but not bundled with this product. Please contact support for the module(s) <a href='http://www.nusphere.com/contact_us'>http://www.nusphere.com/contact_us</a>";
+		}
 
 		$env['platform'] = $platform;
 		$env['CPU'] = $CPU;
@@ -640,7 +653,7 @@ http://www.nusphere.com
 			$dbg_instructions[] = $lines;
 			$dbg_instructions[] = 'Restart web server';
 			$dbg_instructions[] = 'Launch phpinfo and check its output. Make sure that one of the topmost headers contains <br>
-			<span style="font-style: italic">Zend Engine vX.X.0, Copyright (c) 1998-200x Zend Technologies with DBG v ' . $expected_dbg . ', (C) 2000, 2009 by Dmitri Dmitrienko </span>';
+			<span style="font-style: italic">Zend Engine vX.X.0, Copyright (c) 1998-200x Zend Technologies with DBG v ' . $expected_dbg . ', (C) 2000, 2018 by Dmitri Dmitrienko </span>';
 		}
 
 		// Project Root Directory

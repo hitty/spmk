@@ -16,8 +16,6 @@ if($)(function(window, document, $, undefined){
             
             video_list_selector     : '.video-list-container',          
             video_list_url          : '',          
-            video_count             : 0,          
-            video_limit             : 5,          
             
             switcher_selector       : '.switcher',          
             visibility_attr         : 'data-visibility-selector',          
@@ -25,8 +23,8 @@ if($)(function(window, document, $, undefined){
             ajax_pending_selector   : '.pending',               /* селектор для аякс-подгрузки блоков */
             datepicker_selector     : 'input[name*=date]',      /* селектор для выбора дат */
             tinyMCE_toolbar         :   {
-                                            'extended' : "code | undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | table bullist numlist | link image media | spellchecker preview fullscreen",
-                                            'default': "code | undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist | link image preview"
+                                            'extended' : "code | paste |  undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | table bullist numlist | link image media | spellchecker preview fullscreen",
+                                            'default': "code | paste |  undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist | link image preview"
                                         },
             onInit                  : function(){}
             
@@ -108,7 +106,7 @@ if($)(function(window, document, $, undefined){
                 jQuery( o.fileupload_selector, selector ).each( function(){
                     var _el = jQuery( this );
                     _el.uploadifile( { 
-                        'queueSizeLimit' : _el.data('limit'),
+                        'queueSizeLimit' : 1000,
                         'fileType' : typeof _el.data('filetypes') == 'string' ? _el.data('filetypes') : 'image' 
                     } );    
                 })
@@ -243,18 +241,9 @@ if($)(function(window, document, $, undefined){
                         var _this = jQuery( this );
                         _this.toggleClass('active');
                         jQuery( 'input', _this ).attr( 'value', _this.hasClass( 'active' ) ? 1 : 2 );
-                        if( typeof jQuery( this ).attr( o.visibility_attr ) != 'undefined' ) setElVisibility( _this );
+                        if( typeof jQuery( this ).attr( o.visibility_attr ) != 'undefined' ) checkElVisibility( _this );
                     })
-                    if( typeof jQuery( this ).attr( o.visibility_attr ) != 'undefined' ) setElVisibility( jQuery( this ) );
-                })
-            }          
-            //visibility selector
-            if( jQuery( '[' + o.visibility_attr + ']', selector ).length > 0 ){
-                jQuery( '[' + o.visibility_attr + ']', selector ).each( function(){
-                    jQuery(this).on('click', function(){
-                        setElVisibility( jQuery( this ) );    
-                    })
-                    if( jQuery(this).hasClass( 'on' ) ) setElVisibility( jQuery( this ) );
+                    if( typeof jQuery( this ).attr( o.visibility_attr ) != 'undefined' ) checkElVisibility( jQuery( this ) );
                 })
             }          
             //select filter
@@ -393,24 +382,14 @@ if($)(function(window, document, $, undefined){
         }
                 
         /* проверка полей на видимость */
-        var setElVisibility = function( _el ){
+        var checkElVisibility = function( _el ){
             var _selector = _el.attr( o.visibility_attr );
             var _active = _el.hasClass('active');
-            if( _el.siblings( '[' + o.visibility_attr + ']').length > 0 ) {
-                _el.parent().find( '[' + o.visibility_attr + ']' ).each( function(){
-                    jQuery( jQuery(this).attr( o.visibility_attr ) ).not(_el.closest('.row')).each( function(){
-                        jQuery(this).addClass( 'disabled' );
-                    })
-                })
-                jQuery( _selector ).not(_el.closest('.row')).each( function(){
-                    jQuery(this).removeClass( 'disabled' );
-                })
+            console.log( _selector );
+            jQuery( _selector ).not(_el.closest('.row')).each( function(){
                 
-            } else {
-                jQuery( _selector ).not(_el.closest('.row')).each( function(){
-                    jQuery(this).toggleClass( 'disabled', !_active );
-                })
-            }
+                jQuery(this).toggleClass( 'disabled', !_active );
+            })
         }  
         /* управление зависимыми выпадающими списками */
         var selectFilterVisibility = function( _el, _value ){

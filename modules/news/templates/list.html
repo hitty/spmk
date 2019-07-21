@@ -1,0 +1,22 @@
+<section class="news-list">
+     <h1>{if!empty $category_title}{$category_title}{else}Новости{/if}</h1>
+     <div class="navigation">
+        {loop $categories,$c,$category}
+        <a href="/news/{$category['chpu_title']}/">{$category['title']}</a>
+        {/loop $categories}
+     </div>
+     <div class="list inner flex">
+        {loop $list,$k,$item}
+            <div class="item clearfix">
+                <span class="hdr internal-link" data-link="/news/{$item['category_chpu_title']}/{$item['chpu_title']}/"></span>
+                <span class="img bg-cover" style="background-image: url(/img/uploads/big/{$item['subfolder']}/{$item['photo']})"></span>
+                <a href="/news/{$item['category_chpu_title']}/{$item['chpu_title']}/" title="{$item['title']}" class="title">{$item['title']}</a>
+                <div class="bottom">
+                    <span class="date with-dot">{$item['normal_date']}</span>
+                    <a href="/news/{$tem['catgory_chpu_title']}/" title="{$item['category_title']}">{$item['category_title']}</a>
+                </div>
+            </div> 
+        {/loop $list} 
+        {include /templates/includes/paginator.html}
+    </div>  
+</section>

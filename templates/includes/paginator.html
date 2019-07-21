@@ -1,13 +1,61 @@
-{if!empty $paginator}
-    {ifgt $paginator['pages_count'];1}
-        <ul class="pagination">
-            {if!empty $paginator['left']}
-                <li><a href="{ifeq $paginator['left'],1}{php:echo rtrim(str_replace('page=','',$paginator['link']),'&?')}{else}{$paginator['link']}{$paginator['left']}{/if}" title="Предыдущая">Предыдущая</a></li>
-            {/if}
-            <li>СТРАНИЦА <b>{$paginator['active_page']}</b> ИЗ {$paginator['pages_count']}</li>
-            {if!empty $paginator['right']}
-                <li><a href="{$paginator['link']}{$paginator['right']}" title="Следующая">Следующая</a></li>
-            {/if}
-        </ul>
-    {/if}
+{if!empty $paginator}
+    <div class=" transition paginator">
+        {ifgt $paginator['pages_count'];1}
+            {ifempty $direct_link_paginator}
+                {if!empty $paginator['left']}
+                    <span class=" transition {ifempty $search_form_left}{ifempty $ajax_search}{ifempty $ajax_mode}internal-link {/if}{/if}{/if}page-left" data-link="{ifeq $paginator['left'],1}{php:echo rtrim(str_replace('page=','',$paginator['link']),'&?')}{else}{$paginator['link']}{$paginator['left']}{/if}"><svg class="carousel-button-icon" viewBox="0 0 100 100"><path d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z" class="arrow"></path></svg></span>
+                {/if}
+
+                <div class="inner ">
+                    {if!empty $paginator['first']}
+                        <span class=" transition {ifempty $search_form_left}{ifempty $ajax_search}{ifempty $ajax_mode}internal-link {/if}{/if}{/if}" data-link="{php:echo rtrim(str_replace('page=','',$paginator['link']),'&?')}">{$paginator['first']}</span>
+                        {ifgt $paginator['active_page'],4}<span data-link="#">...</span>{/if}
+                    {/if}
+                    {php:$pages_list=$paginator['pages']}
+                    {loop $pages_list,$pk,$pv}
+                        {ifeq $paginator['active_page'];$pv}
+                             <span class=" transition active" data-active-link="{ifeq $pv,1}{php:echo rtrim(str_replace('page=','',$paginator['link']),'&?')}{else}{$paginator['link']}{$pv}{/if}">{$pv}</span>
+                        {else}
+                            <span class=" transition {ifempty $search_form_left}{ifempty $ajax_search}{ifempty $ajax_mode}internal-link {/if}{/if}{/if}" data-link="{ifeq $pv,1}{php:echo rtrim(str_replace('page=','',$paginator['link']),'&?')}{else}{$paginator['link']}{$pv}{/if}" title="">{$pv}</span>
+                        {/if}
+                    {/loop $pages_list}
+                    {if!empty $paginator['last']}
+                            {iflt $paginator['active_page'],$paginator['pages_count']-3}<span>...</span>{/if}
+                            <span class=" transition {ifempty $search_form_left}{ifempty $ajax_search}{ifempty $ajax_mode}internal-link {/if}{/if}{/if}" data-link="{$paginator['link']}{$paginator['last']}" title="Последняя">{$paginator['last']}</span>
+                    {/if}
+                </div>    
+                {if!empty $paginator['right']}
+                    <span class=" transition {ifempty $search_form_left}{ifempty $ajax_search}{ifempty $ajax_mode}internal-link {/if}{/if}{/if}page-right" data-link="{$paginator['link']}{$paginator['right']}"><svg class="carousel-button-icon" viewBox="0 0 100 100"><path d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z" class="arrow" transform="translate(100, 100) rotate(180) "></path></svg></span>
+                {/if}
+            {else}
+                {if!empty $paginator['left']}
+                    <a class=" transition paginator-link page-left" href="{ifeq $paginator['left'],1}{php:echo rtrim(str_replace('page=','',$paginator['link']),'&?')}{else}{$paginator['link']}{$paginator['left']}{/if}" title="Предыдущая"><svg class="carousel-button-icon" viewBox="0 0 100 100"><path d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z" class="arrow"></path></svg></a>
+                {/if}
+
+                <div class="inner ">
+
+                    {if!empty $paginator['first']}
+                        <a class=" transition paginator-link" href="{php:echo rtrim(str_replace('page=','',$paginator['link']),'&?')}" title="{$paginator['first']}">{$paginator['first']}</a>
+                        {ifgt $paginator['active_page'],4}<span data-link="#">...</span>{/if}
+                    {/if}
+                    {php:$pages_list=$paginator['pages']}
+                        {loop $pages_list,$pk,$pv}
+                            {ifeq $paginator['active_page'];$pv}
+                                 <span class=" transition active" data-active-link="{ifeq $pv,1}{php:echo rtrim(str_replace('page=','',$paginator['link']),'&?')}{else}{$paginator['link']}{$pv}{/if}">{$pv}</span>
+                            {else}
+                                <a class=" transition paginator-link" href="{ifeq $pv,1}{php:echo rtrim(str_replace('page=','',$paginator['link']),'&?')}{else}{$paginator['link']}{$pv}{/if}" title="{$pv}">{$pv}</a>
+                            {/if}
+                        {/loop $pages_list}
+                    {if!empty $paginator['last']}
+                            {iflt $paginator['active_page'],$paginator['pages_count']-3}<span>...</span>{/if}
+                            <a class=" transition paginator-link" href="{$paginator['link']}{$paginator['last']}" title="Последняя">{$paginator['last']}</a>
+                    {/if}
+                </div>
+                    
+                {if!empty $paginator['right']}
+                    <a class=" transition paginator-link page-right" href="{$paginator['link']}{$paginator['right']}" title="Следующая"><svg class="carousel-button-icon" viewBox="0 0 100 100"><path d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z" class="arrow" transform="translate(100, 100) rotate(180) "></path></svg></a>
+                {/if}
+            {/if}
+        {/if}
+    </div>
 {/if}

@@ -15,7 +15,7 @@ switch( true ){
         // блок
         ////////////////////////////////////////////////////////////////////////////////////////////////////////
         case $action == 'block':
-            $list = CommonDb::getList( 'projects', false, $sys_tables['projects'] . '.published = 1 AND ' . $sys_tables['projects'] . '.parent_id = 0', 'position DESC', 'id' );
+            $list = CommonDb::getList( 'projects', false, $sys_tables['projects'] . '.published = 1', 'position DESC', 'id' );
             Response::SetArray( 'list', $list );
             $module_template = 'block.html';
             if( $ajax_mode ) $ajax_result['ok'] = true;
@@ -67,7 +67,7 @@ switch( true ){
     // список проектов
     ////////////////////////////////////////////////////////////////////////////////////////////////////////
     case empty( $action ):
-        $list = CommonDb::getList( 'projects', false, $sys_tables['projects'] . '.published = 1 AND ' . $sys_tables['projects'] . '.parent_id = 0', 'position DESC', 'id' );
+        $list = CommonDb::getList( 'projects', false, $sys_tables['projects'] . '.published = 1', 'position DESC', 'id' );
         Response::SetArray( 'list', $list );
         $module_template = 'list.html';
         break;

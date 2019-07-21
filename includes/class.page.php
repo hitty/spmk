@@ -91,14 +91,8 @@ class Page {
                     $this->incacheobjects[strtolower( $key)] = $val;
             }
         }           
-        if(substr( $this->requested_path,0,5)=='admin') $this->is_admin_page = true;
-        if(substr( $this->requested_path,0,5)=='teach') $this->is_teach_page = true;
         if(substr( $this->requested_path,0,8)=='manage') $this->is_manage_page = true;
         if(substr( $this->requested_path,0,7)=='profile') $this->is_profile_page = true;
-        if( substr( $this->requested_path,0,5)=='pages' && !empty( $auth ) ) {
-            Response::SetBoolean( 'edit_mode', true );
-            $this->is_edit_mode = true;
-        }
        
     }
     
@@ -129,27 +123,12 @@ class Page {
                 $sortby = $gets['sortby'];
                 unset( $gets['sortby']);
             }
-            if( !empty( $gets['currency'] ) ) {
-                $currency = $gets['currency'];
-                unset( $gets['currency']);
-            }              
-            if( !empty( $gets['search_type'] ) ) {
-                $search_type = $gets['search_type'];
-                unset( $gets['search_type']);
-            }            
-            if( !empty( $gets['id_subscription'] ) ) {
-                $id_subscription = $gets['id_subscription'];
-                unset( $gets['id_subscription']);
-            }            
+                    
             ksort( $gets);
             $query = $clearquery = implode('&',$gets);
             $this->query_params = $gets;
-            if( !empty( $min_cost ) ) $additional_query[] = $min_cost;
-            if( !empty( $max_cost ) ) $additional_query[] = $max_cost;
             if( !empty( $sortby ) ) $additional_query[] = $sortby;
-            if( !empty( $currency ) ) $additional_query[] = $currency;
             if( !empty( $search_type ) ) $additional_query[] = $search_type;
-            if( !empty( $id_subscription ) ) $additional_query[] = $id_subscription;
             if( !empty( $page ) ) $additional_query[] = $page;
             $query .= !empty( $additional_query) ? ( empty( $query)?'':'&').implode('&',$additional_query) : '';
             
@@ -326,12 +305,14 @@ class Page {
                 
                 $this_page->menuClear( 1 );
                 $this_page->menuAdd( 'О компании', 'about', 1 );
-                $this_page->menuAdd( 'Проектирование', 'proektirovanie', 1 );
-                $this_page->menuAdd( 'Изготовление', 'izgotovlenie', 1 );
-                $this_page->menuAdd( 'Монтаж', 'montazh', 1 );
-                $this_page->menuAdd( '«Под ключ»', 'pod_kluch', 1 );
-                $this_page->menuAdd( 'Объекты', 'objekty', 1 );
+                $this_page->menuAdd( 'Услуги', 'uslugi', 1 );
+                    $this_page->menuAdd( 'Проектирование', 'proektirovanie', 2, false, false, 'uslugi' );
+                    $this_page->menuAdd( 'Изготовление', 'izgotovlenie', 2, false, false, 'uslugi'  );
+                    $this_page->menuAdd( 'Монтаж', 'montazh', 2, false, false, 'uslugi'  );
+                    $this_page->menuAdd( '«Под ключ»', 'pod_kluch', 2, false, false, 'uslugi'  );
+                $this_page->menuAdd( 'Объекты', 'proekty', 1 );
                 $this_page->menuAdd( 'Прайс', 'price', 1 );
+                $this_page->menuAdd( 'Закупки', 'tenders', 1 );
                 
                 //###########################################################################
                 // подключение и выполнение модуля
@@ -373,10 +354,12 @@ class Page {
                 // результат работы модуля
                 if( $this->http_code==200){
                     if( $this->first_instance){
+                        $GLOBALS['css_set'][] = '/css/adaptive.css';
                         // добавление css и js
                         $this->addScriptsAndCss();
                         // главное меню
                         if( !empty( $this->menu[1] ) ) Response::SetArray( 'mainmenu', $this->menu[1] );
+                        if( !empty( $this->menu[2] ) ) Response::SetArray( 'mainmenu_second', $this->menu[2] );
                         
                     }
                     if( !empty( $this->page_seo_title ) ) $this->metadata['title'] = $this->page_seo_title;

@@ -1,0 +1,16 @@
+.list-container .info{
+    width: 10%;
+    margin: -15px 20px -15px 0;
+}
+.list-container .title{
+    width: 75%;
+}
+.list-container .date{
+    width: 15%;
+}
+.list-container .category-title{
+    width: 20%;
+}
+.list-container .visibility{
+    width: 5%;
+}

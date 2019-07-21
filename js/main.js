@@ -65,7 +65,7 @@ function getPending(_url, _params, _func_on_success, _func_on_error){
         });
 }
 /* cookie functions */
-function setAwardsCookie(name, value, expiredays, path, domain, secure){
+function setspmkCookie(name, value, expiredays, path, domain, secure){
     var cookie_string = name+"="+escape(value);
     if(expiredays){
         var exdate=new Date();
@@ -77,7 +77,7 @@ function setAwardsCookie(name, value, expiredays, path, domain, secure){
     if(secure) cookie_string += "; secure";
     document.cookie = cookie_string;
 }
-function getAwardsCookie(name){
+function getspmkCookie(name){
     var cookie=" "+document.cookie;
     var search=" "+name+"=";
     var setStr=null;
@@ -139,55 +139,21 @@ jQuery(document).ready(function(){
     
     jQuery('.popup').each(function(){ jQuery(this).popupWindow(); } )
     
-    if( jQuery( '.voting-item-btns' ).length > 0 ){
-        if( jQuery('.voting-nav-list').length > 0 ){
-            console.log( 'vote - true ' );
-            _vote_filter = jQuery('.voting-nav-list .vote span') ;
-            _vote_value = parseInt( _vote_filter.text() );
-            _not_vote_filter = jQuery('.voting-nav-list .not-vote span') ;
-            _not_vote_value = parseInt( _not_vote_filter.text() );
-        }
-        jQuery('.voting-item-btns button').each( function(){
-            jQuery(this).on('click', function(){
-                var _this = jQuery(this);
-                console.log( _this );
-                var _parent = _this.closest('.voting-item');
-                if( _parent.hasClass('voted') ) return false;
-                var _id = _this.closest('.voting-item-btns').data('id');
-                var _values = { id: _id, value: _this.hasClass('plus') ? 1 : 2 }
-                getPending(
-                    '/voting/vote/',
-                  _values  ,
-                    function( data ){
-                        if( data.ok ) {
-                            _parent.removeClass('plus').removeClass('minus').addClass( _this.hasClass('plus') ? ' plus' : ' minus' );
-                            
-                            ++_vote_value;
-                            --_not_vote_value;
-                            _vote_filter.text( _vote_value );
-                            _not_vote_filter.text( _not_vote_value );
-                        }
-                        else alert( data.error );
-                        
-                    }
-                )
-                return false;
-            })
-        })
-    }
-    
     
     $('.carousel').each( function(){
         $(this).carousel({
             pageDots: false,
             draggable: false,
-            wrapAround: true
+            wrapAround: true  
         });
     })
     
     
-    $('form.ajax').each( function(){
+    $('form.ajaxed').each( function(){
         $(this).formSubmit();
+    })
+    $('header .burger').on( 'click', function(){
+        $('body,html').toggleClass('menu-top-is-open modal-active')    ;
     })
 })           
 function validateEmail(email) { 

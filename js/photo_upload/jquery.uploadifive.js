@@ -658,7 +658,7 @@ _settings = '';
                         dataType: 'json', url: _input.data('url')+'del/',
                         data: {
                             ajax        :   true,
-                            'id_file'   :   _objectId,
+                            'id_photo'   :   _objectId,
                             'name'      :   init_selector.attr('name'), 
                         },
                         
@@ -696,7 +696,7 @@ _settings = '';
                     jQuery.ajax({
                         type: "POST", async: true,
                         dataType: 'json', url: _input.data('url')+'setMain/',
-                        data: {'id_file':_this_elm.siblings('div.itemsContainer').data('id_obj'), 'id':_input.data('id'), ajax: true},
+                        data: {'id_photo':_this_elm.siblings('div.itemsContainer').data('id_obj'), 'id':_input.data('id'), ajax: true},
                         success: function(msg){
                             if(typeof(msg)=='object'){
                                 if(msg.ok){
@@ -720,7 +720,7 @@ _settings = '';
                     jQuery.ajax({
                         type: "POST", async: true,
                         dataType: 'json', url: _input.data('url')+'rotate/',
-                        data: { 'id_file': _el.data('id_obj'), 'id': _input.data('id'), ajax: true} ,
+                        data: { 'id_photo': _el.data('id_obj'), 'id': _input.data('id'), ajax: true} ,
                         success: function(msg){
                             if(typeof(msg)=='object'){
                                 if(msg.ok){

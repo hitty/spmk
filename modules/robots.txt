@@ -1,5 +1,5 @@
-User-Agent: *
-
-User-Agent: Yandex
-Host: http://www.vodke.net
-Sitemap: http://www.vodke.net/sitemap.xml
+User-Agent: *
+
+User-Agent: Yandex
+Host: http://www.vodke.net
+Sitemap: http://www.vodke.net/sitemap.xml

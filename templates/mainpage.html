@@ -15,9 +15,11 @@
                 <span class="phone icon" onclick="try{ document.location.href='tel:+78002507697'; return true; }catch(err){ }">8 (800) 250-76-97</span>
             </div>
             
-            <div class="burger mobile-version">
-                
-            </div>
+            <span class="burger mobile">
+                <span></span>
+                <span></span>
+                <span></span>
+            </span>
                 
         </header> 
         <div class="hero bg-cover" style="background-image:url('/img/hero.png')">
@@ -32,20 +34,27 @@
             
             <div class="menu br3">
                 <nav>
-                    <a href="#" class="transition br3" title="Проектирование">Проектирование</a>
-                    <a href="#" class="transition br3" title="Изготовление">Изготовление</a>
-                    <a href="#" class="transition br3" title="Монтаж">Монтаж</a>
-                    <a href="#" class="transition br3" title="Строительство «под ключ»">«Под ключ»</a>
-                    <a href="#" class="transition br3" title="Объекты">Объекты</a>
-                    <a href="#" class="transition br3" title="Прайс">Прайс</a>
+                    <ul class="container">
+                        <li><a href="#" class="transition br3" title="Проектирование">Проектирование</a></li>
+                        <li><a href="#" class="transition br3" title="Изготовление">Изготовление</a></li>
+                        <li><a href="#" class="transition br3" title="Монтаж">Монтаж</a></li>
+                        <li><a href="#" class="transition br3" title="Строительство «под ключ»">«Под ключ»</a></li>
+                        <li><a href="#" class="transition br3" title="Объекты">Объекты</a></li>
+                        <li><a href="#" class="transition br3" title="Прайс">Прайс</a></li>
+                    </ul>
+                    <span class="copyright">
+                        2019 SPMK Group.<br/>
+                        Все права защищены.    
+                    </span>
                 </nav>
-                <span class="copyright">
-                    2019 SPMK Group.<br/>
-                    Все права защищены.    
-                </span>
+                
         
         </div>
     </main>
+    {if!empty $debug}
+    {else}
+        <script>{$js_content}</script>
+    {/if}
 </body>
 </html>
 

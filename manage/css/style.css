@@ -1,4 +1,25 @@
-
+:root {
+  --text: #202020;
+  --main-color: #3C88C8;
+  --main-color-hover: #2f7bba;
+  --main-color-light: #bedffb;
+  --secondary-color: #E11741;
+  --secondary-color-hover: #d1133a;
+  --main-font: 'Roboto', sans-serif;
+  --secondary-font: 'Roboto Condensed', sans-serif;
+  
+  --white: #ffffff;
+  --red: #CF4455;
+  --error: #CF4455;
+  --red-hover: #BA3D4C;
+  --gray: #9B9B9B;
+  --gray-light: #e8e8e8;
+  --green:#93C35E;
+  --green-hover:#84AF54;
+  
+  --link-transition: color .2s ease-in-out, border .2s ease-in-out;
+  --transition: all .2s ease-in-out;
+} 
 
 body,
 html {
@@ -39,6 +60,7 @@ header {
     padding-top: 15px;
     overflow: hidden;
     display: table;
+    position: relative;
 }
 
 .user-panel:after,.user-panel:before {
@@ -72,13 +94,13 @@ header .logo {
     display: block;
     position: absolute;
     top: 12px;
-    background: url(/img/logo.png) no-repeat left top;
+    background: url(/img/logo.svg) no-repeat left top;
     text-indent: -1000%;
-    width: 50px;
+    width: 140px;
     height: 43px;
     left: 10px;
     border: none;
-    background-size: 30px auto;
+    background-size: 140px auto;
 }
 header .logo:hover{
     border: none;
@@ -108,6 +130,7 @@ header .menu {
     color: #fff;
     font-size: 16px;
     float: left;
+    transform: translateX(80px);
 }
 header .menu .project-title{
     font-size: 20px;
@@ -373,7 +396,7 @@ header .menu a.active:before{
 }
 
 footer{
-    
+    padding: 10px 0    
 }
 footer .central{
     
@@ -395,7 +418,7 @@ footer .menu li.social{
     
 }
 footer .copyright{
-    color: var(--gray);
+    color: var(--white);
     font-size: 14px;
     text-align: center;
 }

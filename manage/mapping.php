@@ -7,9 +7,9 @@ return array(
         'module' => 'pages',
         'title' => 'Страницы'
     )
-    ,'nominees' => array(
-        'module' => 'nominees',
-        'title' => 'Номинанты'
+    ,'news' => array(
+        'module' => 'news',
+        'title' => 'Новости'
     )
     
     ,'users' => array(
@@ -35,6 +35,10 @@ return array(
     ,'projects' => array(
         'module' => 'projects',
         'title' => 'Проекты'
+    )
+    ,'assortment' => array(
+        'module' => 'assortment',
+        'title' => 'Ассортимент'
     )
     
 );

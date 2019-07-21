@@ -14,15 +14,19 @@ use Sendpulse\RestApi\ApiClient;
 use Sendpulse\RestApi\Storage\FileStorage;
 
 class Sendpulse extends ApiClient {
-    public $user_id = 'f807ffe07dcc94f200b4bca02acd254a';          
-    public $secret = '6643d2aa494a3fb6dd4e224c3711a42d';         
+    public $user_id = 'a948e75060800296a3d4fb7eff526405';          
+    public $secret = '78ac080a335efb8e2eec50ec66f7a0b5';         
     public $path_to_attached_files = '';         
     public $books =  array( 
-        'subscriberes' => 2189583
+        'my' => 1866411,
+        'test' => 1852192,
+        'subscriberes' => 1852595
     );
           
-    public $sender_email = 'info@mosarchawards.ru';        
-    public $sender_name = 'Mosarchawards.ru';        
+    public $book_id = 1852192 ;        
+    public $bsn_subscriberes_book_id = 1852595 ;        
+    public $sender_email = 'no-reply@spmk.group' ;        
+    public $sender_name = 'spmk.group' ;        
     
     public $website_id = 3676 ;        
     
@@ -101,6 +105,7 @@ class Sendpulse extends ApiClient {
     {
         if ( empty( $subject ) || empty( $body ) || ( empty( $reciever_email ) && empty( $emails ) ) ) return $this->handleError( 'Empty email data' );
             
+        $reciever_email = DEBUG_MODE ? Config::Get( 'emails/web2') : $reciever_email; 
         $sender_name = empty( $sender_name ) ? $this->sender_name : $sender_name; 
         $sender_email = empty( $sender_email ) ? $this->sender_email : $sender_email; 
 

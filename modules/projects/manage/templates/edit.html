@@ -1,10 +1,10 @@
 <div class="breadcrumbs-container">
-    <a href="/manage/projects/" data-icon="arrow_back">К списку проекта</a>
+    <a href="/manage/projects/" data-icon="arrow_back">К списку</a>
 </div>
 {ifempty $data_mapping['id']['value']}
-    <h1>Добавление проекта</h1>
+    <h1>Добавление</h1>
 {else}
-    <h1>Редактирование проекта #{$data_mapping['id']['value']} &quot;{$data_mapping['title']['value']}&quot;</h1>
+    <h1>Редактирование #{$data_mapping['id']['value']} &quot;{$data_mapping['title']['value']}&quot;</h1>
 {/if}
 {if!empty $form_submit}
     {if!empty $errors}

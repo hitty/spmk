@@ -1,25 +1,43 @@
-{include /modules/mailers/templates/simple.header.html}
-<tr> <!-- content - title -->
-    <td valign="top" style="border-collapse:collapse; padding:0 0 20px 0; font-size:30px; line-height: 36px;" align="left"> 
-    Добрый день!    
-    </td>
-</tr>
-<tr> <!-- content - text -->
-    <td valign="top" style="border-collapse:collapse; padding: 0; font-size:18px; line-height: 26px;" align="left"> 
-        На портале {$env['host']} новая заявка.<br /><br />
-        <b>Автор/коллектив авторов</b><br/>
-            {$data['authors']}<br/><br/>
-        <b>Регистрационный номер и дата свидетельства</b><br/>
-            № {$data['registration_number']} от {$data['registration_day']} {$data['registration_month']} {$data['registration_year']}<br/><br/>
-        <b>Наименование объекта</b><br/>
-            {$data['object_title']}<br/><br/>
-        <b>Примечание</b><br/>
-            {$data['notes']}<br/><br/>
-        <b>Контактные данные</b><br/>
-             Имя: {$data['name']}<br/>
-             Телефон: {$data['phone']}<br/>
-             Email: {$data['email']}<br/>
-    </td>
-</tr>
-{include /modules/mailers/templates/simple.footer.html}
-
+{include /modules/mailers/templates/simple.header.html}
+<tr> <!-- content - title -->
+    <td valign="top" style="border-collapse:collapse; padding:0 0 20px 0; font-size:30px; line-height: 36px;" align="left"> 
+    Здравствуйте!<br />
+    Заявка #{$id}.   
+    </td>
+</tr>
+<tr> <!-- content - text -->
+    <td valign="top" style="border-collapse:collapse; padding: 0; font-size:18px; line-height: 26px; margin-top: 50px" align="left"> 
+        
+        <span style="font-size: 24px; line-height: 50px; display: block; ">Данные:</span>
+
+        <span style="display: block; text-align: left; margin-top: 20px;">
+            Имя: <strong>{$data['name']}</strong>
+        </span>
+        
+        <span style="display: block; text-align: left; margin-top: 20px;">
+            Телефон: <strong>{$data['phone']}</strong>
+        </span>
+        
+        {if!empty $data['email']}
+        <span style="display: block; text-align: left; margin-top: 20px;">
+            Email: <strong>{$data['email']}</strong>
+        </span>
+        {/if}
+                                   
+        {if!empty $data['comment']}
+        <span style="display: block; text-align: left; margin-top: 20px;">
+            Комментарий: <strong>{$data['comment']}</strong>
+        </span>
+        {/if}
+        {if!empty $data['files']}
+            <span style="display: block; text-align: left; margin-top: 20px;">
+                Прикрепленные файлы: 
+                {php:$files = $data['files']}
+                {loop $files,$f,$filename}<strong style="padding: 0 10px 0 0;"><a href="{$filename}">файл</a></strong>{/loop $files}
+            </span>
+        {/if}
+        
+    </td>
+</tr>
+{include /modules/mailers/templates/simple.footer.html}
+                            

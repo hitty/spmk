@@ -1,0 +1,18 @@
+{include /modules/mailers/templates/simple.header.html}
+<tr> <!-- content - title -->
+    <td valign="top" style="border-collapse:collapse; padding:0 0 20px 0; font-size:30px; line-height: 36px;" align="left"> 
+    Здравствуйте, {$data['name']}!</td>
+</tr>
+<tr> <!-- content - text -->
+    <td valign="top" style="border-collapse:collapse; padding: 0; font-size:18px; line-height: 26px; margin-top: 50px" align="left"> 
+        
+        <span style="font-size: 24px; line-height: 50px; display: block; ">
+        Ваше письмо показалось нам спамом.
+        <br /><br />
+        Если вы так не считаете, обратитесь пожалуйста к нам:<br/>
+        - по телефону: 8 (800) 250-76-97
+        - написав на email: <a href="mailto:market@constr62.ru">market@constr62.ru</a>
+    </td>
+</tr>
+{include /modules/mailers/templates/simple.footer.html}
+                            

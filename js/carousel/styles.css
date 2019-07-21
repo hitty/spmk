@@ -175,3 +175,62 @@
     top: 0;    
     bottom: 0;    
 }
+@media (max-width: 1024px) {
+    .carousel .item {
+        width: 70%;
+    }
+
+    .carousel .item a {
+        font-size: 24px;
+        line-height: 28px;
+    }
+
+    .carousel-prev-next-button {
+        width: 30px;
+        height: 30px;
+    }
+
+    .carousel-prev-next-button.next {
+        right: calc( 15% - 15px );
+    }
+    .carousel-prev-next-button.previous{
+        left: calc( 15% - 15px );
+    }
+    .carousel .item a{
+        bottom: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel .item {
+        width: 80%;
+    }
+
+    .carousel .item a {
+        font-size: 20px;
+        line-height: 28px;
+    }
+
+    .carousel-prev-next-button {
+    }
+
+    .carousel-prev-next-button.next {
+        right: calc( 10% - 15px );
+    }
+    .carousel-prev-next-button.previous{
+        left: calc( 10% - 15px );
+    }
+    .carousel .item a{
+        bottom: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .carousel .item{
+        width: 90%;
+    }
+    .carousel .item a {
+        font-size: 16px;
+        line-height: 24px;
+    }
+}

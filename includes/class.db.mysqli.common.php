@@ -17,6 +17,7 @@ class CommonDb{
                 " .  self::$tables[$table] . ".*
                 " . ( array_key_exists( 'description', $item_info ) ? ", IF(" . self::$tables[$table] .".description = '', LEFT(". self::$tables[$table] .".content,200), ". self::$tables[$table] .".description) as `description` " : "" ) . "
                 " . ( array_key_exists( 'datetime', $item_info ) ? ", DATE_FORMAT( " . self::$tables[$table] .".`datetime`,'%d.%m.%Y %H:%i' ) as `normal_datetime` " : "" ) . "
+                " . ( array_key_exists( 'date', $item_info ) ? ", DATE_FORMAT( " . self::$tables[$table] .".`date`,'%d.%m.%Y' ) as `normal_date` " : "" ) . "
                 " . ( array_key_exists( 'date_start', $item_info ) ? ", DATE_FORMAT( " . self::$tables[$table] .".`date_start`,'%d.%m.%Y' ) as `date_start` " : "" ) . "
                 " . ( array_key_exists( 'date_end', $item_info ) ? ", DATE_FORMAT( " . self::$tables[$table] .".`date_end`,'%d.%m.%Y' ) as `date_end` " : "" ) . "
                 " . ( !empty( self::$tables[$table . '_categories'] ) && array_key_exists( 'title',$category_record_info ) ? ", " . self::$tables[$table . '_categories'] . ".title as category_title " : "" ) . "

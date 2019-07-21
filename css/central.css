@@ -17,8 +17,8 @@ footer{
     padding: 60px 0;
     color: var(--white)    ;
 }
-footer .logo{
-    
+footer .inner{
+    width: 960px;    
 }
 footer .logo img{
     display: block;
@@ -43,22 +43,49 @@ footer .menu li.title{
     margin-bottom: 20px;
 }
 footer .menu li a{
-    border: none;
+    border-bottom: 1px solid transparent;
 }
-footer .copyright{
+footer .menu li a:hover{
+    border-color: var(--white);
+}
+footer .bottom {
+}
+
+footer .bottom .payment-info {
+    width: 600px;
+}
+
+footer .bottom .payment-info .title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+footer .bottom .payment-info .flex {
+    font-size: 14px;
+    line-height: 24px;
+    margin-top: 15px;
+    align-items: baseline;
+}
+
+footer .bottom .payment-info .flex div {
+}
+
+footer .copyright {
     opacity: 0.5;
     text-align: center;
     font-size: 14px;
     line-height: 24px;
+    text-align: left;
 }
+
 footer .social {
     height: 30px;
     color: #fff;
     display: flex;
     justify-content: space-between;
     text-align: justify;
-    width: 270px;
-    margin: 30px auto;
+    width: 140px;
+    margin: 10px auto;
 }
 
 footer .social li {
@@ -67,10 +94,12 @@ footer .social li {
     cursor: pointer;
     vertical-align: middle;
     position: relative;
-    font-size: 30px;
+    font-size: 20px;
     color: var(--white);
 }
-
+footer .social li + li{
+    margin: 0;
+}
 
 .tour-form {
     margin-top: 0px;
@@ -97,8 +126,191 @@ footer .social li {
 .tour-form form .row {
     flex: 0 1 calc( 16% - 10px );
 }
+/* application form */
+.application-form {
+    overflow: hidden;
+}
 
+.application-form .upload-container {
+    background: var(--white);
+    border-radius: 3px;
+    padding: 20px;
+    width: auto;
+}
+
+.application-form .upload-container textarea {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    height: 80px;
+    min-height: 80px;
+    max-height: 80px;
+}
+.application-form .file-upload {
+    max-height: 40px;
+}
+.application-form .file-upload + .file-upload{
+    margin-top: 20px;
+}
+.application-form .file-upload span {
+    font-size: 14px;
+    font-weight: normal;
+    color: white;
+    display: inline-block;
+    cursor: pointer;
+    padding: 0;
+}
+.application-form .file-upload span:before{
+    font-size: 20px;
+    transform: translateY(1px);
+    display: none;    
+}
+.application-form .file-upload.active span:before{
+    display: block;
+}
+.application-form .file-upload label,
+.application-form .file-upload label:hover {
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.application-form .file-upload label.attach-file {
+    font-weight: normal;
+    color: #000;
+    height: 40px;
+    line-height: 43px;
+    cursor: pointer;
+    padding: 0 10px;
+    width: 170px;
+    background: #ECECEC;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+    text-align: left;
+    margin: 0;
+    position: relative;
+    display: block;
+    font-family: var(--secondary-font);
+    text-transform: uppercase;
+    border-radius: 3px;
+}
+
+.application-form .file-upload label.attach-file:hover {
+    border: none;
+}
+
+.application-form .file-upload label.attach-file:before {
+    position: relative;
+    margin: 10px 10px 0 5px;
+}
+
+.application-form .file-upload label strong {
+    font-weight: 400;
+}
+
+.application-form .file-upload .text-overflow {
+    display: inline-block;
+    vertical-align: top;
+    color: var(--gray);
+    line-height: 22px;
+    padding: 0;
+    max-width: 350px;
+    max-height: 20px;
+}
+
+.application-form .file-upload .close {
+    cursor: pointer;
+    color: var(--red);
+    display: none;
+    position: relative;
+    margin-top: 6px;
+}
+
+.application-form .file-upload .close:before {
+    font-size: 16px;
+    margin: 0 0 0 20px;
+    line-height: 35px;
+}
+
+.application-form .file-upload.active .close {
+    display: inline-block;
+}
+
+.application-form .file-upload.active label {
+    display: none;
+}
+
+.middle-form-container form .upload-container .row:first-of-type{
+    height: 40px;    
+}
+.middle-form-container form .upload-container .row:last-of-type,
+.middle-form-container .upload-container .row,#background-shadow-inner form .upload-container .row,#background-shadow-inner form .upload-container .row {
+    height: 10px;
+    line-height: 20px;
+}
+
+.middle-form-container .upload-container .row + .row {
+    margin-top: 5px;
+}
+#background-shadow-inner form .upload-container .row + .row{
+    height: 20px;
+    min-height: 20px;
+    margin: 0;
+}
+/* paginator */
+.paginator {
+    margin: 0;
+    height: 50px;
+    line-height: 48px;
+    overflow: visible;
+    display: flex;
+}
+
+.paginator .inner {
+    display: flex;
+    height: 50px;
+    width: auto;
+}
+
+.paginator span, .paginator a {
+    color: #000;
+    position: relative;
+    padding: 0 20px;
+    height: 50px;
+    display: block;
+    background: #F5F5F5;
+    border: none;
+    line-height: 50px;
+    margin: 0 2px;
+}
+
+.paginator span:hover, .paginator a:hover {
+    border: none;
+    background: var(--main-color-light);
+}
+
+.paginator .active {
+    color: #fff;
+    z-index: 10;
+    background-color: var(--main-color);
+}
+
+.paginator .page-left,.paginator .page-right {
+    font-size: 28px;
+    padding: 0;
+    width: 50px;
+    text-align: center;
+}
+
+.paginator .page-left svg, .paginator .page-right svg {
+    width: 13px;
+    transform: translateY(-4px);
+}
 /* calculator-form */
+.application-lead,
 .calculator-form {
     margin-top: -140px;
     width: 1240px;
@@ -106,11 +318,12 @@ footer .social li {
     margin-left: auto;
     margin-right: auto;
     background: #fff;
-    padding: 40px;
+    padding: 30px;
     border: 1px solid #838383;
     box-sizing: border-box;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.15);
     border-radius: 3px;
+    font-size: 20px;
 }
 
 .calculator-form .title {
@@ -179,7 +392,8 @@ footer .social li {
     position: relative;
 }
 
-.calculator-form form .plus:after,.calculator-form form .plus:before {
+.calculator-form form .plus:after,
+.calculator-form form .plus:before {
     content: "";
     width: 100%;
     height: 4px;
@@ -200,4 +414,226 @@ footer .social li {
     display: block;
     text-align: center;
     margin: 0 auto;
+}
+.application-lead{
+    font-size: 20px;
+}
+.application-lead b {
+    display: block;
+    font-size: 28px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.application-lead .button {
+    float: right;
+}
+
+/* content */
+.content p,
+.content div,
+.content ul,
+.content ol{
+    padding: 0;
+    margin: 0 0 30px 0;
+    font-size: 20px;
+    line-height: 32px;
+}
+.content h2,
+.content h3,
+.content h4{
+    font-size: 24px;
+    line-height: 32px;
+    padding: 0;
+    margin: 60px 0 40px 0;
+}
+/* social */
+#social-buttons-content {
+}
+
+#social-buttons-content .ya-share2__list {
+    display: block;
+    background: #eee;
+    width: 120px;
+    margin: 0 auto;
+    padding: 1px 0;
+}
+
+#social-buttons-content .ya-share2__list li {
+    display: block;
+    margin: 20px auto;
+    width: 60px;
+}
+
+#social-buttons-content .ya-share2__list li a {
+    border: none;
+}
+
+#social-buttons-content .ya-share2__list li a .ya-share2__badge {
+    border-radius: 0;
+    border: none;
+}
+
+#social-buttons-content .ya-share2__list li a .ya-share2__badge .ya-share2__icon {
+    width: 60px;
+    height: 60px;
+}   
+
+/* contacts */
+.contacts .address {
+    font-size: 36px;
+    line-height: 54px;
+    margin: -30px 0 60px 0;
+    text-align: center;
+    display: block;
+}
+
+.contacts ul {
+    margin-bottom: 60px;
+}
+
+.contacts ul li {
+    font-size: 24px;
+}
+
+.contacts ul li b {
+    display: block;
+    font-size: 18px;
+    margin: 20px 0 10px 0;
+}
+.contacts ul li b i{
+    font-weight: normal;
+    font-size: 80%;
+}
+.contacts ul li a {
+    font-size: 18px;
+    color: var(--main-color);
+}
+
+.contacts .map {
+    margin-top: 30px;
+    width: 100%;
+    height: 300px;
+    position: relative;
+    background: var(--gray);
+}
+
+.contacts .map .image {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    bottom: 30px;
+    width: 260px;
+}
+
+.contacts .map span {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 50px;
+    color: var(--white);
+    background: var(--main-color);
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* objects list*/
+.objects-list {
+}
+
+.objects-list .annotation {
+    max-width: 100%;
+}
+
+.objects-list .list {
+    margin: 120px auto;
+}
+
+.objects-list .list .item {
+    
+    position: relative;
+}
+
+.objects-list .list .item + .item {
+    margin-top: 60px;
+}
+
+.objects-list .list .item .img {
+    display: block;
+    width: 860px;
+    height: 560px;
+}
+
+.objects-list .list .item .text {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 550px;
+    z-index: 0;
+    height: 340px;
+    background: var(--gray-light);
+    padding: 40px;
+}
+
+.objects-list .list .item .text .title {
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 56px;
+    border: none;
+    display: block;
+}
+
+.objects-list .list .item:hover .text .title {
+    color: var(--secondary-color);
+}
+
+.objects-list .list .item .text .place {
+    display: block;
+    font-size: 24px;
+    line-height: 38px;
+    margin: 20px 0 0 0;
+}
+
+.objects-list .list .item .details {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background: var(--main-color);
+    color: #fff;
+    height: 140px;
+    width: 460px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 140px;
+    text-transform: uppercase;
+    font-family: var(--secondary-font);
+    transition: .2s background-color ease-in-out;
+}
+
+.objects-list .list .item:hover .details {
+    background-color: var(--secondary-color);
+}
+
+.objects-list .list .item .details:before {
+    float: none;
+    position: relative;
+    transform: translate(210px,-2px);
+    font-size: 40px;
+}
+
+.objects-list .list .item .weight {
+    position: absolute;
+    bottom: 40px;
+    font-size: 24px;
+}
+
+.objects-list .list .item .weight b {
+    display: block;
+    font-size: 42px;
+    line-height: 1.4;
 }

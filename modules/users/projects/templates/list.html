@@ -1,0 +1,63 @@
+<div class="list-container users">
+    <div class="caption-container">
+        <a href="/projects/users/add/" class="button orange">Добавить пользователя</a>
+    </div>
+    <div class="filter">
+        <span class="active">Пользователи</span>
+    </div>
+
+    <div class="filters-container clearfix flex" data-url="/projects/users/">
+        
+        <div class="admin">
+        </div>
+        <div class="login" data-icon="search">
+            <input type="text" id="login"  name="login" value="{$get_array['login']}" placeholder="Логин">
+        </div>
+        <div class="name" data-icon="search">
+            <input type="text" id="name"  name="name" value="{$get_array['name']}" placeholder="Имя">
+        </div>
+        <div class="lastname" data-icon="search">
+            <input type="text" id="lastname"  name="lastname" value="{$get_array['lastname']}" placeholder="Фамилия">
+        </div>
+        <div class="company" data-icon="search">
+            <input type="text" id="company"  name="company" value="{$get_array['company']}" placeholder="Компания">
+        </div>
+        <div class="email" data-icon="search">
+            <input type="text" id="email"  name="email" value="{$get_array['email']}" placeholder="Email">
+        </div>
+        <div class="date">
+        </div>
+    </div>
+    <div class="list sortable">
+        {if!empty $list}
+            {loop $list,$k,$item}
+                <div class="item-block clearfix flex" data-id="{$item['id']}" data-url="/projects/users/edit_params/">
+                
+                    <div class="admin">
+                        {ifeq $item['id_group'],101}
+                            <span data-icon="verified_user" title="Админ"></span>
+                        {elseifeq $item['admin'],1}
+                            <span data-icon="verified_user" title="Админ"></span>
+                        {/if}
+                    </div>
+                    <div class="login"><a href="/projects/users/edit/{$item['id']}/">{$item['login']}</a></div>
+                    <div class="name"><a href="/projects/users/edit/{$item['id']}/">{$item['name']}</a></div>
+                    <div class="lastname"><a href="/projects/users/edit/{$item['id']}/">{$item['lastname']}</a></div>
+                    <div class="company">{$item['company']}</div>
+                    <div class="email">{$item['email']}</div>
+                    <div class="date">
+                        <div class="move" data-icon="drag_indicator"></div>
+                        {if!eq $item['id'],$auth['id']}
+                        <div class="visibility">
+                            <span data-icon="visibility_off" class="change-params {ifeq $item['published'],1} active{/if}" data-url="/projects/users/" data-id="{$item['id']}" data-field="published"></span>
+                        </div>
+                        {/if}
+                    </div> 
+                    {if!eq $item['id'],$auth['id']}<span data-icon="delete" class="delete red" data-url="/projects/users/delete/{$item['id']}/"></span>{/if}
+                </div>
+            {/loop $list}
+        {else}
+            <p style="padding:30px; text-align: center; color: var(--gray);">Запрошенные данные не найдены</p>
+        {/if}
+    </div>
+</div>

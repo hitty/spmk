@@ -1,6 +1,13 @@
-<div class="form-success-container">
-    <a href="#" class="modal-close-btn closebutton"></a>
-    <i data-icon="done"></i>
-    <span class="title">{if!empty $title}{$title}{else}Спасибо за обращение!{/if}</span>
-    {if!empty $text}<div class="text">{$text}</div>{/if}
+<div class="form-success-container">
+    
+    <i data-icon="thumb_up"></i>
+    <span class="title">{if!empty $title}{$title}{else}Спасибо за проявленный интерес!{/if}</span>
+    <div class="text">
+        {if!empty $text}{$text}
+            
+        {else}
+            Наши менеджеры свяжутся с вами в течение суток
+        {/if}
+    </div>
+    <a href="#" class="closebutton button main-color big">Закрыть окно</a>
 </div>

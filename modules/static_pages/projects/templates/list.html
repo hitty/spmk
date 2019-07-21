@@ -1,0 +1,28 @@
+<div class="list-container pages">
+    <div class="caption-container">
+        <a href="/projects/static_pages/add/" class="button orange">Новая страница</a>
+    </div>
+    <div class="filter">
+        <span class="active">Страницы</span>
+    </div>
+    {if!empty $list}
+        <div class="list clearfix">
+            <div class="header item-block clearfix flex">
+                <div class="id">ID</div>
+                <div class="title">Заголовок</div>
+                <div class="url">URL страницы</div>
+            </div>
+               
+            {loop $list,$key,$item}
+                <div class="item-block clearfix flex" id="item_{$item['id']}">
+                   
+                    <div class="id">{$item['id']}</div>
+                    <div class="title"><a href="/projects/static_pages/edit/{$item['id']}/">{$item['title']}</a></div>
+                    <div class="url">{$item['url']}</div>
+                    <span data-icon="delete" class="delete red" data-url="/projects/static_pages/delete/{$item['id']}/"></span>
+                </div>
+            {/loop $list}
+        </div>
+    {/if}
+        
+</div>
