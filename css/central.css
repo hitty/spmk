@@ -184,7 +184,7 @@ footer .social li + li{
     line-height: 43px;
     cursor: pointer;
     padding: 0 10px;
-    width: 170px;
+    width: 200px;
     background: #ECECEC;
     border: none;
     cursor: pointer;
@@ -541,99 +541,3 @@ footer .social li + li{
     text-align: center;
 }
 
-/* objects list*/
-.objects-list {
-}
-
-.objects-list .annotation {
-    max-width: 100%;
-}
-
-.objects-list .list {
-    margin: 120px auto;
-}
-
-.objects-list .list .item {
-    
-    position: relative;
-}
-
-.objects-list .list .item + .item {
-    margin-top: 60px;
-}
-
-.objects-list .list .item .img {
-    display: block;
-    width: 860px;
-    height: 560px;
-}
-
-.objects-list .list .item .text {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 550px;
-    z-index: 0;
-    height: 340px;
-    background: var(--gray-light);
-    padding: 40px;
-}
-
-.objects-list .list .item .text .title {
-    font-weight: bold;
-    font-size: 48px;
-    line-height: 56px;
-    border: none;
-    display: block;
-}
-
-.objects-list .list .item:hover .text .title {
-    color: var(--secondary-color);
-}
-
-.objects-list .list .item .text .place {
-    display: block;
-    font-size: 24px;
-    line-height: 38px;
-    margin: 20px 0 0 0;
-}
-
-.objects-list .list .item .details {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    background: var(--main-color);
-    color: #fff;
-    height: 140px;
-    width: 460px;
-    text-align: center;
-    font-weight: bold;
-    font-size: 24px;
-    line-height: 140px;
-    text-transform: uppercase;
-    font-family: var(--secondary-font);
-    transition: .2s background-color ease-in-out;
-}
-
-.objects-list .list .item:hover .details {
-    background-color: var(--secondary-color);
-}
-
-.objects-list .list .item .details:before {
-    float: none;
-    position: relative;
-    transform: translate(210px,-2px);
-    font-size: 40px;
-}
-
-.objects-list .list .item .weight {
-    position: absolute;
-    bottom: 40px;
-    font-size: 24px;
-}
-
-.objects-list .list .item .weight b {
-    display: block;
-    font-size: 42px;
-    line-height: 1.4;
-}

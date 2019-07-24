@@ -90,7 +90,7 @@ nav a {
     font-weight: bold;
     margin: 0;
     border: none;
-    border: 3px solid var(--main-color);
+    border: 2px solid var(--main-color);
     padding: 8px 20px 8px 20px;
     border-radius: 3px;
     position: relative;
@@ -108,7 +108,7 @@ nav li.active a {
     nav li:hover a {
         color: var(--white);
         border-color: var(--white);
-        border-bottom-width: 3px;
+        border-bottom-width: 2px;
     }
 }
 

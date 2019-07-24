@@ -152,7 +152,7 @@ class Photos {
     * @param integer $id - ID объекта в основной таблице
     * @return array of arrays
     */
-    public static function getList($table, $id){
+    public static function getList($table, $id, $limit = 0){
          global $db;
          $sql = "SELECT 
                 `photos`.`name`,
@@ -163,7 +163,8 @@ class Photos {
            FROM ".Config::$sys_tables[$table.'_photos']." photos 
            LEFT JOIN ".Config::$sys_tables[$table]." main ON `main`.`id` = `photos`.`id_parent`
            WHERE `photos`.`id_parent` = ".$id."
-           ORDER BY main_photo='true' DESC, IF( `photos`.`position`=0, 1, 0 ), `photos`.`position` ASC, `photos`.`id` ";
+           ORDER BY main_photo='true' DESC, IF( `photos`.`position`=0, 1, 0 ), `photos`.`position` ASC, `photos`.`id` 
+           " . ( !empty( $limit ) ? " LIMIT 0, " . $limit : "" ) ;
         $rows = $db->fetchall($sql);
         if(empty($rows)) return array();
         $main_photo = false;

@@ -24,7 +24,7 @@ if( ! ( $auth->id_group == 101 )  ) Host::Redirect( '/' );
 if( empty( $action ) && ! ( $auth->id_group == 101 ) ) Host::Redirect( '/' );
 //меню
 $this_page->menuClear( 1 );
-$this_page->menuAdd( 'Проекты', 'manage/projects', 1, false, false, false );
+$this_page->menuAdd( 'Объекты', 'manage/objects', 1, false, false, false );
 $this_page->menuAdd( 'Ассортимент', 'manage/assortment', 1, false, false, false );
 $this_page->menuAdd( 'Новости', 'manage/news', 1, false, false, false );
 if( $auth->id_group == 101 ){

@@ -4,6 +4,10 @@
         font-size: 16px;
         border-width: 2px;
     }
+    h1 {
+        font-size: 54px;
+        line-height: 64px;
+    }
 
     header .actions a, header .actions span {
         font-size: 16px;
@@ -12,9 +16,12 @@
     header .actions .email,header .actions .phone {
         margin-left: 20px;
     }
+    .annotation {
+        font-size: 20px;
+    }
 }
 
-@media (max-width: 1420px) {
+@media (max-width: 1380px) {
     section{
         margin: 80px 0;
     }
@@ -134,8 +141,8 @@
     }
 
     h1 {
-        font-size: 54px;
-        line-height: 64px;
+        font-size: 50px;
+        line-height: 60px;
     }
 
     header nav .container {
@@ -150,6 +157,7 @@
         display: block;
         margin-top: 5px;
         font-size: 12px;
+        
     }
 
     header .actions .phone:after {
@@ -166,7 +174,7 @@
     }
 
     .annotation {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     h2 + .annotation {
@@ -309,6 +317,7 @@
     .contacts ul li {
         flex: 0 1 50%;
         margin-bottom: 30px;
+        text-align: center;
     }
 
     .tour-form form {
@@ -455,6 +464,7 @@
 
     header .actions .phone {
         margin-top: 0;
+        width: 30px;
     }
 
     nav {
@@ -516,8 +526,8 @@
 
     header .burger {
         display: block;
-        width: 50px;
-        height: 10px;
+        width: 70px;
+        height: 30px;
         line-height: 12px;
         background: var(--white);
         color: var(--main-color);
@@ -758,7 +768,7 @@
         height: 30px;
         line-height: 33px;
         font-size: 14px;
-        width: 140px;
+        width: 160px;
     }
 
     .application-form .file-upload label.attach-file:before {

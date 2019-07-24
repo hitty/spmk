@@ -1,9 +1,9 @@
 .hero {
-    height: calc( 100% - 80px );
+    height: calc( 100% - 70px );
     padding: 0 30px;
     position: absolute;
     min-height: 545px;
-    width: calc( 100% - 60px );
+    width: 100%;
 }
 
 .hero:before {
@@ -228,7 +228,6 @@ nav {
     }
     .hero {
         padding: 0 20px;
-        width: calc( 100% - 40px );
     }
 
     .hero .text .inner {

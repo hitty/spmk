@@ -6,8 +6,11 @@
 /* common correction elements */
 html{
     overflow-x: auto;
-    -webkit-tap-highlight-color: transparent;
-    display: flex;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;    
     font-size: 12px
 }
 body,
@@ -24,6 +27,9 @@ body {
     -moz-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
     text-size-adjust: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;

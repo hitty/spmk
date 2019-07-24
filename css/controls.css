@@ -586,6 +586,11 @@ form .flex input:last-of-type{
     }
 
     .button.big, button.big {
+        height: 60px;
+        line-height: 60px;
+        font-size: 22px;
+        padding-left: 80px;
+        padding-right: 80px;
     }
 }
 
@@ -619,11 +624,11 @@ form .flex input:last-of-type{
         font-size: 15px;
     }
     .button.big, button.big {
-        height: 60px;
-        line-height: 60px;
-        font-size: 22px;
-        padding-left: 80px;
-        padding-right: 80px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 20px;
+        padding-left: 60px;
+        padding-right: 60px;
     }
     form .terms .text{
         font-size: 12px;

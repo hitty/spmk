@@ -1,6 +1,6 @@
 <?php
-$GLOBALS['css_set'][] = '/modules/news/css/style.css';
-$GLOBALS['js_set'][] = '/modules/news/js/script.js';
+$GLOBALS['css_set'][] = '/modules/objects/css/style.css';
+$GLOBALS['js_set'][] = '/modules/objects/js/script.js';
 
 $post_parameters = Request::GetParameters( METHOD_POST );
 Response::SetArray( 'parameters', $post_parameters );
@@ -15,21 +15,17 @@ switch( true ){
         // блок
         ////////////////////////////////////////////////////////////////////////////////////////////////////////
         case $action == 'block':
-            $list = CommonDb::getList( 'news', false, $sys_tables['news'] . '.published = 1', 'position date DESC', 'id' );
+            $list = CommonDb::getList( 'objects', false, $sys_tables['objects'] . '.published = 1', 'position DESC', 'id' );
             Response::SetArray( 'list', $list );
             $module_template = 'block.html';
             if( $ajax_mode ) $ajax_result['ok'] = true;
             break;
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // карточка новости
+    // карточка объектов
     ////////////////////////////////////////////////////////////////////////////////////////////////////////
-    case !empty( $action ) && count( $this_page->page_parameters ) == 2:
-        $category = CommonDb::getItem( 'news_categories', "`chpu_title` = '" . $db->real_escape_string( $action ) . "'" );
-        if( empty( $category ) ) Host::RedirectLevelUp();
-
-        
-        $item = CommonDb::getItem( 'news', $sys_tables['news'] . ".chpu_title = '" . $db->real_escape_string( $this_page->page_parameters[1] ) . "'", $sys_tables['news'] . '.id' );
+    case !empty( $action ) && count( $this_page->page_parameters ) == 1:
+        $item = CommonDb::getItem( 'objects', "chpu_title = '" . $db->real_escape_string( $action ) . "'", $sys_tables['objects'] . '.id' );
         Response::SetArray( 'item', $item );
         
         $h1 = array();
@@ -62,39 +58,18 @@ switch( true ){
             
         } else Host::RedirectLevelUp();
         
-        $photos = Photos::getList( 'news', $item['id'] );
+        $photos = Photos::getList( 'objects', $item['id'] );
         Response::SetArray( 'photos', $photos );
         
         $module_template = 'item.html';
         break;
     ////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // список новостей
+    // список объектов
     ////////////////////////////////////////////////////////////////////////////////////////////////////////
-    case 
-        empty( $action ) ||
-        ( !empty( $action ) && count( $this_page->page_parameters ) == 1 ):
-        //категории
-        $categories = CommonDb::getList( 'news_categories');
-        Response::SetArray( 'categories', $categories );
-        // фильтры
-        $condition = '';
-        $conditions = [];
-        $sortby = Request::GetInteger( 'sort', METHOD_GET );
-        $conditions['published'] = $sys_tables['news'] . ".`published` = 1";
-        if( !empty( $action ) ) {
-            $category = CommonDb::getItem( 'news_categories', "`chpu_title` = '" . $db->real_escape_string( $action ) . "'" );
-            if( empty( $category ) ) Host::RedirectLevelUp();
-            $conditions['category_chpu_title'] = $sys_tables['news'] . ".`id_category` = " . $category['id'];
-            Response::SetString( 'category_title', $category['title'] );
-        }
-            
-        $condition = implode(" AND ",$conditions);        
-        $count = Config::Get( 'string_per_page/news' );
-        // создаем пагинатор для списка
-        $paginator_where = $condition;
-        $paginator = new Paginator( $sys_tables['news'], $count, $paginator_where, false, false, $this_page->real_url );
-
-        $list = CommonDb::getList( 'news', $paginator->getFromString( $paginator->current_page ) . ',' . $count, $condition, 'date DESC', 'id' );
+    case empty( $action ):
+        $GLOBALS['css_set'][] = '/css/objects.css';
+        $list = CommonDb::getList( 'objects', false, $sys_tables['objects'] . '.published = 1', 'position DESC', 'id' );
+        foreach( $list as $k => $item ) $list[$k]['photos'] = Photos::getList( 'objects', $item['id'], 5 );
         Response::SetArray( 'list', $list );
         $module_template = 'list.html';
         break;

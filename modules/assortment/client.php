@@ -15,7 +15,7 @@ switch( true ){
         // блок
         ////////////////////////////////////////////////////////////////////////////////////////////////////////
         case $action == 'block':
-            $list = CommonDb::getList( 'assortment', false, $sys_tables['assortment'] . '.published = 1 AND ' . $sys_tables['assortment'] . '.parent_id = 0', 'position DESC', 'id' );
+            $list = CommonDb::getList( 'assortment', false, $sys_tables['assortment'] . '.published = 1', 'position DESC', 'id' );
             Response::SetArray( 'list', $list );
             $module_template = 'block.html';
             if( $ajax_mode ) $ajax_result['ok'] = true;
@@ -52,7 +52,7 @@ switch( true ){
                     'title' => $item['title'],
                     'description' => $description,
                     'image' => '/img/uploads/big/' . ( !empty( $item['subfolder'] ) ? $item['subfolder'] : ( !empty( $photos[0] ) ? $photos[0]['subfolder'] : '' ) ) . '/' . ( !empty( $item['photo'] ) ? $item['photo'] : ( !empty( $photos[0] ) ? $photos[0]['name'] : '' ) ),
-                    'url' => '/proekty/' . $item['chpu_title'] . '/'
+                    'url' => '/objekty/' . $item['chpu_title'] . '/'
                 )
             );        
             
@@ -67,7 +67,7 @@ switch( true ){
     // список проектов
     ////////////////////////////////////////////////////////////////////////////////////////////////////////
     case empty( $action ):
-        $list = CommonDb::getList( 'assortment', false, $sys_tables['assortment'] . '.published = 1 AND ' . $sys_tables['assortment'] . '.parent_id = 0', 'position DESC', 'id' );
+        $list = CommonDb::getList( 'assortment', false, $sys_tables['assortment'] . '.published = 1', 'position DESC', 'id' );
         Response::SetArray( 'list', $list );
         $module_template = 'list.html';
         break;

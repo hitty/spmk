@@ -22,7 +22,8 @@ return array(
     'string_per_page' => array(
         'users'        => 20         // пользователи
         , 'news' => DEBUG_MODE ? 6 : 9 // новости
-        , 'projects' => 10             // новости
+        , 'objects' => 10             // новости
+        , 'objects_types' => 10       // типы объектов
         , 'assortment' => 10           // новости
     ),  
     'mysql' => array(
@@ -96,8 +97,11 @@ return array(
         'news_photos' => 'news_photos',
         'news_categories' => 'news_categories',
 
-        'projects' => 'projects',
-        'projects_photos' => 'projects_photos',
+        'objects' => 'objects',
+        'objects_photos' => 'objects_photos',
+
+        'objects_types' => 'objects_types',
+        'objects_types_photos' => 'objects_types_photos',
 
         'assortment' => 'assortment',
         'assortment_photos' => 'assortment_photos',

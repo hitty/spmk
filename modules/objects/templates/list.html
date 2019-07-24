@@ -1,0 +1,55 @@
+<section class="objects-list objects-list">
+     <h1>{if!empty $h1}{$h1}{else}Наши объекты{/if}</h1>
+     <div class="annotation inner">
+        {if!empty $current_page['page_content']}
+            {$current_page['page_content']}
+        {/if}
+        <span class="button big popup" data-url="/applications/">Оставить заявку</span>
+     </div>
+     <div class="list inner">
+        {loop $list,$k,$item}
+            <div class="item transition  internal-link" data-link="/objekty/{$item['chpu_title']}/">
+                {php:$photos = $item['photos']}
+                {php:$photos_count = count($item['photos'])}
+                <div class="img">
+                    {if!empty $photos}
+                    <div class="image-list">
+                        {loop $photos,$pk,$pv} 
+                        <div class="image-item">
+                            <div class="image-wrapper bg-cover transition" style="background-image: url(/img/uploads/big/{$pv['subfolder']}/{$pv['name']})"></div>
+                            {ifgt $photos_count,1}<div class="image-button"></div>{/if}
+                        </div>
+                        {/loop $photos}
+                    </div>
+                    {/if}
+                </div>
+
+                <div class="text">
+                    <a href="/objekty/{$item['chpu_title']}/" title="{$item['title']}" class="title transition-text">{$item['title']}</a>
+                    <span class="place icon" data-icon="placeholder">{$item['place']}</span>
+                    <span class="weight icon">{$item['object_weight']} т</span>
+                    <ul class="services">
+                        <li class="project" data-content="Проектирование"></li>
+                        <li class="production" data-content="Изготовление"></li>
+                        <li class="delivery" data-content="Доставка"></li>
+                        <li class="crane" data-content="Монтаж"></li>
+                        <li class="key" data-content="«Под ключ»"></li>
+                    </ul>
+                </div>
+                <span class="details" data-icon="arrow_right_alt">Детали объекта</span>
+            </div>  
+        {/loop $list} 
+        {include /templates/includes/paginator.html}
+    </div>  
+</section>
+
+<section class="hero bg-cover" style="background-image: url('/img/appliction-hero-bg.jpg');">
+    <div class="inner">
+        <h2 class="invert">Остались вопросы?</h2>
+        <span class="annotation white">Свяжитесь с нами - и получите ответы на них!</span>
+        {php:$middle = true}
+        {include /templates/includes/form.html}
+    </div>
+</section>
+
+{include /templates/includes/contacts.html}

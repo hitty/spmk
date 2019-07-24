@@ -32,9 +32,9 @@ return array(
         'module' => 'static_pages',
         'title' => 'Страницы'
     )
-    ,'projects' => array(
-        'module' => 'projects',
-        'title' => 'Проекты'
+    ,'objects' => array(
+        'module' => 'objects',
+        'title' => 'Объекты'
     )
     ,'assortment' => array(
         'module' => 'assortment',

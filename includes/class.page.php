@@ -310,7 +310,7 @@ class Page {
                     $this_page->menuAdd( 'Изготовление', 'izgotovlenie', 2, false, false, 'uslugi'  );
                     $this_page->menuAdd( 'Монтаж', 'montazh', 2, false, false, 'uslugi'  );
                     $this_page->menuAdd( '«Под ключ»', 'pod_kluch', 2, false, false, 'uslugi'  );
-                $this_page->menuAdd( 'Объекты', 'proekty', 1 );
+                $this_page->menuAdd( 'Объекты', 'objekty', 1 );
                 $this_page->menuAdd( 'Прайс', 'price', 1 );
                 $this_page->menuAdd( 'Закупки', 'tenders', 1 );
                 

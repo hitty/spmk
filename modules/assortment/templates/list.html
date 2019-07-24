@@ -2,10 +2,10 @@
      <div class="central-container bbox list br4">
         {loop $list,$k,$item}
             <div class="item transition clearfix flex shadow-hover  br4">
-                <span class="hdr internal-link" data-link="/proekty/{$item['chpu_title']}/"></span>
+                <span class="hdr internal-link" data-link="/objekty/{$item['chpu_title']}/"></span>
                 <span class="img bg-cover lazy" data-src="/img/uploads/big/{$item['subfolder']}/{$item['photo']}"></span>
                 <div class="text">
-                    <a href="/proekty/{$item['chpu_title']}/" title="{$item['title']}" class="title transition-text">{$item['title']}</a>
+                    <a href="/objekty/{$item['chpu_title']}/" title="{$item['title']}" class="title transition-text">{$item['title']}</a>
                     {$item['content_short']}
                 </div>
             </div> 

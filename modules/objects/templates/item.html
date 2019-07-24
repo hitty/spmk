@@ -12,16 +12,16 @@
     </article>
     <div  class=" col-1 bbox br4 desktop-version" id="sidebar">
         <div class=" fixed-column  right-menu shadow br4">
-            <div class="header">Ассортимент</div>
+            <div class="header">Реализованные проекты</div>
             <ul>
-                {loop $assortment_list,$pl,$pitem}
+                {loop $objects_list,$pl,$pitem}
                     <li>
                         {ifeq $pitem['chpu_title'],$item['chpu_title']}<span data-icon="chevron_left">{$pitem['title']}</span>
                         {else}
                             <a href="/objekty/{$pitem['chpu_title']}/" title="{$pitem['title']}" class="transition" data-icon="chevron_left">{$pitem['title']}</a>
                         {/if}
                     </li>
-                {/loop $assortment_list}
+                {/loop $objects_list}
             </ul>
         </div>
     </div>

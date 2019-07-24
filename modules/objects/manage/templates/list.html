@@ -1,12 +1,13 @@
 <div class="list-container media">
     <div class="caption-container">
-        <a href="/manage/assortment/add/" class="button orange">Добавить запись</a>
+        <a href="/manage/objects/add/" class="button orange">Добавить запись</a>
     </div>
     <div class="filter">
-        <span class="active">Ассортимент</span>
+        <span class="active">Объекты</span>
+        <a href="/manage/objects/types/">Типы объектов</a>
     </div>
 
-    <div class="filters-container clearfix flex" data-url="/manage/assortment/">
+    <div class="filters-container clearfix flex" data-url="/manage/objects/">
         
         <div class="info">
         </div>
@@ -22,11 +23,11 @@
                     <div class="photo">
                         {if!empty $item['photo']}<img src="/img/uploads/sm/{$item['subfolder']}/{$item['photo']}" />{/if}
                     </div>
-                    <div class="title"><a href="/manage/assortment/edit/{$item['id']}/">{$item['title']}</a></div>
-                    <span data-icon="delete" class="delete red" data-url="/manage/assortment/delete/{$item['id']}/"></span>
+                    <div class="title"><a href="/manage/objects/edit/{$item['id']}/">{$item['title']}</a></div>
+                    <span data-icon="delete" class="delete red" data-url="/manage/objects/delete/{$item['id']}/"></span>
                 </div>
             {/loop $list}
-            {include /templates/paginator.html} 
+            {include /objects/templates/paginator.html} 
         {else}
             <p style="padding:30px; text-align: center; color: var(--gray);">Запрошенные данные не найдены</p>
         {/if}
