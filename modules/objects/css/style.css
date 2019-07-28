@@ -1,0 +1,286 @@
+
+.object-item .info {
+    position: relative;
+    margin: 80px 0 20px 0;
+}
+
+.object-item .info .main-photo {
+    width: 820px;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: -20px;
+    bottom: -20px;
+}
+
+.object-item .object-info {
+    position: relative;
+    display: inline-block;
+    margin-left: calc( 100% - 510px );
+    width: 510px;
+    z-index: 10;
+    height: auto;
+    padding: 40px;
+}
+
+.object-item .object-info .item + .item {
+    margin-top: 30px;
+}
+
+.object-item .object-info .icon {
+    margin-top: 15px;
+}
+
+.object-item .object-info .title {
+    font-size: 24px;
+    line-height: 1.4;
+}
+
+.object-item .object-info .services {
+    position: relative;
+    top: auto;
+    left: auto;
+    bottom: auto;
+}
+
+.object-item .object-info .services li {
+    float: none;
+    width: 100%;
+    font-size: 20px;
+    padding-left: 50px;
+    margin-top: 20px;
+}
+
+.object-item .content {
+    display: flex;
+}
+
+.object-item .content .text {
+    width: 820px;
+    margin-bottom: 0;
+}
+
+.object-item .content .company {
+    text-align: left;
+    width: calc( 100% - 820px );
+    padding: 0 60px;
+    margin-bottom: 0;
+}
+
+.object-item .content .company img {
+    display: block;
+}
+
+.object-item .content .company span {
+    display: block;
+    font-size: 14px;
+    line-height: 20px;
+    margin-top: 10px;
+}
+
+@media (max-width: 1280px) {
+    .object-item .info {
+    }
+
+    .object-item .info .main-photo {
+        width: 70%;
+    }
+
+    .object-item .object-info {
+        padding: 30px;
+        margin-left: 60%;
+        width: 40%;
+    }
+
+    .object-item .object-info .item + .item {
+        margin-top: 20px;
+    }
+
+    .object-item .object-info .icon {
+        margin-top: 10px;
+    }
+
+    .object-item .object-info .title {
+        font-size: 22px;
+    }
+
+    .object-item .object-info .services {
+    }
+
+    .object-item .object-info .services li {
+        font-size: 18px;
+        padding-left: 35px;
+        margin-top: 15px;
+        background-size: 22px auto;
+    }
+
+    .object-item .content {
+    }
+
+    .object-item .content .text {
+        width: 70%;
+    }
+
+    .object-item .content .company {
+        width: 30%;
+        padding: 0 40px;
+    }
+
+    .object-item .content .company img {
+        max-width: 100%;
+    }
+
+    .object-item .content .company span {
+    }    
+}
+@media (max-width: 1024px) {
+    .object-item .info {
+    }
+
+    .object-item .info .main-photo {
+    }
+
+    .object-item .object-info {
+        padding: 20px;
+        margin-left: 55%;
+        width: 45%;
+    }
+
+    .object-item .object-info .item + .item {
+    }
+
+    .object-item .object-info .icon {
+    }
+
+    .object-item .object-info .title {
+        font-size: 20px;
+    }
+
+    .object-item .object-info .services {
+    }
+
+    .object-item .object-info .services li {
+        font-size: 16px;
+        padding-left: 30px;
+        margin-top: 10px;
+        background-size: 20px auto;
+    }
+
+    .object-item .content {
+    }
+
+    .object-item .content .text {
+    }
+
+    .object-item .content .company {
+    }
+
+    .object-item .content .company img {
+    }
+
+    .object-item .content .company span {
+    }
+}
+
+@media (max-width: 767px) {
+    .object-item .info {
+        margin: 40px -10px;
+    }
+
+    .object-item .info .main-photo {
+        position: relative;
+        width: 100%;
+        top: auto;
+        bottom: auto;
+        height: 210px;
+    }
+
+    .object-item .object-info {
+        width: 100%;
+        margin: -7px 0 0 0;
+        display: block;
+    }
+
+    .object-item .object-info .item + .item {
+        margin-top: 15px;
+    }
+
+    .object-item .object-info .icon {
+    }
+
+    .object-item .object-info .title {
+    }
+
+    .object-item .object-info .services {
+        margin-top: 10px;
+        height: auto;
+    }
+
+    .object-item .object-info .services li {
+        font-size: 14px;
+        padding-left: 25px;
+        margin-top: 8px;
+        background-size: 16px auto;
+        background-position: 0 4px;
+    }
+
+    .object-item .content {
+        display: block;
+        width: 100%;
+    }
+
+    .object-item .content .text {
+        width: 100%;
+    }
+
+    .object-item .content .company {
+        width: 100%;
+        padding: 0;
+    }
+
+    .object-item .content .company img {
+    }
+
+    .object-item .content .company span {
+    }
+}
+@media (max-width: 576px) {
+    .object-item .info {
+    }
+
+    .object-item .info .main-photo {
+    }
+
+    .object-item .object-info {
+    }
+
+    .object-item .object-info .item + .item {
+    }
+
+    .object-item .object-info .icon {
+    }
+
+    .object-item .object-info .title {
+    }
+
+    .object-item .object-info .services {
+    }
+
+    .object-item .object-info .services li {
+    }
+
+    .object-item .content {
+    }
+
+    .object-item .content .text {
+    }
+
+    .object-item .content .company {
+    }
+
+    .object-item .content .company img {
+    }
+
+    .object-item .content .company span {
+    }    
+}

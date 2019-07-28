@@ -1,9 +1,26 @@
+/* Device = Laptops, Desktops */
+@media (min-width: 1025px) and (max-width: 1280px) {
+}
+/* Device = Tablets, Ipads  */
+@media (min-width: 768px) and (max-width: 1024px) {
+}
+/* Most of the Smartphones Mobiles  */
+@media (min-width: 320px) and (max-width: 767px) {
+  
+}
+
+/* Device = Low Resolution Tablets, Mobiles (Landscape) */
+@media (min-width: 481px) and (max-width: 767px) {
+}
+  
+
 @media (max-width: 1640px) {
     nav a,nav span {
         padding: 3px 12px;
         font-size: 16px;
         border-width: 2px;
     }
+
     h1 {
         font-size: 54px;
         line-height: 64px;
@@ -16,17 +33,23 @@
     header .actions .email,header .actions .phone {
         margin-left: 20px;
     }
+
+    header .logo img {
+        width: 140px;
+    }
+
     .annotation {
         font-size: 20px;
     }
 }
 
 @media (max-width: 1380px) {
-    section{
+    section {
         margin: 80px 0;
     }
-    .inner {
-        width: calc( 100% - 40px );
+
+    .breadcrumbs {
+        transform: translate(-50%, 44px);
     }
 
     nav span,nav a {
@@ -49,8 +72,12 @@
 }
 
 @media (max-width: 1280px) {
-    section{
+    section {
         margin: 70px 0;
+    }
+
+    .breadcrumbs {
+        transform: translate(-50%, 40px);
     }
 
     .application-lead,.calculator-form {
@@ -92,6 +119,11 @@
     header .actions .phone {
         margin-left: 0;
         margin-top: 10px;
+    }
+
+    header .logo span {
+        display: none;
+        margin-left: 5px;
     }
 
     .how-we-work ul li {
@@ -136,8 +168,24 @@
 }
 
 @media (max-width: 1024px) {
-    section{
+    section {
         margin: 60px 0;
+    }
+
+    .breadcrumbs {
+        transform: translate(-50%, 35px);
+    }
+
+    .breadcrumbs span[itemscope] {
+        font-size: 14px;
+    }
+
+    .breadcrumbs span[itemscope]:before {
+        18px 0 18px 18px;: -18px; /* left: -16px; */
+        /* border-width: 18px 0 18px 18px; */
+    }
+
+    .breadcrumbs span[itemscope]:after {
     }
 
     h1 {
@@ -157,7 +205,6 @@
         display: block;
         margin-top: 5px;
         font-size: 12px;
-        
     }
 
     header .actions .phone:after {
@@ -377,6 +424,26 @@
         margin: 50px auto;
     }
 
+    .breadcrumbs span[itemscope] {
+        font-size: 12px;
+        line-height: 24px;
+        height: 24px;
+    }
+
+    .breadcrumbs span[itemscope]:before {
+        top: -12px;
+        left: -15px;
+    }
+
+    .breadcrumbs span[itemscope]:after {
+        top: -12px;
+    }
+
+    .breadcrumbs {
+        transform: translate(-50%, 30px);
+        height: 24px;
+    }
+
     section.bg-cover {
         padding: 50px 0;
     }
@@ -393,7 +460,7 @@
     nav span,nav a {
         font-size: 24px;
         border: none;
-        color: var(--black);
+        color: var(--white);
         display: block;
         margin: 15px 0;
     }
@@ -412,12 +479,8 @@
         height: 50px;
     }
 
-    header .logo {
-        width: 105px;
-    }
-
     header .logo img {
-        height: 30px;
+        width: 105px;
     }
 
     header .actions {
@@ -469,15 +532,15 @@
 
     nav {
         position: fixed;
-        top: 60px;
-        left: 10px;
-        background: rgba(255,255,255,.95);
+        top: 50px;
+        left: 0;
+        background: var(--main-color);
         z-index: 1000;
         border-radius: 0!important;
-        height: calc( 100% - 70px );
+        height: calc( 100% - 50px );
         transform: translateX(-110%);
         transition: all .6s;
-        width: calc( 100% - 20px );
+        width: 100%;
     }
 
     header nav .container {
@@ -514,7 +577,11 @@
     }
 
     header nav .container li ul li a {
-        color: var(--text);
+        color: var(--white);
+    }
+
+    header nav .container li.expanded:after {
+        display: none;
     }
 
     .menu-top-is-open nav {
@@ -862,19 +929,21 @@
         font-size: 22px;
     }
 
-    .paginator .inner{
+    .paginator .inner {
         min-width: 40px;
         width: auto;
         margin: 0;
     }
-    .paginator .page-left, .paginator .page-right{
-        width: 46px;    
+
+    .paginator .page-left, .paginator .page-right {
+        width: 46px;
     }
-    .paginator span, .paginator a{
+
+    .paginator span, .paginator a {
         height: 40px;
         line-height: 40px;
         font-size: 14px;
-        width: 40px;    
+        width: 40px;
         padding: 0;
         text-align: center;
     }
@@ -885,7 +954,9 @@
         font-size: 22px;
         line-height: 1.4;
     }
-
+    .breadcrumbs{
+        display: none;
+    }
     .digits ul li {
         flex: 0 1 calc( 100% - 20px );
         font-size: 18px;
@@ -956,10 +1027,12 @@
     .application-lead b {
         font-size: 20px;
     }
-    .paginator .page-left, .paginator .page-right{
+
+    .paginator .page-left, .paginator .page-right {
         width: 30px;
     }
-    .paginator span, .paginator a   {
+
+    .paginator span, .paginator a {
         height: 30px;
         line-height: 30px;
         font-size: 12px;

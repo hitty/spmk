@@ -1,7 +1,7 @@
 {if!empty $list}
-    <div class="carousel clearfix">
-    {loop $list,$k,$item}
-        {include /modules/objects/templates/block.item.html}
-    {/loop $list}
+    <div class="{ifempty $similar}carousel clearfix{else}list flex{/if}">
+        {loop $list,$k,$item}
+            {include /modules/objects/templates/block.item.html}
+        {/loop $list}
     </div>
 {/if}

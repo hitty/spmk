@@ -2,15 +2,10 @@
 </head>
 <body>
     <div class="wrapper">
+        {include /templates/includes/breadcrumbs.html}
         {include /templates/includes/main_header_part.html}
-        {if!empty $mainpage}
-            {$content}
-            {include /templates/includes/main_footer_part.html}
-        {else}
-            {$content}
-            {include /templates/includes/main_footer_part.html}
-        {/if}
-        
+        {$content}
+        {include /templates/includes/main_footer_part.html}
     </div>
 </body>
 </html>

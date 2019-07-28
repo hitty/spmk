@@ -76,7 +76,7 @@
 }
 
 .benefits .item {
-    background: #F5F5F5;
+    background: var(--gray-light-bg);
     margin-top: 20px;
     padding: 40px;
     position: relative;

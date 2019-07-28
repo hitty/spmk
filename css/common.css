@@ -338,8 +338,13 @@ section.bg-cover{
     border-radius: 3px;
 }
 .inner{
-    width: 1320px;
+    width: 1180px;
     margin: 0 auto;
+}
+@media (max-width: 1237px) {
+    .inner{
+        width: calc( 100% - 40px );
+    }
 }
 .white{
     color: var(--white);
@@ -348,29 +353,83 @@ section.bg-cover{
 .mobile-version{
     display: none;
 }   
-.breadcrumbs{
+.breadcrumbs {
     color: var(--gray);
     font-size: 14px;
     display: block;
-    margin-top: 40px;
+    margin: 0 auto;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 54px);
+    text-align: center;
+    max-width: 100%;
+    align-items: center;
+    height: 28px;
 }
-.breadcrumbs .rightarrow{
+
+.breadcrumbs.clearfix.text-overflow {
+}
+
+.breadcrumbs .rightarrow {
     font-size: 10px;
     padding: 0 2px;
 }
-.breadcrumbs .rightarrow:last-of-type{
-    display: none;    
+
+.breadcrumbs span[itemscope] {
+    font-size: 16px;
+    line-height: 28px;
+    background: var(--gray-light-bg);
+    padding: 0 15px;
+    display: inline-block;
+    height: 28px;
+    margin-right: -4px;
+    position: relative;
 }
-.breadcrumbs a{
-    font-size: 12px;
-    line-height: 12px;
+
+.breadcrumbs span[itemscope]:before,.breadcrumbs span[itemscope]:after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: -14px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 24px 0 24px 24px;
+    border-color: transparent transparent transparent #fff;
+    top: -10px;
+    z-index: 1;
 }
-.breadcrumbs a:hover{
+
+.breadcrumbs span[itemscope]:after {
+    left: auto;
+    right: -3px;
+    border-color: transparent transparent transparent var(--gray-light-bg);
+    z-index: 2;
+}
+.breadcrumbs span[itemscope]:last-of-type:after,
+.breadcrumbs span[itemscope]:first-of-type:before{
+    display: none;
+}
+.breadcrumbs span[itemscope] a {
+    color: var(--main-color);
+    border-bottom: none;
+    text-decoration: underline;
+    line-height: 15px;
+    position: relative;
+    z-index: 10;
+}
+.breadcrumbs span[itemscope] a:hover{
+    text-decoration: none;
+}
+.breadcrumbs span[itemscope]:last-of-type a {
+    color: var(--gray);
+    text-decoration: none;
+    pointer-events: none;
+}
+
+.breadcrumbs a:hover {
     border: none;
-}
-.breadcrumb:before{
-    font-size: 18px;
-} 
+}  
 .icon{
     position: relative;
     padding-left: 40px;

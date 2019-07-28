@@ -11,14 +11,22 @@ header {
 }
 
 header .logo {
-    width: 210px;
-    display: block;
+    display: flex;
     border: none;
+    align-items: center;
 }
 
 header .logo img {
     display: block;
-    width: 100%;
+    width: 164px;
+}
+
+header .logo span {
+    color: var(--white);
+    font-size: 12px;
+    display: block;
+    line-height: 1.2;
+    margin-left: 10px;
 }
 
 header .actions {

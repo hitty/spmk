@@ -1,4 +1,4 @@
-<section class="news-list">
+<section class="news content-list">
      <h1>{if!empty $category_title}{$category_title}{else}Новости{/if}</h1>
      <div class="navigation">
         {loop $categories,$c,$category}
@@ -7,8 +7,7 @@
      </div>
      <div class="list inner flex">
         {loop $list,$k,$item}
-            <div class="item clearfix">
-                <span class="hdr internal-link" data-link="/news/{$item['category_chpu_title']}/{$item['chpu_title']}/"></span>
+            <div class="item clearfix internal-link" data-link="/news/{$item['category_chpu_title']}/{$item['chpu_title']}/">
                 <span class="img bg-cover" style="background-image: url(/img/uploads/big/{$item['subfolder']}/{$item['photo']})"></span>
                 <a href="/news/{$item['category_chpu_title']}/{$item['chpu_title']}/" title="{$item['title']}" class="title">{$item['title']}</a>
                 <div class="bottom">

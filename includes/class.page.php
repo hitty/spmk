@@ -312,7 +312,7 @@ class Page {
                     $this_page->menuAdd( '«Под ключ»', 'pod_kluch', 2, false, false, 'uslugi'  );
                 $this_page->menuAdd( 'Объекты', 'objekty', 1 );
                 $this_page->menuAdd( 'Прайс', 'price', 1 );
-                $this_page->menuAdd( 'Закупки', 'tenders', 1 );
+                $this_page->menuAdd( 'Закупки', 'zakupki', 1 );
                 
                 //###########################################################################
                 // подключение и выполнение модуля

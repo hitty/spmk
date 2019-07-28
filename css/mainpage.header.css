@@ -6,16 +6,6 @@
     position: relative;
 }
 
-.mainpage header .logo {
-    width: 210px;
-    display: block;
-    border: none;
-}
-
-.mainpage header .logo img {
-    display: block;
-    width: 100%;
-}
 
 .mainpage header .actions {
     font-size: 24px;

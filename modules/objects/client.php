@@ -1,6 +1,10 @@
 <?php
+$GLOBALS['css_set'][] = '/css/content.css';
+$GLOBALS['css_set'][] = '/css/objects.css';
 $GLOBALS['css_set'][] = '/modules/objects/css/style.css';
 $GLOBALS['js_set'][] = '/modules/objects/js/script.js';
+$GLOBALS['js_set'][] = '/js/gallery/script.js';
+$GLOBALS['css_set'][] = '/js/gallery/style.css';          
 
 $post_parameters = Request::GetParameters( METHOD_POST );
 Response::SetArray( 'parameters', $post_parameters );
@@ -15,7 +19,18 @@ switch( true ){
         // блок
         ////////////////////////////////////////////////////////////////////////////////////////////////////////
         case $action == 'block':
-            $list = CommonDb::getList( 'objects', false, $sys_tables['objects'] . '.published = 1', 'position DESC', 'id' );
+            //похожие объекты
+            $similar = empty( $this_page->page_parameters[1] ) ? false : true;
+            $count = !empty( $similar ) ? 6 : false;
+            Response::SetBoolean( 'similar', $similar );
+            //id карточки
+            $id = empty( $this_page->page_parameters[2] ) ? false : $this_page->page_parameters[2];
+            //ловия
+            $clauses = [];
+            $clauses['published'] = $sys_tables['objects'] . '.published = 1';
+            if( !empty( $id ) ) $clauses['id'] = $sys_tables['objects'] . '.id != ' . $id;
+            
+            $list = CommonDb::getList( 'objects', $count, implode( " AND ", $clauses ), 'position DESC', 'id' );
             Response::SetArray( 'list', $list );
             $module_template = 'block.html';
             if( $ajax_mode ) $ajax_result['ok'] = true;

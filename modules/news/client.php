@@ -1,5 +1,5 @@
 <?php
-$GLOBALS['css_set'][] = '/modules/news/css/style.css';
+$GLOBALS['css_set'][] = '/css/content.css';
 $GLOBALS['js_set'][] = '/modules/news/js/script.js';
 
 $post_parameters = Request::GetParameters( METHOD_POST );
@@ -35,8 +35,6 @@ switch( true ){
         $h1 = array();
         
         if( !empty( $item ) ){ 
-            //хлебные крошки
-            $this_page->addBreadcrumbs( $item['title'], $item['chpu_title'] );
             
             //сео параметры
             $description =  !empty( $item['seo_description'] ) ? $item['seo_description'] : ( empty( $this_page->page_seo_description ) ? $item['content_short'] : $this_page->page_seo_description );
@@ -99,4 +97,12 @@ switch( true ){
         $module_template = 'list.html';
         break;
 }
+//хлебные крошки
+$this_page->clearBreadcrumbs();
+$this_page->addBreadcrumbs( 'Новости', 'news' );
+if( !empty( $category ) ) {
+    $this_page->addBreadcrumbs( $category['title'], $category['chpu_title'] );
+    if( !empty( $item ) ) $this_page->addBreadcrumbs( $item['title'], $item['chpu_title'] );
+}
+
 ?>
