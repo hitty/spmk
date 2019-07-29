@@ -208,7 +208,7 @@
     margin: 15px 0;
     border: 1px solid #E3E3E3;
     display: block;
-    flex: 0 1 calc( 33.1% - 15px - 60px );
+    flex: 0 1 calc( 33.1% - 10px );
     line-height: 1.2;
 }
 

@@ -1,5 +1,4 @@
 <?php
-$GLOBALS['css_set'][] = '/css/content.css';
 $GLOBALS['js_set'][] = '/modules/news/js/script.js';
 
 $post_parameters = Request::GetParameters( METHOD_POST );

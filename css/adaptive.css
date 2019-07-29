@@ -153,7 +153,7 @@
 
     .digits ul li {
         padding: 40px 20px;
-        flex: 0 1 calc( 33.1% - 50px );
+        flex: 0 1 calc( 33.1% - 10px );
         font-size: 26px;
     }
 
@@ -181,8 +181,6 @@
     }
 
     .breadcrumbs span[itemscope]:before {
-        18px 0 18px 18px;: -18px; /* left: -16px; */
-        /* border-width: 18px 0 18px 18px; */
     }
 
     .breadcrumbs span[itemscope]:after {
@@ -255,7 +253,7 @@
 
     .digits ul li {
         padding: 30px 10px;
-        flex: 0 1 calc( 33.1% - 30px );
+        flex: 0 1 calc( 33.1% - 10px );
         font-size: 22px;
         margin: 10px 0;
     }
@@ -742,7 +740,7 @@
 
     .digits ul li {
         padding: 20px 10px;
-        flex: 0 1 calc( 50% - 30px );
+        flex: 0 1 calc( 50% - 10px );
         font-size: 20px;
     }
 
@@ -958,7 +956,7 @@
         display: none;
     }
     .digits ul li {
-        flex: 0 1 calc( 100% - 20px );
+        flex: 0 1 calc( 100% - 10px );
         font-size: 18px;
         margin: 5px 0;
     }

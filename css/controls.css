@@ -135,7 +135,48 @@ textarea{
     cursor: default;
     color: #9B9B9B;
 }
+input[type=radio] {
+    display: none;
+}
 
+label.radio {
+    position: relative;
+    cursor: pointer;
+    padding-left: 25px;
+    height: 19px;
+    line-height: 21px;
+    margin: 0 10px 10px 0;
+}
+
+label.radio:hover {
+    color: var(--main-color);
+}
+
+label.radio:before {
+    content: "radio_button_unchecked";
+    width: 19px;
+    height: 19px;
+    position: absolute;
+    display: block;
+    left: 0;
+    top: -1px;
+    font-size: 22px;
+    color: #9B9B9B;
+    margin-right: 5px;
+}
+
+label.radio:hover:before {
+    color: var(--main-color);
+}
+
+input[type=radio]:checked + label,input[type=radio]:checked + label:before {
+    color: var(--main-color);
+}
+
+label.radio.on:before {
+    content: "radio_button_checked";
+    color: var(--main-color);
+}
 form label.error,
 input.error{
     color: var(--error);
@@ -394,6 +435,31 @@ form .terms .text {
     display: block;
 }
 
+/* file upload */
+.upload-container {
+    background: var(--white);
+    border-radius: 3px;
+    padding: 20px;
+    width: auto;
+}
+
+.upload-container textarea {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    height: 80px;
+    min-height: 80px;
+    max-height: 80px;
+}
+.file-upload {
+    max-height: 40px;
+    position: relative;
+}
+.file-upload + .file-upload{
+    margin-top: 20px;
+}
 .file-upload input {
     width: 0.1px;
     height: 0.1px;
@@ -403,15 +469,100 @@ form .terms .text {
     z-index: -1;
 }
 
-.file-upload label {
-}
-
 .file-upload label span {
     padding: 10px;
 }
 
 .file-upload label * {
     pointer-events: none;
+}
+.file-upload span {
+    font-size: 14px;
+    font-weight: normal;
+    color: white;
+    display: inline-block;
+    cursor: pointer;
+    padding: 0;
+}
+.file-upload span:before{
+    font-size: 20px;
+    transform: translateY(1px);
+    display: none;    
+}
+.file-upload.active span:before{
+    display: block;
+}
+.file-upload label,
+.file-upload label:hover {
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.file-upload label.attach-file {
+    font-weight: normal;
+    color: #000;
+    height: 40px;
+    line-height: 43px;
+    cursor: pointer;
+    padding: 0 10px;
+    width: 200px;
+    background: #ECECEC;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+    text-align: left;
+    margin: 0;
+    position: relative;
+    display: block;
+    font-family: var(--secondary-font);
+    text-transform: uppercase;
+    border-radius: 3px;
+}
+
+.file-upload label.attach-file:hover {
+    border: none;
+}
+
+.file-upload label.attach-file:before {
+    position: relative;
+    margin: 10px 10px 0 5px;
+}
+
+.file-upload label strong {
+    font-weight: 400;
+}
+
+.file-upload .text-overflow {
+    display: inline-block;
+    vertical-align: top;
+    color: var(--gray);
+    line-height: 22px;
+    padding: 0;
+    max-width: 350px;
+    max-height: 20px;
+}
+
+.file-upload .close {
+    cursor: pointer;
+    color: var(--red);
+    display: none;
+    position: relative;
+    margin-top: 6px;
+}
+
+.file-upload .close:before {
+    font-size: 16px;
+    margin: 0 0 0 20px;
+    line-height: 35px;
+}
+
+.file-upload.active .close {
+    display: inline-block;
+}
+
+.file-upload.active label {
+    display: none;
 }
 
 
@@ -707,4 +858,310 @@ a.closebutton.button{
 }
 .modal a.closebutton.button{
     display: block;
+}
+
+
+/* form big */
+form.big {
+    /* padding: 30px; */
+    background: #fff;
+}
+
+form.big fieldset {
+    padding: 0;
+}
+
+form.big fieldset .item {
+    background: var(--gray-light-bg);
+    padding: 30px 20px 0 20px;
+}
+
+form.big fieldset .item h2 {
+    margin: 0;
+    border-bottom: 1px solid var(--gray-light);
+    padding-bottom: 30px;
+    font-size: 20px;
+    text-transform: uppercase;
+    color: var(--main-color);
+}
+
+form.big fieldset .row {
+    display: flex;
+    padding: 20px 0;
+    margin: 0;
+}
+
+form.big fieldset .row.disabled {
+    display: none;
+}
+
+form.big fieldset .row + .row {
+    border-top: 1px solid var(--gray-light);
+}
+
+form.big fieldset .full-width {
+    width: 100%;
+}
+
+form.big fieldset .quater-width {
+    width: 25%;
+    display: inline-block;
+}
+
+form.big fieldset .row.inline {
+    display: inline-block;
+}
+
+form.big fieldset .row.inline + .row.inline,form.big fieldset .row.inline + .row.inline + .row.inline + .row.inline {
+    margin-left: 3%;
+}
+
+form.big fieldset .row.inline + .row.inline + .row.inline {
+    margin-left: 0;
+}
+
+form.big fieldset .row label {
+    font-size: 20px;
+    flex: 0 1 40%;
+    margin-right: 20px;
+}
+
+form.big fieldset .row span {
+}
+
+form.big fieldset .row input {
+    height: 50px;
+    line-height: 50px;
+    font-size: 18px;
+    font-weight: normal;
+}
+
+form.big fieldset .row input[type="submit"],
+form.big fieldset .row button {
+    margin-top: 60px;
+}
+
+form.big fieldset .tinyMCE {
+    min-height: 200px;
+}
+
+form.big fieldset .tinyMCE.extended {
+    min-height: 600px;
+}
+
+form.big fieldset .row input::-webkit-input-placeholder {
+    color: var(--gray);
+    font-size: 18px;
+}
+
+form.big fieldset .row.hr-row {
+    width: 100%;
+    height: 1px;
+    background: #E8E8E8;
+    border: none;
+    padding: 0;
+    margin: 60px 0;
+}
+
+form.big fieldset .row.hr-row .title {
+    font-size: 16px;
+    display: block;
+    color: var(--main-color);
+}
+
+form.big fieldset .row.block-title {
+    background-color: var(--main-color-light);
+    height: 50px;
+    line-height: 50px;
+    padding: 0 10px;
+    font-weight: bold;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+}
+
+form.big fieldset .row .tip-text {
+    position: absolute;
+    top: 0;
+    right: -100%;
+    left: calc( 100% + 60px );
+}
+
+form.big fieldset .row .tip-text .title {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--main-color);
+    line-height: 21px;
+}
+
+form.big fieldset .row .tip-text p {
+    font-size: 16px;
+    color: #4A4A4A;
+}
+
+form.big fieldset .row .interval-selector span {
+    width: calc( 50% - 15px );
+    position: relative;
+}
+
+form.big fieldset .row .interval-selector input {
+    width: 100%;
+}
+
+form.big fieldset .row .interval-selector:before {
+    content: "-";
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    font-size: 42px;
+    margin-left: -5px;
+    line-height: 0px;
+}
+
+form.big fieldset .row .add:before {
+    content: "+";
+    width: 24px;
+    height: 24px;
+    color: var(--main-color);
+    background-color: #fff;
+    display: inline-block;
+    line-height: 24px;
+    margin-right: 10px;
+}
+
+form.big fieldset .row .delete {
+    color: var(--red);
+    cursor: pointer;
+    text-align: center;
+    border-bottom: 1px dashed var(--red);
+    width: 100%;
+    display: inline;
+    margin: 0 auto;
+    line-height: 20px;
+}
+
+form.big fieldset .row .delete:before {
+    line-height: 28px;
+    margin-right: 10px;
+}
+
+form.big fieldset .row .delete:hover {
+    border-bottom-color: transparent;
+}
+
+form.big fieldset .row .dates {
+    position: relative;
+    color: var(--main-color) ;
+}
+
+form.big fieldset .row .dates span:before {
+    position: absolute;
+    right: 10px;
+    top: 16px;
+}
+
+form.big fieldset .pending .item {
+    margin: 60px 0;
+    padding-bottom: 60px;
+    border-bottom: 1px solid #E8E8E8;
+}
+
+form.big fieldset .pending .item:first-of-type {
+    margin-top: 30px;
+}
+
+form.big fieldset .row.switcher-container .fieldwrapper,form.big fieldset .row.switcher-container label {
+    display: inline-block;
+    float: left
+}
+
+form.big fieldset .row.switcher-container .fieldwrapper {
+    margin-left: 10px;
+}
+
+form.big fieldset .row .switcher {
+    position: relative;
+    width: 38px;
+    height: 20px;
+    display: inline-block;
+    margin: 0;
+    cursor: pointer;
+    border: 2px solid var(--red);
+    ;border-radius: 13px;
+    background: var(--red);
+    z-index: 10;
+}
+
+form.big fieldset .row .switcher:before {
+    content: "";
+    width: 16px;
+    height: 16px;
+    background: #fff;
+    margin-left: 20px;
+    position: absolute;
+    top: 2px;
+    transition: all .3s;
+    -webkit-transition: all .15s;
+    -moz-transition: all .15s;
+    -ms-transition: all .15s;
+    -o-transition: all .15s;
+    transition: all .15s;
+    border-radius: 14px;
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    -moz-transition: all 0.2s ease-out;
+    -o-transition: all 0.2s ease-out;
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    -moz-border-radius: 100px;
+    -webkit-border-radius: 100px;
+    border-radius: 100px;
+}
+
+form.big fieldset .row .switcher.active {
+    border: 2px solid var(--green);
+    ;background: var(--green);
+    ;}
+
+form.big fieldset .row .switcher.active:before {
+    margin-left: 2px;
+}
+
+form.big fieldset .row .switcher-label {
+    position: relative;
+    top: -5px;
+    margin-right: 8px;
+}
+
+form.big fieldset .row .switcher + .switcher-label {
+    margin-left: 5px;
+}
+
+form.big fieldset .row label.radio {
+    flex: 0 1 auto;
+}
+form.big fieldset .row.text{
+    display: block;
+    
+}
+form.big fieldset .row.text .file-upload{
+    margin-top: 30px;
+}
+form.big fieldset .row.text .file-upload label.attach-file{
+    height: 60px;
+    line-height: 60px;
+    background: var(--main-color);
+    color: var(--white);
+    width: 260px;
+}
+form.big fieldset .row.text .file-upload label.attach-file:before{
+    margin-top: 20px;
 }

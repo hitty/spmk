@@ -35,8 +35,8 @@ return array(
         'lc_time_names' => 'ru_RU'
     ),
     'elasticsearch' => array(      // настройки Elasticsearch
-        'index' => 'awards',       // индекс
-        'tables' => [ 'news', 'nominees', 'users', 'media' ],           // таблицы
+        'index' => 'spmk',       // индекс
+        'tables' => [ 'news', 'objects', 'production' ],           // таблицы
     )
     
     ,'social' => array(   // данные приложений для авторизации через соцсети

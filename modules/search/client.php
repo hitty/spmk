@@ -11,7 +11,7 @@ switch( true ){
         if( !empty( $query ) ) {
             
             $search_params = [
-                'index' => 'awards',
+                'index' => 'spmk',
                 'body' => [
                     "query"=> [
                         "query_string"=> [

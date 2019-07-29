@@ -49,6 +49,7 @@
     font-size: 20px;
     padding-left: 50px;
     margin-top: 20px;
+    cursor: default;
 }
 
 .object-item .content {

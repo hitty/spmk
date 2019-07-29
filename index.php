@@ -93,6 +93,7 @@ if( empty( $ajax_mode ) ) {
         $GLOBALS['css_set'][] = '/css/controls.css';
         $GLOBALS['css_set'][] = '/css/central.css';
         $GLOBALS['css_set'][] = '/css/header.css';
+        $GLOBALS['css_set'][] = '/css/content.css';
         $GLOBALS['css_set'][] = '/js/popup.window/styles.css';    
     } else {
         $GLOBALS['css_set'][] = '/manage/css/reset.css';

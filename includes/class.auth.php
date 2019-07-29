@@ -25,7 +25,7 @@ class Auth {
     public $social_data = array();
     public $session_delay = 600; //session length, minutes
     public $session_hash = false;
-    public $CookieSave = false;
+    public $CookieSave = true;
     public $CookieName = 'sitecookie';
     public $user_rights = array();
     public $group_rights = array();
@@ -33,7 +33,7 @@ class Auth {
 
     public function __construct(){
         $host = getenv("HTTP_HOST") ? getenv("HTTP_HOST") : getenv("SERVER_NAME");
-        $this->CookieName = 'au_'.sha1(DEBUG_MODE ? '.awards.int' : '.coursego.ru');
+        $this->CookieName = 'au_'.sha1(DEBUG_MODE ? '.spmk.int' : '.spmk.group');
         Config::Init();
         $this->users_table = Config::$sys_tables['users'];
         $this->groups_table = Config::$sys_tables['users_groups'];
@@ -63,7 +63,7 @@ class Auth {
     * @desc чистим куки
     */
     private function ClearCookiesData() {
-        Cookie::SetCookie($this->CookieName, '', -3600, '/', DEBUG_MODE ? '.awards.int' : '.coursego.ru');
+        Cookie::SetCookie($this->CookieName, '', -3600, '/', DEBUG_MODE ? '.spmk.int' : '.spmk.group');
     }
     /**
     * @desc запись юзера в куки
@@ -78,7 +78,7 @@ class Auth {
             'social_value' => !empty($this->social_data['value'])?$this->social_data['value']:false,
             'cookie_save'  => $this->CookieSave
         );
-        Cookie::SetCookie($this->CookieName, $auth, 60*60*24*COOKIE_SAVE_DAYS, '/', DEBUG_MODE ? '.awards.int' : '.coursego.ru');
+        Cookie::SetCookie($this->CookieName, $auth, 60*60*24*COOKIE_SAVE_DAYS, '/', DEBUG_MODE ? '.spmk.int' : '.spmk.group');
     }
     
     /**

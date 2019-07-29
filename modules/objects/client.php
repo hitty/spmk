@@ -1,5 +1,4 @@
 <?php
-$GLOBALS['css_set'][] = '/css/content.css';
 $GLOBALS['css_set'][] = '/css/objects.css';
 $GLOBALS['css_set'][] = '/modules/objects/css/style.css';
 $GLOBALS['js_set'][] = '/modules/objects/js/script.js';
