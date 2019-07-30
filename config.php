@@ -92,6 +92,7 @@ return array(
         'common_pages_map' => 'common_pages_map',
         
         'applications' => 'applications',
+        'applications_spam' => 'applications_spam',
         
         'news' => 'news',
         'news_photos' => 'news_photos',

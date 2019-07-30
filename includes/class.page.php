@@ -665,7 +665,7 @@ class Page {
         if( $url == 'service' && strstr( $this->real_url, 'ratings' ) != '' ) $active_state = false;
         if( !empty( $child ) ) {
             if( empty ( $this->menu[$menulevel][$child] ) ) $this->menu[$menulevel][$child] = array();
-            array_push( $this->menu[$menulevel][$child],array('title'=>$title, 'url'=>$url, 'active'=>$active_state, 'class'=>$class, 'amount'=>$amount, 'external_link' =>  !empty( $external_link) ? true : false ) );
+            array_push( $this->menu[$menulevel][$child],array('title'=>$title, 'url'=>$url, 'active'=>$active_state, 'class'=>$class, 'amount'=>false, 'external_link' =>  !empty( $external_link) ? true : false ) );
         } else $this->menu[$menulevel][] = array('title'=>$title, 'url'=>$url, 'active'=>$active_state, 'class'=>$class);
         //если это верхнее меню, можем указать что элемент не должен быть <a>
         if( $level == 4 && !empty( $internal_link ) ) $this->menu[$menulevel][count( $this->menu[$menulevel]) - 1]['internal_link'] = true;

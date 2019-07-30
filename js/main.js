@@ -150,7 +150,9 @@ jQuery(document).ready(function(){
     
     
     $('form.ajaxed').each( function(){
-        $(this).formSubmit();
+        $(this).formSubmit({
+            'scroll_to_error': $(this).data('scroll_to_error')
+        });
     })
     $('header .burger').on( 'click', function(){
         $('body,html').toggleClass('menu-top-is-open modal-active')    ;

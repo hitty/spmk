@@ -201,15 +201,6 @@ input[disabled="disabled"]{
 input[disabled="disabled"]:hover{
     border: 1px solid #e6e6e6;
 }
-input[type="number"].error + span.error,
-input[type="text"].error + span.error{
-    position: absolute;
-    color: var(--error);
-    bottom: -15px;
-    font-size: 12px;
-    left: 0;
-}
-
 .button,
 button{
     display: inline-block;
@@ -327,7 +318,6 @@ input + .error,
 textarea + .error, 
 .list-selector + .error {
     position: absolute;
-    opacity: 0;
     filter: alpha(opacity=0);
     top: 50%;
     right: 20px;
@@ -859,8 +849,13 @@ a.closebutton.button{
 .modal a.closebutton.button{
     display: block;
 }
-
-
+.invert-form .form-success-container i{
+    color: var(--main-color);
+}
+.invert-form .form-success-container .title,
+.invert-form .form-success-container .text{
+    color: var(--text);
+}
 /* form big */
 form.big {
     /* padding: 30px; */
@@ -929,7 +924,7 @@ form.big fieldset .row label {
 form.big fieldset .row span {
 }
 
-form.big fieldset .row input {
+form.big fieldset .row input:not([type="file"]) {
     height: 50px;
     line-height: 50px;
     font-size: 18px;
@@ -1153,7 +1148,26 @@ form.big fieldset .row.text{
     
 }
 form.big fieldset .row.text .file-upload{
-    margin-top: 30px;
+    margin: 20px 0 10px 0;
+    max-height: 60px;
+} 
+form.big fieldset .row.text .file-upload + .file-upload{
+    max-height: 20px;
+}
+form.big fieldset .row.text .file-upload .close:before {
+    font-size: 16px;
+    margin: -25px 0 0 20px;
+    line-height: 35px;
+}
+form.big fieldset .row.text .file-upload input{
+    z-index: 1001;
+    height: 70px;
+    width: 260px;
+    cursor: pointer;
+}
+form.big fieldset .row.text .file-upload.active input{
+    display: none;
+    
 }
 form.big fieldset .row.text .file-upload label.attach-file{
     height: 60px;

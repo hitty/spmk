@@ -25,6 +25,8 @@ if(DEBUG_MODE){
 error_reporting( E_ALL );
 set_time_limit( 45 ); 
 
+
+
 // подключение классов ядра
 require('includes/class.config.php');               // Config (конфигурация сайта)
 Config::Init();
@@ -34,6 +36,7 @@ require('includes/class.storage.php');              // Session, Cookie, Responce
 Session::Init();
 Request::Init();
 Cookie::Init();
+Time::Init();
 require('includes/class.host.php');                 // Host (вспомогательные данные по текущему хосту)
 Host::Init();
 $host = new ReflectionClass( new Host );            //получение всех свойств класса host
@@ -84,7 +87,6 @@ if( empty( $ajax_mode ) ) {
     
     $GLOBALS['css_set'][] = '/css/variables.css';
     $GLOBALS['css_set'][] = '/css/fonts.css';
-
     
     if( empty( $requested_page->is_manage_page ) ) {
         $GLOBALS['css_set'][] = '/css/reset.css';

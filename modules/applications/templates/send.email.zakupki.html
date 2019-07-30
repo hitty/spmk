@@ -10,32 +10,24 @@
         
         <span style="font-size: 24px; line-height: 50px; display: block; ">Данные:</span>
 
-        {ifeq $application_type, 'zakupki'}
-                {$data['user_comment']}
-        {else}
-            {if!empty $data['name']}
-            <span style="display: block; text-align: left; margin-top: 20px;">
-                Имя: <strong>{$data['name']}</strong>
-            </span>
-            {/if}
-            
-            {if!empty $data['phone']}
-            <span style="display: block; text-align: left; margin-top: 20px;">
-                Телефон: <strong>{$data['phone']}</strong>
-            </span>
-            {/if}
-            
-            {if!empty $data['email']}
-            <span style="display: block; text-align: left; margin-top: 20px;">
-                Email: <strong>{$data['email']}</strong>
-            </span>
-            {/if}
-                                       
-            {if!empty $data['user_comment']}
-            <span style="display: block; text-align: left; margin-top: 20px;">
-                Комментарий: <strong>{$data['user_comment']}</strong>
-            </span>
-            {/if}
+        <span style="display: block; text-align: left; margin-top: 20px;">
+            Имя: <strong>{$data['name']}</strong>
+        </span>
+        
+        <span style="display: block; text-align: left; margin-top: 20px;">
+            Телефон: <strong>{$data['phone']}</strong>
+        </span>
+        
+        {if!empty $data['email']}
+        <span style="display: block; text-align: left; margin-top: 20px;">
+            Email: <strong>{$data['email']}</strong>
+        </span>
+        {/if}
+                                   
+        {if!empty $data['comment']}
+        <span style="display: block; text-align: left; margin-top: 20px;">
+            Комментарий: <strong>{$data['comment']}</strong>
+        </span>
         {/if}
         {if!empty $data['files']}
             <span style="display: block; text-align: left; margin-top: 20px;">

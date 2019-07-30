@@ -1,15 +1,3 @@
-/**
-* Address selector $ plugin
-* 
-* Входные данные:
-* по умолчанию читаются из аттрибутов data-id, data-district_id, data-subway_id тэга, к которому применен плагин
-* если в опциях переданы селекторы соответствующих тегов, то значения берутся из них
-* 
-* Результат:
-* по умолчанию записывается в аттрибуты data-id, data-district_id, data-subway_id тэга, к которому применен плагин
-* если в опциях были переданы селекторы соответствующих тегов, то значения записываются и в них
-* 
-*/
 if($)(function(window, document, $, undefined){
     $.fn.formSubmit = function(opts) {
         var defaults = {
@@ -17,7 +5,7 @@ if($)(function(window, document, $, undefined){
             f_values              : {},                       /* массив значений всех элементов */
             popup_redirect        : false,
             scroll_to_error       : false,
-            error_template        : '<span class="error">Обязательное поле</span>',
+            error_template        : '<span class="error"></span>',
             notification_class    : 'form-block notifications',
             uploader_index        : 0,
             onInit                : function(){},
@@ -28,8 +16,10 @@ if($)(function(window, document, $, undefined){
         
         /* функция стартовой инициализации */
         var start = function(){
-            o.button = jQuery( 'button, .button', init_selector);      
+            o.button = jQuery( 'button, span.button', init_selector);
+            console.log( o.button );
             formValidate( init_selector );
+            
             //уникальные поля
             init_selector.find( 'input.unique' ).each(function(){
                 var search_timeout = undefined;
@@ -39,122 +29,113 @@ if($)(function(window, document, $, undefined){
                     search_timeout = setTimeout(function() {
                         validateUnique( _input )
                     }, 250);
-                }); 
+                });
             })
+            
+            init_selector.find( 'input, textarea' ).each(function(){ 
+                jQuery(this).on( 'change', function(){
+                    checkEl( jQuery(this) );    
+                })
+                
+            })
+            
             //обработка прикрепленных файлов
+            
             jQuery( 'input[class*="inputfile"]', init_selector ).each( function(){
                 manageUpload( jQuery(this) )
                 
             } ) ;
+
+                
             o.button.on( 'click', function(e){
                 
-                if( jQuery(this).hasClass( 'disabled' ) || jQuery(this).hasClass( 'waiting' )) return false;
-                jQuery(this).addClass( 'waiting' );
+                if( jQuery(this).hasClass( 'disabled' )) return false;
                 
                 e.stopPropagation();
                 e.preventDefault();
 
+                jQuery( '.notifications div', init_selector ).addClass( 'inactive' );
+                     
                 //валидация формы
-                _min_error_offset = 0;
                 init_selector.find( 'input, textarea' ).each(function(){
                     var _this = jQuery(this);
-                    _this.removeClass('error').closest('.form-block').find('.error').remove();
-                    if( _this.parent().hasClass( 'list-selector' )) _this.parent().removeClass( 'error' ).next( 'span' ).removeClass( 'active' );
-                    var _type = _this.attr( 'type' );
-                    _required = _this.attr( 'required' );
-                    _name = _this.attr( 'name' );
-                    if( _name != false ) {
-                        if( _type == 'checkbox' && _this.parent().hasClass( 'on' )){
-                            _value = 1;
-                        } else {
-                            _value = _type == 'radio' ? jQuery( 'input[name=' + _name + ']:checked', init_selector).val() : _this.val();
-                        }
-                        if( ( _required == 'required' && ( _value == '' || _value == 0) || ( _name == 'phone' && (_value.replace(/\D/g,'')).length != 11)) || 
-                            ( _name == 'email' && ( _value.length > 0 && _value.match(/([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/) == null) )) {
-                                //отдельно для селекторов
-                            if( _this.parent().hasClass( 'list-selector' )) _this.parent().addClass( 'error' ).parents( '.form-block' ).append(o.error_template);
-                            else  notification( _this, true, o.error_template ); 
-                            if( o.scroll_to_error == true){
-                                _min_error_offset = _min_error_offset == 0 || _min_error_offset > _this.offset().top ? _this.offset().top : _min_error_offset;
-                            }
-                        } else {
-                            o.f_values[_name] = _value;
-                            if( !_this.hasClass( 'unique' ) ) notification( _this, false, '' );
-                        }
-                    }
+                    checkEl( _this );
                 });  
-                if( o.scroll_to_error == true && _min_error_offset > 0 ) $("html,body").animate({ scrollTop: _min_error_offset - jQuery( 'header' ).height() - 20}, "slow");
-                o.f_values['popup_redirect'] = o.popup_redirect;
-                if( jQuery( '.error', init_selector ).length ) {
-                    jQuery(this).removeClass( 'waiting' );
-                    return false;
+                if( o.scroll_to_error == true && $('.error', init_selector).length > 0 ){
+                    var _header = parseInt( $('header').height() );
+                    $("html,body").animate({ scrollTop: $('.error', init_selector).first().offset().top - _header - 20}, "slow");
+                    
                 }
+                o.f_values['popup_redirect'] = o.popup_redirect;
+                if( jQuery( '.error', init_selector ).length ) return false;
+                 var _form = jQuery(this).closest('form');  
                 
-                jQuery.ajax({
-                    type: "POST", 
-                    async: true,
-                    dataType: 'json', 
-                    url: init_selector.attr( 'action' ),
-                    data: o.f_values,   
-                    cache: false,
-                    success: function( msg ) { 
-                        var _error_notification = jQuery( '.' + o.notification_class.split(' ').join('.'), init_selector );
-                        o.button.removeClass( 'waiting' );
-                        if( msg.ok == true ) {
-                            if(typeof o.onFormSuccess == "function") o.onFormSuccess.call(this, msg);
-                            //вывод уведомления
-                            if( typeof msg.html == 'string' || typeof msg.html_additional == 'string' ) {
-                                _error_notification.remove();
-                                init_selector.find( 'input, textarea' ).addClass('success');
-                                if( msg.success ) jQuery( '.button-container', init_selector ).html ( msg.success ).addClass( 'notifications success' );
+                _form.on('submit', function(e) {
+                    
+                    jQuery.ajax({
+                        type: "POST", 
+                        async: true,
+                        contentType: false,
+                        processData:false, 
+                        dataType: 'json', 
+                        url: init_selector.attr('action'),
+                        data: new FormData( this ),
+                        cache: false,
+                        success: function(msg){ 
+                            var _error_notification = jQuery( '.' + o.notification_class.split(' ').join('.'), init_selector );
+                            o.button.removeClass( 'waiting' );
+                            if( msg.ok == true ) {
+                                if(typeof o.onFormSuccess == "function") o.onFormSuccess.call(this, msg);
+                                //вывод уведомления
+                                if( typeof msg.html == 'string' || typeof msg.html_additional == 'string' ) {
+                                    _error_notification.remove();
+                                    init_selector.find( 'input, textarea' ).addClass('success');
+                                    if( msg.success ) jQuery( '.button-container', init_selector ).html ( msg.success ).addClass( 'notifications success' );
 
-                                if( jQuery( '.modal-inner .closebutton, .modal-inner .modal-close-btn' ).length > 0) {
-                                    setTimeout(function(){
-                                        jQuery( '.modal-inner .closebutton, .modal-inner .modal-close-btn' ).click();
-                                    }, typeof msg.html == 'string' && msg.html.length > 20 ? 3200 : 1500 );
+                                    if( jQuery( '.modal-inner .closebutton, .modal-inner .modal-close-btn' ).length > 0) {
+                                        setTimeout(function(){
+                                            jQuery( '.modal-inner .closebutton, .modal-inner .modal-close-btn' ).click();
+                                        }, typeof msg.html == 'string' && msg.html.length > 20 ? 3200 : 1500 );
+                                    }
+
+                                    if( typeof msg.html == 'string' && msg.html.length > 20 ) init_selector.parent( 'div' ).html(msg.html);
+
+                                    if(o.popup_redirect == true || o.popup_redirect == 'true' || msg.popup_redirect == true){
+                                        setTimeout(function(){
+                                            window.location.href = msg.redirect_url ? msg.redirect_url : location.href.replace(location.hash, "");
+                                        }, typeof msg.html == 'string' && msg.html.length > 20 ? 3500 : 1700 )
+                                    } 
+                                                              
+                                } else jQuery( '.modal-inner .closebutton, .modal-inner .modal-close-btn' ).click();
+                                    if( jQuery( '.result-html', init_selector ).length > 0 && msg.success_text.length > 0 ) {
+                                        jQuery( '.result-html', init_selector ).html( msg.success_text ).addClass( 'success' );
+                                        jQuery( 'input,textarea,.list-selector', init_selector ).attr('disabled', 'disabled').addClass('disabled');
+                                    }
+
+                            } else if( msg.error ||  msg.errors )  {
+                                if( _error_notification.length > 0 ) _error_notification.html( msg.error );
+                                else jQuery( '<div class="' + o.notification_class + '">' + msg.error + '</div>' ).insertBefore( jQuery('.form-block', init_selector ).first() ) ;
+                                if( msg.errors ){
+                                    for(var index in msg.errors) { 
+                                        notification( jQuery( '[name=' + index + ']', init_selector ),  true, msg.error != msg.errors[index] ? '<span class="error">' + msg.errors[index] + '</span>' : '' )
+                                    }
                                 }
-
-                                if( typeof msg.html == 'string' && msg.html.length > 20 ) init_selector.parent( 'div' ).html(msg.html);
-
-                                if(o.popup_redirect == true || o.popup_redirect == 'true' || msg.popup_redirect == true){
-                                    setTimeout(function(){
-                                        window.location.href = msg.redirect_url ? msg.redirect_url : location.href.replace(location.hash, "");
-                                    }, typeof msg.html == 'string' && msg.html.length > 20 ? 3500 : 1700 )
-                                } 
-                                                          
-                            } else jQuery( '.modal-inner .closebutton, .modal-inner .modal-close-btn' ).click();
-                                if( jQuery( '.result-html', init_selector ).length > 0 && msg.success_text.length > 0 ) {
-                                    jQuery( '.result-html', init_selector ).html( msg.success_text ).addClass( 'success' );
-                                    jQuery( 'input,textarea,.list-selector', init_selector ).attr('disabled', 'disabled').addClass('disabled');
-                                }
-
-                        } else if( msg.error ||  msg.errors )  {
-                            if( _error_notification.length > 0 ) _error_notification.html( msg.error );
-                            else jQuery( '<div class="' + o.notification_class + '">' + msg.error + '</div>' ).insertBefore( jQuery('.form-block', init_selector ).first() ) ;
-                            if( msg.errors ){
-                                for(var index in msg.errors) { 
-                                    notification( jQuery( '[name=' + index + ']', init_selector ),  true, msg.error != msg.errors[index] ? '<span class="error">' + msg.errors[index] + '</span>' : '' )
-                                }
-                            }
+                            } 
                         }
-                    }
-                }) 
+                    })    
+                    return false;                    
+                })         
+                _form.submit(); 
             })
             if(typeof o.onInit == "function"){
                 o.onInit();
             }    
-            //видимость отклюбченных селекторов
-            if( jQuery( '.disabled', init_selector ).length > 0 ){
-                var _el_disabled = jQuery( '.disabled', init_selector );
-                jQuery('.disable-selector', init_selector).on( 'click', function(){
-                    _el_disabled.toggleClass('disabled');
-                })
-            }
+            
             //обработка клавиатуры
             jQuery(document).keyup(function(e) {
                 switch(e.keyCode){
-                    case 13: o.button.click(); return false; break
-                    case 27: jQuery( '.modal-inner .closebutton' ).click(); return false; break
+                    case 13: o.button.click();
+                    case 27: jQuery( '#background-shadow-inner .closebutton' ).click();
                 }
             });        
         }             
@@ -168,20 +149,45 @@ if($)(function(window, document, $, undefined){
                 } 
             );
         }
+        //обработка элементов формы
+        var checkEl = function( _this ){
+            _this.removeClass('error').next('span').remove();
+            if( _this.parent().hasClass( 'list-selector' )) _this.parent().removeClass( 'error' ).next( 'span' ).removeClass( 'active' );
+            var _type = _this.attr( 'type' );
+            _required = _this.attr( 'required' );
+            _name = _this.attr( 'name' );
+            if( _name != false ) {
+                if( _type == 'checkbox' && _this.parent().hasClass( 'on' )){
+                    _value = 1;
+                } else {
+                    _value = _type == 'radio' ? jQuery( 'input[name=' + _name + ']:checked', init_selector).val() : _this.val();
+                }
+                if( ( _required == 'required' && ( _value == '' || _value == 0) || ( _name == 'phone' && (_value.replace(/\D/g,'')).length != 11)) || 
+                    ( _name == 'email' && ( _value.length > 0 && _value.match(/([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/) == null) )) {
+                        //отдельно для селекторов
+                    if( _this.parent().hasClass( 'list-selector' )) _this.parent().addClass( 'error' ).parents( '.row' ).append(o.error_template);
+                    else  notification( _this, true, o.error_template ); 
+                    
+                } else {
+                    o.f_values[_name] = _value;
+                    if( !_this.hasClass( 'unique' ) ) notification( _this, false, '' );
+                }
+            }            
+        }
         //уведомления
         var notification = function( _this, _error, _text ){
             
             if( _error == true ){
-                _this.addClass( 'error' ).closest( '.form-block' ).append( _text );
+                _this.addClass( 'error' ).parents( '.row' ).append( _text );
             } else {
-                _this.removeClass( 'error' ).closest( '.form-block' ).find( '.error' ).remove();
+                _this.removeClass( 'error' ).parents( '.row' ).find( '.error' ).remove();
             }
             
         }
         //мультизагрузка файлов
         var manageUpload = function( input ){
+            
             o.uploader_index++;
-            console.log( o.uploader_index );
             var _parent = input.closest('div');
             var _clone = _parent.clone();
             jQuery( '.close', _parent ).on( 'click', function(){
@@ -241,8 +247,8 @@ if($)(function(window, document, $, undefined){
             
 
             init_selector.on( 'click', function(){
-                jQuery('.modal-container').remove();
-                jQuery( 'body,html' ).addClass( 'modal-active' );
+                $('.modal-container').remove();
+                $( 'body,html' ).addClass( 'modal-active' );
                     
                 _gpval = init_selector.attr( 'data-location' );
                 //setGPval();
@@ -250,43 +256,43 @@ if($)(function(window, document, $, undefined){
                 o.container = init_selector.attr( 'data-container' );
                 o.url = init_selector.attr( 'data-url' );
                 
-                if( jQuery( o.inner_container ).length > 0 && jQuery( o.inner_container ).hasClass( 'active' )){
-                    jQuery( o.inner_container ).remove();
-                    jQuery( o.background_container ).remove();
+                if( $( o.inner_container ).length > 0 && $( o.inner_container ).hasClass( 'active' )){
+                    $( o.inner_container ).remove();
+                    $( o.background_container ).remove();
                     init_selector.click();
                 }
                 
-                container = jQuery( o.container );
+                container = $( o.container );
 
                 //загрузка заднего фона
-                jQuery( 'body' ).append(o.background_template);
+                $( 'body' ).append(o.background_template);
                 
                 //получение контента в зависимости от способа получения данных
-                if( typeof o.container == 'string' ) jQuery( o.inner_container ).append( container.html() ).addClass( container.attr( 'class' ) );
+                if( typeof o.container == 'string' ) $( o.inner_container ).append( container.html() ).addClass( container.attr( 'class' ) );
                 else if( typeof o.url == 'string' ) getPendingContent( o.inner_container, o.url , false, false, false, 
                     function(){ 
                         setTimeout(function(){
                             //эффект появления контентной части
-                            o.width = jQuery( o.inner_container ).outerWidth();
-                            o.height = parseInt( jQuery( o.inner_container ).outerHeight() );
-                            o.window_height = parseInt( jQuery( window ).height() );
+                            o.width = $( o.inner_container ).outerWidth();
+                            o.height = parseInt( $( o.inner_container ).outerHeight() );
+                            o.window_height = parseInt( $( window ).height() );
                             
-                            jQuery( o.inner_container ).addClass( 'active' );
+                            $( o.inner_container ).addClass( 'active' );
 
                             
-                            checkBoxesInit( jQuery( o.inner_container ) ); 
-                            listSelectorInit( jQuery( o.inner_container ) );
-                            jQuery( o.inner_container + ' .popup' ).each(
+                            checkBoxesInit( $( o.inner_container ) ); 
+                            listSelectorInit( $( o.inner_container ) );
+                            $( o.inner_container + ' .popup' ).each(
                                 function(){ 
-                                    jQuery(this).popupWindow();
+                                    $(this).popupWindow();
                                 }
                             );
                             formValidate( o.inner_container );
                             
                             //closebutton
                             var _popup_redirect = o.popup_redirect && ( typeof init_selector.attr( 'data-redirect' ) == 'string' ? init_selector.attr( 'data-redirect' ) : false );
-                            if( typeof jQuery( o.inner_container + ' form' ).formEdit !== "undefined" ) jQuery( o.inner_container + ' form' ).formEdit();
-                            jQuery( o.inner_container + ' form' ).formSubmit(
+                            if( typeof $( o.inner_container + ' form' ).formEdit !== "undefined" ) $( o.inner_container + ' form' ).formEdit();
+                            $( o.inner_container + ' form' ).formSubmit(
                                 { 
                                     popup_redirect : _popup_redirect,
                                     onFormSuccess: function(data){ o.popupCallback(data) }
@@ -295,8 +301,8 @@ if($)(function(window, document, $, undefined){
                             if(typeof o.onInit == "function"){
                                 o.onInit(container );
                             }
-                            jQuery( o.inner_container ).children(0).prepend( o.closebutton_template );
-                            jQuery( o.inner_container ).append( o.close_template );
+                            $( o.inner_container ).children(0).prepend( o.closebutton_template );
+                            $( o.inner_container ).append( o.close_template );
 
                         }, 20 );
                         
@@ -304,25 +310,25 @@ if($)(function(window, document, $, undefined){
                 );
                 else return false;
                 //эффект появления заднего фона
-                jQuery( o.background_container ).fadeIn(100);
+                $( o.background_container ).fadeIn(100);
                     
                 return false;  
             });
             //закрытие формы
-            jQuery(document).on("click", o.close_container + ', ' + o.inner_container + ' ' + o.closebutton, closePopupWindow );
+            $(document).on("click", o.close_container + ', ' + o.inner_container + ' ' + o.closebutton, closePopupWindow );
 
        }
        var closePopupWindow = function(){
             //эффект исчезания контентной части
-            jQuery( o.inner_container ).removeClass( 'active' );
+            $( o.inner_container ).removeClass( 'active' );
 
             //эффект исчезания заднего фона
             setTimeout(
                 function(){
-                    jQuery( o.background_container ).fadeOut(100, function(){
-                        jQuery(this).parent().remove();
-                        jQuery( o.inner_container ).remove();
-                        jQuery( 'body,html' ).removeClass( 'modal-active' );
+                    $( o.background_container ).fadeOut(100, function(){
+                        $(this).parent().remove();
+                        $( o.inner_container ).remove();
+                        $( 'body,html' ).removeClass( 'modal-active' );
                     })
                 }, 150
             )
@@ -339,4 +345,4 @@ if($)(function(window, document, $, undefined){
        });
     }                
             
-})(window, document, jQuery);            
+})(window, document, $);            

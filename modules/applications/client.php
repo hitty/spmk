@@ -14,10 +14,12 @@ switch(true){
     ////////////////////////////////////////////////////////////////////////////////////////////////////////    
     case $action == 'add':
         $parameters = Request::GetParameters( METHOD_POST );
-        
-        if( !empty( $parameters['phone'] ) ){
-            
-            
+        $application_type = !empty( $parameters['application_type'] ) ? $parameters['application_type'] : '';
+        Response::SetString( 'application_type', $application_type );
+        if( 
+            $application_type == 'zakupki' ||
+            !empty( $parameters['phone'] ) 
+        ){
             if(!empty($_FILES)){
                 $filenames = $files = array();
                 for ($i=0; $i < count( $_FILES['file_upload'] ); $i++ ) {
@@ -49,12 +51,41 @@ switch(true){
             $city = Cookie::GetArray( 'city' );
             $ip = !empty( Host::getUserIp(true) ) ? Host::getUserIp(true) : Host::getUserIp();
             if( $ip == '31.204.181.238' ) die();
+            
+            switch( $application_type ){
+                case 'zakupki':
+                    $mailer_title = 'Запрос со страницы «Закупки»' . ' - '.date('d.m.Y');
+                    $mail_template = 'send.email.html';
+                    $comment = [];
+                    if( !empty( $parameters['title'] )) $comment[] = 'Наименование организации: ' . $parameters['title']; 
+                    if( !empty( $parameters['inn'] )) $comment[] = 'ИНН: ' . $parameters['inn']; 
+                    if( !empty( $parameters['address'] )) $comment[] = 'Юридический адрес: ' . $parameters['address']; 
+                    if( !empty( $parameters['place'] )) $comment[] = 'Фактическое местонахождение: ' . $parameters['place']; 
+                    if( !empty( $parameters['site'] )) $comment[] = 'Сайт компании: ' . $parameters['site']; 
+                    if( !empty( $parameters['fio'] )) $comment[] = 'ФИО: ' . $parameters['fio']; 
+                    if( !empty( $parameters['job'] )) $comment[] = 'Занимаемая должность: ' . $parameters['job']; 
+                    if( !empty( $parameters['phone'] )) $comment[] = 'Контактный телефон: ' . $parameters['phone']; 
+                    if( !empty( $parameters['email'] )) $comment[] = 'Адрес электронной почты: ' . $parameters['email']; 
+                    if( !empty( $parameters['notes'] )) $comment[] = 'Дополнительные сведения: ' . $parameters['notes']; 
+                    if( !empty( $parameters['cooperation'] )) $comment[] = 'Вариант сотрудничества: ' . ( $parameters['cooperation'] == 1 ? 'Поставка материалов' : 'Работы и услуги' ); 
+                    if( !empty( $parameters['activity'] )) $comment[] = 'Направление деятельности: ' . $parameters['activity']; // 1-2; 
+                    if( !empty( $parameters['regions'] )) $comment[] = 'Регионы осуществления поставок: ' . $parameters['regions']; 
+                    if( !empty( $parameters['partnership'] )) $comment[] = 'Уже работали с ГК «СПМК»: ' . ( $parameters['partnership'] == 1 ? 'Да': 'Нет' ); //1-2; 
+                    
+                    $parameters['comment'] = implode( '<br/><br/>', $comment );
+                    break;
+                default:
+                    $mailer_title = ( ( empty( $parameters['reference'] ) ? 'Запрос КП' : 'Запрос референс-листа' ) . ' - '.date('d.m.Y') );
+                    $mail_template = 'send.email.html';
+                    break;
+            }
+            
+            $time = Time::get();
             $data = array(
-                'name' => !empty( $parameters['emanameil'] ) ? $parameters['name'] : '',
+                'name' => !empty( $parameters['name'] ) ? $parameters['name'] : '',
                 'phone' => !empty( $parameters['phone'] ) ? $parameters['phone'] : '',
                 'email' => !empty( $parameters['email'] ) ? $parameters['email'] : '',
-                'comment' => !empty( $parameters['comment'] ) ? $parameters['comment'] : '',
-                'files' => !empty( $files ) ? $files : '',
+                'user_comment' => !empty( $parameters['comment'] ) ? $parameters['comment'] : '',
                 'files' => !empty( $files ) ? $files : '',
                 'ip' => $ip,
                 'ref' => !empty( Host::getRefererURL() ) ? Host::getRefererURL() : '',
@@ -63,17 +94,18 @@ switch(true){
                 'type' => 2
             );
             Response::SetArray( 'data', $data );
-            $db->insertFromArray( $sys_tables['applications'], $data );
-            $id = $db->insert_id;
-            Response::SetInteger( 'id', $id );
-            $mailer_title = ( ( empty( $parameters['reference'] ) ? 'Запрос КП #' . $id : 'Запрос референс-листа' ) . ' - '.date('d.m.Y') );
-            Response::SetString( 'mailer_title', $mailer_title );
-            // инициализация шаблонизатора
+            Time::clear();
+            
             //отправка письма спамерам
-            if( !empty( $parameters['comment'] ) && preg_match( '#url|http|vk.cc#msiU', $parameters['comment'] ) ) {
+            if( ( !empty( $time ) && $time < 120000 ) || ( !empty( $parameters['comment'] ) && preg_match( '#url|http#msiU', $parameters['comment'] ) ) ){
+                $db->insertFromArray( $sys_tables['applications_spam'], $data );
+                $id = $db->insert_id;
+                Response::SetInteger( 'id', $id );
+                $mailer_title = 'Интересный запрос от спамеров #' . $id . ' - '.date('d.m.Y');
+                Response::SetString( 'mailer_title', $mailer_title );
+
                 $eml_tpl = new Template('send.email.spam.html', 'modules/applications/');
                 $html = $eml_tpl->Processing();
-                $mailer_title = 'Интересный запрос от спамеров' ;
 
                 $emails = [
                     [
@@ -94,12 +126,15 @@ switch(true){
                     false,
                     $mailer_title .' через сайт ' . Host::$host,
                     'no-reply@' . Host::$host,
-                    $emails,
-                    !empty( $files ) ? $files : false
+                    $emails
                 );
                 
             } else {
-                $eml_tpl = new Template('send.email.html', 'modules/applications/');
+                $db->insertFromArray( $sys_tables['applications'], $data );
+                $id = $db->insert_id;
+                Response::SetInteger( 'id', $id );
+                
+                $eml_tpl = new Template( $mail_template, 'modules/applications/');
                 $html = $eml_tpl->Processing();
                 // параметры письма
                 if( empty( $mailer_title ) ) $mailer_title = 'Запрос КП #' . $id . ' - '.date('d.m.Y');
@@ -122,10 +157,8 @@ switch(true){
                     false,
                     $mailer_title .' через сайт ' . Host::$host,
                     'no-reply@spmk.group',
-                    $emails,
-                    !empty( $files ) ? $files : false
+                    $emails
                 );
-
                 
                 $ajax_result['result'] = $result;
                 $ajax_result['ok'] = true;

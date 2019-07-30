@@ -390,4 +390,31 @@ class Session {
 
 }
 
+
+
+class Time {
+    public static $time_name = 'tmstmp_' . 'spmk';
+    public static $time_value = 0;
+    public static $old_time_name = 'tmstmp_' . 'spmk_old';
+    public static $old_time_value = 0;
+    public static function Init() {
+        $time_value = Session::GetInteger( self::$time_name );
+        $old_time_value = Session::GetInteger( self::$old_time_name );
+        Session::SetInteger( self::$old_time_name, str_replace('.','',microtime(true)) );  
+        if( !empty( $old_time_value ) )  self::set( self::$time_name, str_replace('.','',microtime(true)) - $old_time_value + $time_value );       
+    }
+    public static function set( $name = '', $value ){
+        
+        Session::SetInteger( empty( $name ) ? self::$time_name : $name , $value );    
+    }
+    public static function get( $name = '' ){
+        return Session::GetInteger( empty( $name ) ? self::$time_name : $name  );
+    }
+    public static function clear( ){
+        self::set(self::$time_name, 0 );
+        self::set(self::$old_time_name, 0 );
+    }
+}    
+
+
 ?>
