@@ -57,7 +57,7 @@
     text-align: center;
     height: 50px;
     line-height: 50px;
-    font-size: 24px;
+    font-size: 20px;
     text-transform: uppercase;
     font-family: var(--secondary-font);
     margin-top: 60px;
@@ -81,8 +81,8 @@ nav {
     display: block;
     text-align: right;
     font-weight: 500;
-    font-size: 24px;
-    padding: 14px 20px;
+    font-size: 20px;
+    padding: 10px 20px;
     text-transform: uppercase;
     margin: 10px 0;
     border-radius: 3px;

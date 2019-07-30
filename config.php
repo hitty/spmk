@@ -104,6 +104,9 @@ return array(
         'objects_types' => 'objects_types',
         'objects_types_photos' => 'objects_types_photos',
 
+        'tendery' => 'tendery',
+        'tendery_photos' => 'tendery_photos',
+        
         'assortment' => 'assortment',
         'assortment_photos' => 'assortment_photos',
 

@@ -43,13 +43,15 @@ input[type="password"]{
     font-family: var(--font);
     box-shadow: none;
 }
-textarea:hover,
-input[type="text"]:hover:not(.disabled),
-input[type="number"]:hover:not(.disabled),
-input[type="email"]:hover:not(.disabled),
-input[type="phone"]:hover:not(.disabled),
-input[type="password"]:hover:not(.disabled){
-    background-color: rgba(255,255,255,1);
+@media (hover:hover){
+    textarea:hover,
+    input[type="text"]:hover:not(.disabled),
+    input[type="number"]:hover:not(.disabled),
+    input[type="email"]:hover:not(.disabled),
+    input[type="phone"]:hover:not(.disabled),
+    input[type="password"]:hover:not(.disabled){
+        background-color: rgba(255,255,255,1);
+    }
 }
 textarea:focus,
 input[type="text"]:focus,
@@ -77,7 +79,7 @@ textarea{
     font-family: 'Material Icons';
     font-weight: normal;
     font-style: normal;
-    font-size: 24px;
+    font-size: 20px;
     display: inline-block;
     vertical-align: middle;
     width: 1em;
@@ -119,11 +121,13 @@ textarea{
 }
 
 .checkbox:before {
-    font-size: 24px;
+    font-size: 20px;
 }
 
-.checkbox:hover {
-    color: var(--secondary-color);
+@media (hover:hover){
+    .checkbox:hover {
+        color: var(--secondary-color);
+    }
 }
 
 .checkbox.on:before {
@@ -148,8 +152,10 @@ label.radio {
     margin: 0 10px 10px 0;
 }
 
-label.radio:hover {
-    color: var(--main-color);
+@media (hover:hover){
+    label.radio:hover {
+        color: var(--main-color);
+    }
 }
 
 label.radio:before {
@@ -165,8 +171,10 @@ label.radio:before {
     margin-right: 5px;
 }
 
-label.radio:hover:before {
-    color: var(--main-color);
+@media (hover:hover){
+    label.radio:hover:before {
+        color: var(--main-color);
+    }
 }
 
 input[type=radio]:checked + label,input[type=radio]:checked + label:before {
@@ -198,8 +206,10 @@ form textarea.error{
 input[disabled="disabled"]{
     opacity: .5;
 }
-input[disabled="disabled"]:hover{
-    border: 1px solid #e6e6e6;
+@media (hover:hover){
+    input[disabled="disabled"]:hover{
+        border: 1px solid #e6e6e6;
+    }
 }
 .button,
 button{
@@ -229,29 +239,33 @@ button{
     font-family: var(--secondary-font);
     border-radius: 4px;
 }
-.button:hover:not(.disabled),
-.button:active:not(.disabled),
-.button:focus:not(.disabled),
-button:hover:not(.disabled),
-button:active:not(.disabled),
-button:focus:not(.disabled){
-    background: var(--secondary-color-hover);
-    color:#fff;    
-    
+@media (hover:hover){
+    .button:hover:not(.disabled),
+    .button:active:not(.disabled),
+    .button:focus:not(.disabled),
+    button:hover:not(.disabled),
+    button:active:not(.disabled),
+    button:focus:not(.disabled){
+        background: var(--secondary-color-hover);
+        color:#fff;    
+        
+    } 
 } 
 .button.white,
 button.white{
     color: #000;
     background: #FFF;
 }
-.button.white:hover:not(.disabled),
-.button.white:active:not(.disabled),
-.button.white:focus:not(.disabled),
-button.white:hover:not(.disabled),
-button.white:active:not(.disabled),
-button.white:focus:not(.disabled){
-    background: #e5e5e5;
-    color: #000;
+@media (hover:hover){
+    .button.white:hover:not(.disabled),
+    .button.white:active:not(.disabled),
+    .button.white:focus:not(.disabled),
+    button.white:hover:not(.disabled),
+    button.white:active:not(.disabled),
+    button.white:focus:not(.disabled){
+        background: #e5e5e5;
+        color: #000;
+    }
 }
 .button.main-color,
 button.main-color{
@@ -259,23 +273,25 @@ button.main-color{
     background: var(--main-color);
     border: none;
 }
-.button.main-color:hover:not(.disabled),
-.button.main-color:active:not(.disabled),
-.button.main-color:focus:not(.disabled),
-button.main-color:hover:not(.disabled),
-button.main-color:active:not(.disabled),
-button.main-color:focus:not(.disabled){
-    background: var(--main-color-hover);
-    border: none;
+@media (hover:hover){
+    .button.main-color:hover:not(.disabled),
+    .button.main-color:active:not(.disabled),
+    .button.main-color:focus:not(.disabled),
+    button.main-color:hover:not(.disabled),
+    button.main-color:active:not(.disabled),
+    button.main-color:focus:not(.disabled){
+        background: var(--main-color-hover);
+        border: none;
+    }
 }
 .button.big,
 button.big{
-    height: 70px;
-    line-height: 70px;
+    height: 60px;
+    line-height: 60px;
     text-transform: uppercase;
-    font-size: 24px;
-    padding-left: 140px;
-    padding-right: 140px;
+    font-size: 20px;
+    padding-left: 120px;
+    padding-right: 120px;
     display: inline-block;
     width: auto;
 }
@@ -727,9 +743,9 @@ form .flex input:last-of-type{
     }
 
     .button.big, button.big {
-        height: 60px;
-        line-height: 60px;
-        font-size: 22px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 18px;
         padding-left: 80px;
         padding-right: 80px;
     }
@@ -765,9 +781,9 @@ form .flex input:last-of-type{
         font-size: 15px;
     }
     .button.big, button.big {
-        height: 50px;
-        line-height: 50px;
-        font-size: 20px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 18px;
         padding-left: 60px;
         padding-right: 60px;
     }
@@ -786,9 +802,9 @@ form .flex input:last-of-type{
         margin-top: 10px;
     }
     .button.big, button.big {
-        height: 50px;
-        line-height: 50px;
-        font-size: 20px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 18px;
         padding-left: 40px;
         padding-right: 40px;
     }

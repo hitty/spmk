@@ -40,6 +40,10 @@ return array(
         'module' => 'assortment',
         'title' => 'Ассортимент'
     )
+    ,'tendery' => array(
+        'module' => 'zakupki',
+        'title' => 'Тендеры'
+    )
     
 );
             

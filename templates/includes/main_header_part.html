@@ -7,6 +7,7 @@
         <ul class="container">
             {loop $mainmenu,$k,$menu}
                 
+                {if!empty $menu['title']}
                 <li class="{if!empty $menu['active']}active{/if}{if!empty $mainmenu_second[$menu['url']]} expanded{/if}">
                     
                     {if!empty $mainmenu_second[$menu['url']]}
@@ -23,6 +24,7 @@
                         <a href="/{if!empty $menu['url']}{$menu['url']}/{/if}">{$menu['title']}</a>
                     {/if}
                 </li>
+                {/if}
             {/loop $mainmenu}
         </li>
     </nav>

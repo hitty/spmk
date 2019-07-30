@@ -313,7 +313,8 @@ class Page {
                 $this_page->menuAdd( 'Объекты', 'objekty', 1 );
                 $this_page->menuAdd( 'Прайс', 'price', 1 );
                 $this_page->menuAdd( 'Закупки', 'zakupki', 1 );
-                
+                    $this_page->menuAdd( 'Поставщикам', 'zakupki/postavschikam', 2, false, false, 'zakupki'  );
+                    $this_page->menuAdd( 'Тендеры', 'zakupki/tendery', 2, false, false, 'zakupki'  );
                 //###########################################################################
                 // подключение и выполнение модуля
                 //###########################################################################

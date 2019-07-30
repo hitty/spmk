@@ -1,0 +1,36 @@
+<div class="list-container media">
+    <div class="caption-container">
+        <a href="/manage/tendery/add/" class="button orange">Добавить запись</a>
+    </div>
+    <div class="filter">
+        <span class="active">Тендеры</span>
+    </div>
+
+    <div class="filters-container clearfix flex" data-url="/manage/tendery/">
+        
+        <div class="info"></div>
+        <div class="title" data-icon="search">
+            <input type="text" id="title"  name="title" value="{$get_array['title']}" placeholder="Заголовок записи">
+        </div>
+        <div class="date-start"></div>
+        <div class="date-end"></div>
+    </div>
+    <div class="list">
+        {if!empty $list}
+            {loop $list,$k,$item}
+                <div class="item-block clearfix flex">
+                    <div class="photo">
+                        {if!empty $item['photo']}<img src="/img/uploads/sm/{$item['subfolder']}/{$item['photo']}" />{/if}
+                    </div>
+                    <div class="title"><a href="/manage/tendery/edit/{$item['id']}/">{$item['title']}</a></div>
+                    <div class="date-start">{$item['normal_date_start']}</div>
+                    <div class="date-end">{$item['normal_date_end']}</div>
+                    <span data-icon="delete" class="delete red" data-url="/manage/tendery/delete/{$item['id']}/"></span>
+                </div>
+            {/loop $list}
+            {include /templates/paginator.html} 
+        {else}
+            <p style="padding:30px; text-align: center; color: var(--gray);">Запрошенные данные не найдены</p>
+        {/if}
+    </div>
+</div>

@@ -8,13 +8,13 @@
 
 
 .mainpage header .actions {
-    font-size: 24px;
+    font-size: 20px;
     width: 760px;
 }
 
 .mainpage header .send.button {
     margin: 0;
-    font-size: 24px;
+    font-size: 20px;
     box-shadow: 0px 6px 7px rgba(0, 0, 0, 0.195968);
     border: none;
     padding: 0 20px;
@@ -54,7 +54,7 @@ header .actions .phone:after{
 }
 
 .mainpage header .actions a, .mainpage header .actions span {
-    font-size: 24px;
+    font-size: 20px;
 }
 
 @media (max-width: 1024px) {
@@ -138,7 +138,7 @@ header .actions .phone:after{
     }
     .mainpage nav span, 
     .mainpage nav a {
-        font-size: 24px;
+        font-size: 20px;
         border: none;
         color: var(--white);
         display: block;
@@ -153,7 +153,7 @@ header .actions .phone:after{
 
 @media (max-width: 576px) {
     .hero .text h1{
-        font-size: 24px;
+        font-size: 20px;
     }
     .mainpage header .actions {
     }

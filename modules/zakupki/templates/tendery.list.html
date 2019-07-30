@@ -1,0 +1,17 @@
+<section class="tendery">
+    <div class="inner">
+        <h1>Тендеры</h1>
+        <div>
+            {if!empty $actual_list}
+                <h2>Актуальные тендеры</h2>
+                {php:$list=$actual_list}
+                {include /modules/zakupki/templates/tendery.block.html}
+            {/if}
+            {if!empty $archive_list}
+                <h2>Прошедшие тендеры</h2>
+                {php:$list=$archive_list}
+                {include /modules/zakupki/templates/tendery.block.html}
+            {/if}
+        </div>
+    </div>
+</section> 

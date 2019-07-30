@@ -193,6 +193,7 @@ header nav .container li ul li a {
     display: block;
     transition: none;
     padding: 5px 10px;
+    pointer-events:all;
 }
 
 @media (hover: hover) {
