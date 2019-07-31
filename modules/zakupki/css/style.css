@@ -1,0 +1,51 @@
+
+.tendery .list {
+    max-width: 980px;
+    margin: 0 auto;
+}
+
+.tendery .list h2 {
+    margin: 80px 0 50px 0;
+}
+
+.tendery .list ul {
+}
+
+.tendery .list ul li {
+    display: block;
+    margin: 20px 0;
+}
+
+.tendery .list li .title {
+    font-size: 24px;
+    display: block;
+    border: none;
+    margin-top: 10px;
+    transition: var(--link-transition);
+}
+.tendery .list li a.title:hover{
+    color: var(--secondary-color);
+}
+.tendery .list li .date {
+    color: var(--gray);
+    margin-right: 20px;
+}
+
+.tendery .list li .date b {
+    color: var(--text);
+    font-size: 20px;
+}
+
+.tendery-item{
+    
+}
+.tendery-item .date {
+    color: var(--gray);
+    margin: 10px 0 20px 0;
+    display: block;
+    font-size: 24px;
+}
+
+.tendery-item .date b {
+    color: var(--text);
+}

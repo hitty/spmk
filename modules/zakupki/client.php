@@ -1,4 +1,5 @@
 <?php
+$GLOBALS['css_set'][] = '/modules/zakupki/css/style.css';
 $action = !empty( $this_page->page_parameters[0] ) ? $this_page->page_parameters[0] : '';
 switch( true ){
     ////////////////////////////////////////////////////////////////////////////////////////////////////////

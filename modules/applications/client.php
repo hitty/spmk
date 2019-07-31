@@ -17,7 +17,8 @@ switch(true){
         $application_type = !empty( $parameters['application_type'] ) ? $parameters['application_type'] : '';
         Response::SetString( 'application_type', $application_type );
         if( 
-            $application_type == 'zakupki' ||
+            $application_type == 'postavschikam' ||
+            $application_type == 'tendery' ||
             !empty( $parameters['phone'] ) 
         ){
             if(!empty($_FILES)){
@@ -53,8 +54,8 @@ switch(true){
             if( $ip == '31.204.181.238' ) die();
             
             switch( $application_type ){
-                case 'zakupki':
-                    $mailer_title = 'Запрос со страницы «Закупки»' . ' - '.date('d.m.Y');
+                case 'postavschikam':
+                case 'tendery':
                     $mail_template = 'send.email.html';
                     $comment = [];
                     if( !empty( $parameters['title'] )) $comment[] = 'Наименование организации: ' . $parameters['title']; 
@@ -71,6 +72,20 @@ switch(true){
                     if( !empty( $parameters['activity'] )) $comment[] = 'Направление деятельности: ' . $parameters['activity']; // 1-2; 
                     if( !empty( $parameters['regions'] )) $comment[] = 'Регионы осуществления поставок: ' . $parameters['regions']; 
                     if( !empty( $parameters['partnership'] )) $comment[] = 'Уже работали с ГК «СПМК»: ' . ( $parameters['partnership'] == 1 ? 'Да': 'Нет' ); //1-2; 
+                    //заголовок
+                    if( $application_type == 'postavschikam' ) $mailer_title = 'Запрос со страницы «Закупки»' . ' - '.date('d.m.Y');
+                    else if( $application_type == 'tendery' ){
+                        if( empty( $parameters['application_type_id'] ) ) {
+                            $ajax_result['error'] = 'Wrong tender ID';
+                            exit(0);
+                        } else {
+                            $tender = CommonDb::getItem( 'tendery', $sys_tables['tendery'] . '.id = ' . $parameters['application_type_id'] );
+                            if( empty( $tender ) ) {
+                                $ajax_result['error'] = 'Wrong tender ID';
+                                exit(0);
+                            } else $mailer_title = 'Запрос со страницы Тендера: «' . $tender['title'] . '» - '.date('d.m.Y');
+                        }
+                    }
                     
                     $parameters['comment'] = implode( '<br/><br/>', $comment );
                     break;
