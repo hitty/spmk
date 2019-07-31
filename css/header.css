@@ -115,9 +115,12 @@ nav li.active a {
 @media (hover: hover) {
     nav li:hover a {
         color: var(--white);
+    }
+    nav li:hover a:not(.inactive) {
         border-color: var(--white);
         border-bottom-width: 2px;
     }
+    
 }
 
 header nav .container li {
@@ -187,17 +190,18 @@ header nav .container li.expanded:after {
     transform: translateY(-50%);
 }
 
-header nav .container li ul li a {
+header nav .container li ul li a{
     color: var(--main-color);
     border: none;
     display: block;
     transition: none;
     padding: 5px 10px;
+}
+header nav .container li ul li a:not(.inactive) {
     pointer-events:all;
 }
-
 @media (hover: hover) {
-    header nav .container li ul li a:hover {
+    header nav .container li ul li a:not(.inactive):hover {
         color: var(--white);
         background: var(--secondary-color);
     }

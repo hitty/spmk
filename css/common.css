@@ -92,7 +92,8 @@ a:hover,
 .pseudo-link:hover{
     border-bottom: 1px solid transparent;
 }
-a.underdash {
+a.inactive {
+    pointer-events: none;
 }
 sup {
 }

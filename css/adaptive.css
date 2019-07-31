@@ -13,7 +13,6 @@
 @media (min-width: 481px) and (max-width: 767px) {
 }
   
-
 @media (max-width: 1640px) {
     nav a,nav span {
         padding: 3px 10px;
@@ -152,13 +151,13 @@
     }
 
     .digits ul li {
-        padding: 40px 20px;
+        padding: 40px 10px;
         flex: 0 1 calc( 33.1% - 10px );
         font-size: 26px;
     }
 
     .digits ul li b {
-        font-size: 66px;
+        font-size: 64px;
         margin-bottom: 15px;
     }
 
@@ -178,12 +177,6 @@
 
     .breadcrumbs span[itemscope] {
         font-size: 14px;
-    }
-
-    .breadcrumbs span[itemscope]:before {
-    }
-
-    .breadcrumbs span[itemscope]:after {
     }
 
     h1 {
@@ -254,14 +247,14 @@
     .digits ul li {
         padding: 30px 10px;
         flex: 0 1 calc( 33.1% - 10px );
-        font-size: 22px;
+        font-size: 18px;
         margin: 10px 0;
     }
 
     .digits ul li b {
-        font-size: 50px;
-        margin-bottom: 10px;
-        line-height: 68px;
+        font-size: 44px;
+        margin-bottom: 0px;
+        line-height: 58px;
     }
 
     .digits ul li sup {
@@ -567,9 +560,11 @@
         transform: translate(0);
         padding: 0;
     }
-    header nav .container li ul:before{
+
+    header nav .container li ul:before {
         display: none;
     }
+
     header nav .container li ul li {
         padding: 0;
         background: transparent;
@@ -954,11 +949,13 @@
         font-size: 22px;
         line-height: 1.4;
     }
-    .breadcrumbs{
+
+    .breadcrumbs {
         display: none;
     }
+
     .digits ul li {
-        flex: 0 1 calc( 100% - 10px );
+        flex: 0 1 100%;
         font-size: 18px;
         margin: 5px 0;
     }

@@ -9,11 +9,15 @@
                 {do:$path=array()}
 
                 {loop $breadcrumbs,$bck,$crumb}
-                    {do:array_push($path,$crumb['url'])}
-                    {do:$url=implode('/',$path)}
+                    {if!eq $crumb['url'],'-' }
+                        {do:array_push($path,$crumb['url'])}
+                        {do:$url=implode('/',$path)}
+                    {else}
+                        {do:$url=''}
+                    {/if}
                     {if!empty $bcsize}
                         <span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-                            <a href="/{$url}/" title="{$crumb['title']}" itemprop="url"><span itemprop="title">{$crumb['title']}</span></a>
+                            <a href="{if!empty $url}/{$url}/{/if}" title="{$crumb['title']}" itemprop="url" {ifeq $crumb['url'],'-'}class="inactive"{/if}><span itemprop="title">{$crumb['title']}</span></a>
                         </span>
                     {/if}
                 {/loop $breadcrumbs}

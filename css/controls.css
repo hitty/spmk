@@ -1203,3 +1203,75 @@ form.big fieldset .row.terms{
     z-index: 10;
     transform: translateY(1px);    
 }
+@media( max-width: 1280px ){
+    form.big fieldset .item{
+        
+    }
+    form.big fieldset .item h2{
+        
+    }
+    form.big fieldset .row label{
+        
+    }
+    form.big fieldset .row input:not([type="file"]){
+        
+    }
+    form.big fieldset .row.text{
+        
+    }
+}
+@media( max-width: 1024px ) {
+    form.big fieldset .row {
+    }
+
+    form.big fieldset .item {
+    }
+
+    form.big fieldset .item h2 {
+        padding-bottom: 20px;
+    }
+
+    form.big fieldset .row label {
+        font-size: 18px;
+        flex: 0 1 50%;
+        margin-right: 10px;
+    }
+
+    form.big fieldset .row input:not([type="file"]) {
+        height: 40px;
+        line-height: 40px;
+    }
+
+    form.big fieldset .row.text {
+    }
+}
+
+@media( max-width: 767px ) {
+    form.big fieldset .row {
+        display: block;
+        padding: 15px 0;
+    }
+
+    form.big fieldset .item {
+        padding: 20px 10px 0 10px;
+    }
+
+    form.big fieldset .item h2 {
+        padding-bottom: 10px;
+    }
+
+    form.big fieldset .row label:not(.attach-file) {
+        font-size: 16px;
+        margin: 0 0 5px 0;
+        display: block;
+    }
+
+    form.big fieldset .row input:not([type="file"]) {
+    }
+
+    form.big fieldset .row.text {
+    }
+    form.big fieldset .row .button.big{
+        display: block;
+    }
+}

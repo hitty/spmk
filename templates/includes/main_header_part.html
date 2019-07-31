@@ -16,12 +16,12 @@
                         <ul>
                             {loop $submenu,$sk,$smenu}
                             <li class="br3 {if!empty $smenu['active']}active{/if}">
-                                <a href="/{if!empty $smenu['url']}{$smenu['url']}/{/if}">{$smenu['title']}</a>
+                                <a href="/{if!empty $smenu['url']}{$smenu['url']}/{/if}" {ifempty $smenu['url']}class="inactive"{/if}>{$smenu['title']}</a>
                             </li>        
                             {/loop $submenu}
                         </ul>
                     {else}
-                        <a href="/{if!empty $menu['url']}{$menu['url']}/{/if}">{$menu['title']}</a>
+                        <a href="/{if!empty $menu['url']}{$menu['url']}/{/if}" {ifempty $menu['url']}class="inactive"{/if}>{$menu['title']}</a>
                     {/if}
                 </li>
                 {/if}

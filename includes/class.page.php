@@ -306,12 +306,12 @@ class Page {
                 $this_page->menuClear( 1 );
                 $this_page->menuAdd( 'О компании', 'about', 1 );
                 $this_page->menuAdd( 'Услуги', 'uslugi', 1 );
-                    $this_page->menuAdd( 'Проектирование', 'proektirovanie', 2, false, false, 'uslugi' );
-                    $this_page->menuAdd( 'Изготовление', 'izgotovlenie', 2, false, false, 'uslugi'  );
-                    $this_page->menuAdd( 'Монтаж', 'montazh', 2, false, false, 'uslugi'  );
-                    $this_page->menuAdd( '«Под ключ»', 'pod_kluch', 2, false, false, 'uslugi'  );
+                    $this_page->menuAdd( 'Проектирование', '', 2, false, false, 'uslugi' );
+                    $this_page->menuAdd( 'Изготовление', '', 2, false, false, 'uslugi'  );
+                    $this_page->menuAdd( 'Монтаж', '', 2, false, false, 'uslugi'  );
+                    $this_page->menuAdd( '«Под ключ»', '', 2, false, false, 'uslugi'  );
                 $this_page->menuAdd( 'Объекты', 'objekty', 1 );
-                $this_page->menuAdd( 'Прайс', 'price', 1 );
+                $this_page->menuAdd( 'Прайс', '', 1 );
                 $this_page->menuAdd( 'Закупки', 'zakupki', 1 );
                     $this_page->menuAdd( 'Поставщикам', 'zakupki/postavschikam', 2, false, false, 'zakupki'  );
                     $this_page->menuAdd( 'Тендеры', 'zakupki/tendery', 2, false, false, 'zakupki'  );

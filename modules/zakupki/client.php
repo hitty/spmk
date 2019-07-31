@@ -1,12 +1,15 @@
 <?php
 $GLOBALS['css_set'][] = '/modules/zakupki/css/style.css';
 $action = !empty( $this_page->page_parameters[0] ) ? $this_page->page_parameters[0] : '';
+
+$this_page->clearBreadcrumbs( );
+$this_page->addBreadcrumbs( 'Закупки', '-',  0);
 switch( true ){
     ////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Закупки : Поставщикам
     ////////////////////////////////////////////////////////////////////////////////////////////////////////
     case $action == 'postavschikam':
-        $this_page->addBreadcrumbs( 'Поставщикам', 'postavschikam' );
+        $this_page->addBreadcrumbs( 'Поставщикам', 'zakupki/postavschikam' );
         $module_template = 'postavschikam.html';
         break;
     ////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -14,7 +17,7 @@ switch( true ){
     ////////////////////////////////////////////////////////////////////////////////////////////////////////
     case $action == 'tendery':
         $action = !empty( $this_page->page_parameters[1] ) ? $this_page->page_parameters[1] : '';
-        $this_page->addBreadcrumbs( 'Тендеры', 'tendery' );
+        $this_page->addBreadcrumbs( 'Тендеры', 'zakupki/tendery' );
         switch( true ){
             ////////////////////////////////////////////////////////////////////////////////////////////////////////
             // Карточка
