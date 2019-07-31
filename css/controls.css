@@ -1195,3 +1195,11 @@ form.big fieldset .row.text .file-upload label.attach-file{
 form.big fieldset .row.text .file-upload label.attach-file:before{
     margin-top: 20px;
 }
+form.big fieldset .row.terms{
+    padding: 0;
+    border: 0;
+    background: #fff;
+    position: relative;
+    z-index: 10;
+    transform: translateY(1px);    
+}

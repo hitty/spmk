@@ -27,7 +27,7 @@ switch( true ){
                 $h1 = array();
                 
                 if( !empty( $item ) ){ 
-                    
+                    $this_page->addBreadcrumbs( $item['title'], $item['chpu_title'] );
                     //сео параметры
                     $description =  !empty( $item['seo_description'] ) ? $item['seo_description'] : ( empty( $this_page->page_seo_description ) ? $item['content_short'] : $this_page->page_seo_description );
                     $this_page->manageMetadata(

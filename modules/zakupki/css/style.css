@@ -17,7 +17,8 @@
 }
 
 .tendery .list li .title {
-    font-size: 24px;
+    font-size: 28px;
+    line-height: 1.4;
     display: block;
     border: none;
     margin-top: 10px;
@@ -40,7 +41,6 @@
     
 }
 .tendery-item .date {
-    color: var(--gray);
     margin: 10px 0 20px 0;
     display: block;
     font-size: 24px;
