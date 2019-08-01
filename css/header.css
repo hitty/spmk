@@ -68,6 +68,7 @@ header .actions a,header .actions span {
     border: none;
     padding-left: 22px;
     position: relative;
+    color: var(--white);
 }
 
 header .actions .phone {

@@ -7,12 +7,12 @@
      </div>
      <div class="list inner flex">
         {loop $list,$k,$item}
-            <div class="item clearfix internal-link" data-link="/news/{$item['category_chpu_title']}/{$item['chpu_title']}/">
-                <span class="img bg-cover" style="background-image: url(/img/uploads/big/{$item['subfolder']}/{$item['photo']})"></span>
+            <div class="item clearfix" >
+                <span class="img bg-cover internal-link" data-link="/news/{$item['category_chpu_title']}/{$item['chpu_title']}/" style="background-image: url(/img/uploads/big/{$item['subfolder']}/{$item['photo']})"></span>
                 <a href="/news/{$item['category_chpu_title']}/{$item['chpu_title']}/" title="{$item['title']}" class="title">{$item['title']}</a>
                 <div class="bottom">
                     <span class="date with-dot">{$item['normal_date']}</span>
-                    <a href="/news/{$tem['catgory_chpu_title']}/" title="{$item['category_title']}">{$item['category_title']}</a>
+                    <a href="/news/{$item['category_chpu_title']}/" title="{$item['category_title']}" class="category">{$item['category_title']}</a>
                 </div>
             </div> 
         {/loop $list} 

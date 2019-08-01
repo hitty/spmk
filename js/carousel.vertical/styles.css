@@ -108,7 +108,9 @@
     padding-left: 20px;
     line-height: 1.2;
 }
-
+.carousel-vertical .content .item ul li:before{
+    display: none;
+}
 .carousel-vertical .content .item ul li + li {
     margin-top: 20px;
 }

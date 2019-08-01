@@ -61,30 +61,31 @@ body.modal-active {
 a,
 .internal-link,
 .external-link {
-    color: var(--pink);  
+    color: var(--main-color);  
     cursor: pointer;
 }
 a,
 .pseudo-link{
-    color:var(--pink);
+    color:var(--main-color);
     border-bottom: 1px solid;
     text-decoration: none;
     cursor: pointer;
 } 
 .pseudo-link{
-     border-bottom: 1px dashed var(--pink);
+     border-bottom: 1px dashed var(--main-color);
 }
 a:hover,
 .internal-link:hover,
 .external-link:hover
 .pseudo-link:hover{
-    border-bottom: 1px dashed var(--pink);
+    color: var(--secondary-color);
+    
 }
 a:hover,
 .pseudo-link:hover,
 .internal-link:hover,
 .external-link:hover {
-  color: var(--pink);
+  color: var(--secondary-color);
   text-decoration: none;
   
 }
@@ -98,6 +99,7 @@ a.inactive {
 sup {
 }
 sub {
+    font-size: 60%;
 }
 
 
@@ -166,7 +168,7 @@ h4:before{
     position:absolute;
     left: 0;
     bottom: 0;
-    background-color: var(--pink);
+    background-color: var(--main-color);
     -webkit-transition: background-color .2s ease-in-out;
     -moz-transition: background-color .2s ease-in-out;
     -ms-transition: background-color .2s ease-in-out;

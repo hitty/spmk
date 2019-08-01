@@ -166,12 +166,12 @@ switch(true){
                 if( !DEBUG_MODE ) {
                     if( !empty( $application_type ) && in_array( $application_type, [ 'tendery', 'postavschikam' ] ) ){
                         $emails[] = ['Е.С.А.',  "aae1958@inbox.ru" ];    
-                        $emails[] = ['Отдел снабжения',  "snab@constr62.ru" ];    
+                        $emails[] = ['Отдел снабжения',  "snab@spmk.group" ];    
                         
                     } else {
-                        $emails[] = ['Отдел продаж',  "market@constr62.ru" ];    
+                        $emails[] = ['Отдел продаж',  "market@spmk.group" ];    
                     }
-                    $emails[] = ['Новицкая Лилия',  "nla@constr62.ru" ];    
+                    $emails[] = ['Новицкая Лилия',  "nla@spmk.group" ];    
                 }    
                 
                 $sendpulse = new Sendpulse( );

@@ -44,9 +44,13 @@ footer .menu li.title{
 }
 footer .menu li a{
     border-bottom: 1px solid transparent;
+    color: var(--white);
 }
-footer .menu li a:hover{
-    border-color: var(--white);
+@media(hover:hover){
+    footer .menu li a:hover{
+        color: var(--white);
+        border-color: var(--white);
+    }
 }
 footer .menu li .small{
     text-transform: none;

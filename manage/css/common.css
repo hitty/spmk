@@ -12,33 +12,33 @@ body {
 a,
 .internal-link,
 .external-link {
-    color: var(--pink);  
+    color: var(--main-color);  
     cursor: pointer;
     border-bottom: 1px solid transparent;
 }
 a,
 .pseudo-link{
-    color:var(--pink);
+    color:var(--main-color);
     border-bottom: 1px solid;
     text-decoration: none;
     cursor: pointer;
 } 
 .pseudo-link{
-     border-bottom: 1px dashed var(--pink);
+     border-bottom: 1px dashed var(--main-color);
 }
 a:hover,
 .internal-link:hover,
 .external-link:hover{
-    border-bottom: 1px solid var(--pink);    
+    border-bottom: 1px solid var(--main-color);    
 }
 .pseudo-link:hover{
-    border-bottom: 1px dashed var(--pink);
+    border-bottom: 1px dashed var(--main-color);
 }
 a:hover,
 .pseudo-link:hover,
 .internal-link:hover,
 .external-link:hover {
-  color: var(--pink);
+  color: var(--main-color);
   text-decoration: none;
   
 }
@@ -100,7 +100,7 @@ h4:before{
     position:absolute;
     left: 0;
     bottom: 0;
-    background-color: var(--pink);
+    background-color: var(--main-color);
     -webkit-transition: background-color .1s ease-in-out;
     -moz-transition: background-color .1s ease-in-out;
     -ms-transition: background-color .1s ease-in-out;
@@ -299,13 +299,13 @@ sup {
 }
 
 .filter span:hover {
-    color: var(--pink);
+    color: var(--main-color);
 }
 
 .filter span.active {
     margin: 0;
-    border-color: var(--pink);
-    color: var(--pink);
+    border-color: var(--main-color);
+    color: var(--main-color);
 }
 .mobile-version{
     display: none;
@@ -416,14 +416,14 @@ section .equal-cols-3 .col:nth-child(3) {
     width: 370px;
 }
 .popup{
-    border-bottom: 1px dashed var(--pink);
+    border-bottom: 1px dashed var(--main-color);
     cursor: pointer;
     -webkit-transition: all .1s ease-in-out;
     -moz-transition: all .1s ease-in-out;
     -ms-transition: all .1s ease-in-out;
     -o-transition: all .1s ease-in-out;
     transition: all .1s ease-in-out;
-    color: var(--pink);     
+    color: var(--main-color);     
 }
 .popup:hover{
     border-bottom-color: transparent;
@@ -433,7 +433,7 @@ section .equal-cols-3 .col:nth-child(3) {
     color: #fff;
 }
 .pink-block{
-    background: var(--pink);
+    background: var(--main-color);
     color: #fff;
 }
 .pink-hover-block{
@@ -489,8 +489,8 @@ section .equal-cols-3 .col:nth-child(3) {
     border-color: var(--black);
 }
 .pink{
-    color: var(--pink);
-    border-color: var(--pink);
+    color: var(--main-color);
+    border-color: var(--main-color);
 }
 .pink-hover{
     color: var(--pink-hover);

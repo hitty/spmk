@@ -434,7 +434,7 @@ color: #4A4A4A;
     display: block;
 }    
 .nominees-container .title span{
-    border-bottom: 1px solid var(--pink);
+    border-bottom: 1px solid var(--main-color);
     display: inline;
 }
 .nominees-container .item:hover .title span{
