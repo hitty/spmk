@@ -48,7 +48,9 @@ footer .menu li a{
 footer .menu li a:hover{
     border-color: var(--white);
 }
-footer .bottom {
+footer .menu li .small{
+    text-transform: none;
+    font-size: 12px;
 }
 
 footer .bottom .payment-info {

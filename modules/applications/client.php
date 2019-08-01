@@ -88,6 +88,7 @@ switch(true){
                     }
                     
                     $parameters['comment'] = implode( '<br/><br/>', $comment );
+                    Response::SetString( 'success_text', 'Ваше предложение передано на предварительную обработку.<br/>С вами свяжутся в случае вопросов.' );
                     break;
                 default:
                     $mailer_title = ( ( empty( $parameters['reference'] ) ? 'Запрос КП' : 'Запрос референс-листа' ) . ' - '.date('d.m.Y') );
@@ -134,6 +135,7 @@ switch(true){
                 ];
                 
                 $sendpulse = new Sendpulse( );
+                /*
                 $result = $sendpulse->sendMail(
                     $mailer_title,
                     $html,
@@ -143,7 +145,7 @@ switch(true){
                     'no-reply@' . Host::$host,
                     $emails
                 );
-                
+                */
             } else {
                 $db->insertFromArray( $sys_tables['applications'], $data );
                 $id = $db->insert_id;
@@ -161,8 +163,16 @@ switch(true){
                     ]
                 ];
                 
-                //if( !DEBUG_MODE ) $emails[] = ['Отдел продаж',  "market@constr62.ru" ];
-                //if( !DEBUG_MODE ) $emails[] = ['Новицкая Лилия',  "nla@constr62.ru" ];
+                if( !DEBUG_MODE ) {
+                    if( !empty( $application_type ) && in_array( $application_type, [ 'tendery', 'postavschikam' ] ) ){
+                        $emails[] = ['Е.С.А.',  "aae1958@inbox.ru" ];    
+                        $emails[] = ['Отдел снабжения',  "snab@constr62.ru" ];    
+                        
+                    } else {
+                        $emails[] = ['Отдел продаж',  "market@constr62.ru" ];    
+                    }
+                    $emails[] = ['Новицкая Лилия',  "nla@constr62.ru" ];    
+                }    
                 
                 $sendpulse = new Sendpulse( );
                 $result = $sendpulse->sendMail(

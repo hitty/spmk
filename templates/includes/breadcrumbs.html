@@ -1,6 +1,6 @@
 {if!empty $breadcrumbs}
     {do:$bcsize=sizeof($breadcrumbs)} 
-    {ifgt $bcsize,0}
+    {ifgt $bcsize,1}
         <div class="breadcrumbs clearfix text-overflow" itemprop="breadcrumb">
             <span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
                 <a href="/" title="Главная" itemprop="url" class="mainpage"><span itemprop="title">Главная</span></a>

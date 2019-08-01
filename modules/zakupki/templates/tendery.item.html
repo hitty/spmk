@@ -4,14 +4,20 @@
         <h1>{$h1}</h1>
         <div class="content">
             <span class="date start">Дата размещения: <b>{$item['normal_date_start']}</b></span>
-            <span class="date end">Дата окончания: <b>{$item['normal_date_end']}</b></span><br />
-            
+            <span class="date end">Дата окончания: <b>{$item['normal_date_end']}</b></span>
+            {if!empty $tender_end}
+                <span class="date status">Статус: <b class="error">Завершен</b></span>
+            {else}
+                <span class="date status">Статус: <b class="success">Идет</b></span>
+            {/if}
+            <br />
             {$item['content']}
             
-            {php:$application_type = 'tendery'}
-            {php:$application_type_id = $item['id']}
-            {include /templates/includes/form.big.html}
-
+            {ifempty $tender_end}
+                {php:$application_type = 'tendery'}
+                {php:$application_type_id = $item['id']}
+                {include /templates/includes/form.big.html}
+            {/if}
         </div>
     </div>
 </section> 

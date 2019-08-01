@@ -44,6 +44,7 @@ switch( true ){
                     $h1 = empty($this_page->page_seo_h1) ? ( empty( $item['seo_h1'] ) ? $item['title'] : $item['seo_h1'] ) : $this_page->page_seo_h1;;
                     Response::SetString('h1', $h1);  
                     
+                    Response::SetBoolean( 'tender_end', strtotime(date('Y-m-d')) > strtotime($item['date_end']) );
                 } else Host::RedirectLevelUp();
                 
                 $module_template = 'tendery.item.html';

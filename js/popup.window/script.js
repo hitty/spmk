@@ -162,8 +162,10 @@ if($)(function(window, document, $, undefined){
                 } else {
                     _value = _type == 'radio' ? jQuery( 'input[name=' + _name + ']:checked', init_selector).val() : _this.val();
                 }
-                if( ( _required == 'required' && ( _value == '' || _value == 0) || ( _name == 'phone' && (_value.replace(/\D/g,'')).length != 11)) || 
-                    ( _name == 'email' && ( _value.length > 0 && _value.match(/([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/) == null) )) {
+                if( 
+                    ( ( _this.is('[data-inputmask]') || _this.is('[data-inputmask-regex]') ) && !_this.inputmask("isComplete") ) || 
+                    ( _required == 'required' && ( _value == '' || _value == 0) )
+                ) {
                         //отдельно для селекторов
                     if( _this.parent().hasClass( 'list-selector' )) _this.parent().addClass( 'error' ).parents( '.row' ).append(o.error_template);
                     else  notification( _this, true, o.error_template ); 

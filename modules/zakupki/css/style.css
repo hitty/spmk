@@ -49,10 +49,6 @@
     font-size: 24px;
 }
 
-.tendery-item .date b {
-    color: var(--text);
-}
-
 @media (max-width: 1024px) {
     .tendery-item h1 {
         font-size: 40px;

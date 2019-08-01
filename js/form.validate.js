@@ -2,13 +2,16 @@ var _emailTest = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
 
 function formValidate(_selector){
     
-    jQuery("input.digit",_selector).inputmask({"mask": "9999999999999999999999999"}); //specifying options
-    jQuery("input[type=phone], input[name=phone]",_selector).inputmask({"mask": "8 (999) 999-9999"}); //specifying options
-    jQuery("input[name=subdomain]",_selector).inputmask('Regex', { regex: "[0-9a-z]{1,}" });
+    jQuery("input.digit",_selector).attr('data-inputmask',"'mask': '9'");
+    jQuery("input[type=phone], input[name=phone]",_selector).attr('data-inputmask',"'mask': '+7 (999) 999-9999', 'greedy' : false"); //specifying options
+    jQuery("input[type=email], input[name=email]",_selector).attr('data-inputmask',"'alias': 'email'"); //specifying options
     jQuery("input[name=date],input.datepicker",_selector).datetimepicker({
         timepicker:false,
         format:'d.m.y',
     });  
+    Inputmask().mask(document.querySelectorAll("input"));
+    
+    
     jQuery("input[type='checkbox']",_selector).each(function(){
         jQuery(this).on("click",function(){
             var _this = jQuery(this); 
