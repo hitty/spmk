@@ -1,6 +1,21 @@
 .page-info {
     text-align: center;
 }
+
+.we-build {
+  background-image: url(/img/we-build-bg-sm.jpg);
+}
+@media (min-width: 800px) {
+  .we-build {
+    background-image: url(/img/we-build-bg-med.jpg);
+  }
+}
+@media (min-width: 1000px) {
+  .we-build {
+    background-image: url(/img/we-build-bg.jpg);
+  }
+}
+
 .regions {
     text-align: center;
     position: relative;

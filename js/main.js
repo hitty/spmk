@@ -146,7 +146,9 @@ jQuery(document).ready(function(){
             draggable: false,
             wrapAround: true  
         });
-    })
+    })                    
+    
+    
     
     
     $('form.ajaxed').each( function(){
@@ -155,7 +157,7 @@ jQuery(document).ready(function(){
         });
     })
     $('header .burger').on( 'click', function(){
-        $('body,html').toggleClass('menu-top-is-open modal-active')    ;
+        $('body').toggleClass('menu-top-is-open modal-active')    ;
     })
 })           
 function validateEmail(email) { 

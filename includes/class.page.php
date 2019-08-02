@@ -240,6 +240,20 @@ class Page {
         Response::SetString('basic_img_dolder', Config::$values['img_folders']);
         // поиск в текстовых страницах
 
+        //главное меню
+        $this->menuClear( 1 );
+        $this->menuAdd( 'О заводе', 'zavod', 1 );
+        $this->menuAdd( 'Услуги', 'uslugi', 1 );
+            $this->menuAdd( 'Проектирование', '', 2, false, false, 'uslugi' );
+            $this->menuAdd( 'Изготовление', '', 2, false, false, 'uslugi'  );
+            $this->menuAdd( 'Монтаж', '', 2, false, false, 'uslugi'  );
+            $this->menuAdd( '«Под ключ»', '', 2, false, false, 'uslugi'  );
+        $this->menuAdd( 'Объекты', 'objekty', 1 );
+        //$this_page->menuAdd( 'Прайс', '', 1 );
+        $this->menuAdd( 'Закупки', 'zakupki', 1 );
+            $this->menuAdd( 'Поставщикам', 'zakupki/postavschikam', 2, false, false, 'zakupki'  );
+            $this->menuAdd( 'Тендеры', 'zakupki/tendery', 2, false, false, 'zakupki'  );
+
         // загрузка страницы из DB
         $page = $db->fetch("SELECT p.*,m.path,m.level FROM ".$sys_tables['common_pages']." p
                             LEFT JOIN ".$sys_tables['common_pages_map']." m ON p.id=m.object_id
@@ -301,20 +315,6 @@ class Page {
                     'description' => $this->page_title,
                     'keywords' => $this->page_title
                 );
-                //настройки сайта
-                
-                $this_page->menuClear( 1 );
-                $this_page->menuAdd( 'О заводе', 'zavod', 1 );
-                $this_page->menuAdd( 'Услуги', 'uslugi', 1 );
-                    $this_page->menuAdd( 'Проектирование', '', 2, false, false, 'uslugi' );
-                    $this_page->menuAdd( 'Изготовление', '', 2, false, false, 'uslugi'  );
-                    $this_page->menuAdd( 'Монтаж', '', 2, false, false, 'uslugi'  );
-                    $this_page->menuAdd( '«Под ключ»', '', 2, false, false, 'uslugi'  );
-                $this_page->menuAdd( 'Объекты', 'objekty', 1 );
-                //$this_page->menuAdd( 'Прайс', '', 1 );
-                $this_page->menuAdd( 'Закупки', 'zakupki', 1 );
-                    $this_page->menuAdd( 'Поставщикам', 'zakupki/postavschikam', 2, false, false, 'zakupki'  );
-                    $this_page->menuAdd( 'Тендеры', 'zakupki/tendery', 2, false, false, 'zakupki'  );
                 //###########################################################################
                 // подключение и выполнение модуля
                 //###########################################################################
@@ -431,8 +431,14 @@ class Page {
         if( $this->http_code!=200){
             // обработка ошибочных кодов страницы
             if( $this->http_code==404){
+                if( !empty( $this->menu[1] ) ) Response::SetArray( 'mainmenu', $this->menu[1] );                
+                if( !empty( $this->menu[2] ) ) Response::SetArray( 'mainmenu_second', $this->menu[2] );                
                 sendHTTPStatus(404);
+                $GLOBALS['css_set'][] = '/css/common.css';
+                $GLOBALS['css_set'][] = '/css/central.css';
+                $GLOBALS['css_set'][] = '/css/header.css';
                 $GLOBALS['css_set'][] = '/css/404.css';
+                $GLOBALS['css_set'][] = '/css/adaptive.css';
                 $this->metadata['title'] = 'Ошибка 404. Страница не найдена.';
                 Response::SetArray('metadata', $this->metadata);
                 $error_template = '/templates/404.html'; 

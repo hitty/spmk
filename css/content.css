@@ -182,7 +182,6 @@
 
     .content-list .item .bottom {
         font-size: 14px;
-        left: 20px;
     }
 
     .content-item h1 {
@@ -290,10 +289,6 @@
     .content-list.similar .item .title{
         padding: 10px 0;
     }
-    .content-list .item .bottom {
-        left: 0;
-    }
-
     .content-item h1 {
         margin-bottom: 20px;
     }

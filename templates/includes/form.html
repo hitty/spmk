@@ -11,6 +11,9 @@
                 <input type="phone" name="phone" placeholder="Ваш телефон *" required="required" maxlength="17" autocomplete="{$random}">
             </div>
             <div class="row">
+                <input type="text" name="region" placeholder="Ваш регион*" {if!empty $email_required} required="required"{/if} autocomplete="{$random}">
+            </div>
+            <div class="row">
                 <input type="email" name="email" placeholder="Ваш email{if!empty $email_required}*{/if}"{if!empty $email_required} required="required"{/if} autocomplete="{$random}">
             </div>
         {if!empty $middle}</div>{/if}

@@ -316,11 +316,11 @@ form .row .button{
     clear: both;
 }
 form .flex{
-    margin: 0 -20px;
+    margin: 0 -10px;
 }
 form .flex .row,
 form .flex .row:last-of-type{
-    margin: 0 20px;
+    margin: 0 10px;
 }
 form .row i[data-icon],
 .form .row i[data-icon]{

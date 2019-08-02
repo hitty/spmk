@@ -249,8 +249,7 @@ if($)(function(window, document, $, undefined){
             
 
             init_selector.on( 'click', function(){
-                $('.modal-container').remove();
-                $( 'body,html' ).addClass( 'modal-active' );
+                jQuery( 'body' ).css( { 'overflow' : 'hidden' } );
                     
                 _gpval = init_selector.attr( 'data-location' );
                 //setGPval();
@@ -330,7 +329,7 @@ if($)(function(window, document, $, undefined){
                     $( o.background_container ).fadeOut(100, function(){
                         $(this).parent().remove();
                         $( o.inner_container ).remove();
-                        $( 'body,html' ).removeClass( 'modal-active' );
+                        jQuery( 'body' ).css( { 'overflow' : 'auto' } );
                     })
                 }, 150
             )

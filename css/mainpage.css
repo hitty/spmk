@@ -6,6 +6,7 @@
     width: 100%;
 }
 
+
 .hero:before {
     content: "";
     display: block;

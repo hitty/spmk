@@ -30,6 +30,11 @@
                 Email: <strong>{$data['email']}</strong>
             </span>
             {/if}
+            {if!empty $data['region']}
+            <span style="display: block; text-align: left; margin-top: 20px;">
+                Регион: <strong>{$data['region']}</strong>
+            </span>
+            {/if}
                                        
             {if!empty $data['user_comment']}
             <span style="display: block; text-align: left; margin-top: 20px;">

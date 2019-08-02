@@ -101,6 +101,7 @@ switch(true){
                 'name' => !empty( $parameters['name'] ) ? $parameters['name'] : '',
                 'phone' => !empty( $parameters['phone'] ) ? $parameters['phone'] : '',
                 'email' => !empty( $parameters['email'] ) ? $parameters['email'] : '',
+                'region' => !empty( $parameters['region'] ) ? $parameters['region'] : '',
                 'user_comment' => !empty( $parameters['comment'] ) ? $parameters['comment'] : '',
                 'files' => !empty( $files ) ? $files : '',
                 'ip' => $ip,

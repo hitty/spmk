@@ -387,3 +387,16 @@ footer .social li + li{
     align-items: center;
     text-align: center;
 }  
+.hero {
+  background-image: url(/img/appliction-hero-bg-sm.jpg);
+}
+@media (min-width: 768px) {
+  .hero {
+    background-image: url(/img/appliction-hero-bg-med.jpg);
+  }
+}
+@media (min-width: 1024px) {
+  .hero {
+    background-image: url('/img/appliction-hero-bg.jpg')
+  }
+}
