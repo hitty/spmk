@@ -18,7 +18,7 @@ html {
 }
 body {
     font: normal 16px var(--main-font);
-    line-height: 24px;
+    line-height: 1.4;
     color: var(--text);
     -webkit-font-smoothing: subpixel-antialiased;
     -moz-font-smoothing: subpixel-antialiased;
@@ -103,20 +103,19 @@ sub {
 
 
 h1 {
-    font-size: 64px;
-    line-height: 1;
+    font-size: 54px;
     font-weight: bold;
     margin: 0px 0 40px 0;
     display: block;
-    line-height: 52px;
+    line-height: 62px;
     color: var(--brown);
     text-align: center;
     text-transform: uppercase;
 }
 
 .h2,h2 {
-    margin: 0 0 60px 0;
-    font-size: 42px;
+    margin: 0 0 40px 0;
+    font-size: 36px;
     line-height: 1.5;
     text-align: center;
     font-weight: 700;
@@ -129,12 +128,13 @@ h1 {
 h2:before{
     content: "";
     display: inline-block;
-    width: 34px;
-    height: 30px;
+    width: 27px;
+    height: 24px;
     mask: url(/img/h2-icon.svg);
     -webkit-mask: url(/img/h2-icon.svg);
     background-color: var(--main-color);
-    margin-right: 10px;   
+    margin-right: 10px;
+    -webkit-mask-size: 27px auto;   
 }
 .h2.invert,h2.invert{
     color: var(--white);

@@ -1,5 +1,5 @@
 .annotation{
-    font-size: 24px;
+    font-size: 20px;
     line-height: 1.5;
     max-width: 980px;
     margin: 0 auto;
@@ -7,7 +7,7 @@
     display:block;
 }
 h2 + .annotation{
-    margin-top: -40px;
+    margin-top: -20px;
 }
 .hero .application-form{
     margin-top: 60px;
@@ -328,8 +328,7 @@ footer .social li + li{
 
 /* contacts */
 .contacts .address {
-    font-size: 36px;
-    line-height: 54px;
+    font-size: 30px;
     margin: -30px 0 60px 0;
     text-align: center;
     display: block;
@@ -340,20 +339,21 @@ footer .social li + li{
 }
 
 .contacts ul li {
-    font-size: 24px;
+    font-size: 22px;
+    line-height: 1.1;
 }
 
 .contacts ul li b {
     display: block;
-    font-size: 18px;
-    margin: 20px 0 10px 0;
+    font-size: 16px;
+    margin: 10px 0 5px 0;
 }
 .contacts ul li b i{
     font-weight: normal;
     font-size: 80%;
 }
 .contacts ul li a {
-    font-size: 18px;
+    font-size: 16px;
     color: var(--main-color);
 }
 

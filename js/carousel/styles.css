@@ -161,7 +161,7 @@
     left: 40px;
     right: 40px;
     bottom: 40px;
-    font-size: 36px;
+    font-size: 30px;
     z-index: 10;
     border: none;
     text-align: center;
@@ -181,8 +181,7 @@
     }
 
     .carousel .item a {
-        font-size: 24px;
-        line-height: 28px;
+        font-size: 20px;
     }
 
     .carousel-prev-next-button {
@@ -207,8 +206,7 @@
     }
 
     .carousel .item a {
-        font-size: 20px;
-        line-height: 28px;
+        font-size: 16px;
     }
 
     .carousel-prev-next-button {
@@ -230,7 +228,6 @@
         width: 90%;
     }
     .carousel .item a {
-        font-size: 16px;
-        line-height: 24px;
+        font-size: 14px;
     }
 }

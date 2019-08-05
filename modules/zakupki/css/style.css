@@ -12,9 +12,12 @@
 
 .tendery .list ul li {
     display: block;
-    margin: 20px 0;
+    margin: 30px 0;
 }
-
+.tendery .list ul li + li{
+    border-top: 1px solid var(--gray-light);
+    padding-top: 30px;    
+}
 .tendery .list li .title {
     font-size: 28px;
     line-height: 1.4;

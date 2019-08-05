@@ -21,8 +21,8 @@
     }
 
     h1 {
-        font-size: 54px;
-        line-height: 64px;
+        font-size: 44px;
+        line-height: 54px;
     }
 
     header .actions a, header .actions span {
@@ -38,7 +38,7 @@
     }
 
     .annotation {
-        font-size: 20px;
+        font-size: 16px;
     }
 }
 
@@ -180,8 +180,8 @@
     }
 
     h1 {
-        font-size: 50px;
-        line-height: 60px;
+        font-size: 40px;
+        line-height: 50px;
     }
 
     header nav .container {
@@ -212,7 +212,7 @@
     }
 
     .annotation {
-        font-size: 18px;
+        font-size: 14px;
     }
 
     h2 + .annotation {
@@ -342,8 +342,7 @@
     }
 
     .contacts .address {
-        font-size: 30px;
-        line-height: 1.4;
+        font-size: 24px;
         margin-bottom: 50px;
     }
 
@@ -354,7 +353,7 @@
 
     .contacts ul li {
         flex: 0 1 50%;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
         text-align: center;
     }
 
@@ -383,14 +382,14 @@
 
 @media (max-width: 768px) {
     h1 {
-        font-size: 38px;
-        line-height: 42px;
+        font-size: 28px;
+        line-height: 32px;
     }
 
     h2 {
-        font-size: 28px;
-        line-height: 42px;
-        margin: 0 0 30px 0;
+        font-size: 24px;
+        line-height: 38px;
+        margin: 0 0 20px 0;
     }
 
     h2:before {
@@ -407,8 +406,8 @@
     }
 
     .annotation {
-        font-size: 16px;
-        line-height: 24px;
+        font-size: 14px;
+        line-height: 20px;
     }
 
     section {
@@ -727,12 +726,11 @@
     }
 
     .benefits .item .text {
-        font-size: 14px;
-        line-height: 20px;
+        font-size: 12px;
     }
 
     .benefits .item .text b {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     .digits ul li {
@@ -865,7 +863,7 @@
     }
 
     .contacts .address {
-        font-size: 26px;
+        font-size: 20px;
         line-height: 1.4;
         margin-bottom: 40px;
         margin-top: 20px;
@@ -946,7 +944,7 @@
 
 @media (max-width: 576px) {
     h2 {
-        font-size: 22px;
+        font-size: 18px;
         line-height: 1.4;
     }
 
