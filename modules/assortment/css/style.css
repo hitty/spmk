@@ -1,61 +1,24 @@
-.assortment-container{
-}
-.assortment-container .list{
-    
-}
-.assortment-container .item .text {
-    width: calc( 100% - 340px );
-}
 
-.assortment-container .item .img {
-    display: block;
-    position: relative;
-    width: 600px;
-    height: 340px;
-    float: left;
-    margin: 0 50px 0 0;
+.object-item.assortment .properties{
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    min-height: 230px;
+    flex-wrap: wrap;
 }
-
-.assortment-container .item {
-    margin: 40px 0;
+.objects-list.assortment .properties{
+    height: calc( 100% - 40px );
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.assortment .properties p,
+.assortment .properties div{
     padding: 0;
-    background: #fff;
-}
-
-.assortment-container .item a {
-    font-size: 24px;
-    font-weight: 700;
-    border: none;
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-}
-
-.assortment-container .item:hover a {
-    color: var(--blue);
-}
-
-.assortment-container .item p {
-    padding: 0;
-    font-size: 16px;
-    line-height: 26px;
     margin: 0;
-    font-weight: normal;
-    padding-top: 30px;
 }
-
-.assortment-container .item p + p {
-    padding-top: 10px;
-}
-
-.assortment-container .item p b,.assortment-container .item p strong {
-    font-weight: normal;
-}
-
-.assortment-container .item ul {
-    font-size: 14px;
-    line-height: 20px;
-    margin: 20px 0 0 20px;
-}
-
-.assortment-container .item ul li {
+.assortment .properties p + p,
+.assortment .properties div + div{
+    margin-top: 20px;
 }

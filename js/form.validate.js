@@ -8,6 +8,7 @@ function formValidate(_selector){
     jQuery("input[name=date],input.datepicker",_selector).datetimepicker({
         timepicker:false,
         format:'d.m.y',
+        minDate:'+1970/01/02',//yesterday is minimum date(for today use 0 or -1970/01/01)
     });  
     Inputmask().mask(document.querySelectorAll("input"));
     

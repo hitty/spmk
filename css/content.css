@@ -327,6 +327,18 @@
 }
 
 @media (max-width: 536px) {
+    .content p,.content div,.content ul,.content ol {
+        font-size: 14px;
+        line-height: 22px;
+        margin: 0 0 15px 0;
+    }
+
+    .content blockquote {
+        padding: 15px 15px 1px 15px;
+        margin: 0 0 15px 0;
+    }
+
+
     .content-list .list {
         display: block;
         margin: 40px auto;

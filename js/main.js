@@ -1,3 +1,5 @@
+
+
 function getPendingContent( _element, _url, _params, _cached, _effect, _func_on_success, _func_on_complete ){
     var elem = _element;
     if(typeof(_element) == 'string') elem = jQuery(_element);     
@@ -101,7 +103,40 @@ function getParameterByName(name)
         );
 }
 jQuery(document).ready(function(){
+    jQuery('.thumbs-list').each( function(){
+        var _this = jQuery( this );
     
+        var gallery = [];
+        $(".thumbs-list a" ).each(function (i) {
+            console.log( $(this).attr("title") );
+            gallery[i] = {
+                href: $(this).attr("href"),
+                title: $(this).attr("title") ,
+                closeSpeed   : 50,
+                openSpeed   : 50
+            };
+            $(this).on("click", function () {
+                $.gallery(gallery, {
+                    index: i,
+                    helpers: {
+                        title: {
+                            type: 'inside',
+                            position: 'top'
+                        },
+                        thumbs    : {
+                            width    : 110,
+                            height    : 110
+                        }
+                        
+                    },
+                    openSpeed: '50',
+                    closeSpeed: '50',
+                    autoDimensions: true
+                });
+                return false;
+            }); // on
+        }); // each
+    }); 
     
     /* span links manage */
     jQuery(document).on("click",  ".external-link",  function(e){

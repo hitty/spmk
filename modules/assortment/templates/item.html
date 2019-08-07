@@ -1,35 +1,40 @@
-
-<div class="central-container flex-top">
-    <article itemscope itemtype="http://schema.org/NewsArticle" class="col-3">
-        <div  class="content-container br4">
-            <div class="text">{$item['content']}</div>
-            {include /templates/gallery.html}
-            <div id="social-buttons-content">
-                <script src="https://yastatic.net/share2/share.js" async="async"></script>
-                <div class="ya-share2" data-size="s" data-services="vkontakte,facebook,twitter,odnoklassniki,gplus" data-counter></div>
-            </div>   
-        </div>  
-    </article>
-    <div  class=" col-1 bbox br4 desktop-version" id="sidebar">
-        <div class=" fixed-column  right-menu shadow br4">
-            <div class="header">Ассортимент</div>
-            <ul>
-                {loop $assortment_list,$pl,$pitem}
-                    <li>
-                        {ifeq $pitem['chpu_title'],$item['chpu_title']}<span data-icon="chevron_left">{$pitem['title']}</span>
-                        {else}
-                            <a href="/objekty/{$pitem['chpu_title']}/" title="{$pitem['title']}" class="transition" data-icon="chevron_left">{$pitem['title']}</a>
-                        {/if}
-                    </li>
-                {/loop $assortment_list}
-            </ul>
-        </div>
+<section class="object-item assortment">
+    <div class="inner" >
+        <article itemscope itemtype="http://schema.org/NewsArticle" class="col-3">
+                <h1>{$item['title']}</h1>
+                {if!empty $item['content_short']}
+                    <div class="annotation">{$item['content_short']}</div>
+                {/if}
+                {if!empty $item['photo']}
+                    <div class="info">
+                        <div class="main-photo bg-cover" style="background-image: url(/img/uploads/big/{$item['subfolder']}/{$item['photo']});"></div>
+                        <div class="object-info">
+                            <div class="item properties">
+                                {$item['properties']}
+                            </div>
+                        </div>
+                    </div>
+                {/if}
+                <div class="content">
+                    <div class="text">
+                        <h2>Описание объекта</h2>
+                        {$item['content']}
+                    </div>
+                    
+                </div>
+                {include /templates/gallery.html}
+                  
+        </article>
     </div>
-</div>
- 
-<section class="products-slider-container clearfix">
-    <h2>Вся продукция завода</h2>
-    {block production/block}
+</section> 
+<section class="content-list similar">
+    <div class="inner">
+        <h2>Похожие объекты</h2>
+        {block assortment/block/similar/{$item['id']}}
+    </div>
 </section>
+{php:$application_type = 'assortment_item_bottom_application';}
+{include /templates/includes/block.form.html}
 
+{include /templates/includes/contacts.html}
 

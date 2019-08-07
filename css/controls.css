@@ -826,12 +826,13 @@ form .flex input:last-of-type{
     margin: 20px auto;
 }
 .form-success-container i:before{
-    font-size: 64px;
+    font-size: 100px;
     margin: 20px auto;
     display: block;
     width: 100%;
     text-align: center;
     height: 64px;
+    color: var(--main-color);
 }
 .form-success-container .title {
     display: block;

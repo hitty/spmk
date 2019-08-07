@@ -75,13 +75,13 @@
 
 @media (max-width: 767px) {
     .tendery-item h1 {
-        font-size: 34px;
+        font-size: 22px;
         margin: 0px 0 20px 0;
     }
 
     .tendery-item .date {
         font-size: 18px;
-        margin: 5px 0 10px 0;
+        margin: 5px 0;
     }
 
     .tendery .list h2 {

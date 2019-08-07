@@ -39,6 +39,16 @@ return array(
             'label' => 'Аннотация',
         ) 
         
+        ,'properties' => array(
+            'type' => TYPE_STRING,
+            'allow_empty' => true, 
+            'allow_null' => false,
+            'fieldtype' => 'textarea',
+            'editor' => 'big',
+            'parent_class' => 'full-width', 
+            'label' => 'Свойства',
+        ) 
+        
         ,'content' => array(
             'type' => TYPE_STRING,
             'allow_empty' => true, 
@@ -54,15 +64,14 @@ return array(
             'fieldtype' => 'hr'
         )
 
-         ,'seo_h1' => array(
+        ,'seo_title' => array(
             'type' => TYPE_STRING,
             'max' => 255,
             'parent_class' => 'full-width', 
             'allow_empty' => false, 
             'allow_null' => false,
             'fieldtype' => 'text',
-            'label' => 'H1',
-            'placeholder' => 'H1 заголовок в карточке'
+            'label' => 'Сео заголовок страницы'
         )
         ,'seo_description' => array(
             'type' => TYPE_STRING,

@@ -4,7 +4,7 @@
         {if!empty $current_page['page_content']}
             {$current_page['page_content']}
         {/if}
-        <span class="button big popup" data-url="/applications/">Оставить заявку</span>
+        <span class="button big popup" data-url="/applications/popup/?application_type=objects_list_popup_application">Оставить заявку</span>
      </div>
      <div class="list inner">
         {loop $list,$k,$item}
@@ -48,6 +48,7 @@
         <h2 class="invert">Остались вопросы?</h2>
         <span class="annotation white">Свяжитесь с нами - и получите ответы на них!</span>
         {php:$middle = true}
+        {php:$application_type = 'objects_list_bottom_application';}
         {include /templates/includes/form.html}
     </div>
 </section>

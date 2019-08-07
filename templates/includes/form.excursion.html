@@ -1,0 +1,29 @@
+        
+<div class="application-form{ifempty $middle} modal{/if}">      
+    <form class="send-message ajaxed" action="/applications/add/" method="POST" autocomplete="off" enctype="multipart/form-data">
+        {ifempty $middle}
+            <h2 class="invert">{if!empty $form_title}{$form_title}{else}Оставить заявку{/if}</h2>
+        {/if}
+        {if!empty $application_type}<input type="hidden" name="application_type" value="{$application_type}">{/if}
+        {php:$random=randomstring(10)}
+        {if!empty $middle}<div class="flex">{/if}
+            <div class="row">
+                <input type="text" name="name" placeholder="Ваше имя *" required="required" autocomplete="{$random}">
+            </div>
+            <div class="row">
+                <input type="phone" name="phone" placeholder="Ваш телефон *" required="required" maxlength="17" autocomplete="{$random}">
+            </div>
+            <div class="row">
+                <i  data-icon="date_range"></i>
+                <input type="text" placeholder="Дата визита" name="date" required="required" />
+            </div>
+            
+        {if!empty $middle}</div>{/if}
+        
+        <div class="row terms">                        
+            <span class="text">Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c <a href="#modal-terms" class="modal-open-btn">политикой конфиденциальности</a></span>
+            <span class="button big">{ifempty $button_title}Отправить{else}{$button_title}{/if}</span>
+        </div> 
+    </form>
+    
+</div> 

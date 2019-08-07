@@ -7,14 +7,26 @@ $action = empty($this_page->page_parameters[0]) ? "" : $this_page->page_paramete
 //записей на страницу
 $count = 10;
 //от какой записи вести отчет
-$from=0;        
+$from=0;   
+
+$parameters = Request::GetParameters( METHOD_POST );
+$get_parameters = Request::GetParameters( METHOD_GET );
+$application_type = !empty( $parameters['application_type'] ) ? $parameters['application_type'] : ( !empty( $get_parameters['application_type'] ) ? $get_parameters['application_type'] : '' );
+if( !empty( $application_type ) ) {
+    $forms = Config::Get('forms');
+    foreach( $forms as $k => $form ){
+        if( strstr( $application_type, $k ) ) {
+            $application = $form;
+            break;
+        }
+    }
+}
+   
 switch(true){
     ////////////////////////////////////////////////////////////////////////////////////////////////////////
     // отправка заявки
     ////////////////////////////////////////////////////////////////////////////////////////////////////////    
     case $action == 'add':
-        $parameters = Request::GetParameters( METHOD_POST );
-        $application_type = !empty( $parameters['application_type'] ) ? $parameters['application_type'] : '';
         Response::SetString( 'application_type', $application_type );
         if( 
             $application_type == 'postavschikam' ||
@@ -52,11 +64,17 @@ switch(true){
             $city = Cookie::GetArray( 'city' );
             $ip = !empty( Host::getUserIp(true) ) ? Host::getUserIp(true) : Host::getUserIp();
             if( $ip == '31.204.181.238' ) die();
+            // заголовок письма
+            if( !empty( $application['mailer_title'] ) ) $mailer_title = $application['mailer_title'];
+            // отбивка при успешной отправке
+            if( !empty( $application['success_text'] ) ) Response::SetString( 'success_text', $application['success_text'] );
             
-            switch( $application_type ){
-                case 'postavschikam':
-                case 'tendery':
-                    $mail_template = 'send.email.html';
+            switch( true ){
+                ///////////////////////////////////////////////////////////////
+                // Поставщикам и тендеры
+                ///////////////////////////////////////////////////////////////
+                case $application_type == 'postavschikam':
+                case $application_type == 'tendery':
                     $comment = [];
                     if( !empty( $parameters['title'] )) $comment[] = 'Наименование организации: ' . $parameters['title']; 
                     if( !empty( $parameters['inn'] )) $comment[] = 'ИНН: ' . $parameters['inn']; 
@@ -88,13 +106,16 @@ switch(true){
                     }
                     
                     $parameters['comment'] = implode( '<br/><br/>', $comment );
-                    Response::SetString( 'success_text', 'Ваше предложение передано на предварительную обработку.<br/>С вами свяжутся в случае вопросов.' );
                     break;
-                default:
-                    $mailer_title = ( ( empty( $parameters['reference'] ) ? 'Запрос КП' : 'Запрос референс-листа' ) . ' - '.date('d.m.Y') );
-                    $mail_template = 'send.email.html';
+                ///////////////////////////////////////////////////////////////
+                // Экскурсия
+                ///////////////////////////////////////////////////////////////
+                case strstr( $application_type, 'excursion' ):
+                    $mailer_title = 'Запись на экскурсию ' . $parameters['date'];
                     break;
+                
             }
+            $mail_template = 'send.email.html';
             
             $time = Time::get();
             $data = array(
@@ -103,6 +124,7 @@ switch(true){
                 'email' => !empty( $parameters['email'] ) ? $parameters['email'] : '',
                 'region' => !empty( $parameters['region'] ) ? $parameters['region'] : '',
                 'user_comment' => !empty( $parameters['comment'] ) ? $parameters['comment'] : '',
+                'date' => !empty( $parameters['date'] ) ? $parameters['date'] : '',
                 'files' => !empty( $files ) ? $files : '',
                 'ip' => $ip,
                 'ref' => !empty( Host::getRefererURL() ) ? Host::getRefererURL() : '',
@@ -164,7 +186,7 @@ switch(true){
                     ]
                 ];
                 
-                if( !DEBUG_MODE ) {
+                if( !DEBUG_MODE && !empty( $wserwer ) ) {
                     if( !empty( $application_type ) && in_array( $application_type, [ 'tendery', 'postavschikam' ] ) ){
                         $emails[] = ['Е.С.А.',  "aae1958@inbox.ru" ];    
                         $emails[] = ['Отдел снабжения',  "snab@spmk.group" ];    
@@ -196,11 +218,9 @@ switch(true){
     // форма заявки
     ////////////////////////////////////////////////////////////////////////////////////////////////////////    
     case $action == 'popup':
-        $get_parameters = Request::GetParameters( METHOD_GET );
-        if( !empty( $get_parameters['g'] ) ) Response::SetString( 'goal', $get_parameters['g'] );
-
+        Response::SetString( 'form_title', $application['form_title'] );
         $ajax_result['ok'] = true;
-        $module_template = 'templates/includes/form.html';
+        $module_template = $application['template'];
         break;
     ////////////////////////////////////////////////////////////////////////////////////////////////////////
     // отправка заявки

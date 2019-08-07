@@ -378,6 +378,9 @@
     footer .bottom .payment-info {
         width: 490px;
     }
+    .sticky-actions{
+        display: none;
+    }
 }
 
 @media (max-width: 768px) {
@@ -994,7 +997,7 @@
         width: 100%;
     }
 
-    footer .menu li a {
+    footer .menu li:not(.title) a {
         font-size: 12px;
     }
 

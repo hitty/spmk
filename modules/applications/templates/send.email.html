@@ -35,6 +35,11 @@
                 Регион: <strong>{$data['region']}</strong>
             </span>
             {/if}
+            {if!empty $data['date']}
+            <span style="display: block; text-align: left; margin-top: 20px;">
+                Дата посещения: <strong>{$data['date']}</strong>
+            </span>
+            {/if}
                                        
             {if!empty $data['user_comment']}
             <span style="display: block; text-align: left; margin-top: 20px;">

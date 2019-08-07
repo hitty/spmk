@@ -37,7 +37,7 @@
                     <li>Склады и логистические центры</li>
                     <li>Ангары для крупногабаритного транспорта</li>
                 </ul>
-                <span class="button big popup" data-url="/applications/popup/">Получить расчет</span>
+                <span class="button big popup" data-url="/applications/popup/?application_type=mainpage_stroim_raschet">Получить расчет</span>
             </div>
             
             <div class="item" data-pos="2">
@@ -47,7 +47,7 @@
                     <li>Хранилища для зерна, овощей и фруктов</li>
                     <li>Хозблоки</li>
                 </ul>
-                <span class="button big popup" data-url="/applications/popup/">Получить расчет</span>
+                <span class="button big popup" data-url="/applications/popup/?application_type=mainpage_stroim_raschet">Получить расчет</span>
             </div>
 
             <div class="item" data-pos="3">
@@ -57,7 +57,7 @@
                     <li>Офисные здания</li>
                     <li>Автосалоны и многоуровневые стоянки</li>
                 </ul>
-                <span class="button big popup" data-url="/applications/popup/">Получить расчет</span>
+                <span class="button big popup" data-url="/applications/popup/?application_type=mainpage_stroim_raschet">Получить расчет</span>
             </div>
 
             <div class="item" data-pos="4">
@@ -67,7 +67,7 @@
                     <li>Стадионы</li>
                     <li>Дворцы спорта</li>
                 </ul>
-                <span class="button big popup" data-url="/applications/popup/">Получить расчет</span>
+                <span class="button big popup" data-url="/applications/popup/?application_type=mainpage_stroim_raschet">Получить расчет</span>
             </div>
 
             <div class="item" data-pos="5">
@@ -76,7 +76,7 @@
                     <li>Башни, мачты</li>
                     <li>Опоры ЛЭП</li>
                 </ul>
-                <span class="button big popup" data-url="/applications/popup/">Получить расчет</span>
+                <span class="button big popup" data-url="/applications/popup/?application_type=mainpage_stroim_raschet">Получить расчет</span>
             </div>
 
             <div class="item" data-pos="6">
@@ -85,7 +85,7 @@
                     <li>Рекламные конструкции</li>
                     <li>Купольные сооружения</li>
                 </ul>
-                <span class="button big popup" data-url="/applications/popup/">Получить расчет</span>
+                <span class="button big popup" data-url="/applications/popup/?application_type=mainpage_stroim_raschet">Получить расчет</span>
             </div>
 
             
@@ -236,7 +236,7 @@
     </ol>
 
 </section>
-
+{php:$application_type = 'mainpage_middle_first_have_questions';}
 {include /templates/includes/block.form.html}
 
 <section class="clients">
@@ -307,4 +307,5 @@
 
 {include /templates/includes/contacts.html}
 
+{php:$application_type = 'mainpage_middle_second_have_questions';}
 {include /templates/includes/block.form.html}

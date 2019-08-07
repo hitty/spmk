@@ -39,26 +39,71 @@ return array(
         'tables' => [ 'news', 'objects', 'production' ],           // таблицы
     )
     
-    ,'social' => array(   // данные приложений для авторизации через соцсети
-        'fb' => array(
-            'secret' => '73698846a8ab94af10815f6394fd6bd4',
-            'app_id' => '193703541243879'
-        )
-        ,'vk' => array(
-            'client_secret' => '5e7f739f5e7f739f5e7f739f175e1d318555e7f5e7f739f04b82871ac8090b7f0ef9c63',
-            'secret' => 'V1hIYn63XAWlB35WW4wo',
-            'app_id' => '6439450'
-        )
-        ,'twitter' => array(
-            'secret' => DEBUG_MODE ? 'wQGL6hbCotgwBMeDlADd8J0ofeJpEKruhxlYWXlDv79JpAex4c' : 'dHH2NHCROTs9BKnvlJctS8o1dEORoQm28wVbqKr9XonsYJ7ToH',
-            'key' => DEBUG_MODE ? 'lzfEIpebXWm9hOYDvfRiUR56T' : 'PAy9d56U3HI8sxlWYmh8wbNw6'
-        )
-        ,'ok' => array(
-            'secret' => '8D2B534507B262A4C5CED771',
-            'public' => 'CBADJLGMEBABABABA',
-            'app_id' => '1265275392'
-        )                          
-    ),
+    ,'forms' => [   // данные форм запроса
+        'raschet' => [   //получить расчет
+            'form_title' => 'Получить расчет',
+            'success_text' => 'Спасибо за проявленный интерес! Проект передан на расчет. Ответ поступит на электронную почту. ',
+            'template' => 'templates/includes/form.html',
+            'mailer_title' => 'Новая заявка на расчет'
+        ]
+        ,
+        'application' => [  //оставить заявку
+            'form_title' => 'Оставить заявку',
+            'success_text' => 'Спасибо за проявленный интерес! Ваша заявка обрабатывается. Ожидайте звонка менеджера. ',
+            'template' => 'templates/includes/form.html',
+            'mailer_title' => 'Новая заявка'
+        ]
+        ,
+        'have_questions' => [  //остались вопросы
+            'form_title' => 'Остались вопросы?',
+            'success_text' => 'Спасибо! Мы обязательно ответим. Пожалуйста, ожидайте. ',
+            'template' => 'templates/includes/form.question.html',
+            'mailer_title' => 'Новый вопрос'
+        ]
+        ,
+        'ask_question' => [  //задать вопрос
+            'form_title' => 'Задать вопрос',
+            'success_text' => 'Спасибо! Мы обязательно ответим. Пожалуйста, ожидайте. ',
+            'template' => 'templates/includes/form.question.html',
+            'mailer_title' => 'Новый вопрос'
+        ]
+        ,
+        'excursion' => [  // записаться на экскурсию
+            'form_title' => 'Записаться на экскурсию',
+            'success_text' => 'Спасибо за проявленный интерес! Ваша заявка обрабатывается. Ожидайте звонка менеджера. ',
+            'template' => 'templates/includes/form.excursion.html',
+            'mailer_title' => 'Запись на экскурсию'
+        ]
+        ,
+        'call' => [  // заказать обратный звонок
+            'form_title' => 'Заказ обратного звонка',
+            'success_text' => 'Данные получены. Ожидайте звонка, пожалуйста. ',
+            'template' => 'templates/includes/form.call.html',
+            'mailer_title' => ''
+        ]
+        ,
+        'price' => [  // запросить прайс
+            'form_title' => 'Запросить прайс',
+            'success_text' => 'Спасибо за проявленный интерес! Ваша заявка обрабатывается. Ожидайте звонка менеджера. ',
+            'template' => 'templates/includes/form.html',
+            'mailer_title' => 'Запрос прайса'
+        ]
+        ,
+        'postavschikam' => [  // поставщикам
+            'form_title' => '',
+            'success_text' => 'Ваше предложение передано на предварительную обработку.<br/>С вами свяжутся в случае вопросов.',
+            'template' => 'templates/includes/form.html',
+            'mailer_title' => ''
+        ]
+        ,
+        'tendery' => [  // тендеры
+            'form_title' => '',
+            'success_text' => 'Ваше предложение передано на предварительную обработку.<br/>С вами свяжутся в случае вопросов.',
+            'template' => 'templates/includes/form.html',
+            'mailer_title' => ''
+        ]
+                                  
+    ],
    
     'watermark_src' => '/img/watermark.png',
     

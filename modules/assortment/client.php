@@ -1,6 +1,9 @@
 <?php
+$GLOBALS['css_set'][] = '/css/objects.css';
 $GLOBALS['css_set'][] = '/modules/assortment/css/style.css';
 $GLOBALS['js_set'][] = '/modules/assortment/js/script.js';
+$GLOBALS['js_set'][] = '/js/gallery/script.js';
+$GLOBALS['css_set'][] = '/js/gallery/style.css';          
 
 $post_parameters = Request::GetParameters( METHOD_POST );
 Response::SetArray( 'parameters', $post_parameters );
@@ -15,14 +18,25 @@ switch( true ){
         // блок
         ////////////////////////////////////////////////////////////////////////////////////////////////////////
         case $action == 'block':
-            $list = CommonDb::getList( 'assortment', false, $sys_tables['assortment'] . '.published = 1', 'position DESC', 'id' );
+            //похожие объекты
+            $similar = empty( $this_page->page_parameters[1] ) ? false : true;
+            $count = !empty( $similar ) ? 6 : false;
+            Response::SetBoolean( 'similar', $similar );
+            //id карточки
+            $id = empty( $this_page->page_parameters[2] ) ? false : $this_page->page_parameters[2];
+            //ловия
+            $clauses = [];
+            $clauses['published'] = $sys_tables['assortment'] . '.published = 1';
+            if( !empty( $id ) ) $clauses['id'] = $sys_tables['assortment'] . '.id != ' . $id;
+            
+            $list = CommonDb::getList( 'assortment', $count, implode( " AND ", $clauses ), 'position DESC', 'id' );
             Response::SetArray( 'list', $list );
             $module_template = 'block.html';
             if( $ajax_mode ) $ajax_result['ok'] = true;
             break;
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // карточка проектов
+    // карточка объектов
     ////////////////////////////////////////////////////////////////////////////////////////////////////////
     case !empty( $action ) && count( $this_page->page_parameters ) == 1:
         $item = CommonDb::getItem( 'assortment', "chpu_title = '" . $db->real_escape_string( $action ) . "'", $sys_tables['assortment'] . '.id' );
@@ -52,7 +66,7 @@ switch( true ){
                     'title' => $item['title'],
                     'description' => $description,
                     'image' => '/img/uploads/big/' . ( !empty( $item['subfolder'] ) ? $item['subfolder'] : ( !empty( $photos[0] ) ? $photos[0]['subfolder'] : '' ) ) . '/' . ( !empty( $item['photo'] ) ? $item['photo'] : ( !empty( $photos[0] ) ? $photos[0]['name'] : '' ) ),
-                    'url' => '/objekty/' . $item['chpu_title'] . '/'
+                    'url' => '/assortment/' . $item['chpu_title'] . '/'
                 )
             );        
             
@@ -64,10 +78,11 @@ switch( true ){
         $module_template = 'item.html';
         break;
     ////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // список проектов
+    // список объектов
     ////////////////////////////////////////////////////////////////////////////////////////////////////////
     case empty( $action ):
         $list = CommonDb::getList( 'assortment', false, $sys_tables['assortment'] . '.published = 1', 'position DESC', 'id' );
+        foreach( $list as $k => $item ) $list[$k]['photos'] = Photos::getList( 'assortment', $item['id'], 5 );
         Response::SetArray( 'list', $list );
         $module_template = 'list.html';
         break;

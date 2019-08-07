@@ -73,14 +73,14 @@ return [
             'fieldtype' => 'hr'
         ]
 
-         ,'seo_h1' => [
+         ,'seo_title' => [
             'type' => TYPE_STRING,
             'max' => 255,
             'parent_class' => 'full-width', 
             'allow_empty' => false, 
             'allow_null' => false,
             'fieldtype' => 'text',
-            'label' => 'H1',
+            'label' => 'Сео заголовок страницы',
             'placeholder' => 'H1 заголовок в карточке'
         ]
         ,'seo_description' => [

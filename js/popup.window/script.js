@@ -85,6 +85,7 @@ if($)(function(window, document, $, undefined){
                             var _error_notification = jQuery( '.' + o.notification_class.split(' ').join('.'), init_selector );
                             o.button.removeClass( 'waiting' );
                             if( msg.ok == true ) {
+                                counterGoals( 'send_' + o.f_values['application_type'] )
                                 if(typeof o.onFormSuccess == "function") o.onFormSuccess.call(this, msg);
                                 //вывод уведомления
                                 if( typeof msg.html == 'string' || typeof msg.html_additional == 'string' ) {

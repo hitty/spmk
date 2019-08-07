@@ -104,7 +104,7 @@ sub {
 
 h1 {
     font-size: 54px;
-    font-weight: bold;
+    font-weight: 500;
     margin: 0px 0 40px 0;
     display: block;
     line-height: 62px;
@@ -118,7 +118,7 @@ h1 {
     font-size: 36px;
     line-height: 1.5;
     text-align: center;
-    font-weight: 700;
+    font-weight: 500;
     color: var(--brown);
     text-align: center;
     text-transform: uppercase;
@@ -505,4 +505,95 @@ h1 + .navigation{
 }
 .success{
     color: var(--success);
+}
+
+
+.sticky-actions {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    z-index: 100;
+}
+
+.sticky-actions li {
+    text-align: right;
+    margin: 1px 0;
+    color: var(--white);
+    cursor: pointer;
+    height: 40px;
+    line-height: 40px;
+    min-width: 40px;
+    font-size: 14px;
+    transition: .2s background ease-in-out;
+    position: absolute;
+    right: 0;
+}
+
+.sticky-actions li:before {
+    position: absolute;
+    right: 4px;
+    top: 10px;
+    font-size: 30px;
+    width: 40px;
+    height: 40px;
+    box-shadow: 0px 6px 7px rgba(0, 0, 0, 0.195968);
+    background: var(--main-color);
+    transition: .2s background ease-in-out;
+    line-height: 40px;
+    text-align: center;
+    transform: translate(4px, -9px);
+    border-radius: 3px;
+    z-index: 10;
+}
+
+.sticky-actions li:hover:before {
+    background: var(--secondary-color);
+}
+
+.sticky-actions li span {
+    opacity: 0;
+    visibility: hidden;
+    right: -150px;
+    position: absolute;
+    white-space: nowrap;
+    transition: .2s right ease-in-out;
+    background: var(--secondary-color);
+    height: 40px;
+    line-height: 40px;
+    min-width: 40px;
+    display: block;
+    border-radius: 3px;
+    padding: 0 10px;
+    top: 1px;
+}
+
+.sticky-actions li:hover span {
+    opacity: 1;
+    visibility: visible;
+    position: relative;
+    right: 40px;
+}
+
+.sticky-actions li:nth-child(1) {
+    top: 0;
+}
+
+.sticky-actions li:nth-child(2) {
+    top: 41px;
+}
+
+.sticky-actions li:nth-child(3) {
+    top: 82px;
+}
+
+.sticky-actions li:nth-child(4) {
+    top: 123px;
+}
+
+.sticky-actions li:nth-child(5) {
+    top: 164px;
+}
+
+.sticky-actions li:nth-child(6) {
+    top: 205px;
 }

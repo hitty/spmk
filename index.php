@@ -82,8 +82,10 @@ if( empty( $ajax_mode ) ) {
     $GLOBALS['js_set'][] = '/js/form.validate.js';
     $GLOBALS['js_set'][] = '/js/main.js';
     $GLOBALS['js_set'][] = '/js/interface.js';
-    $GLOBALS['js_set'][] = '/js/fancybox.js';
     $GLOBALS['js_set'][] = '/js/map.js';
+
+    $GLOBALS['js_set'][] = '/js/gallery/script.js';
+    $GLOBALS['css_set'][] = '/js/gallery/style.css';          
     
     $GLOBALS['css_set'][] = '/css/variables.css';
     $GLOBALS['css_set'][] = '/css/fonts.css';

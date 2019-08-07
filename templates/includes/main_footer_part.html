@@ -35,9 +35,9 @@
             
             <ul>
                 <li class="title">Контакты</li>
-                <li><a href="mailto:market@spmk.group">market@spmk.group</a><span class="small"> - отдел продаж</span></li>
-                <li><a href="mailto:info@spmk.group">info@spmk.group</a><span class="small"> - общие вопросы</span></li>
-                <li><a href="//">8 800 250-76-97</a></li>
+                <li><a href="mailto:market@spmk.group">market@spmk.group</a><span class="small">отдел продаж</span></li>
+                <li><a href="mailto:info@spmk.group">info@spmk.group</a><span class="small">общие вопросы</span></li>
+                <li data-goal="call" onclick="try{ document.location.href='tel:+78002507697'; return true; }catch(err){ }">+7 (800) 250-76-97</li>
                 <li>
                     <ul class="social" itemscope="" itemtype="http://schema.org/Organization">
                         <li class="socicon-facebook"> <a href="" target="_blank" title="SPMK.group Facebook"></a></li>
@@ -72,6 +72,15 @@
     </div>
 </footer>
 
+<ul class="sticky-actions">
+    <li class="raschet popup" data-icon="business_center" data-url="/applications/popup/?application_type=raschet_sticky"><span>Получить расчет</span></li>
+    <li class="price popup" data-icon="money" data-url="/applications/popup/?application_type=price_sticky"><span>Запросить прайс</span></li>
+    <li class="call popup" data-icon="phone" data-url="/applications/popup/?application_type=order_call_sticky"><span>Заказать звонок</span></li>
+    <li class="ask-question popup" data-icon="create" data-url="/applications/popup/?application_type=ask_question_sticky"><span>Задать вопрос</span></li>
+    <li class="excursion popup" data-icon="transfer_within_a_station" data-url="/applications/popup/?application_type=excursion_sticky"><span>Записаться на экскурсию</li>
+    <li class="application popup" data-icon="email" data-url="/applications/popup/?application_type=application_sticky"><span>Оставить заявку</li>
+</ul>
+
 {if!empty $debug}
     
 {else}     
@@ -84,3 +93,19 @@
     <script>{$js_content}</script>
     
 {/if}
+{literal}
+
+<script>
+    function counterGoals( _a ) {
+        try{ yaCounter54690451.reachGoal(_a); console.log( '2' ); }catch(err){ }
+        
+        try{ gtag('event', _a); console.log( '3' ); }catch(err){ }
+        
+    }
+    document.body.addEventListener('click', function(e){
+        if( typeof e.target.getAttribute('data-goal') == 'string' ){
+            counterGoals( e.target.getAttribute('data-goal') );
+        }
+    });
+</script>
+{/literal}

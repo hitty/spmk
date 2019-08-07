@@ -14,35 +14,21 @@
             <div class="row">
                 <input type="phone" name="phone" placeholder="Ваш телефон *" required="required" maxlength="17" autocomplete="{$random}">
             </div>
-            {ifempty $call_form}
-                <div class="row">
-                    <input type="text" name="region" placeholder="Ваш регион*" required="required" autocomplete="{$random}">
-                </div>
-                <div class="row">
-                    <input type="email" name="email" placeholder="Ваш email{if!empty $email_required}*{/if}"{if!empty $email_required} required="required"{/if} autocomplete="{$random}">
-                </div>
-            {/if}
+            <div class="row">
+                <input type="text" name="region" placeholder="Ваш регион"autocomplete="{$random}">
+            </div>
         {if!empty $middle}</div>{/if}
-        {ifempty $call_form}
-            {ifempty $reference}
-                <div class="upload-container row br3">
-                    <textarea name="comment" placeholder="Описание запроса, дополнительные данные"></textarea>
-                    <div class="file-upload">      
-                        <input type="file" name="file_upload[]" id="file_upload-{$random}" class="inputfile-{$random}" data-multiple-caption="files selected" multiple="">
-                        <label for="file_upload-{$random}" class="br4 attach-file " data-icon="attach_file">
-                            <strong class="br3 transition">Добавить файл</strong>
-                        </label>      
-                        <span class="text-overflow" data-icon="attach_file"></span> 
-                        <i class="close" data-icon="close"></i>
-                    </div>
-                </div>     
-            {else}
-                <div class="row">
-                    <textarea name="comment" placeholder="Описание запроса, дополнительные данные"></textarea>
-                </div>
-
-            {/if}
-        {/if}
+        <div class="upload-container row br3">
+            <textarea name="comment" placeholder="Комментарий"></textarea>
+            <div class="file-upload">      
+                <input type="file" name="file_upload[]" id="file_upload-{$random}" class="inputfile-{$random}" data-multiple-caption="files selected" multiple="">
+                <label for="file_upload-{$random}" class="br4 attach-file " data-icon="attach_file">
+                    <strong class="br3 transition">Добавить файл</strong>
+                </label>      
+                <span class="text-overflow" data-icon="attach_file"></span> 
+                <i class="close" data-icon="close"></i>
+            </div>
+        </div>     
         <div class="row terms">                        
             <span class="text">Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c <a href="#modal-terms" class="modal-open-btn">политикой конфиденциальности</a></span>
             <span class="button big">{ifempty $button_title}Отправить{else}{$button_title}{/if}</span>
