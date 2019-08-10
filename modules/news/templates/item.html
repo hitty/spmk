@@ -1,12 +1,12 @@
 <section class="news content-item">
-    <div class="inner" >
+    <div class="inner narrow" >
         <h1>{$item['title']}</h1>
         <div class="info">
             <span class="date with-dot">{$item['normal_date']}</span>
             <a href="/news/{$item['category_chpu_title']}/" title="{$item['category_title']}">{$item['category_title']}</a>
         </div>
         {if!empty $item['photo']}
-            <div class="main-photo bg-cover" style="background-image: url(/img/uploads/big/{$item['subfolder']}/{$item['photo']});"></div>
+            <img class="main-photo" src="/img/uploads/big/{$item['subfolder']}/{$item['photo']}" />
         {/if}
         <article itemscope itemtype="http://schema.org/NewsArticle" class=" flex">
             <div class="left-part">

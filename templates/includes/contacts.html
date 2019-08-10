@@ -1,6 +1,13 @@
 <section class="contacts">
+        {if!empty $contacts_page}
+            <h1>Контакты</h1>
+        {/if}
+
     <div class="inner">
-        <h2>Контакты</h2>
+        {ifempty $contacts_page}
+            <h2>Контакты</h2>
+        {/if}
+        
         <span class="address">
             ГК «Союз Производителей Металлоконструкций» <br />
             390042, г. Рязань, ул. Станкозаводская, д.7
@@ -27,7 +34,7 @@
                 <a href="mailto:info@spmk.group">info@spmk.group</a>
             </li>
         </ul>
-        
+        {if!empty $contacts_page}
         <script src="//api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
         <div class="map" id="map-office" data-lat="54.668207" data-lng="39.635799">
             <div class="image bg-cover" style="background-image: url('/img/map-office.png');">
@@ -38,6 +45,7 @@
             <div class="image bg-cover" style="background-image: url('/img/map-production.jpg');">
                 <span class="title">Представительство в г.Москве</span>
             </div>
-        </div>    
+        </div>   
+        {/if} 
     </div>
 </section>

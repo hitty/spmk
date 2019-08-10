@@ -43,9 +43,6 @@
 }
 
 @media (max-width: 1380px) {
-    section {
-        margin: 80px 0;
-    }
 
     .breadcrumbs {
         transform: translate(-50%, 44px);
@@ -53,7 +50,6 @@
 
     nav span,nav a {
         padding: 3px 7px;
-        font-size: 14px;
         border-width: 2px;
     }
 
@@ -72,7 +68,7 @@
 
 @media (max-width: 1280px) {
     section {
-        margin: 70px 0;
+        margin: 60px 0;
     }
 
     .breadcrumbs {
@@ -168,17 +164,14 @@
 
 @media (max-width: 1024px) {
     section {
-        margin: 60px 0;
+        margin: 50px 0;
     }
 
     .breadcrumbs {
-        transform: translate(-50%, 35px);
+        transform: translate(-50%, 30px);
     }
 
-    .breadcrumbs span[itemscope] {
-        font-size: 14px;
-    }
-
+    
     h1 {
         font-size: 40px;
         line-height: 50px;
@@ -277,7 +270,7 @@
     }
 
     .preferences ul li span {
-        font-size: 20px;
+        font-size: 18px;
         line-height: 1.4;
         width: 100%;
         float: none;
@@ -414,7 +407,7 @@
     }
 
     section {
-        margin: 50px auto;
+        margin: 40px auto;
     }
 
     .breadcrumbs span[itemscope] {
@@ -438,7 +431,7 @@
     }
 
     section.bg-cover {
-        padding: 50px 0;
+        padding: 40px 0;
     }
 
     .inner {
@@ -779,7 +772,7 @@
     }
 
     .preferences ul li span {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     .diploms .list {
@@ -891,6 +884,7 @@
     footer .menu {
         flex-wrap: wrap;
         margin-bottom: -20px;
+        
     }
 
     footer .menu ul {

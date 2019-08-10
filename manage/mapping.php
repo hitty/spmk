@@ -44,6 +44,10 @@ return array(
         'module' => 'zakupki',
         'title' => 'Тендеры'
     )
+    ,'vacancies' => array(
+        'module' => 'vacancies',
+        'title' => 'Вакансии'
+    )
     
 );
             

@@ -1,0 +1,18 @@
+.list-container .title{
+    width: 60%;
+    color: var(--black);
+    display: block;
+    border: none;    
+    cursor: pointer;
+}
+.list-container .photo{
+    display: block;
+    width: 60px;
+    text-align: center;
+    margin: -15px 0 -15px -15px;
+    
+}
+.list-container .city,
+.list-container .salary{
+    width: 10%;
+}

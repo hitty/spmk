@@ -28,6 +28,7 @@ $this_page->menuAdd( 'Объекты', 'manage/objects', 1, false, false, false 
 $this_page->menuAdd( 'Ассортимент', 'manage/assortment', 1, false, false, false );
 $this_page->menuAdd( 'Тендеры', 'manage/tendery', 1, false, false, false );
 $this_page->menuAdd( 'Новости', 'manage/news', 1, false, false, false );
+$this_page->menuAdd( 'Вакансии', 'manage/vacancies', 1, false, false, false );
 if( $auth->id_group == 101 ){
     $this_page->menuAdd( 'URLы', 'manage/pages', 1, false, false, false );
     $this_page->menuAdd( 'Сео', 'manage/seo', 1, false, false, false );

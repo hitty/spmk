@@ -143,10 +143,11 @@ h2.invert:before{
     background-color: var(--white);
 }
 h3 {
-    font-size: 20px;
-    color: var(--brown);
-    font-weight: normal;
-    padding: 0 0 .5em;
+    font-size: 24px;
+    color: var(--text);
+    font-weight: 500;
+    padding: 0;
+    margin: 10px 0 20px 0;
 }
 
 .h4,
@@ -186,12 +187,12 @@ sup {
     vertical-align: top;
 }
 section{
-    margin: 120px 0;
+    margin: 80px 0;
     position: relative;
 }
 section.bg-cover{
     margin: 0;
-    padding: 120px 0;
+    padding: 80px 0;
 }
 /* фиксированный размер блока */
 .bbox{
@@ -343,6 +344,9 @@ section.bg-cover{
     width: 1180px;
     margin: 0 auto;
 }
+.inner.narrow{
+    max-width: 940px;
+}
 @media (max-width: 1237px) {
     .inner{
         width: calc( 100% - 40px );
@@ -357,16 +361,17 @@ section.bg-cover{
 }   
 .breadcrumbs {
     color: var(--gray);
-    font-size: 14px;
+    font-size: 12px;
     display: block;
     margin: 0 auto;
     position: relative;
     left: 50%;
-    transform: translate(-50%, 54px);
+    transform: translate(-50%, 30px);
     text-align: center;
     max-width: 100%;
     align-items: center;
-    height: 28px;
+    height: 24px;
+    overflow: hidden;
 }
 
 .breadcrumbs.clearfix.text-overflow {
@@ -378,12 +383,12 @@ section.bg-cover{
 }
 
 .breadcrumbs span[itemscope] {
-    font-size: 16px;
-    line-height: 28px;
+    font-size: 12px;
+    line-height: 24px;
     background: var(--gray-light-bg);
     padding: 0 15px;
     display: inline-block;
-    height: 28px;
+    height: 24px;
     margin-right: -4px;
     position: relative;
 }
@@ -392,13 +397,13 @@ section.bg-cover{
     content: "";
     display: block;
     position: absolute;
-    left: -14px;
+    left: -13px;
     width: 0;
     height: 0;
     border-style: solid;
-    border-width: 24px 0 24px 24px;
+    border-width: 20px 0 22px 22px;
     border-color: transparent transparent transparent #fff;
-    top: -10px;
+    top: -8px;
     z-index: 1;
 }
 
@@ -408,10 +413,12 @@ section.bg-cover{
     border-color: transparent transparent transparent var(--gray-light-bg);
     z-index: 2;
 }
+
 .breadcrumbs span[itemscope]:last-of-type:after,
-.breadcrumbs span[itemscope]:first-of-type:before{
+.breadcrumbs span[itemscope]:first-of-type:before {
     display: none;
 }
+
 .breadcrumbs span[itemscope] a {
     color: var(--main-color);
     border-bottom: none;
@@ -420,9 +427,11 @@ section.bg-cover{
     position: relative;
     z-index: 10;
 }
-.breadcrumbs span[itemscope] a:hover{
+
+.breadcrumbs span[itemscope] a:hover {
     text-decoration: none;
 }
+
 .breadcrumbs span[itemscope]:last-of-type a {
     color: var(--gray);
     text-decoration: none;
@@ -431,7 +440,7 @@ section.bg-cover{
 
 .breadcrumbs a:hover {
     border: none;
-}  
+}
 .icon{
     position: relative;
     padding-left: 40px;
@@ -524,54 +533,49 @@ h1 + .navigation{
     line-height: 40px;
     min-width: 40px;
     font-size: 14px;
-    transition: .2s background ease-in-out;
+    transition: .3s all;
     position: absolute;
-    right: 0;
-}
-
-.sticky-actions li:before {
-    position: absolute;
-    right: 4px;
-    top: 10px;
-    font-size: 30px;
-    width: 40px;
-    height: 40px;
     box-shadow: 0px 6px 7px rgba(0, 0, 0, 0.195968);
-    background: var(--main-color);
-    transition: .2s background ease-in-out;
-    line-height: 40px;
-    text-align: center;
-    transform: translate(4px, -9px);
-    border-radius: 3px;
-    z-index: 10;
-}
-
-.sticky-actions li:hover:before {
-    background: var(--secondary-color);
-}
-
-.sticky-actions li span {
-    opacity: 0;
-    visibility: hidden;
-    right: -150px;
-    position: absolute;
+    background: url(/img/kaska-icon.svg) no-repeat 10px 50% var(--main-color);
+    border-radius: 3px 0 0 3px;
+    padding: 0 10px 0 40px;
     white-space: nowrap;
-    transition: .2s right ease-in-out;
-    background: var(--secondary-color);
-    height: 40px;
-    line-height: 40px;
-    min-width: 40px;
-    display: block;
-    border-radius: 3px;
-    padding: 0 10px;
-    top: 1px;
+}
+ 
+
+.sticky-actions li.raschet {
+    background-image: url('/img/calculator-icon.svg');
+    right: -125px;
 }
 
-.sticky-actions li:hover span {
-    opacity: 1;
-    visibility: visible;
-    position: relative;
-    right: 40px;
+.sticky-actions li.price {
+    background-image: url('/img/kaska-icon.svg');
+    right: -126px;
+}
+
+.sticky-actions li.call {
+    background-image: url('/img/call-icon.svg');
+    right: -124px;
+}
+
+.sticky-actions li.ask-question {
+    background-image: url('/img/question-icon.svg');
+    right: -111px;
+}
+
+.sticky-actions li.excursion {
+    background-image: url('/img/kaska-icon.svg');
+    right: -184px;
+}
+
+.sticky-actions li.application {
+    background-image: url('/img/mail-icon.svg');
+    right: -124px;
+}
+
+.sticky-actions li:hover {
+    right: 0;
+    background-color: var(--secondary-color);
 }
 
 .sticky-actions li:nth-child(1) {

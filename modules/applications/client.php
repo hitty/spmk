@@ -29,6 +29,7 @@ switch(true){
     case $action == 'add':
         Response::SetString( 'application_type', $application_type );
         if( 
+            $application_type == 'vacancies' ||
             $application_type == 'postavschikam' ||
             $application_type == 'tendery' ||
             !empty( $parameters['phone'] ) 
@@ -70,6 +71,11 @@ switch(true){
             if( !empty( $application['success_text'] ) ) Response::SetString( 'success_text', $application['success_text'] );
             
             switch( true ){
+                ///////////////////////////////////////////////////////////////
+                // Вакансии
+                ///////////////////////////////////////////////////////////////
+                case $application_type == 'vacancies':
+                    break;
                 ///////////////////////////////////////////////////////////////
                 // Поставщикам и тендеры
                 ///////////////////////////////////////////////////////////////
@@ -136,7 +142,7 @@ switch(true){
             Time::clear();
             
             //отправка письма спамерам
-            if( ( !empty( $time ) && $time < 120000 ) || ( !empty( $parameters['comment'] ) && preg_match( '#url|http#msiU', $parameters['comment'] ) ) ){
+            if( ( !empty( $time ) && $time < 120000 ) || ( !empty( $parameters['comment'] ) && preg_match( '#url|http|hello#msiU', $parameters['comment'] ) ) ){
                 $db->insertFromArray( $sys_tables['applications_spam'], $data );
                 $id = $db->insert_id;
                 Response::SetInteger( 'id', $id );

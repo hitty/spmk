@@ -1,0 +1,50 @@
+ 
+.vacancies .list {
+    max-width: 980px;
+    margin: 0 auto;
+}
+
+.vacancies .list {
+}
+
+.vacancies .list .item {
+    padding: 30px 20px;
+    background: var(--gray-light-bg);
+    margin-bottom: 20px;
+}
+
+.vacancies .list .item .title {
+    font-size: 20px;
+    cursor: pointer;
+    transition: .2s color ease-in-out;
+}
+
+.vacancies .list .item:hover .title b {
+    color: var(--secondary-color);
+}
+
+.vacancies .list .item .title b {
+    color: var(--main-color);
+    text-transform: uppercase;
+    margin-right: 20px;
+}
+
+.vacancies .list .item .content {
+    display: none;
+    margin-top: 30px;
+    border-top: 1px solid var(--gray-light);
+}
+
+.vacancies .list .item .content h2 {
+    margin: 40px 0 10px 0;
+}
+
+.vacancies .list .item .salary {
+    font-size: 26px;
+    color: var(--main-color);
+    display: block;
+    font-weight: bold;
+}
+.vacancies .list .item .button{
+    margin-top: 40px;
+}

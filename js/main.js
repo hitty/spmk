@@ -124,8 +124,8 @@ jQuery(document).ready(function(){
                             position: 'top'
                         },
                         thumbs    : {
-                            width    : 110,
-                            height    : 110
+                            width    : 90,
+                            height    : 60
                         }
                         
                     },

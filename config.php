@@ -102,6 +102,13 @@ return array(
             'template' => 'templates/includes/form.html',
             'mailer_title' => ''
         ]
+        ,
+        'vacancies' => [  // тендеры
+            'form_title' => 'Отправить резюме',
+            'success_text' => 'Ваше предложение передано на предварительную обработку.<br/>С вами свяжутся в случае вопросов.',
+            'template' => 'modules/vacancies/templates/form.html',
+            'mailer_title' => 'Отправить резюме'
+        ]
                                   
     ],
    
@@ -162,17 +169,7 @@ return array(
         'news_categories' => 'news_categories',
         'news_photos' => 'news_photos',
 
-        'nominees' => 'nominees',
-        'nominees_photos' => 'nominees_photos',
-        'nominees_categories' => 'nominees_categories',
-        'nominees_files' => 'nominees_files',
-        'nominees_videos' => 'nominees_videos',
-        'nominees_years' => 'nominees_years',
-        'nominees_voting' => 'nominees_voting',
-
-        'media' => 'media',
-        'media_photos' => 'media_photos',
-        'media_videos' => 'media_videos'
+        'vacancies' => 'vacancies',
 
     )
 );
