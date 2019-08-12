@@ -129,7 +129,7 @@ return [
             'label' => 'Фотографии объекта'
         ]
     ],
-    'types' => [
+    'objects_types' => [
          'id' => [
             'type' => TYPE_INTEGER,
             'nodisplay' => true,
@@ -146,7 +146,7 @@ return [
             'label' => 'Название',
             'placeholder' => 'Название типа объекта'
         ]
-        ,'content' => [
+        ,'text' => [
             'type' => TYPE_STRING,
             'allow_empty' => true, 
             'allow_null' => false,

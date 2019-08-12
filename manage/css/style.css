@@ -451,6 +451,8 @@ footer .social span a{
     font-size: 14px;
     position: relative;
     overflow: visible;
+    border: 1px solid var(--gray-light);
+    border-bottom: transparent;
 }
 
 .list-container .left-part {

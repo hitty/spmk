@@ -549,7 +549,7 @@ h1 + .navigation{
 }
 
 .sticky-actions li.price {
-    background-image: url('/img/kaska-icon.svg');
+    background-image: url('/img/price-icon.svg');
     right: -126px;
 }
 

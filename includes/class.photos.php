@@ -575,6 +575,7 @@ class Photos {
         if (class_exists('Imagick')) {  //ресайз библиотекой Imagick 
             $new_image = new Imagick(); 
             $read = @$new_image->readImage($src); 
+            $watermark_src = !empty( $watermark_src ) ? $watermark_src : ( !empty( Config::Get( 'watermark_src' ) ) ? Config::Get( 'watermark_src' ) : false ) ;
             if(!empty($watermark_src)){
                 // Open the watermark
                 $watermark = new Imagick();
@@ -655,19 +656,19 @@ class Photos {
                         $iwWidth = $watermark->getImageWidth();
                         $iwHeight = $watermark->getImageHeight();
                         if($iWidth > 200 && $iHeight>100){
-                            if($iWidth > 600) $cols = 4;
-                            elseif($iWidth > 300) $cols = 3;
-                            elseif($iWidth > 200) $cols = 2;
-                            if($iHeight > 330) $rows = 3;
-                            elseif($iHeight > 100) $rows = 2;
-                            $col_part = $iWidth/($cols+1);
-                            $row_part = $iHeight/($rows+1);
-                            for($col=1;$col<=$cols;$col++){
-                                for($row=1;$row<=$rows;$row++) {
-                                    $image->compositeimage($watermark, imagick::COMPOSITE_OVER, (($col_part*$col) - $iwWidth/2), ($row_part*$row - $iwHeight/2));
+                            if($iWidth > 600) $cols = 3;
+                            elseif($iWidth > 440) $cols = 2;
+                            if($iHeight > 330) $rows = 2;
+                            else if($iHeight > 160) $rows = 1;
+                            if( !empty( $cols ) && !empty( $rows ) ) {
+                                $col_part = $iWidth/($cols+1);
+                                $row_part = $iHeight/($rows+1);
+                                for($col=1;$col<=$cols;$col++){
+                                    for($row=1;$row<=$rows;$row++) {
+                                        $image->compositeimage($watermark, imagick::COMPOSITE_OVER, (($col_part*$col) - $iwWidth/2), ($row_part*$row - $iwHeight/2));
+                                    }
                                 }
                             }
-                            
                         }
                     }
                         

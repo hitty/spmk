@@ -5,15 +5,16 @@
 .gallery-container .thumbs-list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
 
 .gallery-container .thumbs-list a {
     border: none;
     position: relative;
-    width: calc( 25% - 10px );
+    width: calc( 20% - 20px );
     display: block;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
+    margin: 10px;
 }
 
 .gallery-container .thumbs-list img {
@@ -58,6 +59,7 @@
     outline: none;
     vertical-align: top;
 }
+
 .gallery-wrap {
     position: absolute;
     top: 0;
@@ -370,23 +372,26 @@
     max-width: none;
 }
 
-@media( max-width: 1280px ){
-    .gallery-container .thumbs-list a{
-        
+@media( max-width: 1280px ) {
+    .gallery-container .thumbs-list a {
     }
 }
-@media( max-width: 1024px ){
-    .gallery-container .thumbs-list a{
-        width: calc( 33% - 5px );    
+
+@media( max-width: 1024px ) {
+    .gallery-container .thumbs-list a {
+        width: calc( 25% - 10px );
+        margin: 5px;
     }
 }
-@media( max-width: 767px ){
-    .gallery-container .thumbs-list a{
-        width: calc( 50% - 5px );    
+
+@media( max-width: 767px ) {
+    .gallery-container .thumbs-list a {
+        width: calc( 33% - 10px );
     }
 }
-@media( max-width: 576px ){
-    .gallery-container .thumbs-list a{
-        
+
+@media( max-width: 576px ) {
+    .gallery-container .thumbs-list a {
+        width: calc( 50% - 10px );
     }
 }

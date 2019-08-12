@@ -9,7 +9,7 @@
 }
 
 .objects-list .list {
-    margin: 120px auto;
+    margin: 80px auto;
 }
 
 .objects-list .list .item {
@@ -190,20 +190,20 @@
     padding: 3px 7px;
     font-size: 12px;
     white-space: nowrap;
-    top: -50px;
+    top: -40px;
     left: 50%;
     transform: translateX(-50%);
     opacity: 0;
     visibility: 0;
     transition: var(--transition);
-    display: none;
+    
 }
 
 .object-info .services li:hover:before {
-    top: -40px;
+    top: -28px;
     opacity: 1;
     visibility: visible;
-    display: block;
+    
 }
 
 .objects-list .list .item .details {
@@ -238,7 +238,7 @@
 
 @media (max-width: 1280px) {
     .objects-list .list {
-        margin: 80px auto;
+        margin: 60px auto;
     }
 
     .objects-list .list .item + .item {
