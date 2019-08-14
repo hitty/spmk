@@ -119,11 +119,11 @@ switch( $action ){
                     // создание болванки новой записи
                     $info = $db->prepareNewRecord($sys_tables['objects_types']);
                     //временный ID для связанных таблиц
-                    if( empty( Session::GetInteger( 'common_objects_add' ) ) ) {
-                        $common_objects_add = mt_rand( 800000000, 1000000000 );
-                        Session::SetInteger( 'common_objects_add', $common_objects_add );
+                    if( empty( Session::GetInteger( 'common_objects_types_add' ) ) ) {
+                        $common_objects_types_add = mt_rand( 800000000, 1000000000 );
+                        Session::SetInteger( 'common_objects_types_add', $common_objects_types_add );
                     }
-                    Response::SetInteger( 'common_edit', Session::GetInteger( 'common_objects_add' ) );
+                    Response::SetInteger( 'common_edit', Session::GetInteger( 'common_objects_types_add' ) );
                     
                 } else {
                     // получение данных из БД
@@ -170,8 +170,8 @@ switch( $action ){
                                 
                                 //обновление временных данных
                                 //перенос фотографий
-                                Photos::setMain( 'objects_types', $new_id, false, 'id_parent',  Session::GetInteger( 'common_objects_add' ) );
-                                Session::SetInteger( 'common_objects_add', 0 );
+                                Photos::setMain( 'objects_types', $new_id, false, 'id_parent',  Session::GetInteger( 'common_objects_types_add' ) );
+                                Session::SetInteger( 'common_objects_types_add', 0 );
                                 // редирект на редактирование свеженькой страницы
                                 if(!empty($res) && empty( $ajax_mode ) ) {
                                     header('Location: '.Host::getWebPath('/manage/objects/types/edit/'.$new_id.'/'));
@@ -184,7 +184,7 @@ switch( $action ){
                 } else {
                     if( $action == 'add' ) {
                         //удаление временных данных
-                        Photos::DeleteAll( 'objects_types', false, Session::GetInteger( 'common_objects_add' ) );
+                        Photos::DeleteAll( 'objects_types', false, Session::GetInteger( 'common_objects_types_add' ) );
                     }
                 }
                 // если мы попали на страницу редактирования путем редиректа с добавления, 
@@ -361,6 +361,13 @@ switch( $action ){
         // перенос дефолтных (считанных из базы) значений в мэппинг формы
         foreach( $info as $key=>$field ){
             if( !empty( $mapping['objects'][$key] ) ) $mapping['objects'][$key]['value'] = $info[$key];
+        }
+        $sprav_list = array(
+            'id_type' => 'objects_types'
+        );
+        foreach( $sprav_list as $field => $table ){
+            $list = $db->fetchall( "SELECT * FROM ".$sys_tables[ $table ] . " ORDER BY title DESC, id DESC" );
+            foreach( $list as $key=>$val ) $mapping['objects'][$field]['values'][] = $val;
         }
 
         // получение данных, отправленных из формы

@@ -150,6 +150,8 @@
 }
 .modal h2:before{
     -webkit-mask-size: 20px auto;
+    width: 20px;
+    height: 18px;
 }
 @media (max-width: 767px) {
     .modal h2{

@@ -250,6 +250,11 @@ button{
         color:#fff;    
         
     } 
+}
+.button.disabled,
+button.disabled{
+    cursor: default;
+    opacity: .8;
 } 
 .button.white,
 button.white{
@@ -347,6 +352,10 @@ textarea.success,
 input.success,
 .list-selector.success{
     border-color:var(--green)!important;
+}
+form .notifications,
+.form .notifications{
+    color: var(--error);
 }
 form .notifications.success,
 .form .notifications.success{
@@ -562,7 +571,7 @@ form .terms .text a{
 .file-upload .close:before {
     font-size: 16px;
     margin: 0 0 0 20px;
-    line-height: 35px;
+    line-height: 5px;
 }
 
 .file-upload.active .close {
@@ -575,44 +584,52 @@ form .terms .text a{
 
 
 
-.list-selector .select:hover{
-    color:#000;
+.list-selector .select:hover {
+    color: #000;
 }
-/* list-selector */
-.list-selector:not(.disabled){
-    display: block;
+
+.list-selector:not(.disabled) {
+    display: inline-block;
     padding: 0;
-    height: 50px;
+    height: 40px;
     vertical-align: middle;
     position: relative;
     min-width: 40px;
     border: none;
-    background: #e6e6e6;
-    min-width: 50px;
-}   
-.list-selector.disabled{
+    border: 1px solid var(--gray-light);
+    min-width: 250px;
+    border-radius: 3px;
+}
+
+.list-selector.disabled {
     background: #e6e6e6;
 }
-.list-selector a.pick{
+
+.list-selector a.pick {
     border: 0 none;
     text-decoration: none;
     display: block;
-    line-height: 34px;
-    height: 34px;
+    line-height: 40px;
+    height: 40px;
     margin: 0;
-    padding: 7px 60px 7px 30px;
-    font-size: 18px;
+    padding: 0 60px 0 20px;
+    font-size: 14px;
     color: #000;
     z-index: 10;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    border-radius: 3px;
 }
-.list-selector .pick::-webkit-input-placeholder{
+.list-selector:hover a.pick{
+    color: var(--secondary-color);
+}
+.list-selector .pick::-webkit-input-placeholder {
     color: var(--black);
     font-size: 18px;
 }
-.list-selector .select{
+
+.list-selector .select {
     display: inline-block;
     width: 12px;
     font-weight: normal;
@@ -627,7 +644,8 @@ form .terms .text a{
     color: #000;
     line-height: 8px;
 }
-.list-selector .select:before{
+
+.list-selector .select:before {
     content: "arrow_drop_down";
     transition: -webkit-transform .2s ease-in-out;
     transition: transform .2s ease-in-out;
@@ -639,13 +657,14 @@ form .terms .text a{
     text-indent: -7px;
     font-size: 27px;
     line-height: 8px;
-    height: 8px;  
+    height: 8px;
 }
-.list-selector.dropped .select:before{
+
+.list-selector.dropped .select:before {
     transform: rotate(180deg)
-    
 }
-.list-selector .list-data{
+
+.list-selector .list-data {
     opacity: 0;
     visibility: hidden;
     position: absolute;
@@ -667,42 +686,48 @@ form .terms .text a{
     -o-transition: opacity .2s ease-in-out;
     overflow: hidden;
     text-align: left;
-    max-height: 270px;
+    max-height: 280px;
     overflow-y: auto;
 }
-.list-selector .list-data.dropped-top{
+
+.list-selector .list-data.dropped-top {
     top: auto;
     bottom: 31px;
     margin: 0px 0 0 0;
-    height: 200px;    
+    height: 200px;
 }
-.list-selector.dropped .list-data{
+
+.list-selector.dropped .list-data {
     opacity: 1;
     visibility: visible;
     z-index: 10000;
 }
+
 .list-selector.select-status.dropped .list-data {
     min-width: 130%;
-}   
-.list-selector .list-data li{
-    padding: 5px 10px;
+}
+
+.list-selector .list-data li {
+    padding: 0 10px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 14px;
     text-decoration: none;
     display: block;
     margin: 0;
     white-space: nowrap;
-    height: 34px;
-    line-height: 34px;
+    height: 40px;
+    line-height: 40px;
 }
-.list-selector .list-data li.selected,
-.list-selector .list-data li:hover{
+
+.list-selector .list-data li.selected,.list-selector .list-data li:hover {
     color: var(--secondary-color);
     background: #fafafa;
 }
-.list-selector .list-data li.hidden{
+
+.list-selector .list-data li.hidden {
     display: none;
 }
+
 .list-selector .list-data li.disabled {
     color: #999;
 }

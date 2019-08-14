@@ -1,7 +1,9 @@
 <div class="form-success-container">
     
     <i data-icon="thumb_up"></i>
-    <span class="title">Заявка принята!</span>
+    <span class="title">
+        {ifempty $success_title}Заявка принята!{else}{$success_title}{/if}
+    </span>
     <div class="text">
         {if!empty $success_text}
             {$success_text}

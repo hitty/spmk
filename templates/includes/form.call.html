@@ -1,6 +1,7 @@
         
 <div class="application-form{ifempty $middle} modal{/if}">      
     <form class="send-message ajaxed" action="/applications/add/" method="POST" autocomplete="off" enctype="multipart/form-data">
+        <input type="hidden" name="recaptcha_response" data-public="{php:echo Config::Get('recaptcha/public')}">
         {ifempty $middle}
             <h2 class="invert">{if!empty $form_title}{$form_title}{else}Оставить заявку{/if}</h2>
         {/if}

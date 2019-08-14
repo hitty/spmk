@@ -40,11 +40,21 @@
 }
 
 .vacancies .list .item .salary {
-    font-size: 26px;
+    font-size: 18px;
     color: var(--main-color);
     display: block;
     font-weight: bold;
 }
 .vacancies .list .item .button{
     margin-top: 40px;
+}
+form .upload-container{
+    margin-bottom: 40px;
+}
+.resume-text{
+    position: absolute;
+    bottom: -20px;
+    font-size: 12px;
+    color: var(--white);
+    left: 0;
 }

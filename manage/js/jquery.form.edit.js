@@ -142,7 +142,15 @@ if($)(function(window, document, $, undefined){
                     });    
                 })
             }
-            
+            //count letters
+            jQuery('input').each(function(){
+                var _length = jQuery(this).val().length;
+                jQuery(this).siblings('span.count-letters').text(_length);
+                jQuery(this).on('keyup', function(){
+                    var _length = jQuery(this).val().length;
+                    jQuery(this).siblings('span.count-letters').text(_length);
+                })
+            })
             //pending blocks
             if( jQuery( o.ajax_pending_selector, selector ).length > 0 ){
                 jQuery( o.ajax_pending_selector, selector ).each( function(){

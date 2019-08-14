@@ -1,5 +1,6 @@
 <div class="invert-form">
     <form class="send-message big ajaxed" action="/applications/add/" method="POST" autocomplete="off" enctype="multipart/form-data" data-scroll_to_error="true">
+        <input type="hidden" name="recaptcha_response" data-public="{php:echo Config::Get('recaptcha/public')}">
         {php:$random=randomstring(10)}
         <fieldset>
         {if!empty $application_type}<input type="hidden" name="application_type" value="{$application_type}">{/if}

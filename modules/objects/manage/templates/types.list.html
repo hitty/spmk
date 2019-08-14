@@ -3,7 +3,7 @@
         <a href="/manage/objects/types/add/" class="button orange">Добавить запись</a>
     </div>
     <div class="filter">
-        <a href="/manage/objects/types/">Объекты</a>
+        <a href="/manage/objects/">Объекты</a>
         <span class="active">Типы объектов</span>
     </div>
 
@@ -23,8 +23,8 @@
                     <div class="photo">
                         {if!empty $item['photo']}<img src="/img/uploads/sm/{$item['subfolder']}/{$item['photo']}" />{/if}
                     </div>
-                    <div class="title"><a href="/manage/objects/edit/{$item['id']}/">{$item['title']}</a></div>
-                    <span data-icon="delete" class="delete red" data-url="/manage/objects/delete/{$item['id']}/"></span>
+                    <div class="title"><a href="/manage/objects/types/edit/{$item['id']}/">{$item['title']}</a></div>
+                    <span data-icon="delete" class="delete red" data-url="/manage/objects/types/delete/{$item['id']}/"></span>
                 </div>
             {/loop $list}
             {include /objects/templates/paginator.html} 

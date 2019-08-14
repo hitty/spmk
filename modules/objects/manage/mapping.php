@@ -22,13 +22,22 @@ return [
             'type' => TYPE_INTEGER,
             'min' => 1,
             'max' => 2,
+            'parent_class' => 'half-width inline', 
             'allow_empty' => false, 
             'allow_null' => false,
             'fieldtype' => 'radio',
             'values' => [1=>'Да',2=>'Нет'],
             'label' => 'Показывать объект'
         ]
-        
+       ,'id_type' => [
+            'type' => TYPE_INTEGER,
+            'parent_class' => 'half-width inline', 
+            'allow_empty' => false, 
+            'allow_null' => false,
+            'fieldtype' => 'select',
+            'values' => [0=>'- выберите тип -'],
+            'label' => 'Тип объекта'
+        ] 
         ,'content_short' => [
             'type' => TYPE_STRING,
             'allow_empty' => true, 
@@ -156,14 +165,7 @@ return [
             'label' => 'Описание',
             'tip' => ''
         ]
-        ,'photogallery' => [
-            'url' => '/manage/objects/types/photos/', 
-            'limit' => 1,
-            'parent_class' => 'full-width', 
-            'fieldtype' => 'photos',
-            'switcher' => 'true',
-            'label' => 'Фотография типа'
-        ]
+        
     ]
 ];
 ?>

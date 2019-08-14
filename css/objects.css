@@ -9,7 +9,7 @@
 }
 
 .objects-list .list {
-    margin: 80px auto;
+    margin: 40px auto;
 }
 
 .objects-list .list .item {
@@ -18,7 +18,7 @@
 }
 
 .objects-list .list .item + .item {
-    margin-top: 60px;
+    margin-top: 40px;
 }
 
 .objects-list .list .item .img {
@@ -146,14 +146,14 @@
     background: url('/img/object-weight-icon.svg') no-repeat 0px 0px;
 }
 
-.object-info .services {
+.services {
     position: absolute;
     left: 30px;
     bottom: 30px;
     z-index: 100;
 }
 
-.object-info .services li {
+.services li {
     position: relative;
     display: block;
     float: left;
@@ -165,23 +165,23 @@
     cursor: help;
 }
 
-.object-info .services li.production {
+.services li.production {
     background-image: url('/img/production-icon.svg');
 }
 
-.object-info .services li.delivery {
+.services li.delivery {
     background-image: url('/img/delivery-icon.svg');
 }
 
-.object-info .services li.crane {
+.services li.crane {
     background-image: url('/img/crane-icon.svg');
 }
 
-.object-info .services li.key {
+.services li.key {
     background-image: url('/img/key-icon.svg');
 }
 
-.object-info .services li:before {
+.services li:before {
     content: attr(data-content);
     display: block;
     position: absolute;
@@ -199,7 +199,7 @@
     
 }
 
-.object-info .services li:hover:before {
+.services li:hover:before {
     top: -28px;
     opacity: 1;
     visibility: visible;
@@ -275,12 +275,12 @@
         transform: translate(185px,-2px);
     }
 
-    .object-info .services {
+    .services {
         left: 20px;
         bottom: 20px;
     }
 
-    .object-info .services li {
+    .services li {
         background-size: 24px auto;
         margin-right: 20px;
         height: 24px;
@@ -329,7 +329,7 @@
         transform: translate(170px,-2px);
     }
 
-    .object-info .services li {
+    .services li {
         background-size: 22px auto;
         height: 22px;
         width: 24px;
@@ -357,12 +357,12 @@
         font-size: 14px;
     }
 
-    .object-info .services li {
+    .services li {
         background-size: 20px auto;
         height: 20px;
         width: 20px;
     }
-    .object-info .services{
+    .services{
         left: 10px;
         bottom: 10px;
     }
@@ -399,7 +399,7 @@
         transform: translate(150px,-2px);
     }
 
-    .object-info .services {
+    .services {
         position: relative;
         left: auto;
         bottom: auto;
@@ -449,14 +449,14 @@
     line-height: 1.4;
 }
 
-.object-item .object-info .services {
+.object-item .services {
     position: relative;
     top: auto;
     left: auto;
     bottom: auto;
 }
 
-.object-item .object-info .services li {
+.object-item .services li {
     float: none;
     width: 100%;
     font-size: 20px;
@@ -464,7 +464,9 @@
     margin-top: 20px;
     cursor: default;
 }
-
+.object-item .services li:before{
+    display: none;
+}
 .object-item .content {
     display: flex;
 }
@@ -518,10 +520,10 @@
         font-size: 22px;
     }
 
-    .object-item .object-info .services {
+    .object-item .services {
     }
 
-    .object-item .object-info .services li {
+    .object-item .services li {
         font-size: 18px;
         padding-left: 35px;
         margin-top: 15px;
@@ -571,10 +573,10 @@
         font-size: 20px;
     }
 
-    .object-item .object-info .services {
+    .object-item .services {
     }
 
-    .object-item .object-info .services li {
+    .object-item .services li {
         font-size: 16px;
         padding-left: 30px;
         margin-top: 10px;
@@ -612,12 +614,12 @@
     .object-item .object-info .title {
     }
 
-    .object-item .object-info .services {
+    .object-item .services {
         margin-top: 10px;
         height: auto;
     }
 
-    .object-item .object-info .services li {
+    .object-item .services li {
         font-size: 14px;
         padding-left: 25px;
         margin-top: 8px;

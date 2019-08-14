@@ -69,12 +69,21 @@ switch(true){
             if( !empty( $application['mailer_title'] ) ) $mailer_title = $application['mailer_title'];
             // отбивка при успешной отправке
             if( !empty( $application['success_text'] ) ) Response::SetString( 'success_text', $application['success_text'] );
+            if( !empty( $application['success_title'] ) ) Response::SetString( 'success_title', $application['success_title'] );
             
             switch( true ){
                 ///////////////////////////////////////////////////////////////
                 // Вакансии
                 ///////////////////////////////////////////////////////////////
                 case $application_type == 'vacancies':
+                    if( empty( $files ) ) $ajax_result['error'] = 'Прикрепите резюме';
+                    if( !empty( $parameters['application_type_id'] ) ) {
+                        $vacancy = CommonDb::getItem( 'vacancies', $sys_tables['vacancies'] . '.id = ' . $parameters['application_type_id'] );
+                        if( empty( $vacancy ) ) {
+                            $ajax_result['error'] = 'Wrong vacancy ID';
+                            exit(0);
+                        } else $mailer_title = 'Отклик на вакансию «' . $vacancy['title'] . '»';
+                    }                
                     break;
                 ///////////////////////////////////////////////////////////////
                 // Поставщикам и тендеры
@@ -121,102 +130,120 @@ switch(true){
                     break;
                 
             }
-            $mail_template = 'send.email.html';
-            
-            $time = Time::get();
-            $data = array(
-                'name' => !empty( $parameters['name'] ) ? $parameters['name'] : '',
-                'phone' => !empty( $parameters['phone'] ) ? $parameters['phone'] : '',
-                'email' => !empty( $parameters['email'] ) ? $parameters['email'] : '',
-                'region' => !empty( $parameters['region'] ) ? $parameters['region'] : '',
-                'user_comment' => !empty( $parameters['comment'] ) ? $parameters['comment'] : '',
-                'date' => !empty( $parameters['date'] ) ? $parameters['date'] : '',
-                'files' => !empty( $files ) ? $files : '',
-                'ip' => $ip,
-                'ref' => !empty( Host::getRefererURL() ) ? Host::getRefererURL() : '',
-                'browser' => !empty( $_SERVER['HTTP_USER_AGENT'] ) ? $_SERVER['HTTP_USER_AGENT'] : '',
-                'city' => !empty( $city ) ? $city ['city']: '',
-                'type' => 2
-            );
-            Response::SetArray( 'data', $data );
-            Time::clear();
-            
-            //отправка письма спамерам
-            if( ( !empty( $time ) && $time < 120000 ) || ( !empty( $parameters['comment'] ) && preg_match( '#url|http|hello#msiU', $parameters['comment'] ) ) ){
-                $db->insertFromArray( $sys_tables['applications_spam'], $data );
-                $id = $db->insert_id;
-                Response::SetInteger( 'id', $id );
-                $mailer_title = 'Интересный запрос от спамеров #' . $id . ' - '.date('d.m.Y');
-                Response::SetString( 'mailer_title', $mailer_title );
-
-                $eml_tpl = new Template('send.email.spam.html', 'modules/applications/');
-                $html = $eml_tpl->Processing();
-
-                $emails = [
-                    [
-                        'name' => '',
-                        'email'=> 'kya82@mail.ru'
-                    ],
-                    [
-                        'name' => '',
-                        'email'=> $parameters['email']
-                    ]
-                ];
+            if( empty(  $ajax_result['error'] ) ) {
+                $mail_template = 'send.email.html';
                 
-                $sendpulse = new Sendpulse( );
-                /*
-                $result = $sendpulse->sendMail(
-                    $mailer_title,
-                    $html,
-                    false,
-                    false,
-                    $mailer_title .' через сайт ' . Host::$host,
-                    'no-reply@' . Host::$host,
-                    $emails
+                $time = Time::get();
+                $data = array(
+                    'name' => !empty( $parameters['name'] ) ? $parameters['name'] : '',
+                    'phone' => !empty( $parameters['phone'] ) ? $parameters['phone'] : '',
+                    'email' => !empty( $parameters['email'] ) ? $parameters['email'] : '',
+                    'region' => !empty( $parameters['region'] ) ? $parameters['region'] : '',
+                    'user_comment' => !empty( $parameters['comment'] ) ? $parameters['comment'] : '',
+                    'date' => !empty( $parameters['date'] ) ? $parameters['date'] : '',
+                    'files' => !empty( $files ) ? $files : '',
+                    'ip' => $ip,
+                    'ref' => !empty( Host::getRefererURL() ) ? Host::getRefererURL() : '',
+                    'browser' => !empty( $_SERVER['HTTP_USER_AGENT'] ) ? $_SERVER['HTTP_USER_AGENT'] : '',
+                    'city' => !empty( $city ) ? $city ['city']: '',
+                    'type' => 2
                 );
-                */
-            } else {
-                $db->insertFromArray( $sys_tables['applications'], $data );
-                $id = $db->insert_id;
-                Response::SetInteger( 'id', $id );
+                Response::SetArray( 'data', $data );
+                Time::clear();
                 
-                $eml_tpl = new Template( $mail_template, 'modules/applications/');
-                $html = $eml_tpl->Processing();
-                // параметры письма
-                if( empty( $mailer_title ) ) $mailer_title = 'Запрос КП #' . $id . ' - '.date('d.m.Y');
-                Response::SetString( 'mailer_title', $mailer_title );
-                $emails = [
-                    [
-                        'name' => '',
-                        'email'=> 'kya82@mail.ru'
-                    ]
-                ];
+                //проверка капчи
+                $check_recaptcha = false;
+                $recaptcha = $parameters['recaptcha_response'];
                 
-                if( !DEBUG_MODE && !empty( $wserwer ) ) {
-                    if( !empty( $application_type ) && in_array( $application_type, [ 'tendery', 'postavschikam' ] ) ){
-                        $emails[] = ['Е.С.А.',  "aae1958@inbox.ru" ];    
-                        $emails[] = ['Отдел снабжения',  "snab@spmk.group" ];    
-                        
-                    } else {
-                        $emails[] = ['Отдел продаж',  "market@spmk.group" ];    
-                    }
-                    $emails[] = ['Новицкая Лилия',  "nla@spmk.group" ];    
-                }    
-                
-                $sendpulse = new Sendpulse( );
-                $result = $sendpulse->sendMail(
-                    $mailer_title,
-                    $html,
-                    false,
-                    false,
-                    $mailer_title .' через сайт ' . Host::$host,
-                    'no-reply@spmk.group',
-                    $emails
-                );
-                
-                $ajax_result['result'] = $result;
-                $ajax_result['ok'] = true;
-                $module_template = "/templates/popup.success.html";    
+                if( !empty( $recaptcha ) ) {
+                    // Build POST request
+                    $recaptcha_url = 'https://www.google.com/recaptcha/api/siteverify';
+                    $recaptcha_secret = Config::Get('recaptcha/secret');
+                 
+                    // Make and decode POST request
+                    $recaptcha = file_get_contents($recaptcha_url . '?secret=' . $recaptcha_secret . '&response=' . $recaptcha);
+                    $recaptcha = json_decode($recaptcha);
+                 
+                    // Take action based on the score returned
+                    $check_recaptcha = $recaptcha->score >= 0.5;
+                }
+                //отправка письма спамерам
+                if( empty( $check_recaptcha ) ) {
+                    $db->insertFromArray( $sys_tables['applications_spam'], $data );
+                    $id = $db->insert_id;
+                    Response::SetInteger( 'id', $id );
+                    $mailer_title = 'Интересный запрос от спамеров #' . $id . ' - '.date('d.m.Y');
+                    Response::SetString( 'mailer_title', $mailer_title );
+
+                    $eml_tpl = new Template('send.email.spam.html', 'modules/applications/');
+                    $html = $eml_tpl->Processing();
+
+                    $emails = [
+                        [
+                            'name' => '',
+                            'email'=> 'kya82@mail.ru'
+                        ],
+                        [
+                            'name' => '',
+                            'email'=> $parameters['email']
+                        ]
+                    ];
+                    
+                    $sendpulse = new Sendpulse( );
+                    /*
+                    $result = $sendpulse->sendMail(
+                        $mailer_title,
+                        $html,
+                        false,
+                        false,
+                        $mailer_title .' через сайт ' . Host::$host,
+                        'no-reply@' . Host::$host,
+                        $emails
+                    );
+                    */
+                } else {
+                    $db->insertFromArray( $sys_tables['applications'], $data );
+                    $id = $db->insert_id;
+                    Response::SetInteger( 'id', $id );
+                    
+                    $eml_tpl = new Template( $mail_template, 'modules/applications/');
+                    $html = $eml_tpl->Processing();
+                    // параметры письма
+                    if( empty( $mailer_title ) ) $mailer_title = 'Запрос КП #' . $id . ' - '.date('d.m.Y');
+                    Response::SetString( 'mailer_title', $mailer_title );
+                    $emails = [
+                        [
+                            'name' => '',
+                            'email'=> 'kya82@mail.ru'
+                        ]
+                    ];
+                    
+                    if( !DEBUG_MODE && !empty( $wserwer ) ) {
+                        if( !empty( $application_type ) && in_array( $application_type, [ 'tendery', 'postavschikam' ] ) ){
+                            $emails[] = ['Е.С.А.',  "aae1958@inbox.ru" ];    
+                            $emails[] = ['Отдел снабжения',  "snab@spmk.group" ];    
+                            
+                        } else {
+                            $emails[] = ['Отдел продаж',  "market@spmk.group" ];    
+                        }
+                        $emails[] = ['Новицкая Лилия',  "nla@spmk.group" ];    
+                    }    
+                    
+                    $sendpulse = new Sendpulse( );
+                    $result = $sendpulse->sendMail(
+                        $mailer_title,
+                        $html,
+                        false,
+                        false,
+                        $mailer_title .' через сайт ' . Host::$host,
+                        'no-reply@spmk.group',
+                        $emails
+                    );
+                    
+                    $ajax_result['result'] = $result;
+                    $ajax_result['ok'] = true;
+                    $module_template = "/templates/popup.success.html";    
+                }
             }
         }
         break;
@@ -225,6 +252,20 @@ switch(true){
     ////////////////////////////////////////////////////////////////////////////////////////////////////////    
     case $action == 'popup':
         Response::SetString( 'form_title', $application['form_title'] );
+        switch( true ){
+            ///////////////////////////////////////////////////////////////
+            // Вакансии
+            ///////////////////////////////////////////////////////////////
+            case $application_type == 'vacancies':
+                if( !empty( $get_parameters['application_type_id'] ) ) {
+                    $vacancy = CommonDb::getItem( 'vacancies', $sys_tables['vacancies'] . '.id = ' . $get_parameters['application_type_id'] );
+                    if( empty( $vacancy ) ) {
+                        $ajax_result['error'] = 'Wrong vacancy ID';
+                        exit(0);
+                    } else Response::SetString('vacancy_title', $vacancy['title'] );
+                }                
+                break;
+        }
         $ajax_result['ok'] = true;
         $module_template = $application['template'];
         break;

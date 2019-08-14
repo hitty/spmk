@@ -5,6 +5,32 @@
             {$current_page['page_content']}
         {/if}
      </div>
+     <div class="search inner">
+        
+        <ul class="services">
+            <li class="project">Проектирование</li>
+            <li class="production">Изготовление</li>
+            <li class="delivery">Доставка</li>
+            <li class="crane">Монтаж</li>
+            <li class="key">«Под ключ»</li>
+        </ul>
+        
+        <div class="list-selector" id="types-selector" data-url="/objekty/">
+            <a href="#" class="pick">{$type_title}</a>
+            <a href="#" class="select">...</a>
+            <input type="hidden" name="type" value="{$type}" />
+            {if!empty $types}
+                <ul class="list-data">
+                    <li data-value="" {ifeq $type,0}class="selected"{/if}>Все объекты</li>
+                    {loop $types,$k,$i}
+                        <li {ifeq $i['id'],$type}class="selected"{/if}data-value="{$i['id']}">{$i['title']}</li>
+                    {/loop $types}
+                    
+                </ul>
+            {/if}
+        </div>
+
+     </div>
      <div class="list inner">
         {loop $list,$k,$item}
             <div class="item transition  internal-link" data-link="/objekty/{$item['chpu_title']}/">

@@ -43,6 +43,8 @@
         <meta content="{quoted:$open_graph['description']}" property="og:description"/>
     {/if}
     
+    
+    
     {ifempty $debug}
     
     {literal}
@@ -57,3 +59,4 @@
 
     {/literal}
     {/if}
+    <script src="https://www.google.com/recaptcha/api.js?render={php:echo Config::Get('recaptcha/public')}"></script>

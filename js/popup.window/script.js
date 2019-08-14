@@ -17,7 +17,15 @@ if($)(function(window, document, $, undefined){
         /* функция стартовой инициализации */
         var start = function(){
             o.button = jQuery( 'button, span.button', init_selector);
-            console.log( o.button );
+            
+            grecaptcha.ready(function () {
+                var _input = $('input[name=recaptcha_response]', init_selector);
+                grecaptcha.execute(_input.data('public'), { action: 'contact' }).then(function (token) {
+                    var recaptchaResponse = document.getElementById('recaptchaResponse');
+                    _input.attr( 'value', token );
+                });
+            });
+            
             formValidate( init_selector );
             
             //уникальные поля
@@ -68,7 +76,7 @@ if($)(function(window, document, $, undefined){
                 }
                 o.f_values['popup_redirect'] = o.popup_redirect;
                 if( jQuery( '.error', init_selector ).length ) return false;
-                 var _form = jQuery(this).closest('form');  
+                var _form = jQuery(this).closest('form');  
                 
                 _form.on('submit', function(e) {
                     

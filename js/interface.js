@@ -9,6 +9,15 @@ jQuery(document).ready(function(){
         _this.addClass( 'active' ).siblings().removeClass( 'active' );
         jQuery("html,body").animate({ scrollTop: jQuery( _this.data( 'element' ) ).offset().top }, "slow");
     })
+
+    if( typeof jQuery('.search') == "object" ){
+        var _s = jQuery('.search');
+        jQuery('.list-selector', _s ).on( 'change', function(){
+            var _this = jQuery(this);
+            var _i = jQuery('input[type=hidden]', _this);
+            document.location.href = _this.data('url') + '?' + _i.attr('name') + '=' + _i.attr('value');
+        })
+    }
 });
            
 

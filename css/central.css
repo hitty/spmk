@@ -3,7 +3,7 @@
     line-height: 1.5;
     max-width: 980px;
     margin: 0 auto;
-    text-align: center;
+    text-align: left;
     display:block;
 }
 h2 + .annotation{
@@ -407,4 +407,13 @@ h2 + .contacts .address{
   .hero {
     background-image: url('/img/appliction-hero-bg.jpg')
   }
+}
+
+.search{
+    margin: 40px auto;
+    min-height: 40px;    
+}
+.search .list-selector{
+    float: right;
+    margin-left: 20px;
 }

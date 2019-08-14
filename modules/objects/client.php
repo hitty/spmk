@@ -82,7 +82,31 @@ switch( true ){
     ////////////////////////////////////////////////////////////////////////////////////////////////////////
     case empty( $action ):
         $GLOBALS['css_set'][] = '/css/objects.css';
-        $list = CommonDb::getList( 'objects', false, $sys_tables['objects'] . '.published = 1', 'position DESC', 'id' );
+        if( $this_page->first_instance ){
+            $types = CommonDb::getList( 'objects_types' );
+            Response::SetArray( 'types', $types );
+        }
+        $parameters = Request::GetParameters();
+        //условия
+        $conditions = [];
+        $conditions[] = $sys_tables['objects'] . '.published = 1';
+
+        if( !empty( $parameters['type'] ) ) {
+            $type = CommonDb::getItem( 'objects_types', $sys_tables['objects_types'] . '.id = ' . $db->real_escape_string( $parameters['type'] ));
+            if( empty( $type ) ) Host::Redirect( '/objekty/' );
+            Response::SetInteger( 'type', $parameters['type'] );
+            $conditions[] = $sys_tables['objects'] . '.id_type = ' . $type['id'];
+            $this_page->manageMetadata(
+                [
+                    'title' => !empty( $this_page->page_seo_title ) ? $this_page->page_seo_title : $type['title'] . ' - объекты ГК «СПМК». Изготовление металлоконструкций от 100 тонн',
+                    'description' =>  !empty( $this_page->page_seo_description ) ? $this_page->page_seo_description : $type['title'] . ' - объекты ГК «СПМК».'
+                ], true
+            );
+            Response::SetString( 'h1', $type['title'] );
+        } else Response::SetInteger( 'type', 0 );
+        
+        
+        $list = CommonDb::getList( 'objects', false, implode( " AND ", $conditions ) , 'position DESC', 'id' );
         foreach( $list as $k => $item ) $list[$k]['photos'] = Photos::getList( 'objects', $item['id'], 5 );
         Response::SetArray( 'list', $list );
         $module_template = 'list.html';

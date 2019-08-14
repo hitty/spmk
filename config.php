@@ -34,11 +34,11 @@ return array(
         'db' => DEBUG_MODE ? 'spmk' : 'cj32843_newspmk',
         'lc_time_names' => 'ru_RU'
     ),
-    'elasticsearch' => array(      // настройки Elasticsearch
-        'index' => 'spmk',       // индекс
-        'tables' => [ 'news', 'objects', 'production' ],           // таблицы
-    )
     
+    'recaptcha' => [
+        'public' => '6LdSwLIUAAAAALhUgUwk8mRi-81fSVfFq7SEsqiE',
+        'secret' => '6LdSwLIUAAAAACKTAXo5kzcN0P5tAmuQlQBZM7Lq'
+    ]
     ,'forms' => [   // данные форм запроса
         'raschet' => [   //получить расчет
             'form_title' => 'Получить расчет',
@@ -105,9 +105,10 @@ return array(
         ,
         'vacancies' => [  // тендеры
             'form_title' => 'Отправить резюме',
-            'success_text' => 'Ваше предложение передано на предварительную обработку.<br/>С вами свяжутся в случае вопросов.',
+            'success_title' => 'Ваше резюме принято!',
+            'success_text' => 'Ожидайте звонка менеджера.',
             'template' => 'modules/vacancies/templates/form.html',
-            'mailer_title' => 'Отправить резюме'
+            'mailer_title' => 'Резюме'
         ]
                                   
     ],
