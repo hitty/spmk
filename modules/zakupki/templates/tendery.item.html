@@ -12,12 +12,6 @@
             {/if}
             <br />
             {$item['content']}
-            
-            {ifempty $tender_end}
-                {php:$application_type = 'tendery'}
-                {php:$application_type_id = $item['id']}
-                {include /templates/includes/form.big.html}
-            {/if}
         </div>
     </div>
 </section> 

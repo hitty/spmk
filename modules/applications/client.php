@@ -14,8 +14,8 @@ $get_parameters = Request::GetParameters( METHOD_GET );
 $application_type = !empty( $parameters['application_type'] ) ? $parameters['application_type'] : ( !empty( $get_parameters['application_type'] ) ? $get_parameters['application_type'] : '' );
 if( !empty( $application_type ) ) {
     $forms = Config::Get('forms');
-    foreach( $forms as $k => $form ){
-        if( strstr( $application_type, $k ) ) {
+    foreach( $forms as $application_index => $form ){
+        if( strstr( $application_type, $application_index ) ) {
             $application = $form;
             break;
         }
@@ -72,6 +72,12 @@ switch(true){
             if( !empty( $application['success_title'] ) ) Response::SetString( 'success_title', $application['success_title'] );
             
             switch( true ){
+                ///////////////////////////////////////////////////////////////
+                // Расчет
+                ///////////////////////////////////////////////////////////////
+                case $application_index == 'raschet':
+                    if( empty( $files ) ) $ajax_result['error'] = 'Прикрепите файл';
+                    break;
                 ///////////////////////////////////////////////////////////////
                 // Вакансии
                 ///////////////////////////////////////////////////////////////
@@ -138,6 +144,8 @@ switch(true){
                     'name' => !empty( $parameters['name'] ) ? $parameters['name'] : '',
                     'phone' => !empty( $parameters['phone'] ) ? $parameters['phone'] : '',
                     'email' => !empty( $parameters['email'] ) ? $parameters['email'] : '',
+                    'company' => !empty( $parameters['company'] ) ? $parameters['company'] : '',
+                    'production' => !empty( $parameters['production'] ) ? $parameters['production'] : '',
                     'region' => !empty( $parameters['region'] ) ? $parameters['region'] : '',
                     'user_comment' => !empty( $parameters['comment'] ) ? $parameters['comment'] : '',
                     'date' => !empty( $parameters['date'] ) ? $parameters['date'] : '',
@@ -217,16 +225,17 @@ switch(true){
                             'email'=> 'kya82@mail.ru'
                         ]
                     ];
-                    
-                    if( !DEBUG_MODE && !empty( $wserwer ) ) {
+                    if( !DEBUG_MODE ) {
                         if( !empty( $application_type ) && in_array( $application_type, [ 'tendery', 'postavschikam' ] ) ){
-                            $emails[] = ['Е.С.А.',  "aae1958@inbox.ru" ];    
-                            $emails[] = ['Отдел снабжения',  "snab@spmk.group" ];    
-                            
+                            $emails[] = ['name' => 'Е.С.А.',            'email'=> "aae1958@inbox.ru" ];    
+                            $emails[] = ['name' => 'Отдел снабжения',   'email'=> "snab@spmk.group" ];    
+                        }    
+                        else if( !empty( $application_type ) && in_array( $application_type, [ 'vacancies' ] ) ){
+                            $emails[] = ['name' => 'HR',  'email'=> "hr@spmk.group" ];    
                         } else {
-                            $emails[] = ['Отдел продаж',  "market@spmk.group" ];    
+                            $emails[] = ['name' => 'Отдел продаж',  'email'=> "market@spmk.group" ];    
                         }
-                        $emails[] = ['Новицкая Лилия',  "nla@spmk.group" ];    
+                        $emails[] = ['name' => 'Новицкая Лилия',  'email'=> "novitskaya@spmk.group" ];    
                     }    
                     
                     $sendpulse = new Sendpulse( );
@@ -235,7 +244,7 @@ switch(true){
                         $html,
                         false,
                         false,
-                        $mailer_title .' через сайт ' . Host::$host,
+                        $mailer_title . " на сайте " . Host::$host,
                         'no-reply@spmk.group',
                         $emails
                     );
@@ -252,6 +261,7 @@ switch(true){
     ////////////////////////////////////////////////////////////////////////////////////////////////////////    
     case $action == 'popup':
         Response::SetString( 'form_title', $application['form_title'] );
+        Response::SetString( 'form_text', $application['form_text'] );
         switch( true ){
             ///////////////////////////////////////////////////////////////
             // Вакансии

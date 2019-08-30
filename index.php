@@ -80,6 +80,10 @@ if( empty( $ajax_mode ) ) {
     $GLOBALS['js_set'][] = '/js/datetimepicker/jquery.datetimepicker.js';
     $GLOBALS['js_set'][] = '/js/inputmask/inputmask.min.js';
     $GLOBALS['js_set'][] = '/js/form.validate.js';
+    $GLOBALS['css_set'][] = '/js/carousel.vertical/styles.css';
+    $GLOBALS['js_set'][] = '/js/carousel.vertical/script.js';
+    $GLOBALS['css_set'][] = '/js/carousel/styles.css';
+    $GLOBALS['js_set'][] = '/js/carousel/script.js';
     $GLOBALS['js_set'][] = '/js/main.js';
     $GLOBALS['js_set'][] = '/js/interface.js';
     $GLOBALS['js_set'][] = '/js/map.js';

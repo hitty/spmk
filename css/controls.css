@@ -189,12 +189,12 @@ form label.error,
 input.error{
     color: var(--error);
 }
+.list-selector.error:not(.disabled),
 input[type="text"].error,
 input[type="number"].error,
 input[type="phone"].error,
 input[type="email"].error,
 input[type="password"].error{
-    border-color: var(--error);
     background: #FFE1E7;
 }
 form textarea.error{
@@ -355,12 +355,24 @@ input.success,
 }
 form .notifications,
 .form .notifications{
-    color: var(--error);
+    color: var(--white);
+    background: var(--error);
+    padding: 10px;
+    border-radius: 3px;
+    font-weight: bold;
+    font-family: var(--secondary-font);
+    text-transform: uppercase;
+    display: none;
 }
 form .notifications.success,
 .form .notifications.success{
-    color: var(--green);
+    background: var(--green);
 }
+form .notifications.active,
+.form .notifications.active{
+    display: block;
+}
+
 form .row{
     width: 100%;
     margin: 20px 0;
@@ -426,6 +438,9 @@ form .terms .text a{
     width: 200%;
     height: 300%;
     z-index: 0;
+}
+form .list-selector{
+    width: 100%;
 }      
 #background-shadow-inner h1{
     margin: 0 0 40px 0;
@@ -599,6 +614,7 @@ form .terms .text a{
     border: 1px solid var(--gray-light);
     min-width: 250px;
     border-radius: 3px;
+    background: var(--white);
 }
 
 .list-selector.disabled {
@@ -842,7 +858,7 @@ form .flex input:last-of-type{
 
 }
 
-.form-success-container {
+.modal .form-success-container {
     padding: 80px 0;
 }
 
@@ -860,6 +876,9 @@ form .flex input:last-of-type{
     text-align: center;
     height: 64px;
     color: var(--main-color);
+}
+.modal .form-success-container i:before{
+    color: var(--white);
 }
 .form-success-container .title {
     display: block;
@@ -885,7 +904,6 @@ form .flex input:last-of-type{
 a.closebutton.button{
     display: none;
     margin: 0 auto;
-    display: block;
     width: 260px;
     padding-left: 40px;
     padding-right: 40px;

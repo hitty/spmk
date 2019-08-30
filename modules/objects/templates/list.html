@@ -38,7 +38,7 @@
                 {php:$photos_count = count($item['photos'])}
                 <div class="img">
                     {if!empty $photos}
-                    <div class="image-list">
+                    <div class="image-preview-list">
                         {loop $photos,$pk,$pv} 
                         <div class="image-item">
                             <div class="image-wrapper bg-cover transition" style="background-image: url(/img/uploads/big/{$pv['subfolder']}/{$pv['name']})"></div>
@@ -54,11 +54,11 @@
                     <span class="place icon" data-icon="placeholder">{$item['place']}</span>
                     <span class="weight icon">{$item['object_weight']} т</span>
                     <ul class="services">
-                        <li class="project" data-content="Проектирование"></li>
-                        <li class="production" data-content="Изготовление"></li>
-                        <li class="delivery" data-content="Доставка"></li>
-                        <li class="crane" data-content="Монтаж"></li>
-                        <li class="key" data-content="«Под ключ»"></li>
+                        <li class="project{ifeq $item['proektirovanie'],2} inactive{/if}" data-content="Проектирование"></li>
+                        <li class="production{ifeq $item['izgotovlenie'],2} inactive{/if}" data-content="Изготовление"></li>
+                        <li class="delivery{ifeq $item['dostavka'],2} inactive{/if}" data-content="Доставка"></li>
+                        <li class="crane{ifeq $item['montazh'],2} inactive{/if}" data-content="Монтаж"></li>
+                        <li class="key{ifeq $item['podkluch'],2} inactive{/if}" data-content="«Под ключ»"></li>
                     </ul>
                 </div>
                 <span class="details" data-icon="arrow_right_alt">Детали объекта</span>

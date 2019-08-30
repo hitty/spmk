@@ -32,7 +32,7 @@
     padding: 20px 0 40px 0;
 }
 .content-list.similar .item .title{
-    padding: 30px 0;
+    padding: 20px 0;
 }
 
 .content-list .item:hover .category,
@@ -112,8 +112,10 @@
     display: none;
     
 }
-.content ol li,.content ul li {
-    padding-left: 20px;
+.content ol li,
+.content ul li {
+    padding-left: 30px;
+    margin: 15px 0;
 }
 
 .content ol li::before,.content ul li:before {
@@ -122,9 +124,9 @@
     width: 6px;
     height: 6px;
     display: inline-block;
-    margin-right: 10px;
     border-radius: 6px;
-    transform: translate(0, -3px);
+    transform: translate(-15px, 11px);
+    position: absolute;
 }
 
 .content ol li::before {
@@ -266,13 +268,15 @@
     .content h2, .content h3, .content h4 {
         font-size: 22px;
     }
-
+    .content-item .left-part{
+        width: 100%;
+    }
     .content-item .info {
         margin: 10px 0;
     }
 
     .content-item .main-photo {
-        margin: 10px -10px;
+        margin: 10px -10px 20px -10px;
     }
 
     .content-item article {

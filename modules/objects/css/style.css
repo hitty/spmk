@@ -20,6 +20,7 @@
     height: auto;
     margin-right: 15px;
 }
+
 .search .services li:before{
     display: none;
 }

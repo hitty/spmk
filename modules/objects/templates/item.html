@@ -17,11 +17,11 @@
                             <div class="item">
                                 <span class="title">Выполненные работы:</span>
                                 <ul class="services">
-                                    <li class="project">Проектирование</li>
-                                    <li class="production">Изготовление</li>
-                                    <li class="delivery">Доставка</li>
-                                    <li class="crane">Монтаж</li>
-                                    <li class="key">Проект «под ключ»</li>
+                                    <li class="project{ifeq $item['proektirovanie'],2} inactive{/if}">Проектирование</li>
+                                    <li class="production{ifeq $item['izgotovlenie'],2} inactive{/if}">Изготовление</li>
+                                    <li class="delivery{ifeq $item['dostavka'],2} inactive{/if}">Доставка</li>
+                                    <li class="crane{ifeq $item['montazh'],2} inactive{/if}">Монтаж</li>
+                                    <li class="key{ifeq $item['podkluch'],2} inactive{/if}">«Под ключ»</li>
                                 </ul>
                             </div>
                         </div>

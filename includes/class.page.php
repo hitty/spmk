@@ -244,15 +244,17 @@ class Page {
         $this->menuClear( 1 );
         $this->menuAdd( 'О заводе', 'zavod', 1 );
         $this->menuAdd( 'Услуги', 'uslugi', 1 );
-            $this->menuAdd( 'Проектирование', '', 2, false, false, 'uslugi' );
-            $this->menuAdd( 'Изготовление', '', 2, false, false, 'uslugi'  );
-            $this->menuAdd( 'Монтаж', '', 2, false, false, 'uslugi'  );
+            $this->menuAdd( 'Проектирование', 'uslugi/proektirovanie', 2, false, false, 'uslugi' );
+            $this->menuAdd( 'Изготовление', 'uslugi/izgotovlenie', 2, false, false, 'uslugi'  );
+            $this->menuAdd( 'Доставка', 'uslugi/dostavka', 2, false, false, 'uslugi'  );
+            $this->menuAdd( 'Монтаж', 'uslugi/montazh', 2, false, false, 'uslugi'  );
             $this->menuAdd( '«Под ключ»', '', 2, false, false, 'uslugi'  );
         $this->menuAdd( 'Объекты', 'objekty', 1 );
         //$this_page->menuAdd( 'Прайс', '', 1 );
         $this->menuAdd( 'Закупки', 'zakupki', 1 );
             $this->menuAdd( 'Поставщикам', 'zakupki/postavschikam', 2, false, false, 'zakupki'  );
             $this->menuAdd( 'Тендеры', 'zakupki/tendery', 2, false, false, 'zakupki'  );
+        $this->menuAdd( 'Контакты', 'contacts', 1 );
 
         // загрузка страницы из DB
         $page = $db->fetch("SELECT p.*,m.path,m.level FROM ".$sys_tables['common_pages']." p

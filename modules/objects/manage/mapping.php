@@ -78,6 +78,65 @@ return [
             'label' => 'Вес конструкции',
             'placeholder' => 'Вес конструкции, т'
         ]
+        ,'_hr_params_' => [
+            'fieldtype' => 'hr'
+        ]
+        
+        ,'proektirovanie' => array(
+            'type' => TYPE_INTEGER,
+            'min' => 1,
+            'max' => 2,
+            'allow_empty' => false, 
+            'allow_null' => false,
+            'fieldtype' => 'switcher',
+            'parent_class' => 'quater-width', 
+            'values' => array(1=>'Да',2=>'Нет'),
+            'label' => 'Проектирование'
+        )
+        ,'izgotovlenie' => array(
+            'type' => TYPE_INTEGER,
+            'min' => 1,
+            'max' => 2,
+            'allow_empty' => false, 
+            'allow_null' => false,
+            'fieldtype' => 'switcher',
+            'parent_class' => 'quater-width', 
+            'values' => array(1=>'Да',2=>'Нет'),
+            'label' => 'Изготовление'
+        )
+        ,'dostavka' => array(
+            'type' => TYPE_INTEGER,
+            'min' => 1,
+            'max' => 2,
+            'allow_empty' => false, 
+            'allow_null' => false,
+            'fieldtype' => 'switcher',
+            'parent_class' => 'quater-width', 
+            'values' => array(1=>'Да',2=>'Нет'),
+            'label' => 'Доставка'
+        )
+        ,'montazh' => array(
+            'type' => TYPE_INTEGER,
+            'min' => 1,
+            'max' => 2,
+            'allow_empty' => false, 
+            'allow_null' => false,
+            'fieldtype' => 'switcher',
+            'parent_class' => 'quater-width', 
+            'values' => array(1=>'Да',2=>'Нет'),
+            'label' => 'Монтаж'
+        )
+        ,'podkluch' => array(
+            'type' => TYPE_INTEGER,
+            'min' => 1,
+            'max' => 2,
+            'allow_empty' => false, 
+            'allow_null' => false,
+            'fieldtype' => 'switcher',
+            'parent_class' => 'quater-width', 
+            'values' => array(1=>'Да',2=>'Нет'),
+            'label' => 'Под ключ'
+        )
         ,'_hr_seo_' => [
             'fieldtype' => 'hr'
         ]

@@ -1,18 +1,15 @@
-/* Device = Laptops, Desktops */
 @media (min-width: 1025px) and (max-width: 1280px) {
 }
-/* Device = Tablets, Ipads  */
+
 @media (min-width: 768px) and (max-width: 1024px) {
 }
-/* Most of the Smartphones Mobiles  */
+
 @media (min-width: 320px) and (max-width: 767px) {
-  
 }
 
-/* Device = Low Resolution Tablets, Mobiles (Landscape) */
 @media (min-width: 481px) and (max-width: 767px) {
 }
-  
+
 @media (max-width: 1640px) {
     nav a,nav span {
         padding: 3px 10px;
@@ -43,7 +40,6 @@
 }
 
 @media (max-width: 1380px) {
-
     .breadcrumbs {
         transform: translate(-50%, 44px);
     }
@@ -121,6 +117,10 @@
         margin-left: 5px;
     }
 
+    section.hero-title h1 {
+        margin: 40px 0;
+    }
+
     .how-we-work ul li {
         font-size: 20px;
         line-height: 28px;
@@ -171,7 +171,6 @@
         transform: translate(-50%, 30px);
     }
 
-    
     h1 {
         font-size: 40px;
         line-height: 50px;
@@ -202,6 +201,10 @@
         margin: 0;
         font-size: 12px;
         width: 115px;
+    }
+
+    section.hero-title h1 {
+        margin: 30px 0;
     }
 
     .annotation {
@@ -301,8 +304,9 @@
 
     .application-lead,.calculator-form {
         width: calc( 100% - 300px );
-        padding: 20px 20px 80px 20px;
-        font-size: 18px;
+        padding: 10px 10px 70px 10px;
+        font-size: 16px;
+        margin-top: -80px;
     }
 
     .calculator-form .title {
@@ -335,10 +339,12 @@
     }
 
     .contacts .address {
-        font-size: 24px;
-        margin-bottom: 50px;
+        font-size: 16px;
+        margin-bottom: 40px;
     }
-
+    .contacts .schedule{
+        font-size: 16px;
+    }
     .contacts ul {
         flex-wrap: wrap;
         margin-bottom: 30px;
@@ -346,8 +352,8 @@
 
     .contacts ul li {
         flex: 0 1 50%;
-        margin-bottom: 20px;
-        text-align: center;
+        margin-bottom: 30px;
+        text-align: left;
     }
 
     .tour-form form {
@@ -371,8 +377,34 @@
     footer .bottom .payment-info {
         width: 490px;
     }
-    .sticky-actions{
-        display: none;
+
+    .sticky-actions {
+        top: auto;
+        bottom: 6px;
+        right: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .sticky-actions li {
+        position: relative;
+        right: auto;
+        text-indent: -10000%;
+        width: 24px;
+        min-width: 20px;
+        padding: 0 0 0 40px;
+        overflow: hidden;
+        border-radius: 3px;
+        box-shadow: 0px 6px 7px rgba(0, 0, 0, 0.195968);
+        margin: 0 6px;
+    }
+
+    .sticky-actions li.main:nth-child(1),.sticky-actions li:nth-child(2),.sticky-actions li:nth-child(3),.sticky-actions li:nth-child(4),.sticky-actions li:nth-child(5),.sticky-actions li:nth-child(6) {
+        top: auto;
+        right: auto;
+    }
+    .sticky-actions li.main:nth-child(1){
     }
 }
 
@@ -646,6 +678,10 @@
         font-size: 14px;
     }
 
+    section.hero-title h1 {
+        margin: 20px 0;
+    }
+
     form .flex {
         display: block;
         width: 100%;
@@ -851,26 +887,8 @@
         max-width: 320px;
     }
 
-    .calculator-form form .plus {
-    }
-
     .calculator-form .button {
         width: auto;
-    }
-
-    .contacts .address {
-        font-size: 20px;
-        line-height: 1.4;
-        margin-bottom: 40px;
-        margin-top: 20px;
-    }
-
-    .contacts ul {
-    }
-
-    .contacts ul li {
-        flex: 1 1 100%;
-        text-align: center;
     }
 
     .contacts .map .image {
@@ -884,7 +902,7 @@
     footer .menu {
         flex-wrap: wrap;
         margin-bottom: -20px;
-        
+        justify-content: center;
     }
 
     footer .menu ul {
@@ -895,7 +913,12 @@
     footer .menu ul li {
         text-align: center;
     }
-
+    footer .menu li .small{
+        font-size: 9px;
+        text-align: center;
+        right: 0;
+        top: -7px;
+    }
     footer .menu ul.social {
         width: 150px;
     }
@@ -945,6 +968,9 @@
         line-height: 1.4;
     }
 
+    section.hero-title h1 {
+    }
+
     .breadcrumbs {
         display: none;
     }
@@ -967,6 +993,15 @@
     .contacts .map .image {
         display: none;
     }
+    .contacts ul li {
+        flex: 1 1 100%; 
+        margin-bottom: 20px;
+    }
+    .contacts .title{
+        margin-top: 20px;
+        font-size: 20px;
+    }
+
 
     .calculator-form form .item {
         padding: 20px 10px;
@@ -996,7 +1031,7 @@
     }
 
     footer .menu ul li + li {
-        margin-top: 5px;
+        margin-top: 10px;
     }
 
     footer .bottom .payment-info .flex,footer .bottom .payment-info {

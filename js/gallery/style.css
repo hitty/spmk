@@ -12,11 +12,36 @@
     border: none;
     position: relative;
     width: calc( 20% - 20px );
-    display: block;
-    /* margin-bottom: 10px; */
+    display: flex;
+    align-items: center;
     margin: 10px;
 }
-
+.gallery-container .thumbs-list a:after{
+    content: "";
+    background: rgba(0,0,0,.6);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+}
+.gallery-container .thumbs-list a:before{
+    z-index: 10;
+    left: 50%;
+    top: 50%;
+    margin: -12px 0 0 -20px;
+    font-size: 36px;
+}
+.gallery-container .thumbs-list a:after,
+.gallery-container .thumbs-list a:before{
+    transition: var(--transition);
+    opacity: 0;
+    position: absolute;
+    color: var(--white);
+}
+.gallery-container .thumbs-list a:hover:after,
+.gallery-container .thumbs-list a:hover:before{
+    opacity: 1;
+}
 .gallery-container .thumbs-list img {
     display: block;
     width: 100%;

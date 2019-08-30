@@ -48,6 +48,7 @@ if($)(function(window, document, $, undefined){
                     statusbar: false,   
                     branding: false,
                     language:"ru", // язык  
+                    relative_urls: false,
                     plugins: [
                         ["code advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker"],
                         ["searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking"],

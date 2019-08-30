@@ -13,6 +13,11 @@
         {ifeq $application_type, 'zakupki'}
                 {$data['user_comment']}
         {else}
+            {if!empty $data['company']}
+            <span style="display: block; text-align: left; margin-top: 20px;">
+                Компания: <strong>{$data['company']}</strong>
+            </span>
+            {/if}
             {if!empty $data['name']}
             <span style="display: block; text-align: left; margin-top: 20px;">
                 Имя: <strong>{$data['name']}</strong>
@@ -38,6 +43,11 @@
             {if!empty $data['date']}
             <span style="display: block; text-align: left; margin-top: 20px;">
                 Дата посещения: <strong>{$data['date']}</strong>
+            </span>
+            {/if}
+            {if!empty $data['production']}
+            <span style="display: block; text-align: left; margin-top: 20px;">
+                Продукция: <strong>{$data['production']}</strong>
             </span>
             {/if}
                                        

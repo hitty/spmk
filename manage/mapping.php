@@ -48,6 +48,11 @@ return array(
         'module' => 'vacancies',
         'title' => 'Вакансии'
     )
+    ,'uslugi' => array(
+        'module' => 'uslugi',
+        'title' => 'Услуги'
+    )
+    
     
 );
             

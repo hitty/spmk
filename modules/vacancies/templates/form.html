@@ -3,7 +3,8 @@
     <form class="send-message ajaxed" action="/applications/add/" method="POST" autocomplete="off" enctype="multipart/form-data">
         <input type="hidden" name="recaptcha_response" data-public="{php:echo Config::Get('recaptcha/public')}">
         <h2 class="invert">{if!empty $form_title}{$form_title}{else}Оставить заявку{/if}</h2>
-
+        {if!empty $form_text}<div class="annotation">{$form_text}</div>{/if}
+        
         {if!empty $application_type}<input type="hidden" name="application_type" value="{$application_type}">{/if}
         {if!empty $application_type_id}<input type="hidden" name="application_type_id" value="{$application_type_id}">{/if}
         {php:$random=randomstring(10)}
@@ -20,7 +21,7 @@
             <input type="text" name="job" placeholder="Желаемая вакансия{ifempty $vacancy_title}*{/if}" {if!empty $vacancy_title} value="{$vacancy_title}" {/if} required="required" autocomplete="{$random}">
         </div>
         <div class="upload-container row br3 required">
-            <textarea name="comment" placeholder="Комментарий"></textarea>
+            <textarea name="comment" placeholder="Сопроводительное письмо"></textarea>
             <div class="file-upload">      
                 <input type="file" name="file_upload[]" id="file_upload-{$random}" class="inputfile-{$random}" data-multiple-caption="files selected" multiple="">
                 <label for="file_upload-{$random}" class="br4 attach-file " data-icon="attach_file">
@@ -31,7 +32,7 @@
             </div>
             <span class="resume-text">Резюме принимаются в форматах doc и pdf до 1мб</span>
         </div>     
-        <div class="form-block notifications"></div>
+        <div class="row form-block notifications"></div>
         <div class="row terms">                        
             <span class="button big">{ifempty $button_title}Отправить{else}{$button_title}{/if}</span>
             <span class="text">Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c <a href="/terms/" target="_blank">политикой конфиденциальности</a></span>

@@ -22,6 +22,7 @@ return array(
     'string_per_page' => array(
         'users'        => 20         // пользователи
         , 'news' => DEBUG_MODE ? 6 : 9 // новости
+        , 'uslugi' => DEBUG_MODE ? 6 : 9 // новости
         , 'objects' => 10             // новости
         , 'objects_types' => 10       // типы объектов
         , 'assortment' => 10           // новости
@@ -42,77 +43,100 @@ return array(
     ,'forms' => [   // данные форм запроса
         'raschet' => [   //получить расчет
             'form_title' => 'Получить расчет',
-            'success_text' => 'Спасибо за проявленный интерес! Проект передан на расчет. Ответ поступит на электронную почту. ',
-            'template' => 'templates/includes/form.html',
-            'mailer_title' => 'Новая заявка на расчет'
+            'form_text' => 'Быстрый расчет стоимости проекта при наличии технической документации (АР, КМ, КМД)',
+            'success_title' => 'Спасибо!<br/> Запрос отправлен.',
+            'success_text' => 'Пожалуйста, не дублируйте свой запрос, наши специалисты с вами обязательно свяжутся.',
+            'template' => 'templates/includes/form.raschet.html',
+            'mailer_title' => 'Получить расчет'
         ]
         ,
         'application' => [  //оставить заявку
             'form_title' => 'Оставить заявку',
-            'success_text' => 'Спасибо за проявленный интерес! Ваша заявка обрабатывается. Ожидайте звонка менеджера. ',
+            'form_text' => 'На консультацию наших специалистов',
+            'success_title' => 'Спасибо!<br/> Запрос отправлен.',
+            'success_text' => 'Пожалуйста, не дублируйте свой запрос, наши специалисты с вами обязательно свяжутся.',
             'template' => 'templates/includes/form.html',
-            'mailer_title' => 'Новая заявка'
+            'mailer_title' => 'Оставить заявку'
         ]
         ,
         'have_questions' => [  //остались вопросы
             'form_title' => 'Остались вопросы?',
-            'success_text' => 'Спасибо! Мы обязательно ответим. Пожалуйста, ожидайте. ',
+            'form_text' => '',
+            'success_title' => 'Спасибо!<br/> Запрос отправлен.',
+            'success_text' => 'Пожалуйста, не дублируйте свой запрос, наши специалисты с вами обязательно свяжутся.',
             'template' => 'templates/includes/form.question.html',
             'mailer_title' => 'Новый вопрос'
         ]
         ,
         'ask_question' => [  //задать вопрос
             'form_title' => 'Задать вопрос',
-            'success_text' => 'Спасибо! Мы обязательно ответим. Пожалуйста, ожидайте. ',
+            'form_text' => 'Не нашли ответов на сайте? Спросите нас тут, возможно, ответ уже есть.',
+            'success_title' => 'Спасибо!<br/> Запрос отправлен.',
+            'success_text' => 'Пожалуйста, не дублируйте свой запрос, наши специалисты с вами обязательно свяжутся.',
             'template' => 'templates/includes/form.question.html',
-            'mailer_title' => 'Новый вопрос'
+            'mailer_title' => 'Задать вопрос'
         ]
         ,
         'excursion' => [  // записаться на экскурсию
             'form_title' => 'Записаться на экскурсию',
-            'success_text' => 'Спасибо за проявленный интерес! Ваша заявка обрабатывается. Ожидайте звонка менеджера. ',
+            'form_text' => 'Экскурсия по производственной площадке в г.Рязани проходит по предварительной записи',
+            'success_title' => 'Спасибо!<br/> Запрос отправлен.',
+            'success_text' => 'Пожалуйста, не дублируйте свой запрос, наши специалисты с вами обязательно свяжутся.',
             'template' => 'templates/includes/form.excursion.html',
-            'mailer_title' => 'Запись на экскурсию'
+            'mailer_title' => 'Записаться на экскурсию'
         ]
         ,
         'call' => [  // заказать обратный звонок
             'form_title' => 'Заказ обратного звонка',
-            'success_text' => 'Данные получены. Ожидайте звонка, пожалуйста. ',
+            'form_text' => 'Укажите свои данные - мы всегда перезваниваем!',
+            'success_title' => 'Спасибо!<br/> Запрос отправлен.',
+            'success_text' => 'Пожалуйста, не дублируйте свой запрос, наши специалисты с вами обязательно свяжутся.',
             'template' => 'templates/includes/form.call.html',
-            'mailer_title' => ''
+            'mailer_title' => 'Заказать звонок'
         ]
         ,
         'price' => [  // запросить прайс
-            'form_title' => 'Запросить прайс',
-            'success_text' => 'Спасибо за проявленный интерес! Ваша заявка обрабатывается. Ожидайте звонка менеджера. ',
-            'template' => 'templates/includes/form.html',
-            'mailer_title' => 'Запрос прайса'
+            'form_title' => 'Получить прайс',
+            'form_text' => 'Запрос прайс-листа на продукцию ГК «СПМК» на выбор',
+            'success_title' => 'Спасибо!<br/> Запрос отправлен.',
+            'success_text' => 'Пожалуйста, не дублируйте свой запрос, наши специалисты с вами обязательно свяжутся.',
+            'template' => 'templates/includes/form.price.html',
+            'mailer_title' => 'Запросить прайс',
+            'production_list' => [
+                'Металлоконструкции', 
+                'Винтовые сваи',
+                'Кованные изделия'
+            ]
         ]
         ,
         'postavschikam' => [  // поставщикам
             'form_title' => '',
-            'success_text' => 'Ваше предложение передано на предварительную обработку.<br/>С вами свяжутся в случае вопросов.',
+            'form_text' => '',
+            'success_text' => 'Спасибо!<br/> Запрос отправлен. Пожалуйста, не дублируйте свой запрос, наши специалисты с вами обязательно свяжутся.',
             'template' => 'templates/includes/form.html',
             'mailer_title' => ''
         ]
         ,
         'tendery' => [  // тендеры
             'form_title' => '',
-            'success_text' => 'Ваше предложение передано на предварительную обработку.<br/>С вами свяжутся в случае вопросов.',
+            'form_text' => '',
+            'success_title' => 'Спасибо!<br/> Запрос отправлен.',
+            'success_text' => 'Пожалуйста, не дублируйте свой запрос, наши специалисты с вами обязательно свяжутся.',
             'template' => 'templates/includes/form.html',
             'mailer_title' => ''
         ]
         ,
-        'vacancies' => [  // тендеры
+        'vacancies' => [  // вакансии
             'form_title' => 'Отправить резюме',
-            'success_title' => 'Ваше резюме принято!',
-            'success_text' => 'Ожидайте звонка менеджера.',
+            'form_text' => '',
+            'success_title' => 'Спасибо!<br/> Запрос отправлен.',
+            'success_text' => 'Пожалуйста, не дублируйте свой запрос, наши специалисты с вами обязательно свяжутся.',
             'template' => 'modules/vacancies/templates/form.html',
             'mailer_title' => 'Резюме'
         ]
                                   
     ],
-   
+    
     'watermark_src' => '/img/watermark.png',
     
     'img_folders' => 'img/uploads',
@@ -151,6 +175,9 @@ return array(
         'news_photos' => 'news_photos',
         'news_categories' => 'news_categories',
 
+        'uslugi' => 'uslugi',
+        'uslugi_photos' => 'uslugi_photos',
+
         'objects' => 'objects',
         'objects_photos' => 'objects_photos',
 
@@ -171,6 +198,8 @@ return array(
         'news_photos' => 'news_photos',
 
         'vacancies' => 'vacancies',
+        
+        'static_pages' => 'static_pages',
 
     )
 );

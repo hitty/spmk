@@ -1,0 +1,39 @@
+<div class="list-container media">
+    <div class="caption-container">
+        <a href="/manage/uslugi/add/" class="button orange">Добавить запись</a>
+    </div>
+    <div class="filter">
+        <span class="active">Услуги</span>
+    </div>
+
+    <div class="filters-container clearfix flex" data-url="/manage/uslugi/">
+        
+        <div class="info"></div>
+        <div class="title" data-icon="search">
+            <input type="text" id="title"  name="title" value="{$get_array['title']}" placeholder="Заголовок записи">
+        </div>
+        <div class="date"></div>
+        <div class="visibility"></div>
+    </div>
+    <div class="list">
+        {if!empty $list}
+            {loop $list,$k,$item}
+                <div class="item-block clearfix flex">
+                    <div class="info">
+                        {if!empty $item['photo']}<img src="/img/uploads/sm/{$item['subfolder']}/{$item['photo']}" />{/if}
+                    </div>
+                    <div class="title"><a href="/manage/uslugi/edit/{$item['id']}/">{$item['title']}</a></div>
+                    <div class="date">{$item['normal_date']}</div>
+                    
+                    <div class="visibility">
+                        <span data-icon="visibility_off" class="change-params {ifeq $item['published'],1} active{/if}" data-url="/manage/uslugi/" data-id="{$item['id']}" data-field="published"></span>
+                    </div>
+                    <span data-icon="delete" class="delete red" data-url="/manage/uslugi/delete/{$item['id']}/"></span>
+                </div>
+            {/loop $list}
+            {include /manage/templates/paginator.html} 
+        {else}
+            <p style="padding:30px; text-align: center; color: var(--gray);">Запрошенные данные не найдены</p>
+        {/if}
+    </div>
+</div>

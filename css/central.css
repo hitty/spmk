@@ -89,7 +89,9 @@ footer .copyright {
     line-height: 24px;
     text-align: left;
 }
-
+footer .copyright a{
+    color: var(--white);
+}
 footer .social {
     height: 30px;
     color: #fff;
@@ -213,7 +215,7 @@ footer .social li + li{
 /* calculator-form */
 .application-lead,
 .calculator-form {
-    margin-top: -140px;
+    margin-top: -100px;
     width: 1240px;
     position: relative;
     margin-left: auto;
@@ -334,32 +336,39 @@ footer .social li + li{
 
 /* contacts */
 .contacts .address {
-    font-size: 30px;
-    text-align: center;
+    font-size: 18px;
     display: block;
-    margin: 60px 0;
-}
-h2 + .contacts .address{
-    margin: -30px 0 60px 0;
-}
-.contacts ul {
-    margin-bottom: 60px;
 }
 
+h2 + .contacts .address {
+    margin: -30px 0 60px 0;
+}
+
+.contacts ul {
+    margin: 20px 0 60px 0;
+}
+.contacts ul.moscow-phones {
+    margin: 10px 0;
+}
+.contacts ul.moscow-phones b{
+    margin: 0;
+}
 .contacts ul li {
-    font-size: 22px;
+    font-size: 20px;
     line-height: 1.1;
 }
 
 .contacts ul li b {
     display: block;
     font-size: 16px;
-    margin: 10px 0 5px 0;
+    margin: 15px 0 5px 0;
 }
-.contacts ul li b i{
+
+.contacts ul li b i {
     font-weight: normal;
     font-size: 80%;
 }
+
 .contacts ul li a {
     font-size: 16px;
     color: var(--main-color);
@@ -394,7 +403,26 @@ h2 + .contacts .address{
     align-content: center;
     align-items: center;
     text-align: center;
-}  
+    font-size: 14px;
+    margin: 0;
+}
+.contacts .title {
+    display: block;
+    margin: 50px 0 15px 0;
+    font-size: 24px;
+    padding-left: 5px;
+}
+.contacts .title:before {
+    margin: 0;
+    transform: translate(-5px,6px);
+}
+.contacts .schedule {
+    display: block;
+    font-size: 18px;
+}
+.contacts .schedule.day-off{
+    color: var(--secondary-color);
+}
 .hero {
   background-image: url(/img/appliction-hero-bg-sm.jpg);
 }
@@ -408,7 +436,9 @@ h2 + .contacts .address{
     background-image: url('/img/appliction-hero-bg.jpg')
   }
 }
-
+.hero .annotation{
+    text-align: center;
+}
 .search{
     margin: 40px auto;
     min-height: 40px;    
@@ -416,4 +446,96 @@ h2 + .contacts .address{
 .search .list-selector{
     float: right;
     margin-left: 20px;
+}
+.send{
+    color: var(--main-color);
+    border-bottom: 1px dashed var(--main-color);
+    transition: var(--transition);
+    cursor: pointer;
+}
+.send:hover{
+    color: var(--secondary-color);
+    border-bottom-color: var(--secondary-color);
+}
+
+/* image-preview-list */
+.image-preview-list {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+}
+.image-preview-list .image-item {
+    position: static;
+    display: flex;
+    align-items: flex-end;
+    flex: 1;
+    height: 100%
+}
+.image-preview-list .image-wrapper {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.image-preview-list .image-wrapper {
+    z-index: -2;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden
+}
+
+.image-preview-list .image-item .image-wrapper {
+    opacity: 0
+}
+
+.image-preview-list:not(:hover) .image-item:first-child .image-wrapper,
+.image-preview-list .image-item:hover .image-wrapper {
+    z-index: -1;
+    opacity: 1
+}
+
+.image-preview-list:not(:hover) .image-button {
+    opacity: 0
+}
+
+.image-preview-list .image-button {
+    position: relative;
+    z-index: 4;
+    bottom: 2px;
+    flex: 1;
+    min-height: 7px;
+    opacity: 1;
+    transition: opacity .2s;
+    border-radius: 3px
+}
+
+.image-preview-list .image-button:after {
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    bottom: 2px;
+    left: 1px;
+    height: 5px;
+    content: "";
+    background: hsla(0,0%,100%,.8);
+    transition: background-color .2s;
+    border-radius: 3px
+}
+
+.image-preview-list .image-item:hover .image-button:after {
+    background-color: #1e88e5
+}
+
+.image-preview-list .image-item:first-child .image-button:after {
+    left: 3px
+}
+
+.image-preview-list .image-item:last-child .image-button:after {
+    right: 3px
 }

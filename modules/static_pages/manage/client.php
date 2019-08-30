@@ -144,12 +144,8 @@ switch($action){
         $condition = implode(" AND ",$conditions);        
         $sortby = Request::GetInteger( 'sort', METHOD_GET );
 
-        // создаем пагинатор для списка
-        $paginator_where = $condition;
-        $paginator = new Paginator( $sys_tables['static_pages'], Config::Get( 'string_per_page/static_pages' ), $paginator_where, false, false, $this_page->real_url );
-        
         // формирование списка
-        $list = CommonDb::getList( $sys_tables['static_pages'], $paginator->getFromString( $paginator->current_page ) . ',' . Config::Get( 'string_per_page/static_pages' ), $condition );
+        $list = CommonDb::getList( $sys_tables['static_pages'], false, $condition );
         Response::SetArray('list', $list);
         break;
 

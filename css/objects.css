@@ -28,87 +28,16 @@
     position: relative;
     z-index: 100;
 }
-.objects-list .list .item .img .image-item {
-    position: static;
-    display: flex;
-    align-items: flex-end;
-    flex: 1;
-    height: 100%
-}
 
-.objects-list .list .item .img .image,
-.objects-list .list .item .img .image-wrapper {
+
+.objects-list .list .item .img .image{
     position: absolute;
     left: 0;
     width: 100%;
     height: 100%;
     border: 0;
 }
-.objects-list .list .item .img .image-list {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    display: flex;
-}
-.objects-list .list .item .img .image-wrapper {
-    z-index: -2;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    overflow: hidden
-}
 
-.objects-list .list .item .img .image-item .image-wrapper {
-    opacity: 0
-}
-
-.objects-list .list .item .img .image-list:not(:hover) .image-item:first-child .image-wrapper,
-.objects-list .list .item .img .image-item:hover .image-wrapper {
-    z-index: -1;
-    opacity: 1
-}
-
-.objects-list .list .item .img .image-list:not(:hover) .image-button {
-    opacity: 0
-}
-
-.objects-list .list .item .img .image-button {
-    position: relative;
-    z-index: 4;
-    bottom: 2px;
-    flex: 1;
-    min-height: 7px;
-    opacity: 1;
-    transition: opacity .2s;
-    border-radius: 3px
-}
-
-.objects-list .list .item .img .image-button:after {
-    position: absolute;
-    top: 1px;
-    right: 1px;
-    bottom: 2px;
-    left: 1px;
-    height: 5px;
-    content: "";
-    background: hsla(0,0%,100%,.8);
-    transition: background-color .2s;
-    border-radius: 3px
-}
-
-.objects-list .list .item .img .image-item:hover .image-button:after {
-    background-color: #1e88e5
-}
-
-.objects-list .list .item .img .image-item:first-child .image-button:after {
-    left: 3px
-}
-
-.objects-list .list .item .img .image-item:last-child .image-button:after {
-    right: 3px
-}
 
 .object-info {
     position: absolute;
@@ -164,7 +93,9 @@
     z-index: 100;
     cursor: help;
 }
-
+.services li.inactive{
+    opacity: .2;
+}
 .services li.production {
     background-image: url('/img/production-icon.svg');
 }

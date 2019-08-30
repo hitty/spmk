@@ -1,0 +1,44 @@
+        
+<div class="application-form{ifempty $middle} modal{/if}">      
+    <form class="send-message ajaxed" action="/applications/add/" method="POST" autocomplete="off" enctype="multipart/form-data">
+        <h2 class="invert">{if!empty $form_title}{$form_title}{else}Оставить заявку{/if}</h2>
+        {if!empty $form_text}<div class="annotation">{$form_text}</div>{/if}
+        {if!empty $application_type}<input type="hidden" name="application_type" value="{$application_type}">{/if}
+        {php:$random=randomstring(10)}
+        <div class="row">
+            <input type="text" name="company" placeholder="Компания" required="required" autocomplete="{$random}">
+        </div>
+        <div class="row">
+            <input type="text" name="region" placeholder="Регион расположения объекта*" required="required" autocomplete="{$random}">
+        </div>
+        <div class="row">
+            <input type="text" name="name" placeholder="Ваше имя *" required="required" autocomplete="{$random}">
+        </div>
+        <div class="row">
+            <input type="phone" name="phone" placeholder="Ваш телефон *" required="required" maxlength="17" autocomplete="{$random}">
+        </div>
+        <div class="row">
+            <input type="email" name="email" placeholder="Ваш email{if!empty $email_required}*{/if}"{if!empty $email_required} required="required"{/if} autocomplete="{$random}">
+        </div>
+
+        <div class="upload-container row br3">
+            <textarea name="comment" placeholder="Дополнительная информация по проекту"></textarea>
+            <div class="file-upload">      
+                <input type="file" name="file_upload[]" id="file_upload-{$random}" class="inputfile-{$random}" data-multiple-caption="files selected" multiple="">
+                <label for="file_upload-{$random}" class="br4 attach-file " data-icon="attach_file">
+                    <strong class="br3 transition">Прикрепить КМ (АР, КМД)*</strong>
+                </label>      
+                <span class="text-overflow" data-icon="attach_file"></span> 
+                <i class="close" data-icon="close"></i>
+            </div>
+        </div>     
+        <div class="row form-block notifications"></div>    
+        <div class="row terms">                        
+            <span class="button big">{ifempty $button_title}Отправить{else}{$button_title}{/if}</span>
+            <span class="text">Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c <a href="/terms/" target="_blank"  class="modal-open-btn">политикой конфиденциальности</a></span>
+        </div> 
+        
+        <input type="hidden" name="recaptcha_response" data-public="{php:echo Config::Get('recaptcha/public')}">
+    </form>
+    
+</div> 

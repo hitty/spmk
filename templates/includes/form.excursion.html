@@ -4,10 +4,14 @@
         <input type="hidden" name="recaptcha_response" data-public="{php:echo Config::Get('recaptcha/public')}">
         {ifempty $middle}
             <h2 class="invert">{if!empty $form_title}{$form_title}{else}Оставить заявку{/if}</h2>
+            {if!empty $form_text}<div class="annotation">{$form_text}</div>{/if}
         {/if}
         {if!empty $application_type}<input type="hidden" name="application_type" value="{$application_type}">{/if}
         {php:$random=randomstring(10)}
         {if!empty $middle}<div class="flex">{/if}
+            <div class="row">
+                <input type="text" name="company" placeholder="Название компании" required="required" autocomplete="{$random}">
+            </div>
             <div class="row">
                 <input type="text" name="name" placeholder="Ваше имя *" required="required" autocomplete="{$random}">
             </div>
@@ -16,14 +20,14 @@
             </div>
             <div class="row">
                 <i  data-icon="date_range"></i>
-                <input type="text" placeholder="Дата визита" name="date" required="required" />
+                <input type="text" placeholder="Укажите дату визита" name="date" required="required" />
             </div>
             
         {if!empty $middle}</div>{/if}
         
         <div class="row terms">                        
             <span class="button big">{ifempty $button_title}Отправить{else}{$button_title}{/if}</span>
-            <span class="text">Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c <a href="#modal-terms" class="modal-open-btn">политикой конфиденциальности</a></span>
+            <span class="text">Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c <a href="/terms/" target="_blank"  class="modal-open-btn">политикой конфиденциальности</a></span>
         </div> 
     </form>
     

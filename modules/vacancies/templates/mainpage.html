@@ -1,6 +1,9 @@
+<section class="hero-title bg-cover vacancies">
+        <h1>{$h1}</h1>
+</section>
+
 <section >
     <div class="inner narrow">
-        <h1>{$h1}</h1>
         <h3>Уважаемые соискатели!</h3>
         <div class="content">
             <p>Группа компаний «СПМК» - это амбициозный союз компаний с широким спектром направлений деятельности и сильной командой, нацеленной на успех в сфере металлокаркасного строительства. </p>
@@ -19,7 +22,7 @@
             
             <div class="list">
                 {loop $list,$k,$item}
-                <div class="item">
+                <div class="item" data-icon="arrow_drop_down">
                     <span class="title"> <b>{$item['title']}</b> {$item['city']}</span>
                     <div class="content">
                     
@@ -49,6 +52,7 @@
                                 {$item['salary']}
                             </span>
                         {/if}
+                        <span class="toggle">Свернуть</span>
                         <span class="button big popup main-color" data-url="/applications/popup/?application_type=vacancies&application_type_id={$item['id']}">Отправить резюме</span>
                     </div>
                 </div>

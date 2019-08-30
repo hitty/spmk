@@ -104,7 +104,7 @@ if($)(function(window, document, $, undefined){
                                     if( jQuery( '.modal-inner .closebutton, .modal-inner .modal-close-btn' ).length > 0) {
                                         setTimeout(function(){
                                             jQuery( '.modal-inner .closebutton, .modal-inner .modal-close-btn' ).click();
-                                        }, typeof msg.html == 'string' && msg.html.length > 20 ? 3200 : 1500 );
+                                        }, typeof msg.html == 'string' && msg.html.length > 20 ? 5200 : 3500 );
                                     }
 
                                     if( typeof msg.html == 'string' && msg.html.length > 20 ) init_selector.parent( 'div' ).html(msg.html);
@@ -112,7 +112,7 @@ if($)(function(window, document, $, undefined){
                                     if(o.popup_redirect == true || o.popup_redirect == 'true' || msg.popup_redirect == true){
                                         setTimeout(function(){
                                             window.location.href = msg.redirect_url ? msg.redirect_url : location.href.replace(location.hash, "");
-                                        }, typeof msg.html == 'string' && msg.html.length > 20 ? 3500 : 1700 )
+                                        }, typeof msg.html == 'string' && msg.html.length > 20 ? 500 : 1700 )
                                     } 
                                                               
                                 } else jQuery( '.modal-inner .closebutton, .modal-inner .modal-close-btn' ).click();
@@ -122,7 +122,7 @@ if($)(function(window, document, $, undefined){
                                     }
 
                             } else if( msg.error ||  msg.errors )  {
-                                if( _error_notification.length > 0 ) _error_notification.html( msg.error );
+                                if( _error_notification.length > 0 ) _error_notification.html( msg.error ).addClass('active');
                                 else jQuery( '<div class="' + o.notification_class + '">' + msg.error + '</div>' ).insertBefore( jQuery('.form-block', init_selector ).first() ) ;
                                 if( msg.errors ){
                                     for(var index in msg.errors) { 
@@ -238,6 +238,7 @@ if($)(function(window, document, $, undefined){
             url                     : null,                     /* URL для получения html */
             background_template     : '<div class="modal-container modal-container-opened"><div class="modal-bg"></div><div class="modal-inner"><div class="modal-stage"><div class="modal-slide"></div></div></div></div>', /* задний фон */
             closebutton             : '.closebutton',           /* закрытие формы */
+            active_class            : 'active',           
             background_container    : '.modal-bg',           
             inner_container         : '.modal-slide',           
             close_container         : '.modal-close',           
@@ -289,7 +290,6 @@ if($)(function(window, document, $, undefined){
                             
                             $( o.inner_container ).addClass( 'active' );
 
-                            
                             checkBoxesInit( $( o.inner_container ) ); 
                             listSelectorInit( $( o.inner_container ) );
                             $( o.inner_container + ' .popup' ).each(
@@ -330,17 +330,18 @@ if($)(function(window, document, $, undefined){
        }
        var closePopupWindow = function(){
             //эффект исчезания контентной части
-            $( o.inner_container ).removeClass( 'active' );
+            $( o.inner_container ).removeClass( 'active' ).addClass('inactive');
 
             //эффект исчезания заднего фона
             setTimeout(
                 function(){
                     $( o.background_container ).fadeOut(100, function(){
+                        
                         $(this).parent().remove();
                         $( o.inner_container ).remove();
                         jQuery( 'body' ).css( { 'overflow' : 'auto' } );
                     })
-                }, 150
+                }, 250
             )
             _gpval = '';
             //setGPval();

@@ -14,7 +14,7 @@ switch( true ){
         // блок
         ////////////////////////////////////////////////////////////////////////////////////////////////////////
         case $action == 'block':
-            $list = CommonDb::getList( 'news', false, $sys_tables['news'] . '.published = 1', 'position date DESC', 'id' );
+            $list = CommonDb::getList( 'news', false, $sys_tables['news'] . '.published = 1', 'date DESC', 'id' );
             Response::SetArray( 'list', $list );
             $module_template = 'block.html';
             if( $ajax_mode ) $ajax_result['ok'] = true;
@@ -53,7 +53,7 @@ switch( true ){
                     'title' => $item['title'],
                     'description' => $description,
                     'image' => '/img/uploads/big/' . ( !empty( $item['subfolder'] ) ? $item['subfolder'] : ( !empty( $photos[0] ) ? $photos[0]['subfolder'] : '' ) ) . '/' . ( !empty( $item['photo'] ) ? $item['photo'] : ( !empty( $photos[0] ) ? $photos[0]['name'] : '' ) ),
-                    'url' => '/objekty/' . $item['chpu_title'] . '/'
+                    'url' => '/news/' . $item['chpu_title'] . '/'
                 )
             );        
             

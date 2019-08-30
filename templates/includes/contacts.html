@@ -6,12 +6,14 @@
     <div class="inner">
         {ifempty $contacts_page}
             <h2>Контакты</h2>
-        {/if}
+        {else}
         
-        <span class="address">
-            ГК «Союз Производителей Металлоконструкций» <br />
-            390042, г. Рязань, ул. Станкозаводская, д.7
-        </span>
+            <span class="title" data-icon="room">Фактический адрес:</span>
+            <span class="address">
+                390042, г. Рязань, ул. Станкозаводская, д.7, стр.3 (территория Индустриального парка «Станкозаводской»)
+            </span>
+        <span class="title" data-icon="person">Телефоны и электронные адреса:</span>
+        {/if}
         <ul class="flex">
             <li>
                 Отдел продаж
@@ -35,12 +37,34 @@
             </li>
         </ul>
         {if!empty $contacts_page}
+
+        <span class="title" data-icon="calendar_today">Время работы ИТР:</span>
+        <span class="schedule">Понедельник - пятница: с 8:30 до 17:30</span>
+        <span class="schedule day-off">Суббота, воскресенье: выходной</span>
+
         <script src="//api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
         <div class="map" id="map-office" data-lat="54.668207" data-lng="39.635799">
             <div class="image bg-cover" style="background-image: url('/img/map-office.png');">
                 <span class="title">Офис продаж. Производство в г.Рязани</span>
             </div>
-        </div>    
+        </div>   
+
+        <span class="title" data-icon="room">Представительство в г. Москве:</span>
+        <span class="address">
+            125371, г. Москва, Волоколамское шоссе, д.89
+        </span>
+
+        <span class="title" data-icon="phone">Телефон:</span>
+        <ul class="flex moscow-phones">
+            <li>
+                <b class="phone">+7 (499) 703-48-57</b>
+            </li>
+        </ul>
+        
+        <span class="title" data-icon="calendar_today">Время работы:</span>
+        <span class="schedule">Понедельник - пятница: с 9:00 до 18:00</span>
+        <span class="schedule day-off">Суббота, воскресенье: выходной</span>
+         
         <div class="map" id="map-production" data-lat="55.829067" data-lng="37.410556">
             <div class="image bg-cover" style="background-image: url('/img/map-production.jpg');">
                 <span class="title">Представительство в г.Москве</span>

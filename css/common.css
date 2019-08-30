@@ -522,8 +522,12 @@ h1 + .navigation{
     right: 0;
     top: 50%;
     z-index: 100;
+    transition: .3s opacity ease-in-out;
+    opacity: 1;
 }
-
+.sticky-actions.hidden{
+    opacity: 0;
+}
 .sticky-actions li {
     text-align: right;
     margin: 1px 0;
@@ -541,7 +545,9 @@ h1 + .navigation{
     padding: 0 10px 0 40px;
     white-space: nowrap;
 }
- 
+.sticky-actions li.main{
+    background-color: var(--secondary-color);
+} 
 
 .sticky-actions li.raschet {
     background-image: url('/img/calculator-icon.svg');
@@ -581,6 +587,9 @@ h1 + .navigation{
 .sticky-actions li:nth-child(1) {
     top: 0;
 }
+.sticky-actions li.main:nth-child(1) {
+    top: -10px;
+}
 
 .sticky-actions li:nth-child(2) {
     top: 41px;
@@ -600,4 +609,43 @@ h1 + .navigation{
 
 .sticky-actions li:nth-child(6) {
     top: 205px;
+}
+.grecaptcha-badge{
+    display:none!important;
+}
+/* hero-title */
+.breadcrumbs + .hero-title{
+    margin-top: -24px;
+}
+@media (max-width: 1024px){
+    .breadcrumbs + .hero-title{
+        margin-top: -24px;
+    }
+}
+@media (max-width: 767px){
+    .breadcrumbs + .hero-title{
+        margin-top: -24px;
+    }
+}
+@media (max-width: 576px){
+    .breadcrumbs + .hero-title{
+        margin-top: 0;
+    }
+}
+.hero-title:before{
+    content:"";
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background: rgba(0,0,0,.6);
+    z-index: 1;
+}
+.hero-title h1{
+    margin: 80px 0;
+    color: var(--white);    
+    z-index: 10;
+    position: relative;
 }

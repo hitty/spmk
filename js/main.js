@@ -183,7 +183,14 @@ jQuery(document).ready(function(){
         });
     })                    
     
-    
+    if( jQuery('.sticky-actions').length ){
+        var _bound_top = jQuery('.sticky-actions-bound').offset().top;
+        var _top = parseInt(jQuery(window).scrollTop());
+        jQuery(window).scroll(function(){
+            stickyActions(  jQuery('.sticky-actions li:last-child').offset().top, _bound_top );
+            return false;
+        });
+    }
     
     
     $('form.ajaxed').each( function(){
@@ -194,7 +201,11 @@ jQuery(document).ready(function(){
     $('header .burger').on( 'click', function(){
         $('body').toggleClass('menu-top-is-open modal-active')    ;
     })
-})           
+})          
+function stickyActions( _el, _bound ) {
+    if( _el > _bound ) jQuery('.sticky-actions').addClass('hidden');
+    else jQuery('.sticky-actions').removeClass('hidden')
+}
 function validateEmail(email) { 
     var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);

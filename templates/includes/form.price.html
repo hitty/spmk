@@ -1,0 +1,48 @@
+        
+<div class="application-form{ifempty $middle} modal{/if}">      
+    <form class="send-message ajaxed" action="/applications/add/" method="POST" autocomplete="off" enctype="multipart/form-data">
+        {ifempty $middle}
+            <h2 class="invert">{if!empty $form_title}{$form_title}{else}Оставить заявку{/if}</h2>
+            {if!empty $form_text}<div class="annotation">{$form_text}</div>{/if}
+        {/if}
+        {if!empty $application_type}<input type="hidden" name="application_type" value="{$application_type}">{/if}
+        {php:$random=randomstring(10)}
+        <div class="row">
+            <input type="text" name="name" placeholder="Ваше имя *" required="required" autocomplete="{$random}">
+        </div>
+        <div class="row">
+            <input type="phone" name="phone" placeholder="Ваш телефон *" required="required" maxlength="17" autocomplete="{$random}">
+        </div>
+        <div class="row">
+            <input type="text" name="region" placeholder="Ваш регион*" required="required" autocomplete="{$random}">
+        </div>
+        <div class="row">
+            <input type="email" name="email" placeholder="Ваш email*" required="required" autocomplete="{$random}">
+        </div>
+        <div class="row">
+            <div class="list-selector">
+                <a href="#" class="pick">Выбрать продукцию*</a>
+                <a href="#" class="select">...</a>
+                <input type="hidden" name="production" value="" required="required" />
+                {php:$production_list = Config::Get('forms/price/production_list')}
+                {if!empty $production_list}
+                    <ul class="list-data">
+                        <li class="selected" data-value="">- выбрать продукцию -</li>
+                        {loop $production_list,$k,$i}
+                            <li data-value="{$i}">{$i}</li>
+                        {/loop $production_list}
+                        
+                    </ul>
+                {/if}
+            </div>
+        </div>
+        <div class="row terms">                        
+            <span class="button big">{ifempty $button_title}Отправить{else}{$button_title}{/if}</span>
+            <span class="text">Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c <a href="/terms/" target="_blank">политикой конфиденциальности</a></span>
+        </div> 
+        
+        <input type="hidden" name="recaptcha_response" data-public="{php:echo Config::Get('recaptcha/public')}">
+        {if!empty $reference}<input type="hidden" name="reference" value="1">{/if}
+    </form>
+    
+</div> 
