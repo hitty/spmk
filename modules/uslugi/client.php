@@ -55,21 +55,10 @@ switch( true ){
     ////////////////////////////////////////////////////////////////////////////////////////////////////////
     case 
         empty( $action ) :
-        //категории
-        // фильтры
-        $condition = '';
-        $conditions = [];
-        $sortby = Request::GetInteger( 'sort', METHOD_GET );
-        $conditions['published'] = $sys_tables['uslugi'] . ".`published` = 1";
-        $condition = implode(" AND ",$conditions);        
-        $count = Config::Get( 'string_per_page/uslugi' );
-        // создаем пагинатор для списка
-        $paginator_where = $condition;
-        $paginator = new Paginator( $sys_tables['uslugi'], $count, $paginator_where, false, false, $this_page->real_url );
-
-        $list = CommonDb::getList( 'uslugi', $paginator->getFromString( $paginator->current_page ) . ',' . $count, $condition, 'date DESC', 'id' );
-        Response::SetArray( 'list', $list );
-        $module_template = 'list.html';
+        $h1 = empty($this_page->page_seo_h1) ? 'Услуги ГК «СПМК»' : $this_page->page_seo_h1;;
+        Response::SetString('h1', $h1);  
+        
+        $module_template = 'mainpage.html';
         break;
 }
 //хлебные крошки

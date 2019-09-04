@@ -12,7 +12,7 @@
                 {php:$photos_count = count($item['photos'])}
                 <div class="img">
                     {if!empty $photos}
-                    <div class="image-list">
+                    <div class="image-preview-list">
                         {loop $photos,$pk,$pv} 
                         <div class="image-item">
                             <div class="image-wrapper bg-cover transition" style="background-image: url(/img/uploads/big/{$pv['subfolder']}/{$pv['name']})"></div>
