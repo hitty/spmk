@@ -45,8 +45,8 @@ class sitemap
     private $file_number=0;
     //число записанных sitemap
     private $file_list = array();
-    public $folder_tmp = 'sitemaps/tmp/';
-    public $folder = 'sitemaps/';
+    public $folder_tmp = '/';
+    public $folder = '/';
     //число записанных sitemap c 404 из webmaster
     private $maps404_number = 0;
     //url-404, записанных в файлы
@@ -834,7 +834,7 @@ class sitemap
         while($i<count($this->file_list)){
             if(!empty($this->file_list[$i])){
                 fwrite($file,'<sitemap>');
-                fwrite($file,'<loc>https://www.' . Host::$host . '/'.str_replace('tmp/','',$this->file_list[$i]).'.gz</loc>');
+                fwrite($file,'<loc>https://' . Host::$host . '/'.str_replace('/','',$this->file_list[$i]).'.gz</loc>');
                 fwrite($file,'<lastmod>'.$this->latest_lastmod[$i].'</lastmod>');
                 fwrite($file,'</sitemap>');
             }
@@ -860,8 +860,10 @@ class sitemap
             //автоматически, после работы функции в начале будет не совсем то, что нужно - не будет строки
             //'encoding="UTF-8"'
             $map=preg_replace('/^<\?xml version="1.0"\?>/si','<?xml version="1.0" encoding="UTF-8"?>',$map);
-            file_put_contents($file,$map);
-            exec("gzip -rv ".$root.'/'.$file);
+            if( file_exists( $root . '/'. $file ) ) unlink( $root . '/'. $file  );
+            if( file_exists( $root . '/'. $file . '.gz' ) ) unlink( $root . '/'. $file . '.gz'  );
+            file_put_contents( $root . $file, $map );
+            exec("gzip -rv ".$root . $file);
             exec("chmod 777 ".$root.'/'.$file.".gz");
             $log[] = $file;
         }

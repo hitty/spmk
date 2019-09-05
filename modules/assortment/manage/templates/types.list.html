@@ -1,13 +1,13 @@
 <div class="list-container media">
     <div class="caption-container">
-        <a href="/manage/assortment/add/" class="button orange">Добавить запись</a>
+        <a href="/manage/assortment/types/add/" class="button orange">Добавить запись</a>
     </div>
     <div class="filter">
-        <span class="active">Ассортимент</span>
-        <a href="/manage/assortment/types/">Типы объектов</a>
-    </div>    
+        <a href="/manage/assortment/">Ассортимент</a>
+        <span class="active">Типы объектов</span>
+    </div>
 
-    <div class="filters-container clearfix flex" data-url="/manage/assortment/">
+    <div class="filters-container clearfix flex" data-url="/manage/assortment/types/">
         
         <div class="info">
         </div>
@@ -23,11 +23,11 @@
                     <div class="photo">
                         {if!empty $item['photo']}<img src="/img/uploads/sm/{$item['subfolder']}/{$item['photo']}" />{/if}
                     </div>
-                    <div class="title"><a href="/manage/assortment/edit/{$item['id']}/">{$item['title']}</a></div>
-                    <span data-icon="delete" class="delete red" data-url="/manage/assortment/delete/{$item['id']}/"></span>
+                    <div class="title"><a href="/manage/assortment/types/edit/{$item['id']}/">{$item['title']}</a></div>
+                    <span data-icon="delete" class="delete red" data-url="/manage/assortment/types/delete/{$item['id']}/"></span>
                 </div>
             {/loop $list}
-            {include /templates/paginator.html} 
+            {include /assortment/templates/paginator.html} 
         {else}
             <p style="padding:30px; text-align: center; color: var(--gray);">Запрошенные данные не найдены</p>
         {/if}

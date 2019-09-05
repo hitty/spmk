@@ -82,7 +82,7 @@ return [
             'fieldtype' => 'hr'
         ]
         
-        ,'proektirovanie' => array(
+        ,'proektirovanie' => [
             'type' => TYPE_INTEGER,
             'min' => 1,
             'max' => 2,
@@ -90,10 +90,10 @@ return [
             'allow_null' => false,
             'fieldtype' => 'switcher',
             'parent_class' => 'quater-width', 
-            'values' => array(1=>'Да',2=>'Нет'),
+            'values' => [1=>'Да',2=>'Нет'],
             'label' => 'Проектирование'
-        )
-        ,'izgotovlenie' => array(
+        ]
+        ,'izgotovlenie' => [
             'type' => TYPE_INTEGER,
             'min' => 1,
             'max' => 2,
@@ -101,10 +101,10 @@ return [
             'allow_null' => false,
             'fieldtype' => 'switcher',
             'parent_class' => 'quater-width', 
-            'values' => array(1=>'Да',2=>'Нет'),
+            'values' => [1=>'Да',2=>'Нет'],
             'label' => 'Изготовление'
-        )
-        ,'dostavka' => array(
+        ]
+        ,'dostavka' => [
             'type' => TYPE_INTEGER,
             'min' => 1,
             'max' => 2,
@@ -112,10 +112,10 @@ return [
             'allow_null' => false,
             'fieldtype' => 'switcher',
             'parent_class' => 'quater-width', 
-            'values' => array(1=>'Да',2=>'Нет'),
+            'values' => [1=>'Да',2=>'Нет'],
             'label' => 'Доставка'
-        )
-        ,'montazh' => array(
+        ]
+        ,'montazh' => [
             'type' => TYPE_INTEGER,
             'min' => 1,
             'max' => 2,
@@ -123,10 +123,10 @@ return [
             'allow_null' => false,
             'fieldtype' => 'switcher',
             'parent_class' => 'quater-width', 
-            'values' => array(1=>'Да',2=>'Нет'),
+            'values' => [1=>'Да',2=>'Нет'],
             'label' => 'Монтаж'
-        )
-        ,'podkluch' => array(
+        ]
+        ,'podkluch' => [
             'type' => TYPE_INTEGER,
             'min' => 1,
             'max' => 2,
@@ -134,9 +134,9 @@ return [
             'allow_null' => false,
             'fieldtype' => 'switcher',
             'parent_class' => 'quater-width', 
-            'values' => array(1=>'Да',2=>'Нет'),
+            'values' => [1=>'Да',2=>'Нет'],
             'label' => 'Под ключ'
-        )
+        ]
         ,'_hr_seo_' => [
             'fieldtype' => 'hr'
         ]

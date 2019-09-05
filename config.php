@@ -190,6 +190,9 @@ return array(
         'assortment' => 'assortment',
         'assortment_photos' => 'assortment_photos',
 
+        'assortment_types' => 'assortment_types',
+        'assortment_types_photos' => 'assortment_types_photos',
+
         'production' => 'production',
         'production_photos' => 'production_photos',
 

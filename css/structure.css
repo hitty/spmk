@@ -50,9 +50,7 @@
 }
 
 .structure .list .item .button {
-    position: absolute;
-    left: 0;
-    bottom: 0;
+    margin-top: 10px;
 }
 
 .structure .list .item .button:hover {
@@ -60,11 +58,6 @@
 }
 
 @media( max-width: 1280px ) {
-    .structure .list .item {
-    }
-
-    .structure .list .item:nth-child(2n) {
-    }
 
     .structure .list .item .title {
         font-size: 22px;
@@ -80,19 +73,11 @@
         width: calc( 50% - 20px );
     }
 
-    .structure .list .item .button {
-    }
-
-    .structure .list .item:hover .button {
-    }
 }
 
 @media( max-width: 1024px ) {
     .structure .list .item {
         margin-bottom: 60px;
-    }
-
-    .structure .list .item:nth-child(2n) {
     }
 
     .structure .list .item .title {
@@ -112,23 +97,11 @@
     .image-preview-list .image-item{
         min-height: inherit;
     }
-    .structure .list .item .button {
-    }
-
-    .structure .list .item:hover .button {
-    }
 }
 
 @media( max-width: 767px ) {
     .structure .list .item {
         display: block;
-        /* margin-bottom: 40px; */
-    }
-
-    .structure .list .item:nth-child(2n) {
-    }
-
-    .structure .list .item .title {
     }
 
     .structure .list .item .text {
@@ -144,30 +117,5 @@
         position: relative;
         bottom: -5px;
     }
-
-    .structure .list .item:hover .button {
-    }
-}
-
-@media( max-width: 480px ) {
-    .structure .list .item {
-    }
-
-    .structure .list .item:nth-child(2n) {
-    }
-
-    .structure .list .item .title {
-    }
-
-    .structure .list .item .text {
-    }
-
-    .structure .list .item .image-preview-list,.structure .list .item img {
-    }
-
-    .structure .list .item .button {
-    }
-
-    .structure .list .item:hover .button {
-    }
-}
+   
+}  
