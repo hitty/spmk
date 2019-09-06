@@ -1,7 +1,7 @@
 <section class="object-item">
     <div class="inner" >
         <article itemscope itemtype="http://schema.org/NewsArticle" class="col-3">
-                <h1>{$item['title']}</h1>
+                <h1>{if!empty $h1}{$h1}{else}{$item['title']}{/if}</h1></h1>
                 {if!empty $item['photo']}
                     <div class="info">
                         <div class="main-photo bg-cover" style="background-image: url(/img/uploads/big/{$item['subfolder']}/{$item['photo']});"></div>

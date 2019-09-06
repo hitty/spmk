@@ -372,6 +372,7 @@ section.bg-cover{
     align-items: center;
     height: 24px;
     overflow: hidden;
+    z-index: 10;
 }
 
 .breadcrumbs.clearfix.text-overflow {
@@ -440,6 +441,22 @@ section.bg-cover{
 
 .breadcrumbs a:hover {
     border: none;
+}
+
+.breadcrumbs.dark span[itemscope]{
+    background: none;     
+}
+
+.breadcrumbs.dark span[itemscope]:before{
+    display: none;
+}
+.breadcrumbs.dark span[itemscope]:after{
+    border: none;
+    background: none;
+    content: ">";
+    position: absolute;
+    transform: translate(-6px, 7px) scale(0.6,1);
+    font-size: 26px;
 }
 .icon{
     position: relative;

@@ -1,6 +1,6 @@
     <section>
         <div class="narrow inner">
-            <h1>{$item['title']}</h1>
+            <h1>{if!empty $h1}{$h1}{else}{$item['title']}{/if}</h1></h1>
             <div class="content">
                 {$item['content']}   
             </div>

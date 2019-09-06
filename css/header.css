@@ -173,7 +173,7 @@ header nav .container li ul li {
     margin: 0 0 -5px 0;
 }
 
-header nav .container li.expanded span {
+header nav .container li.expanded .submenu-title {
     padding-right: 20px;
 }
 

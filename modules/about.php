@@ -1,4 +1,5 @@
 <?php
+    if( !empty( $this_page->page_parameters[0] ) ) Host::RedirectLevelUp();
     Response::SetBoolean( 'about', true );
     Response::SetBoolean( 'no_sticky_actions', true );
     $module_template = 'templates/about.html';

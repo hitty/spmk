@@ -4,6 +4,7 @@ $GLOBALS['js_set'][] = '/modules/uslugi/js/script.js';
 $post_parameters = Request::GetParameters( METHOD_POST );
 Response::SetArray( 'parameters', $post_parameters );
 
+Response::SetBoolean( 'dark_breadcrumbs', true );
 $action = empty( $this_page->page_parameters[0] ) ? false : $this_page->page_parameters[0];
 switch( true ){
     

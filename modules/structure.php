@@ -1,4 +1,5 @@
 <?php
+    if( !empty( $this_page->page_parameters[0] ) ) Host::RedirectLevelUp();
     Response::SetBoolean( 'structure', true );
     $module_template = 'templates/structure.html';
     $GLOBALS['css_set'][] = '/css/structure.css';

@@ -1,5 +1,5 @@
 <section class="news content-list">
-     <h1>{if!empty $category_title}{$category_title}{else}Новости{/if}</h1>
+     <h1>{if!empty $h1}{$h1}{else}{if!empty $category_title}{$category_title}{else}Новости{/if}{/if}</h1>
      <div class="navigation">
         {loop $categories,$c,$category}
         <a href="/news/{$category['chpu_title']}/">{$category['title']}</a>
