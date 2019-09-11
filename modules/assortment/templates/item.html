@@ -7,17 +7,18 @@
                 {/if}
                 {if!empty $item['photo']}
                     <div class="info">
-                        <div class="main-photo bg-cover" style="background-image: url(/img/uploads/big/{$item['subfolder']}/{$item['photo']});"></div>
+                        <div class="main-photo bg-cover{ifempty $item['properties']} wide{/if}" style="background-image: url(/img/uploads/big/{$item['subfolder']}/{$item['photo']});"></div>
+                        {if!empty $item['properties']}
                         <div class="object-info">
                             <div class="item properties">
                                 {$item['properties']}
                             </div>
                         </div>
+                        {/if}
                     </div>
                 {/if}
                 <div class="content">
                     <div class="text">
-                        <h2>Описание объекта</h2>
                         {$item['content']}
                         <h2>Свяжитесь с нами!</h2>
                         <p>
