@@ -1,6 +1,6 @@
-<section class="news content-item">
+<section class="news content-item" itemscope itemtype="http://schema.org/NewsArticle">
     <div class="inner narrow" >
-        <h1>{if!empty $h1}{$h1}{else}{$item['title']}{/if}</h1>
+        <h1 itemprop="headline">{if!empty $h1}{$h1}{else}{$item['title']}{/if}</h1>
         <div class="info">
             <span class="date with-dot">{$item['normal_date']}</span>
             <a href="/news/{$item['category_chpu_title']}/" title="{$item['category_title']}">{$item['category_title']}</a>
@@ -8,9 +8,9 @@
         {if!empty $item['photo']}
             <img class="main-photo" src="/img/uploads/big/{$item['subfolder']}/{$item['photo']}" />
         {/if}
-        <article itemscope itemtype="http://schema.org/NewsArticle" class=" flex">
+        <article  class=" flex">
             <div class="left-part">
-                <div class="content">{$item['content']}</div>
+                <div class="content" itemprop="articleBody">{$item['content']}</div>
                 
             </div>
             <div class="right-part">
@@ -20,5 +20,7 @@
                 </div>   
             </div>
         </article>
+        {include /templates/gallery.html}
     </div>
+    {include /templates/includes/schema.html}  
 </section>

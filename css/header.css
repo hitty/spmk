@@ -35,6 +35,7 @@ header .actions {
     font-size: 18px;
     line-height: 1;
     text-transform: uppercase;
+    margin-right: 20px;
 }
 
 header .actions .send:before {
@@ -85,7 +86,21 @@ header .actions .send{
     
     height: 40px;
     line-height: 40px;
-    padding: 0 10px;
+    padding: 0 10px;  
+}
+header .search-button{
+    cursor: pointer;
+    color: var(--white);
+    min-height: auto;
+    margin: 0;
+    transition: var(--transition);
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    margin-top: -10px;
+}
+header .search-button:hover{
+    color: var(--secondary-color);
 }
 nav {
 }

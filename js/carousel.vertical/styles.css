@@ -115,8 +115,14 @@
     margin-top: 20px;
 }
 
-.carousel-vertical .content .button {
+.carousel-vertical .content .button-text {
     margin-top: 60px;
+    color: var(--white);
+    display: block;
+    font-size: 14px;
+}
+.carousel-vertical .content .button {
+    margin-top: 10px;
 }
 .carousel-vertical.main-color .filter li.active {
     border-color: var(--main-color);

@@ -345,7 +345,7 @@
 
 .object-item .info {
     position: relative;
-    margin: 80px 0 20px 0;
+    margin: 60px 0 40px 0;
 }
 
 .object-item .info .main-photo {
@@ -358,7 +358,10 @@
 }
 .object-item .info .main-photo.wide{
     width: 100%;
-    height: 340px;
+    height: 440px;
+    position: relative;
+    top: auto;
+    bottom: auto;
 }
 .object-item .object-info {
     position: relative;
@@ -403,6 +406,7 @@
 }
 .object-item .content {
     display: flex;
+    margin-top: 20px;
 }
 
 .object-item .content .text {
@@ -435,7 +439,7 @@
     }
     .object-item .info .main-photo.wide{
         width: 100%;
-        height: 300px;
+        height: 400px;
     }
 
     .object-item .object-info {
@@ -464,7 +468,7 @@
     }
 
     .object-item .content .text {
-        width: 70%;
+        width: 100%;
     }
 
     .object-item .content .company {
@@ -479,7 +483,7 @@
 }
 @media (max-width: 1024px) {
     .object-item .info {
-        margin-top: 60px;
+        margin-top: 40px;
     }
     
     .object-item .object-info {
@@ -503,7 +507,7 @@
 
 @media (max-width: 767px) {
     .object-item .info {
-        margin: 40px -10px;
+        margin: 30px -10px;
     }
 
     .object-item .info .main-photo {
@@ -540,10 +544,6 @@
 
     .object-item .content {
         display: block;
-        width: 100%;
-    }
-
-    .object-item .content .text {
         width: 100%;
     }
 

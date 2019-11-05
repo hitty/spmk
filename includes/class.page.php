@@ -243,12 +243,13 @@ class Page {
         //главное меню
         $this->menuClear( 1 );
         $this->menuAdd( 'Завод МК', 'zavod', 1 );
+            $this->menuAdd( 'Продукция', 'assortment', 2, false, false, 'zavod' );
         $this->menuAdd( 'Услуги', 'uslugi', 1 );
             $this->menuAdd( 'Проектирование', 'uslugi/proektirovanie', 2, false, false, 'uslugi' );
             $this->menuAdd( 'Изготовление', 'uslugi/izgotovlenie', 2, false, false, 'uslugi'  );
             $this->menuAdd( 'Доставка', 'uslugi/dostavka', 2, false, false, 'uslugi'  );
             $this->menuAdd( 'Монтаж', 'uslugi/montazh', 2, false, false, 'uslugi'  );
-            $this->menuAdd( '«Под ключ»', '', 2, false, false, 'uslugi'  );
+            //$this->menuAdd( '«Под ключ»', '', 2, false, false, 'uslugi'  );
         $this->menuAdd( 'Объекты', 'objekty', 1 );
         //$this_page->menuAdd( 'Прайс', '', 1 );
         $this->menuAdd( 'Закупки', 'zakupki', 1, 'inactive' );

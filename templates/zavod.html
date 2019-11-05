@@ -1,100 +1,46 @@
 <section class="page-info">
     <div class="inner">
         <h1>{if!empty $h1}{$h1}{else}О заводе{/if}</h1>
+        <div class="annotation" style="margin: -30px auto 60px auto">
+            <b>Производство сварных конструкций из металла полного цикла. Выгодно при заказе от 100 тонн!</b>
+        </div>
         <div class="navigation">
+            <a href="#assortment">Популярный ассортимент</a>
+            <a href="#workshops">Цеха</a>
             <a href="#digits">Цифры</a>
             <a href="#preferences">Преимущества</a>
-            <a href="#workshops">Цеха</a>
-            <a href="#assortment">Ассортимент</a>
+            <a href="#objects">Объекты</a>
         </div>
         
-        <div class="annotation">
-            Завод металлоконструкций, входящий в состав ГК «СПМК» - современное предприятие, обладающее необходимыми мощностями и оборудованием для реализации самых сложных проектов. Изготавливаемые металлические конструкции соответствуют требованиям СНиПов и ГОСТов, обеспечивая надежность и безопасность объектов строительства. Спектр выпускаемой продукции предназначен для большей части строительной отрасли: металлоконструкций для промышленных, гражданских, коммерческих объектов, металлоконструкции спецназначения и др.
-        </div>
+        <div class="annotation to-left">
+            <p>Завод металлоконструкций - ключевое предприятие Группы компаний "Союз производителей металлоконструкций".</p>
+            <p>Технологические мощности завода и профессионализм персонала позволяют брать в работу сложные, трудоемкие проекты, выпускать металлические конструкции в требуемые Заказчиком сроки. Надежность и безопасность будущих объектов металлокаркасного строительства обеспечивает неукоснительное следование требованиям СНиПов и ГОСТов, а так же собственная лаборатория УЗК. Ассортимент продукции завода металлических конструкций ГК "СПМК" (г. Рязань) закрывает основную часть потребностей строительной отрасли. Предлагаем металлоконструкции для промышленных, гражданских, коммерческих объектов и других на заказ. Запросите расчет на изготовление металлоконструкций сейчас и получите предложение, от которого невозможно отказаться.</p>
+            <div class="to-center">
+                <span class="button big popup" data-url="/applications/popup/?application_type=raschet">Запросить расчет</span>
+            </div>
+        </div>        
     </div>
 </section>
 
-<section class="digits" id="digits">
+<section class="production" id="assortment">
     <div class="inner">
-    <h2>Цифры о заводе</h2>
-        <ul class="flex">
-            <li>
-                <b>10+</b>лет работы
-            </li>
-            <li>
-                <b>24/7</b>бесперебойное производство
-            </li>
-            <li>
-                <b>4+</b>производственные площадки
-            </li>
-            <li>
-                <b>25 000<sup>м2</sup></b>площадь производства
-            </li>
-            <li>
-                <b>500</b>тонн средний вес одного проекта
-            </li>
-            <li>
-                <b>200+</b>сотрудников высокой квалификации
-            </li>
-            <li>
-                <b><sub>от</sub> 14 000</b>руб. за тонну
-            </li>
-            <li>
-                <b>3000+</b>тонн в месяц
-            </li>
-            <li>
-                <b>5 лет</b>гарантии на металлоконструкции
-            </li>
-        </ul>
+        <h2>Популярный ассортимент</h2>
     </div>
+    {block assortment/block}
 </section>
 
-
-<section class="preferences bg-cover" id="preferences" style="background-image:url(/img/preferences-bg.jpg)">
-    <div class="inner">
-        <h2 class="invert">Преимущества завода</h2>
-        <ul class="flex">
-            <li>
-                <img src="/img/preferences/1.svg">
-                <span>Заводское изготовление всех элементов</span>
-            </li>
-            <li>
-                <img src="/img/preferences/2.svg">
-                <span>Продукция сертифицирована</span>
-            </li>
-            <li>
-                <img src="/img/preferences/3.svg">
-                <span>Входной и выходной контроль качества</span>
-            </li>
-            <li>
-                <img src="/img/preferences/4.svg">
-                <span>Высокие антикоррозийные свойства</span>
-            </li>
-            <li>
-                <img src="/img/preferences/5.svg">
-                <span>Точное соблюдение габаритов</span>
-            </li>
-            <li>
-                <img src="/img/preferences/6.svg">
-                <span>Оптимальная цена</span>
-            </li>
-        </ul>
-    </div>
-</section>
-
-<section class="objects" id="objects">
-    <div class="inner">
-        <h2>Здания из наших металлоконструкций</h2>
-    </div>
-    {block objekty/block}
+<section class="application-lead">
+    <span class="button popup" data-url="/applications/popup/?application_type=zavod_price">Оставить заявку</span>
+    <b>Оптовый прайс и условия работы по запросу</b>
+    Оставьте заявку и получите оптовый прайс на продукцию с оптимальными вариантами сотрудничества!
 </section>
 
 <section class="workshops bg-cover carousel-vertical main-color dark-bg" id="workshops" style="background-image:url(/img/workshops-bg.jpg)">
     <div class="inner">
         <h2 class="invert">Цеха. Производственные участки</h1>
         <ul class="filter flex">
-            <li class="active" data-pos="1">Линия дробейструйной<br/> обработки</li>
-            <li data-pos="2">Заготовительный<br/>цех</li>
+            <li data-pos="1">Линия дробейструйной<br/> обработки</li>
+            <li class="active" data-pos="2">Заготовительный<br/>цех</li>
             <li data-pos="3">Линия сварного<br/>двутавра</li>
             <li data-pos="4">Сварочно-сборочный<br/>цех</li>
             <li data-pos="5">Малярный<br/>цех</li>
@@ -103,7 +49,7 @@
         
         <div class="content">
         
-            <div class="item active" data-pos="1">
+            <div class="item" data-pos="1">
                 <span class="title">Линия дробейструйной обработки</span>
                 <span class="annotation">входного металлопроката</span>
                 <ul>
@@ -113,7 +59,7 @@
                 </ul>
                 <!--span class="button big popup main-color" data-url="/applications/popup/?application_type=zavod_ceha_raschet">Получить расчет</span-->
             </div>
-            <div class="item" data-pos="2">
+            <div class="item active" data-pos="2">
                 <span class="title">Заготовительный<br/>цех</span>
                 <span class="annotation"></span>
                 <ul>
@@ -165,8 +111,7 @@
         </div>
     </div>
 </section>
-
-<section class="tour-form">
+<section class="tour-form" id="tour-form">
     <div>
         <form class="flex ajaxed" action="/applications/add/tour/">
             <input type="hidden" name="application_type" value="excursion">
@@ -193,22 +138,80 @@
     </div>       
 </section>
 
-
-<section class="production" id="assortment">
+<section class="digits" id="digits">
     <div class="inner">
-        <h2>Ассортимент</h2>
+    <h2>Завод в цифрах</h2>
+        <ul class="flex">
+            <li>
+                <b>10+</b>лет работы
+            </li>
+            <li>
+                <b>24/7</b>бесперебойное производство
+            </li>
+            <li>
+                <b>4+</b>производственные площадки
+            </li>
+            <li>
+                <b>25 000<sup>м2</sup></b>площадь производства
+            </li>
+            <li>
+                <b>500</b>тонн средний вес одного проекта
+            </li>
+            <li>
+                <b>200+</b>сотрудников высокой квалификации
+            </li>
+            <li>
+                <b><sub>от</sub> 14 000</b>руб. за тонну
+            </li>
+            <li>
+                <b>3000+</b>тонн в месяц
+            </li>
+            <li>
+                <b>5 лет</b>гарантии на металлоконструкции
+            </li>
+        </ul>
     </div>
-    {block assortment/block}
 </section>
 
-<section class="application-lead">
-    <span class="button popup" data-url="/applications/popup/?application_type=zavod_price">Оставить заявку</span>
-    <b>Оптовый прайс и условия работы по запросу</b>
-    Оставьте заявку и получите оптовый прайс на продукцию с оптимальными вариантами сотрудничества!
+<section class="preferences bg-cover" id="preferences" style="background-image:url(/img/preferences-bg.jpg)">
+    <div class="inner">
+        <h2 class="invert">Преимущества завода</h2>
+        <ul class="flex">
+            <li>
+                <img src="/img/preferences/1.svg">
+                <span>Заводское изготовление всех элементов</span>
+            </li>
+            <li>
+                <img src="/img/preferences/2.svg">
+                <span>Продукция сертифицирована</span>
+            </li>
+            <li>
+                <img src="/img/preferences/3.svg">
+                <span>Входной и выходной контроль качества</span>
+            </li>
+            <li>
+                <img src="/img/preferences/4.svg">
+                <span>Высокие антикоррозийные свойства</span>
+            </li>
+            <li>
+                <img src="/img/preferences/5.svg">
+                <span>Точное соблюдение габаритов</span>
+            </li>
+            <li>
+                <img src="/img/preferences/6.svg">
+                <span>Оптимальная цена</span>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<section class="objects" id="objects">
+    <div class="inner">
+        <h2>Выполненные проекты</h2>
+    </div>
+    {block objekty/block}
 </section>
 
 
-
-{include /templates/includes/contacts.html}
 
 {include /templates/includes/block.form.html}

@@ -25,8 +25,6 @@ if(DEBUG_MODE){
 error_reporting( E_ALL );
 set_time_limit( 45 ); 
 
-
-
 // подключение классов ядра
 require('includes/class.config.php');               // Config (конфигурация сайта)
 Config::Init();
@@ -90,6 +88,9 @@ if( empty( $ajax_mode ) ) {
 
     $GLOBALS['js_set'][] = '/js/gallery/script.js';
     $GLOBALS['css_set'][] = '/js/gallery/style.css';          
+    
+    $GLOBALS['js_set'][] = '/modules/search/js/script.js';
+    $GLOBALS['css_set'][] = '/modules/search/css/style.css';          
     
     $GLOBALS['css_set'][] = '/css/variables.css';
     $GLOBALS['css_set'][] = '/css/fonts.css';

@@ -1,8 +1,8 @@
 <section class="structure">
-    <div class="inner">
-        <h1>{if!empty $h1}{$h1}{else}Направления деятельности ГК «СПМК»{/if}</h1>
+    <div class="inner" itemscope itemtype="http://schema.org/NewsArticle">
+        <h1 itemprop="headline">{if!empty $h1}{$h1}{else}Направления деятельности ГК «СПМК»{/if}</h1>
 
-        <div class="list">
+        <div class="list" itemprop="articleBody">
         
             <div class="item">
                 <img src="/img/structure/1.jpg" alt="Конструкторское бюро ГК «СПМК»"/>
@@ -127,6 +127,7 @@
             </div>
         
         </div>
+        {include /templates/includes/schema.html}  
     </div>
 </section>
 

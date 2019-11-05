@@ -3,36 +3,38 @@
             <h1>{if!empty $h1}{$h1}{else}Контакты{/if}</h1>
         {/if}
 
-    <div class="inner">
+    <div class="inner" itemscope itemtype="http://schema.org/Organization">
+        <meta itemprop="name" content="ГК «СПМК». Офис продаж. Производство в г.Рязани" />
         {ifempty $contacts_page}
             <h2>Контакты</h2>
         {else}
-        
             <span class="title" data-icon="room">Фактический адрес:</span>
-            <span class="address">
-                390042, г. Рязань, ул. Станкозаводская, д.7, стр.3 (территория Индустриального парка «Станкозаводской»)
+            <span class="address" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+            <span itemprop="postalCode">390042</span>,
+            <span itemprop="addressLocality">г. Рязань</span>,
+            <span itemprop="streetAddress">ул. Станкозаводская, д.7, стр.3 (территория Индустриального парка «Станкозаводской»)</span>
             </span>
         <span class="title" data-icon="person">Телефоны и электронные адреса:</span>
         {/if}
         <ul class="flex">
             <li>
                 Отдел продаж
-                <b class="phone">8 (800) 250-76-97 <i>(доб.1)</i></b>
+                <b class="phone" itemprop="telephone">8 (800) 250-76-97 <i>(доб.1)</i></b>
                 <a href="mailto:market@spmk.group">market@spmk.group</a>
             </li>
             <li>
                 Отдел снабжения
-                <b class="phone">8 (800) 250-76-97 <i>(доб.2)</i></b>
+                <b class="phone" itemprop="telephone">8 (800) 250-76-97 <i>(доб.2)</i></b>
                 <a href="mailto:snab@spmk.group">snab@spmk.group</a>
             </li>
             <li>
                 Отдел кадров
-                <b class="phone">8 (800) 250-76-97 <i>(доб.3)</i></b>
+                <b class="phone" itemprop="telephone">8 (800) 250-76-97 <i>(доб.3)</i></b>
                 <a href="mailto:hr@spmk.group">hr@spmk.group</a>
             </li>
             <li>
                 Приемная
-                <b class="phone">8 (800) 250-76-97 <i>(доб.4)</i></b>
+                <b class="phone" itemprop="telephone">8 (800) 250-76-97 <i>(доб.4)</i></b>
                 <a href="mailto:info@spmk.group">info@spmk.group</a>
             </li>
         </ul>
@@ -48,16 +50,20 @@
                 <span class="title">Офис продаж. Производство в г.Рязани</span>
             </div>
         </div>   
-
+    </div>
+    
+    <div class="inner" itemscope itemtype="http://schema.org/Organization">
+        <meta itemprop="name" content=" ГК «СПМК». Представительство в г. Москве." />
         <span class="title" data-icon="room">Представительство в г. Москве:</span>
-        <span class="address">
-            125371, г. Москва, Волоколамское шоссе, д.89
+        <span class="address" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+            <span itemprop="postalCode">125371</span>,
+            <span itemprop="addressLocality">г. Москва</span>,
+            <span itemprop="streetAddress">Волоколамское шоссе, д.89</span>
         </span>
-
         <span class="title" data-icon="phone">Телефон:</span>
         <ul class="flex moscow-phones">
             <li>
-                <b class="phone">+7 (499) 703-48-57</b>
+                <b class="phone" itemprop="telephone">+7 (499) 703-48-57</b>
             </li>
         </ul>
         

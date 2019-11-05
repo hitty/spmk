@@ -7,7 +7,7 @@
         
         <div class="menu flex">
             <ul>
-                <li class="title">О компании</li>
+                <li class="title"><a href="/" title="О компании СПМК">О компании</a></li>
                 <li><a href="/zavod/">О заводе</a></li>
                 <li><a href="/objekty/">Объекты</a></li>
                 <li><a href="/zakupki/">Закупки</a></li>
@@ -18,22 +18,22 @@
             </ul>
             
             <ul>
-                <li class="title">Услуги</li>
+                <li class="title"><a href="/uslugi/" title="Услуги ГК СПМК. Монтаж, изготовление, доставка МК">Услуги</a></li>
                 <li><a href="/uslugi/proektirovanie/" title="Проектирование металлоконструкций">Проектирование</a></li>
                 <li><a href="/uslugi/izgotovlenie/" title="Изготовление металлоконструкций">Изготовление</a></li>
                 <li><a href="/uslugi/dostavka/" title="Доставка металлоконструкций">Доставка</a></li>
                 <li><a href="/uslugi/montazh/" title="Монтаж металлоконструкций">Монтаж</a></li>
-                <li><a href="#" class="inactive">Снабжение</a></li>
-                <li><a href="#" class="inactive">«Под ключ»</a></li>
+                <!--li><a href="#" class="inactive">Снабжение</a></li-->
+                <!--li><a href="#" class="inactive">«Под ключ»</a></li-->
             </ul>
            
             <ul>
                 <li class="title"><a href="/contacts/">Контакты</a></li>
                 <li><a href="mailto:market@spmk.group">market@spmk.group</a><span class="small">отдел продаж</span></li>
                 <li><a href="mailto:info@spmk.group">info@spmk.group</a><span class="small">общие вопросы</span></li>
-                <li data-goal="call" onclick="document.location.href='tel:+78002507697';">+7 (800) 250-76-97</li>
+                <li data-goal="call" class="callibri_phone"  onclick="document.location.href='tel:+78002507697';">+7 (800) 250-76-97</li>
                 <li>
-                    <ul class="social" itemscope="" itemtype="http://schema.org/Organization">
+                    <ul class="social">
                         <li class="socicon-facebook"> <a href="" target="_blank" title="SPMK.group Facebook"></a></li>
                         <li class="socicon-vkontakte"><a href="" target="_blank" title="SPMK.group VK"></a></li>
                         <li class="socicon-twitter"><a href="" target="_blank" title="SPMK.group Twitter"></a></li>
@@ -75,25 +75,36 @@
     <li class="application popup"  data-url="/applications/popup/?application_type=application_sticky">Оставить заявку</li>
 </ul>
 {/if}
-{if!empty $debug}
-    
-{else}     
+<div class="search-form-container transition">
+    <span class="closebutton" data-icon="close"></span>
     {literal}
-        <!-- Google Tag Manager (noscript) -->
-        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TJL8HRX"
-        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-        <!-- End Google Tag Manager (noscript) -->
-    {/literal}       
-    <script>{$js_content}</script>
+    <div class="ya-site-form ya-site-form_inited_no" onclick="return {'action':'https://spmk.group/search/','arrow':false,'bg':'transparent','fontsize':14,'fg':'#000000','language':'ru','logo':'rb','publicname':'Поиск по сайту','suggest':true,'target':'_self','tld':'ru','type':3,'usebigdictionary':true,'searchid':2361438,'input_fg':'#000000','input_bg':'#ffffff','input_fontStyle':'normal','input_fontWeight':'normal','input_placeholder':'Поиск по сайту','input_placeholderColor':'#9fa3b0','input_borderColor':'#405B72'}">
+    <form action="https://yandex.ru/search/site/" method="get" target="_self" accept-charset="utf-8">
+    <input type="hidden" name="searchid" value="2361438"/><input type="hidden" name="l10n" value="ru"/>
+    <input type="hidden" name="reqenc" value=""/>
+    <input type="search" name="text" value=""/>
+    <input type="submit" value="Найти" data-icon="search"/>
+    </form>
+    </div>
+    <script type="text/javascript">(function(w,d,c){var s=d.createElement('script'),h=d.getElementsByTagName('script')[0],e=d.documentElement;if((' '+e.className+' ').indexOf(' ya-page_js_yes ')===-1){e.className+=' ya-page_js_yes';}s.type='text/javascript';s.async=true;s.charset='utf-8';s.src=(d.location.protocol==='https:'?'https:':'http:')+'//site.yandex.net/v2.0/js/all.js';h.parentNode.insertBefore(s,h);(w[c]||(w[c]=[])).push(function(){Ya.Site.Form.init()})})(window,document,'yandex_site_callbacks');</script>{/literal}
+
     
+    
+</div>
+
+
+<!--script src="//code.jivosite.com/widget.js" data-jv-id="XhGU2ftgaQ" async></script-->
+
+{ifempty $debug}
+    <script>{$js_content}</script>
 {/if}
 {literal}
 
 <script>
     function counterGoals( _a ) {
-        try{ yaCounter54690451.reachGoal(_a); console.log( '2' ); }catch(err){ }
+        try{ yaCounter54690451.reachGoal(_a); console.log( 'yandex: ' + _a ); }catch(err){ }
         
-        try{ gtag('event', _a); console.log( '3' ); }catch(err){ }
+        try{ gtag('event', _a); console.log( 'google:' + _a ); }catch(err){ }
         
     }
     document.body.addEventListener('click', function(e){
@@ -103,3 +114,15 @@
     });
 </script>
 {/literal}
+<a href="#" class="to-top-btn transition br3" data-icon="arrow_upward">
+</a>
+
+<!--Rating::top.agroserver.ru counter-->
+<a href="https://agroserver.ru/" target="_blank" style="position: absolute;opacity: 0;bottom: 0;right: 0;">
+<script language="javascript">
+var r = escape(document.referrer);
+var rd = Math.random();
+var pr = 'https://top.agroserver.ru/ct/';
+document.write('<img src="'+pr+'?uid=15003&ref='+r+'&rd='+rd+'" width="88" height="31" border="0">');
+</script></a>
+<!--// Rating::top.agroserver.ru counter-->

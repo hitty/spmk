@@ -1,7 +1,7 @@
 <section class="zakupki">
-    <div class="inner">
-        <h1>{if!empty $h1}{$h1}{else}Закупки{/if}</h1>
-        <div class="content">
+    <div class="inner" itemscope itemtype="http://schema.org/NewsArticle">
+        <h1 itemprop="headline">{if!empty $h1}{$h1}{else}Закупки{/if}</h1>
+        <div class="content" itemprop="articleBody">
             <h2>Уважаемые поставщики!</h2>
             <p>ГК «СПМК» приглашает вас к сотрудничеству в части поставок материально-технических ресурсов. </p>
             <p>Мы заинтересованы в закупке товаров следующих номенклатурных групп:  </p>
@@ -42,5 +42,6 @@
             {php:$application_type = 'postavschikam'}
             {include /templates/includes/form.big.html}
         </div>
+        {include /templates/includes/schema.html}  
     </div>
 </section> 

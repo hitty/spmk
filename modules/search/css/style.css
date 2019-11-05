@@ -1,3 +1,4 @@
+/* search */
 /* SEARCH */        
 .search-form-container{
     opacity: 0;
@@ -21,8 +22,8 @@
 }
     
 .search-form-container .closebutton{
-    position: absolute;
-    background: var(--azure);
+    position: fixed;
+    background: var(--text);
     color: #fff;
     font-size: 24px;
     right: 60px;
@@ -35,7 +36,7 @@
     
 }
 .search-form-container .closebutton:hover{
-    background: var(--azure-two);
+    background: var(--secondary-color);
     
 }
 .search-form-container .closebutton:before{
@@ -46,132 +47,36 @@
     width: 80px;
     color: var(--white);
 }
-#search-line{
-    width: 940px;
-    margin: 140px auto 0 auto; 
+.search-form-container #ya-site-form0 .ya-site-form__search-input-layout{
+    margin: 240px auto 0 auto!important; 
 }
-.search-form-container.active #search-line{
-    margin-top: 240px;
+.search-form-container #ya-site-form0 .ya-site-form__input{
+    width: calc( 100% - 100px );
+    margin: auto;
 }
-#search-line input[name=query]{
-    width: 940px;
-    float: left;
-    margin: 1px 0 0 0;
-    height: 80px;
-    background: none;
-    font-family: Podkova;
-    font-size: 68px;
-    color: var(--azure);
-    border: none;
-    border-radius: 0;
-    border-bottom: 1px solid var(--black);
-    box-shadow: none;
-    padding: 0;
+.search-form-container #ya-site-form0 .ya-site-form__form .ya-site-form__input-text{
+    width: calc( 100% - 20px )!important;
+    height: 80px!important;
+    background: none!important;
+    font-size: 50px!important;
+    color: var(--black)!important;
+    border: none!important;
+    border-radius: 0!important;
+    border-bottom: 1px solid var(--gray)!important;
+    box-shadow: none!important;
+    padding: 0!important;
 }
-#search-line input[name=query]:active{
-    border-bottom: 1px solid var(--azure);
+ #ya-site-form0 .ya-site-form__form .ya-site-form__input-text:active{
+    border-bottom: 1px solid var(--main-color)!important;
 }
-#search-line input[name=query]::-webkit-input-placeholder {color:var(--black); font-size: 68px;}
-#search-line input[name=query]::-moz-placeholder          {color:var(--black); font-size: 68px;}
-#search-line input[name=query]:-moz-placeholder           {color:var(--black); font-size: 68px;}
-#search-line input[name=query]:-ms-input-placeholder      {color:var(--black); font-size: 68px;}
+ #ya-site-form0 .ya-site-form__form .ya-site-form__input-text::-webkit-input-placeholder {color:var(--gray)!important; font-size: 50px!important;}
+ #ya-site-form0 .ya-site-form__form .ya-site-form__input-text::-moz-placeholder          {color:var(--gray)!important; font-size: 50px!important;}
+ #ya-site-form0 .ya-site-form__form .ya-site-form__input-text:-moz-placeholder           {color:var(--gray)!important; font-size: 50px!important;}
+ #ya-site-form0 .ya-site-form__form .ya-site-form__input-text:-ms-input-placeholder      {color:var(--gray)!important; font-size: 50px!important;}
 .search-form-container form{
     display: block;
     height: 80px;
 }
-#search-line .list-selector a.pick{
-    padding-right: 30px;
-}
- 
-.search-form-container .content-wrapper{
-    margin-top: 40px;
-}
-.search-form-container .content-wrapper .item .content a{
-    color:#fff; 
-}
-.search-form-container .content-wrapper .item:hover .content a{
-    color:#1e88e5;
-}
-.search-form-container .content-wrapper .empty-results{
-    color:var(--black);
-    padding:0 ;
-    font-size: 24px;
-}
-.ajax-search-results.content-wrapper{
-    
-}
-.ajax-search-results.content-wrapper .item{
-    background-color: #ffffff;
-    padding: 20px;
-    margin-bottom: 10px;        
-    cursor: pointer;
-}
-.ajax-search-results.content-wrapper .item .title{
-    font-size: 30px;
-    font-family: 'Podkova';    
-    color: var(--black);
-    border: none;
-    line-height: 1.33;
-    margin-bottom: 10px;
-}
-.ajax-search-results.content-wrapper .item:hover .title{
-    color: var(--red-pink);
-}
-.ajax-search-results.content-wrapper .item  .date{
-    font-family: var(--main-font);    
-    font-size: 18px;
-    color: var(--grey);
-    display: block;
-    padding-top: 10px;
-}
-.ajax-search-results.content-wrapper .item:last-of-type{
-    border: none;
-}
-@media screen and (max-width: 1024px){
-    #search-line{
-        width: 90%;
-        margin: 0 auto;
-    }
-    .search-form-container.active #search-line{
-        margin-top: calc(100px + 240 * ((100vw - 320px) / 704));
-    }
-    #search-line input[name=query]{
-        width: 100%;
-        font-size: calc(28px + 40 * ((100vw - 320px) / 704));
-    }
-    #search-line input[name=query],
-    .search-form-container form{
-        font-size: calc(28px + 40 * ((100vw - 320px) / 704));
-        height: 60px;
-    }
-    #search-line input[name=query]::-webkit-input-placeholder{font-size: calc(28px + 40 * ((100vw - 320px) / 704));     }
-    #search-line input[name=query]::-moz-placeholder{font-size: calc(28px + 40 * ((100vw - 320px) / 704));     }
-    #search-line input[name=query]:-moz-placeholder{font-size: calc(28px + 40 * ((100vw - 320px) / 704));     }
-    #search-line input[name=query]:-ms-input-placeholder{font-size: calc(28px + 40 * ((100vw - 320px) / 704));   }
-    .search-form-container .closebutton{
-        right: calc(20px + 40 * ((100vw - 320px) / 704));    
-        top: calc(20px + 40 * ((100vw - 320px) / 704));    
-        width: calc(40px + 40 * ((100vw - 320px) / 704));    
-        height: calc(40px + 40 * ((100vw - 320px) / 704));    
-    }
-    .search-form-container .closebutton:before{
-        font-size: calc(26px + 19 * ((100vw - 320px) / 704));     
-        line-height: calc(40px + 40 * ((100vw - 320px) / 704));    
-        width: calc(40px + 40 * ((100vw - 320px) / 704));    
-        height: calc(40px + 40 * ((100vw - 320px) / 704));    
-        margin: 0;
-        
-    }
-    .ajax-search-results.content-wrapper .item .title{
-        font-size: calc(20px + 10 * ((100vw - 320px) / 704));     
-    }
-    .ajax-search-results.content-wrapper .item  .date{
-        font-size: calc(14px + 4 * ((100vw - 320px) / 704));    
-        padding-top: 5px;     
-    }
-}
-@media screen and (max-width: 736px){
-    .search-button{
-        display: none;
-    }
+.ya-site-form__search-input-layout-r{
+    display: none!important;
 }

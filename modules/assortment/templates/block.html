@@ -1,4 +1,9 @@
 {if!empty $list}
+    <div class="navigation links">
+        {loop $list,$k,$item}
+            <a href="/assortment/{$item['chpu_title']}/" title="{$item['title']}" class="title transition-text">{$item['title']}</a>
+        {/loop $list}
+    </div>
     <div class="{ifempty $similar}carousel clearfix{else}list flex{/if}">
         {loop $list,$k,$item}
             {include /modules/assortment/templates/block.item.html}

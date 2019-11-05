@@ -225,6 +225,7 @@ switch(true){
                             'email'=> 'kya82@mail.ru'
                         ]
                     ];
+                    /*
                     if( !DEBUG_MODE ) {
                         if( !empty( $application_type ) && in_array( $application_type, [ 'tendery', 'postavschikam' ] ) ){
                             $emails[] = ['name' => 'Е.С.А.',            'email'=> "aae1958@inbox.ru" ];    
@@ -237,7 +238,7 @@ switch(true){
                         }
                         $emails[] = ['name' => 'Новицкая Лилия',  'email'=> "novitskaya@spmk.group" ];    
                     }    
-                    
+                    */
                     $sendpulse = new Sendpulse( );
                     $result = $sendpulse->sendMail(
                         $mailer_title,

@@ -1,7 +1,7 @@
 <section class="object-item assortment">
     <div class="inner" >
         <article itemscope itemtype="http://schema.org/NewsArticle" class="col-3">
-                <h1>{if!empty $h1}{$h1}{else}{$item['title']}{/if}</h1></h1>
+                <h1 itemprop="headline">{if!empty $h1}{$h1}{else}{$item['title']}{/if}</h1></h1>
                 {if!empty $item['content_short']}
                     <div class="annotation">{$item['content_short']}</div>
                 {/if}
@@ -18,18 +18,18 @@
                     </div>
                 {/if}
                 <div class="content">
-                    <div class="text">
+                    <div class="text" itemprop="articleBody">
                         {$item['content']}
                         <h2>Свяжитесь с нами!</h2>
                         <p>
                             <span class="send popup" data-url="/applications/popup/?application_type=inner_application">Оставьте заявку</span>
-                            или позвоните по телефону <span data-goal="call" onclick="try{ document.location.href='tel:+78002507697#1'; return true; }catch(err){ }">8-800-250-76-97</span>
+                            или позвоните по телефону <span data-goal="call" class="callibri_phone" onclick="try{ document.location.href='tel:+78002507697#1'; return true; }catch(err){ }">8-800-250-76-97</span>
                              - менеджеры уточнят все детали заказа, рассчитают стоимость и согласуют сроки поставки. 
                         </p>
                     </div>
                 </div>
                 {include /templates/gallery.html}
-                  
+                {include /templates/includes/schema.html}  
         </article>
     </div>
 </section> 

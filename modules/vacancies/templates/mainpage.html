@@ -1,74 +1,85 @@
-<section class="hero-title bg-cover vacancies">
-        <h1>{$h1}</h1>
-</section>
+<div itemscope itemtype="http://schema.org/NewsArticle">
+    <section class="hero-title bg-cover vacancies">
+        <h1 itemprop="headline">{$h1}</h1>
+    </section>
 
-<section >
-    <div class="inner narrow">
-        <h3>Уважаемые соискатели!</h3>
-        <div class="content">
-            <p>Группа компаний «СПМК» - это амбициозный союз компаний с широким спектром направлений деятельности и сильной командой, нацеленной на успех в сфере металлокаркасного строительства. </p>
-            <p><b>Мы ценим в своих работниках стремление к достижению результата, готовность работать в команде и брать на себя ответственность.</b></p>
-            <p>Мы приветствуем появление в своих рядах специалистов, чья энергия и профессиональный подход к работе, позволят совместными усилиями обеспечить стабильный и долгосрочный рост ГК «СПМК», быть лидером на рынке производства и монтажа металлоконструкций в ЦФО. </p>
-            <p>Наши вакансии предполагают работу в г. Рязани: головном офисе и на производственной площадке.</p>
-        </div>
-    </div>
-</section>        
+    <div  itemprop="articleBody">
+        <section >
+            <div class="inner narrow">
+                <h3>Уважаемые соискатели!</h3>
+                <div class="content">
+                    <p>Группа компаний «СПМК» - это амбициозный союз компаний с широким спектром направлений деятельности и сильной командой, нацеленной на успех в сфере металлокаркасного строительства. </p>
+                    <p><b>Мы ценим в своих работниках стремление к достижению результата, готовность работать в команде и брать на себя ответственность.</b></p>
+                    <p>Мы приветствуем появление в своих рядах специалистов, чья энергия и профессиональный подход к работе, позволят совместными усилиями обеспечить стабильный и долгосрочный рост ГК «СПМК», быть лидером на рынке производства и монтажа металлоконструкций в ЦФО. </p>
+                    <p>Наши вакансии предполагают работу в г. Рязани: головном офисе и на производственной площадке.</p>
+                </div>
+            </div>
+        </section>        
 
-{if!empty $list}
-    <section class="vacancies">
-        <div class="inner narrow">
-            <h3>Мы ищем следующих специалистов:</h3>
+        {if!empty $list}
+            <section class="vacancies">
+                <div class="inner narrow">
+                    <h3>Мы ищем следующих специалистов:</h3>
 
-            
-            <div class="list">
-                {loop $list,$k,$item}
-                <div class="item" data-icon="arrow_drop_down">
-                    <span class="title"> <b>{$item['title']}</b> {$item['city']}</span>
-                    <div class="content">
                     
-                        {if!empty $item['duties']}
-                            <h2>Обязанности</h2>
-                            <div>
-                                {$item['duties']}
+                    <div class="list">
+                        {loop $list,$k,$item}
+                        <div class="item">
+                            <span class="title" data-icon="arrow_drop_down"> <b>{$item['title']}</b> {$item['city']}</span>
+                            <div class="content">
+                            
+                                {if!empty $item['content']}
+                                    <h2>Описание</h2>
+                                    <div>
+                                        {$item['content']}
+                                    </div>
+                                {/if}
+                                {if!empty $item['duties']}
+                                    <h2>Обязанности</h2>
+                                    <div>
+                                        {$item['duties']}
+                                    </div>
+                                {/if}
+                                
+                                {if!empty $item['requirements']}
+                                    <h2>Требования</h2>
+                                    <div>
+                                        {$item['requirements']}
+                                    </div>
+                                {/if}
+                                
+                                {if!empty $item['conditions']}
+                                    <h2>Условия</h2>
+                                    <div>
+                                        {$item['conditions']}
+                                    </div>
+                                {/if}
+                                {if!empty $item['salary']}
+                                    <h2>Зарплата</h2>
+                                    <span class="salary">
+                                        {$item['salary']}
+                                    </span>
+                                {/if}
+                                <span class="toggle">Свернуть</span>
+                                <span class="button big popup main-color" data-url="/applications/popup/?application_type=vacancies&application_type_id={$item['id']}">Отправить резюме</span>
                             </div>
-                        {/if}
-                        
-                        {if!empty $item['requirements']}
-                            <h2>Требования</h2>
-                            <div>
-                                {$item['requirements']}
-                            </div>
-                        {/if}
-                        
-                        {if!empty $item['conditions']}
-                            <h2>Условия</h2>
-                            <div>
-                                {$item['conditions']}
-                            </div>
-                        {/if}
-                        {if!empty $item['salary']}
-                            <h2>Зарплата</h2>
-                            <span class="salary">
-                                {$item['salary']}
-                            </span>
-                        {/if}
-                        <span class="toggle">Свернуть</span>
-                        <span class="button big popup main-color" data-url="/applications/popup/?application_type=vacancies&application_type_id={$item['id']}">Отправить резюме</span>
+                        </div>
+                        {/loop $list}
                     </div>
                 </div>
-                {/loop $list}
+            </section>
+        {/if}
+        <section>
+            <div  class="inner narrow">
+                <h3>Не нашли интересной вакансии?</h3>
+                <div class="content">
+                    <p>Не отчаивайтесь. Пришлите нам свое резюме. Возможно, мы пока еще не знаем, что ищем именно Вас.</p>
+                    <span class="button big popup main-color" data-url="/applications/popup/?application_type=vacancies">Отправить резюме</span>            
+                </div>
             </div>
-        </div>
-    </section>
-{/if}
-<section>
-    <div  class="inner narrow">
-        <h3>Не нашли интересной вакансии?</h3>
-        <div class="content">
-            <p>Не отчаивайтесь. Пришлите нам свое резюме. Возможно, мы пока еще не знаем, что ищем именно Вас.</p>
-            <span class="button big popup main-color" data-url="/applications/popup/?application_type=vacancies">Отправить резюме</span>            
-        </div>
+        </section>
     </div>
-</section>
+    {include /templates/includes/schema.html}  
+</div>
 
 

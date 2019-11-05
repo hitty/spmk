@@ -3,9 +3,10 @@
 </section>
 <section class="uslugi content-item">
     <div class="inner narrow" >
-        <article itemscope itemtype="http://schema.org/uslugiArticle" class=" flex">
+        <article itemscope itemtype="http://schema.org/NewsArticle" class=" flex">
+            <meta itemprop="headline" content="{if!empty $h1}{$h1}{else}{$item['title']}{/if}">
             <div class="left-part">
-                <div class="content">
+                <div class="content"  itemprop="articleBody">
                     {$item['content']}
                     <h2>Всегда на связи</h2>
                     <p>Мы открыты к диалогу и готовы обсудить вопросы сотрудничества по 
@@ -17,7 +18,7 @@
                         
                         
                         
-                    <p>- телефону <span data-goal="call" onclick="try{ document.location.href='tel:+78002507697#1'; return true; }catch(err){ }">8-800-250-76-97 (доб.1);</span></p>
+                    <p>- телефону <span data-goal="call" class="callibri_phone" onclick="try{ document.location.href='tel:+78002507697#1'; return true; }catch(err){ }">8-800-250-76-97 (доб.1);</span></p>
                     <p>- электронной почте <a href="mailto:market@spmk.group">market@spmk.group</a>;</p>
                     <p><span class="send popup" data-url="/applications/popup/?application_type=inner_application">- заявке на консультацию.</span></p>
                     <p>Если у вас уже есть проектная документация АР, КМ, КМД и вас интересует стоимость реализации проекта, пожалуйста, заполните форму <span class="send popup" data-url="/applications/popup/?application_type=inner_raschet">Получить расчет</span> и мы оперативно сформируем предложение, от которого не захочется отказываться.</p>
@@ -29,6 +30,7 @@
                     <div class="ya-share2" data-size="s" data-services="vkontakte,facebook,twitter,odnoklassniki,gplus" data-counter></div>
                 </div>   
             </div>
+            {include /templates/includes/schema.html}
         </article>
         {include /templates/gallery.html}
     </div>

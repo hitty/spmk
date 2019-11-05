@@ -45,7 +45,7 @@
     }
 
     nav span,nav a {
-        padding: 3px 7px;
+        padding: 3px 5px;
         border-width: 2px;
     }
 
@@ -65,10 +65,10 @@
 @media (max-width: 1400px) {
     header nav .container {
         display: flex;
-        width: 450px;
+        width: 470px;
         justify-content: center;
         flex-wrap: wrap;
-        margin-right: 120px;
+        margin-right: 130px;
     }
 
     header .actions {
@@ -112,10 +112,10 @@
     }
 
     .application-lead,.calculator-form {
-        width: calc( 100% - 20px );
+        width: calc( 100% - 20px );   
     }
 
-    .application-lead b {
+    .application-lead b {   
     }
 
     section.hero-title h1 {
@@ -176,7 +176,10 @@
         font-size: 40px;
         line-height: 50px;
     }
-
+    header{
+        padding-left: 15px;
+        padding-right: 15px;
+    }
     header nav .container {
         margin: 0;
     }
@@ -203,7 +206,9 @@
         font-size: 12px;
         width: 115px;
     }
-
+    header .search-button{
+        right: 10px;
+    }
     section.hero-title h1 {
         margin: 30px 0;
     }
@@ -624,7 +629,9 @@
         padding: 10px;
         border-radius: 3px;
     }
-
+    header .search-button{
+        display: none;
+    }
     .burger::before {
         content: "Меню";
         float: right;
@@ -674,7 +681,9 @@
         height: 2px;
     }
 
-    .navigation a, .navigation span {
+    .navigation a, 
+    .navigation.links a, 
+    .navigation span {
         margin: 0 10px;
         font-size: 14px;
     }

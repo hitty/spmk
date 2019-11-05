@@ -17,6 +17,8 @@
 .assortment .properties div{
     padding: 0;
     margin: 0;
+    display: block;
+    width: 100%;
 }
 .assortment .properties p + p,
 .assortment .properties div + div{

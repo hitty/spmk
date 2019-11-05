@@ -201,6 +201,21 @@ jQuery(document).ready(function(){
     $('header .burger').on( 'click', function(){
         $('body').toggleClass('menu-top-is-open modal-active')    ;
     })
+    
+    const btn = $('.to-top-btn');
+    const h = $(window).height();
+    $(window).scroll(function() {
+        if ($(window).scrollTop() > h) {
+            btn.addClass('show');
+        } else {
+            btn.removeClass('show');
+        }
+    });
+
+    btn.on('click', function(e) {
+        e.preventDefault();
+        $('html, body').animate({scrollTop:0}, '300');
+    });
 })          
 function stickyActions( _el, _bound ) {
     if( _el > _bound ) jQuery('.sticky-actions').addClass('hidden');

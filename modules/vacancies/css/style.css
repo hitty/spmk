@@ -12,28 +12,31 @@
     background: var(--gray-light-bg);
     margin-bottom: 20px;
     position: relative;
+    display: block;
 }
 
-.vacancies .list .item:before {
+.vacancies .list .item .title:before {
     position: absolute;
     right: 15px;
     font-size: 32px;
     width: 32px;
     transition: .2s transform ease-in-out;
 }
-.vacancies .list .item.toggled:before{
+.vacancies .list .item.toggled .title:before{
     transform: rotate(180deg);
 }
-.vacancies .list .item:hover:before{
+.vacancies .list .item .title:hover:before{
     color: var(--secondary-color);
 }
 .vacancies .list .item .title {
     font-size: 20px;
     cursor: pointer;
     transition: .2s color ease-in-out;
+    position: relative;
+    display: block;
 }
 
-.vacancies .list .item:hover .title b {
+.vacancies .list .item .title:hover b {
     color: var(--secondary-color);
 }
 

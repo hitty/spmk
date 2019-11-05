@@ -1,10 +1,16 @@
-<section class="objects-list assortment">
-     <h1>{if!empty $h1}{$h1}{else}Ассортимент завода металлоконструкций{/if}</h1>
+<section>
+     <h1>{if!empty $h1}{$h1}{else}Продукция завода металлоконструкций{/if}</h1>
      <div class="annotation inner">
         {if!empty $current_page['page_content']}
             {$current_page['page_content']}
         {/if}
+        
+        <div class="to-center">
+            <span class="button big popup" data-url="/applications/popup/?application_type=call">Заказать звонок</span>
+        </div>
      </div>
+</section>
+<section class="objects-list assortment">
      <div class="list inner">
         {loop $list,$k,$item}
             <div class="item transition  internal-link" data-link="/assortment/{$item['chpu_title']}/">

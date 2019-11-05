@@ -30,6 +30,17 @@ return array(
         )
         
         
+        ,'content' => array(
+            'type' => TYPE_STRING,
+            'allow_empty' => true, 
+            'allow_null' => true,
+            'fieldtype' => 'textarea',
+            'parent_class' => 'full-width', 
+            'editor' => 'big',
+            'label' => 'Описание',
+            'tip' => ''
+        ) 
+        
         ,'duties' => array(
             'type' => TYPE_STRING,
             'allow_empty' => true, 
