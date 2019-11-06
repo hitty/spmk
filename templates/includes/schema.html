@@ -1,0 +1,32 @@
+<div itemprop="publisher" itemscope itemtype="https://schema.org/Organization" style="display: none;">
+    <meta itemprop="address" content="г. Рязань, ул. Станкозаводская, д.7, стр.3">
+    <meta itemprop="telephone" content="8 (800) 250-76-97">
+    
+    <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+      <img src="https://spmk.group/img/logo.gif" width="323" height="67"/>
+      <link itemprop="url" href="https://spmk.group/img/logo.gif" width="323" height="67" />
+      <link itemprop="contentUrl" href="https://spmk.group/img/logo.gif" width="323" height="67" />
+      <meta itemprop="width" content="323">
+      <meta itemprop="height" content="67">
+    </div>
+    <meta itemprop="name" content="ГК СПМК">
+</div> 
+
+<meta itemprop="author" content="СПМК">
+<meta itemscope itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" itemid="{$current_page['full_host']}{$meta_canonical}"/>
+<span itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+    <img itemprop="image url" alt="" width="1280" height="960" src="{static:/}/img/uploads/big/{$item['subfolder']}/{$item['photo']}" style="display: none;"/>
+    <meta itemprop="width" content="1280">
+    <meta itemprop="height" content="960">
+</span>
+
+{if!empty $item['datetime']}
+    <meta itemprop="datePublished" content="{$item['datetime']}">
+    <meta itemprop="dateModified" content="{$item['datetime']}"/> 
+{elseif!empty $item['date']}
+    <meta itemprop="datePublished" content="{$item['date']}">
+    <meta itemprop="dateModified" content="{$item['date']}"/> 
+{else}
+    <meta itemprop="datePublished" content="2019-08-11">
+    <meta itemprop="dateModified" content="2019-08-11"/> 
+{/if}

@@ -1,0 +1,455 @@
+.page-info {
+}
+.page-info .flex{
+    align-items: stretch;
+    margin: 60px 0;    
+}
+.page-info .annotation{
+    width: 60%;
+    text-align: left;
+    font-size: 24px;
+    margin: 0;    
+}
+.page-info .annotation p{
+    padding-left: 30px;
+    position: relative;
+}        
+.page-info .annotation p + p{
+    margin-top: 20px;
+}
+.page-info .annotation p:before{
+    color: var(--secondary-color);
+    transform: translate(-36px, 6px);
+    font-size: 31px;
+    position: absolute;
+}
+.page-info .applications{
+    width: 38%;
+    color: var(--white);
+    padding: 40px 20px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,.25);
+    font-size: 18px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+.page-info .applications .blured{
+    z-index: 0;
+    background-image: url(/img/appliction-hero-bg-sm.jpg);
+    cursor: default;
+    filter: blur(4px);
+    -webkit-filter: blur(4px);
+    top: -20px;
+    right: -20px;
+    bottom: -20px;
+    left: -20px;
+}
+.page-info .applications div{
+    margin-bottom: 20px;   
+}
+.page-info .applications div,
+.page-info .applications .button{
+    position: relative;
+    z-index: 10; 
+}
+.page-info .applications span + div{
+    margin-top: 60px;
+}
+@media(max-width: 1024px) {
+    .page-info .flex {
+        margin: 40px 0;
+    }
+
+    .page-info .annotation {
+        width: 50%;
+        font-size: 20px;
+    }
+
+    .page-info .annotation p {
+    }
+
+    .page-info .annotation p + p {
+        margin-top: 15px;
+    }
+
+    .page-info .annotation p:before {
+    }
+
+    .page-info .applications {
+        padding: 30px 15px;
+        font-size: 16px;
+        width: 48%;
+    }
+
+    .page-info .applications .blured {
+    }
+
+    .page-info .applications div {
+        margin-bottom: 15px;
+    }
+
+    .page-info .applications span + div {
+        margin-top: 50px;
+    }
+}
+
+@media(max-width: 767px) {
+    .page-info .flex {
+        margin: 30px 0;
+        display: block;
+    }
+
+    .page-info .annotation {
+        width: 100%;
+        font-size: 18px;
+        line-height: 1.4;
+    }
+
+    .page-info .annotation p {
+    }
+
+    .page-info .annotation p + p {
+        margin-top: 10px;
+    }
+
+    .page-info .annotation p:before {
+        transform: translate(-30px, 2px);
+    }
+
+    .page-info .applications {
+        width: auto;
+        /* padding: 20px 10px; */
+        /* font-size: 14px; */
+        margin: 20px -10px;
+    }
+
+    .page-info .applications .blured {
+    }
+
+    .page-info .applications div {
+        margin-bottom: 10px;
+    }
+
+    .page-info .applications span + div {
+        margin-top: 30px;
+    }
+}
+.we-build .content {
+    white-space: nowrap;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    -ms-flex-line-pack: stretch;
+    align-content: stretch;
+    height: 100%;
+}
+
+.we-build .item {
+    color: var(--white);
+    border: 2px solid rgba(255,255,255,.4);
+    padding: 20px 30px;
+    margin: 0 10px;
+    background: rgba(0,0,0,.2);
+    width: calc( 33% - 10px );
+    white-space: normal;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    -ms-flex-line-pack: stretch;
+    align-content: stretch;
+    min-height: 100%;
+}
+
+.we-build .carousel .item:before,.we-build .carousel .item:after {
+    display: none;
+}
+.we-build .item .title {
+    font-size: 26px;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.we-build .item ul {
+    margin: 0;
+}
+
+.we-build .item ul li {
+    font-size: 18px;
+    border-left: 2px solid var(--secondary-color);
+    color: var(--white);
+    padding-left: 15px;
+    line-height: 1.2;
+}
+
+.we-build .item ul li:before {
+    display: none;
+}
+@media (max-width: 1024px) {
+  .we-build .item {
+        padding: 15px 20px;
+        margin: 0 5px;
+        width: calc( 33% - 5px );
+  }
+  .we-build .item .title {
+        font-size: 20px;
+        line-height: 1.4;
+        margin-bottom: 15px;
+  }
+  .we-build .item ul li{
+    font-size: 16px;    
+  }
+}
+@media (max-width: 767px) {
+    .we-build .item {
+        padding: 10px 15px;
+        margin: 0 5px;
+        width: 260px;
+    }
+    .we-build .item .title {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    .we-build .item ul li{
+        font-size: 14px;    
+    }
+
+}
+@media (max-width: 480px) {
+  .we-build {
+  }
+  .we-build .item{
+      
+  }
+  .we-build .item .title{
+      
+  }
+  .we-build .item ul li{
+      
+  }
+}
+
+.regions {
+}
+
+.regions .flex {
+}
+.annotation{
+}
+.regions .flex ul {
+}
+
+.regions .flex li {
+}
+
+.regions .bg {
+    top: 0px;
+    opacity: .5;    
+}
+@media(max-width:767px){
+    .regions .bg {
+        top: 0px;
+        opacity: .5;
+        height: 400px;
+        background-size: cover;
+    }
+}
+.regions .bg:before{
+}
+.diploms {
+}
+
+.diploms .list {
+}
+
+.diploms .list .item {
+    flex: 0 1 calc( 16.6666666666% - 30px );    
+}
+@media (max-width: 768px){
+    .diploms .list .item {
+        min-width: 100px!important;
+        flex: 0 1 calc( 16.6666666666% - 30px )!important;
+        margin: 0 5px;
+    }
+}
+.diploms .list .item a,
+.diploms .list .item .title {
+    display: none;
+}
+
+.diploms .list .item .title {
+}
+
+.diploms .list .item img {
+}
+
+.benefits {
+}
+
+.benefits .item {
+}
+
+.benefits .item .title {
+}
+
+.benefits .item .title:before {
+    top: 20px;
+}
+
+.benefits .item .text {
+}
+
+.benefits .item .text b {
+}
+
+
+.how-we-work {
+}
+
+.how-we-work ul {
+}
+.how-we-work ul + .to-center.annotation{
+    margin-top: 110px;
+    font-size: 26px;
+}
+@media(max-width: 1024px) {
+    .how-we-work ul + .to-center.annotation {
+        margin-top: 40px;
+        font-size: 22px;
+        margin-bottom: 80px;
+    }
+}
+
+@media(max-width: 767px) {
+    .how-we-work ul + .to-center.annotation {
+    }
+}
+
+.clients .list {
+}
+
+.clients .item {
+}
+
+.clients svg,.clients img {
+}
+
+.clients a svg {
+}
+
+.clients a img:hover {
+}
+
+.objects .carousel.flicky .item {
+    width: calc( 33% - 10px );
+    margin: 0 10px;
+}
+.objects .carousel.flicky .item a {
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    font-size: 20px;
+    z-index: 10;
+    border: none;
+    text-align: center;
+    color: var(--white);
+}
+
+.objects .carousel.flicky .item:hover a {
+    color: var(--secondary-color);
+}
+
+.objects .carousel.flicky .img {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+.objects .carousel.flicky .item:before{
+    content: "";
+    padding-top: 80%;
+    display: block;
+}
+.objects .carousel.flicky .item:after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    background: linear-gradient(to bottom, rgba( 0,0,0,0 ), rgba(0,0,0,.4));
+    z-index: 1;
+    transition: background .3s ease-in-out;
+}
+@media(max-width:1024px){
+    .objects .carousel.flicky .item{
+        width: calc( 50% - 10px );
+    }
+    .objects .carousel.flicky .item a{
+        font-size: 18px;
+    }
+    .objects .carousel.flicky .item:before{
+        padding-top: 60%;
+    }    
+}
+@media(max-width:768px){
+    .objects .carousel.flicky .item{
+        width: 360px;
+        margin: 0 5px;
+    }
+    .objects .carousel.flicky .item a{
+        font-size: 16px;
+    }
+}
+
+.digits ul {
+}
+
+.digits ul li {
+}
+
+.digits ul li b {
+}
+
+.digits ul li sup {
+}
+.workshops.carousel-vertical .content{
+}
+
+.preferences ul {
+}
+
+.preferences ul li {
+}
+
+.preferences ul li img {
+}
+
+.preferences ul li span {
+}
+

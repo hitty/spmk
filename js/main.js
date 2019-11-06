@@ -176,11 +176,59 @@ jQuery(document).ready(function(){
     
     
     $('.carousel').each( function(){
-        $(this).carousel({
-            pageDots: false,
-            draggable: false,
-            wrapAround: true  
-        });
+        _this = jQuery(this);
+        if( _this.hasClass('flicky') ){
+            $(this).carousel({
+                freeScroll: !0,
+                contain: !0,
+                pageDots: !1,
+                groupCells: "100%",
+                cellAlign: 'left',
+                prevNextButtons: true
+            })    
+        } else {
+            $(this).carousel({
+                pageDots: false,
+                draggable: true,
+                wrapAround: true,
+                slidesToShow: _this.data('count-1280') > 0 ? _this.data('count-1280') : 1,
+                slidesToScroll: _this.data('count-1280') > 0 ? _this.data('count-1280') : 1,
+                responsive: [
+                    {
+                      breakpoint: 1280,
+                      settings: {
+                        slidesToShow: _this.data('count-1280') > 0 ? _this.data('count-1280') : 1,
+                        slidesToScroll: _this.data('count-1280') > 0 ? _this.data('count-1280') : 1,
+                        infinite: true,
+                        dots: true
+                      }
+                    },
+                    {
+                      breakpoint: 1024,
+                      settings: {
+                        slidesToShow: _this.data('count-1024') > 0 ? _this.data('count-1024') : 1,
+                        slidesToScroll: _this.data('count-1024') > 0 ? _this.data('count-1024') : 1,
+                        infinite: true,
+                        dots: true
+                      }
+                    },
+                    {
+                      breakpoint: 768,
+                      settings: {
+                        slidesToShow: _this.data('count-768') > 0 ? _this.data('count-768') : 1,
+                        slidesToScroll: _this.data('count-768') > 0 ? _this.data('count-768') : 1
+                      }
+                    },
+                    {
+                      breakpoint: 480,
+                      settings: {
+                        slidesToShow: _this.data('count-480') > 0 ? _this.data('count-480') : 1,
+                        slidesToScroll: _this.data('count-480') > 0 ? _this.data('count-480') : 1
+                      }
+                    }
+                ]  
+            });
+        }
     })                    
     
     if( jQuery('.sticky-actions').length ){

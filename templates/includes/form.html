@@ -17,9 +17,11 @@
         <div class="row">
             <input type="email" name="email" placeholder="Ваш email{if!empty $email_required}*{/if}"{if!empty $email_required} required="required"{/if} autocomplete="{$random}">
         </div>
+        {if!eq $application_type,'mainpage_middle_second_have_questions_new'}
         <div class="row">
             <input type="text" name="region" placeholder="Ваш регион*" required="required" autocomplete="{$random}">
         </div>
+        {/if}
         {if!empty $middle}</div>{/if}
         <div class="upload-container row br3">
             <textarea name="comment" placeholder="Описание запроса, дополнительные данные"></textarea>

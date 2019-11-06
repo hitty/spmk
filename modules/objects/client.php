@@ -33,6 +33,8 @@ switch( true ){
             Response::SetArray( 'list', $list );
             $module_template = 'block.html';
             if( $ajax_mode ) $ajax_result['ok'] = true;
+            $get_parameters = Request::GetParameters( METHOD_GET );
+            if( !empty( $get_parameters['v'] ) && $get_parameters['v'] == '2' ) Response::SetBoolean( 'ab', true );
             break;
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////

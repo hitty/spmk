@@ -1,7 +1,15 @@
 <section class="hero bg-cover">
     <div class="inner">
-        <h2 class="invert">Нужна консультация?</h2>
-        <span class="annotation white">Заполните заявку - на ваши вопросы ответит куратор профильного отдела, с опытом работы в металлоконструкциях более 5 лет!</span>
+        {ifempty $application_type}
+            <h2 class="invert">Нужна консультация?</h2>
+            <span class="annotation white">Заполните заявку - на ваши вопросы ответит куратор профильного отдела, с опытом работы в металлоконструкциях более 5 лет!</span>
+        {elseifeq $application_type,'mainpage_middle_second_have_questions_new'}
+            <h2 class="invert">Остались вопросы?</h2>
+            <span class="annotation white">Оставьте заявку, и на ваш вопрос ответит консультант с 5-летним стажем работы в металлоконструкциях.</span>
+        {else}        
+            <h2 class="invert">Нужна консультация?</h2>
+            <span class="annotation white">Заполните заявку - на ваши вопросы ответит куратор профильного отдела, с опытом работы в металлоконструкциях более 5 лет!</span>
+        {/if}
         {php:$middle = true}
         {include /templates/includes/form.html}
     </div>
