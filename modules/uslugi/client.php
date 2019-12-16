@@ -7,14 +7,23 @@ Response::SetArray( 'parameters', $post_parameters );
 Response::SetBoolean( 'dark_breadcrumbs', true );
 $action = empty( $this_page->page_parameters[0] ) ? false : $this_page->page_parameters[0];
 switch( true ){
-    
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
     // карточка услуги
     ////////////////////////////////////////////////////////////////////////////////////////////////////////
     case !empty( $action ) && count( $this_page->page_parameters ) == 1:
 
         
         $item = CommonDb::getItem( 'uslugi', $sys_tables['uslugi'] . ".chpu_title = '" . $db->real_escape_string( $this_page->page_parameters[0] ) . "'", $sys_tables['uslugi'] . '.id' );
+        
+        //коды для ссылок-сниппетов на другие статью
+        preg_match_all('/\{similar_links\}/sui', $item['content'], $matches);
+        if(!empty($matches) && !empty($matches[0])){
+            //читаем информацию по статье
+            $list = CommonDb::getList( 'uslugi', false, $sys_tables['uslugi'] . ".chpu_title != '" . $db->real_escape_string( $this_page->page_parameters[0] ) . "'", $sys_tables['uslugi'] . '.id' );
+            $html = ['<a href="/uslugi/" class="title">Комплекс услуг</a><ul>'];
+            foreach( $list as $s => $sitem ) $html[] = '<li><a href="/uslugi/' . $sitem['chpu_title'] . '/">' . $sitem['seo_h1'] . '</a></li>';
+            $item['content'] = str_replace('{similar_links}','<div class="similar-links">' . implode( " ", $html ) . '</ul></div>',$item['content']);
+        }
         Response::SetArray( 'item', $item );
         
         $h1 = array();

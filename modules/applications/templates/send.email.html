@@ -35,10 +35,15 @@
                 Email: <strong>{$data['email']}</strong>
             </span>
             {/if}
-            {if!empty $data['region']}
-            <span style="display: block; text-align: left; margin-top: 20px;">
-                Регион: <strong>{$data['region']}</strong>
-            </span>
+            {if!empty $data['service']}
+                <span style="display: block; text-align: left; margin-top: 20px;">
+                    Услуги: <strong>{$data['service']}</strong>
+                </span>
+                {if!empty $data['region']}
+                    <span style="display: block; text-align: left; margin-top: 20px;">
+                        Регион: <strong>{$data['region']}</strong>
+                    </span>
+                {/if}
             {/if}
             {if!empty $data['date']}
             <span style="display: block; text-align: left; margin-top: 20px;">

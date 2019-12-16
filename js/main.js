@@ -102,6 +102,7 @@ function getParameterByName(name)
             (RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1]
         );
 }
+
 jQuery(document).ready(function(){
     jQuery('.thumbs-list').each( function(){
         var _this = jQuery( this );
@@ -177,14 +178,15 @@ jQuery(document).ready(function(){
     
     $('.carousel').each( function(){
         _this = jQuery(this);
-        if( _this.hasClass('flicky') ){
+        if( _this.hasClass('flicky') || _this.closest('section').hasClass('flicky') ){
             $(this).carousel({
                 freeScroll: !0,
                 contain: !0,
                 pageDots: !1,
-                groupCells: "100%",
                 cellAlign: 'left',
-                prevNextButtons: true
+                prevNextButtons: true,
+                autoPlay: 2200,
+                wrapAround: true
             })    
         } else {
             $(this).carousel({
@@ -354,4 +356,5 @@ function closeNavTopMenu() {
     $('html').removeClass('nav-top-menu-opened');
   }, 400);
 }
+
 

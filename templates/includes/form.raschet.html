@@ -5,28 +5,35 @@
         {if!empty $form_text}<div class="annotation">{$form_text}</div>{/if}
         {if!empty $application_type}<input type="hidden" name="application_type" value="{$application_type}">{/if}
         {php:$random=randomstring(10)}
+        
         <div class="row">
-            <input type="text" name="company" placeholder="Компания" required="required" autocomplete="{$random}">
+            <input type="phone" name="phone" placeholder="Ваш телефон для связи *" required="required" maxlength="17" autocomplete="{$random}">
         </div>
         <div class="row">
-            <input type="text" name="region" placeholder="Регион расположения объекта*" required="required" autocomplete="{$random}">
+            <input type="email" name="email" placeholder="На какую эл.почту направить расчет?{if!empty $email_required}*{/if}"{if!empty $email_required} required="required"{/if} autocomplete="{$random}">
         </div>
-        <div class="row">
-            <input type="text" name="name" placeholder="Ваше имя *" required="required" autocomplete="{$random}">
-        </div>
-        <div class="row">
-            <input type="phone" name="phone" placeholder="Ваш телефон *" required="required" maxlength="17" autocomplete="{$random}">
-        </div>
-        <div class="row">
-            <input type="email" name="email" placeholder="Ваш email{if!empty $email_required}*{/if}"{if!empty $email_required} required="required"{/if} autocomplete="{$random}">
+        {php:$service_list = Config::Get('forms/raschet/service_list')}
+        {if!empty $service_list}
+            <div class="row service-container">
+                <div class="title">Какие услуги включить в проект? Изготовление уже включено.</div>
+                <input type="hidden" name="service" value="" />
+                {loop $service_list,$k,$i}
+                    <label class="checkbox {if!empty $i['toggle_element']}toggle{/if}" {if!empty $i['toggle_element']}data-target="{$i['toggle_element']}"{/if}>
+                        <input type="checkbox" id="service_set[{$k}]" class="lf" name="service_set[{$k}]" {ifeq $i['value'],1}checked="checked"{/if}  data-true-value="1" data-false-value="2"> {$k}
+                    </label>
+                {/loop $service_list}
+            </div>
+        {/if}
+        <div class="row region" style="display: none;">
+            <input type="text" name="region" placeholder="Регион доставки" autocomplete="{$random}">
         </div>
 
         <div class="upload-container row br3">
-            <textarea name="comment" placeholder="Дополнительная информация по проекту"></textarea>
+            <textarea name="comment" placeholder="Описание проекта, доп.требования"></textarea>
             <div class="file-upload">      
                 <input type="file" name="file_upload[]" id="file_upload-{$random}" class="inputfile-{$random}" data-multiple-caption="files selected" multiple="">
                 <label for="file_upload-{$random}" class="br4 attach-file " data-icon="attach_file">
-                    <strong class="br3 transition">Прикрепить КМ (АР, КМД)*</strong>
+                    <strong class="br3 transition">Прикрепить ТЗ</strong>
                 </label>      
                 <span class="text-overflow" data-icon="attach_file"></span> 
                 <i class="close" data-icon="close"></i>
@@ -42,3 +49,16 @@
     </form>
     
 </div> 
+
+<div style="display: none;">
+{literal}
+    <script>
+        jQuery(document).ready(function(){
+            jQuery("form .row .toggle").on('click', function(){
+                var _this = jQuery(this);
+                jQuery('form ' + _this.data('target')).css({'display' : !_this.hasClass('on') ? 'block' : 'none'})
+            })
+        })
+    </script>
+{/literal}
+</div>

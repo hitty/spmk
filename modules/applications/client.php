@@ -32,6 +32,7 @@ switch(true){
             $application_type == 'vacancies' ||
             $application_type == 'postavschikam' ||
             $application_type == 'tendery' ||
+            $application_type == 'reference' ||
             !empty( $parameters['phone'] ) 
         ){
             if(!empty($_FILES)){
@@ -70,14 +71,9 @@ switch(true){
             // отбивка при успешной отправке
             if( !empty( $application['success_text'] ) ) Response::SetString( 'success_text', $application['success_text'] );
             if( !empty( $application['success_title'] ) ) Response::SetString( 'success_title', $application['success_title'] );
-            
+           //запрос референца
+           if( $application_type == 'reference' && empty( $parameters['phone'] ) && empty( $parameters['email'] ) ) return false;
             switch( true ){
-                ///////////////////////////////////////////////////////////////
-                // Расчет
-                ///////////////////////////////////////////////////////////////
-                case $application_index == 'raschet':
-                    if( empty( $files ) ) $ajax_result['error'] = 'Прикрепите файл';
-                    break;
                 ///////////////////////////////////////////////////////////////
                 // Вакансии
                 ///////////////////////////////////////////////////////////////
@@ -135,17 +131,26 @@ switch(true){
                     $mailer_title = 'Запись на экскурсию ' . $parameters['date'];
                     break;
                 
+                ///////////////////////////////////////////////////////////////
+                // Референс
+                ///////////////////////////////////////////////////////////////
+                case strstr( $application_type, 'reference' ):
+                    $mailer_title = 'Запрос референс-листа ';
+                    break;
+                
             }
             if( empty(  $ajax_result['error'] ) ) {
                 $mail_template = 'send.email.html';
                 
                 $time = Time::get();
+                
                 $data = array(
                     'name' => !empty( $parameters['name'] ) ? $parameters['name'] : '',
                     'phone' => !empty( $parameters['phone'] ) ? $parameters['phone'] : '',
                     'email' => !empty( $parameters['email'] ) ? $parameters['email'] : '',
                     'company' => !empty( $parameters['company'] ) ? $parameters['company'] : '',
                     'production' => !empty( $parameters['production'] ) ? $parameters['production'] : '',
+                    'service' => !empty( $parameters['service_set'] ) ? implode( ", ", array_keys( $parameters['service_set'] ) ) : '',
                     'region' => !empty( $parameters['region'] ) ? $parameters['region'] : '',
                     'user_comment' => !empty( $parameters['comment'] ) ? $parameters['comment'] : '',
                     'date' => !empty( $parameters['date'] ) ? $parameters['date'] : '',
@@ -225,7 +230,7 @@ switch(true){
                             'email'=> 'kya82@mail.ru'
                         ]
                     ];
-                    /*
+                    
                     if( !DEBUG_MODE ) {
                         if( !empty( $application_type ) && in_array( $application_type, [ 'tendery', 'postavschikam' ] ) ){
                             $emails[] = ['name' => 'Е.С.А.',            'email'=> "aae1958@inbox.ru" ];    
@@ -238,7 +243,7 @@ switch(true){
                         }
                         $emails[] = ['name' => 'Новицкая Лилия',  'email'=> "novitskaya@spmk.group" ];    
                     }    
-                    */
+                    
                     $sendpulse = new Sendpulse( );
                     $result = $sendpulse->sendMail(
                         $mailer_title,

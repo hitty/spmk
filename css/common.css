@@ -713,3 +713,6 @@ h1 + .navigation{
 .to-center{
     text-align: center!important;
 }
+.item{
+    border-radius: 3px;
+}

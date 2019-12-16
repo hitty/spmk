@@ -172,7 +172,7 @@ if($)(function(window, document, $, undefined){
                     _value = _type == 'radio' ? jQuery( 'input[name=' + _name + ']:checked', init_selector).val() : _this.val();
                 }
                 if( 
-                    ( ( _this.is('[data-inputmask]') || _this.is('[data-inputmask-regex]') ) && !_this.inputmask("isComplete") ) || 
+                    ( ( _this.is('[data-inputmask]') || _this.is('[data-inputmask-regex]') ) && !_this.inputmask("isComplete") && _value.length > 0 ) || 
                     ( _required == 'required' && ( _value == '' || _value == 0) )
                 ) {
                         //отдельно для селекторов

@@ -71,7 +71,6 @@ $requested_page = new Page( Host::getRequestedUri() );
 $ajax_mode = (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && !empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') || !empty($internal_mode);
 
 $get_parameters = Request::GetParameters( METHOD_GET );
-        
 if( empty( $ajax_mode ) ) {
     //подключение стилей и js-скриптов
     $GLOBALS['js_set'][] = '/js/jquery.min.js';
@@ -79,15 +78,17 @@ if( empty( $ajax_mode ) ) {
     $GLOBALS['js_set'][] = '/js/datetimepicker/jquery.datetimepicker.js';
     $GLOBALS['js_set'][] = '/js/inputmask/inputmask.min.js';
     $GLOBALS['js_set'][] = '/js/form.validate.js';
-    if( !empty( $get_parameters['v'] ) && $get_parameters['v'] == '2' ) {
-        $GLOBALS['css_set'][] = '/js/carousel.flickity/styles.css';
-        $GLOBALS['js_set'][] = '/js/carousel.flickity/script.js';
-    } else {
-        $GLOBALS['css_set'][] = '/js/carousel.vertical/styles.css';
-        $GLOBALS['js_set'][] = '/js/carousel.vertical/script.js';
+    $GLOBALS['css_set'][] = '/js/carousel.vertical/styles.css';
+    $GLOBALS['js_set'][] = '/js/carousel.vertical/script.js';
+    
+    if( $_SERVER['REQUEST_URI'] != '/lndng/' ){
         $GLOBALS['css_set'][] = '/js/carousel/styles.css';
         $GLOBALS['js_set'][] = '/js/carousel/script.js';
     }
+    
+    $GLOBALS['css_set'][] = '/js/aos/styles.css';
+    $GLOBALS['js_set'][] = '/js/aos/script.js';
+    
     $GLOBALS['js_set'][] = '/js/main.js';
     $GLOBALS['js_set'][] = '/js/interface.js';
     $GLOBALS['js_set'][] = '/js/map.js';

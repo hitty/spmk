@@ -1,5 +1,5 @@
 <div class="sticky-actions-bound"></div>
-<footer>
+<footer >
     <div class="inner">
         <a href="/" class="logo">
             <img src="/img/logo-big.svg" alt="" />
@@ -11,7 +11,7 @@
                 <li><a href="/zavod/">О заводе</a></li>
                 <li><a href="/objekty/">Объекты</a></li>
                 <li><a href="/zakupki/">Закупки</a></li>
-                <li><a href="#" class="inactive">Прайс</a></li>
+                <!--li><a href="#" class="inactive">Прайс</a></li-->
                 <li><a href="/structure/">Структура ГК</a></li>
                 <li><a href="/news/">Новости</a></li>
                 <li><a href="/vacancies/">Вакансии</a></li>
@@ -109,8 +109,15 @@
     }
     document.body.addEventListener('click', function(e){
         if( typeof e.target.getAttribute('data-goal') == 'string' ){
+            console.log( e.target.getAttribute('data-goal') );
             counterGoals( e.target.getAttribute('data-goal') );
         }
+    });
+    AOS.init({
+       duration: 600,
+       delay: 150,
+       once: true,
+       disable: 'mobile'
     });
 </script>
 {/literal}

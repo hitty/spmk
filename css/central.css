@@ -550,3 +550,65 @@ h2 + .contacts .address {
     right: 3px
 }
 
+
+.presentation a {
+    border: none;
+    font-size: 30px;
+    line-height: 30px;
+}
+
+.presentation a b {
+    font-size: 20px;
+    font-weight: 400;
+    position: relative;
+    top: -2px;
+    color: var(--gray);
+}
+
+.file-type-ico {
+    background-image: url('/img/filetypes-sprite.png');
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 30px;
+    background-size: 150px auto;
+    display: block;
+    float: left;
+    margin-right: 20px;
+}
+
+.file-type-ico.pdf {
+    background-position: -120px 0px;
+}
+
+.file-type-ico.docx,.file-type-ico.doc {
+}
+
+.file-type-ico.xlsx,.file-type-ico.xls {
+    background-position: -30px 0px;
+}
+
+.file-type-ico.pptx,.file-type-ico.ppt {
+    background-position: -60px 0px;
+}
+
+@media(max-width: 767px) {
+    .file-type-ico {
+        margin-right: 10px;
+        position: absolute;
+        left: -40px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .presentation a {
+        font-size: 18px;
+        display: block;
+        position: relative;
+        margin-left: 40px;
+        line-height: 21px;
+    }
+
+    .presentation a b {
+        font-size: 14px;
+    }
+}

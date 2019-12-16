@@ -75,14 +75,20 @@
     transition: 0.15s ease-in-out;
     z-index: 10;
     line-height: 0;
+    opacity: 1;
 }
-
+.carousel .carousel-prev-next-button[disabled]{
+    cursor: default;
+    opacity: .2;
+}
 .carousel .carousel-prev-next-button svg {
     fill: #e23e57;
     height: 18px;
 }
 
-.carousel .carousel-prev-next-button:not(.disabled):hover,.carousel .carousel-prev-next-button:focus,.carousel .carousel-prev-next-button:active {
+.carousel .carousel-prev-next-button:not(.disabled):hover,
+.carousel .carousel-prev-next-button:focus,
+.carousel .carousel-prev-next-button:active {
     border-color: #e23e57;
     z-index: 10;
     background: transparent;
@@ -113,4 +119,14 @@
     .carousel .carousel-prev-next-button {
         display: none;
     }
+}
+
+.carousel .item{
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1.3s ease-in-out, visibility 1.3s ease-in-out;
+}
+.carousel .carousel-slider .item{
+    opacity: 1;
+    visibility: visible;
 }

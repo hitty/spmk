@@ -47,6 +47,14 @@ return array(
             'success_title' => 'Спасибо!<br/> Запрос отправлен.',
             'success_text' => 'Пожалуйста, не дублируйте свой запрос, наши специалисты с вами обязательно свяжутся.',
             'template' => 'templates/includes/form.raschet.html',
+            'service_list' => [
+                'изготовление' => [ 'value' => 1 ],
+                'доставка' => [ 'value' => 2, 'toggle_element' => '.region' ],
+                'монтаж' => [ 'value' => 2 ],
+                'комплектация профнастилом' => [ 'value' => 2 ],
+                'комплектация сэндвич-панелями' => [ 'value' => 2 ],
+                'другое' => [ 'value' => 2 ]  
+            ],
             'mailer_title' => 'Получить расчет'
         ]
         ,
@@ -133,6 +141,15 @@ return array(
             'success_text' => 'Пожалуйста, не дублируйте свой запрос, наши специалисты с вами обязательно свяжутся.',
             'template' => 'modules/vacancies/templates/form.html',
             'mailer_title' => 'Резюме'
+        ]
+        ,
+        'reference' => [  // тендеры
+            'form_title' => '',
+            'form_text' => '',
+            'success_title' => 'Спасибо!<br/> Запрос отправлен.',
+            'success_text' => 'Пожалуйста, не дублируйте свой запрос, наши специалисты с вами обязательно свяжутся.',
+            'template' => 'templates/includes/form.html',
+            'mailer_title' => ''
         ]
                                   
     ],
