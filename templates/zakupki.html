@@ -1,0 +1,160 @@
+<section class="zakupki">
+    <div class="inner">
+        <h1>Закупки</h1>
+        <div class="content">
+            <h2>Уважаемые поставщики!</h2>
+            <p>ГК «СПМК» приглашает вас к сотрудничеству в части поставок материально-технических ресурсов. </p>
+            <p>Мы заинтересованы в закупке товаров следующих номенклатурных групп:  </p>
+            <ul>
+                <li>Черный металлопрокат;</li>
+                <li>Сварочная проволока (1,2мм, омедненная);</li>
+                <li>Промышленные газы (Евромикс, Кислород, Пропан, Аргон);</li>
+                <li>Метизы;</li>
+                <li>Лакокрасочные материалы;</li>
+                <li>Расходные материалы для металлообработки и сварочных работ;</li>
+                <li>Электро- и ручной инструмент;</li>
+                <li>Расходные материалы для погрузо-разгрузочных работ;</li>
+                <li>Спецодежда;</li>
+                <li>Хозтовары (бытовая химия и т.п.); </li>
+                <li>Канцелярские принадлежности.</li>
+            </ul>
+            <p>Требования к коммерческим условиям:</p>
+            <ul>
+                <li>Отсрочка платежа от 30 до 60 календарных дней;</li>        
+                <li>Лимит на отгрузку соразмерный обороту по компании за 1-2 месяца</li>        
+            </ul>
+            <p>Требования к качеству товара:</p>
+            <ul>
+                <li>Наличие оригинала Сертификата или паспорта качества на ТМЦ при каждой поставке</li>        
+                <li>Выезд специалиста в случае некачественного товара в срок не более 2 к/д со дня официального запроса от покупателя. Оперативная замена товара. </li>        
+            </ul>
+            <p>Требования к доставке товара:</p>
+            <ul>
+                <li>Поставщик, располагающий собственным автопарком, сам организует доставку товара.</li>        
+                <li>При отсутствии собственного автопарка возможен только самовывоз.</li>        
+            </ul>
+            <p>Если вы заинтересованы в сотрудничестве и готовы предложить нам вашу продукцию, то вам необходимо заполнить Заявку ниже. </p>
+            <h2>Заявка для поставщиков и партнеров</h2>
+            
+            <div class="invert-form">
+                <form class="send-message big ajaxed" action="/applications/add/" method="POST" autocomplete="off" enctype="multipart/form-data" data-scroll_to_error="true">
+                    {php:$random=randomstring(10)}
+                    <fieldset>
+                    <input type="hidden" name="application_type" value="zakupki">
+                    <div class="item">
+                        <h2>Основные сведения</h2>
+                        <div class="row">
+                            <label class="title">Наименование организации</label>
+                            <input type="text" name="title" placeholder=""  autocomplete="{$random}" required="required" />
+                        </div>
+                        <div class="row">
+                            <label class="title">ИНН</label>
+                            <input type="text" name="inn" placeholder=""  autocomplete="{$random}" required="required" />
+                        </div>
+                        <div class="row">
+                            <label class="title">Юридический адрес</label>
+                            <input type="text" name="address" placeholder=""  autocomplete="{$random}" required="required" />
+                        </div>
+                        <div class="row">
+                            <label class="title">Фактическое местонахождение</label>
+                            <input type="text" name="place" placeholder=""  autocomplete="{$random}" required="required" />
+                        </div>
+                        <div class="row">
+                            <label class="title">Сайт компании</label>
+                            <input type="text" name="site" placeholder=""  autocomplete="{$random}" required="required" />
+                        </div>
+                    </div>
+                
+                    <div class="item">
+                        <h2>КОНТАКТНОЕ ЛИЦО</h2>
+                        <div class="row">
+                            <label class="title">ФИО</label>
+                            <input type="text" name="fio" placeholder=""  autocomplete="{$random}" required="required" />
+                        </div>
+                        <div class="row">
+                            <label class="title">Занимаемая должность</label>
+                            <input type="text" name="job" placeholder=""  autocomplete="{$random}" required="required" />
+                        </div>
+                        <div class="row">
+                            <label class="title">Контактный телефон</label>
+                            <input type="phone" name="phone" placeholder=""  autocomplete="{$random}" required="required" />
+                        </div>
+                        <div class="row">
+                            <label class="title">Адрес электронной почты</label>
+                            <input type="email" name="email" placeholder=""  autocomplete="{$random}" required="required" />
+                        </div>
+                        <div class="row">
+                            <label class="title">Дополнительные сведения</label>
+                            <textarea name="notes"></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="item">
+                        <h2>Варианты сотрудничества</h2>
+                        <div class="row">
+                            <label class="radio" for="cooperation_1">
+                                <input type="radio" name="cooperation" value="1" id="cooperation_1"> 
+                                Поставка материалов                            
+                            </label>
+                            <label class="radio" for="cooperation_2">
+                                <input type="radio" name="cooperation" value="2" id="cooperation_2"> 
+                                Работы и услуги                            
+                            </label>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <h2>Направление деятельности</h2>
+                        <div class="row full-width">
+                            <textarea name="activity" placeholder="Опишите направление деятельности вашей компании"></textarea>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <h2>Регионы осуществления поставок</h2>
+                        <div class="row full-width">
+                            <input type="text" placeholder="Перечислите регионы через запятую" name="regions"></textarea>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <h2>Уже работали с ГК «СПМК»?</h2>
+                        <div class="row">
+                            <label class="radio on" for="partnership_1">
+                                <input type="radio" name="partnership" value="1" checked="checked" id="partnership_1"> 
+                                Да                            
+                            </label>
+                            <label class="radio" for="partnership_2">
+                                <input type="radio" name="partnership" value="2" id="partnership_2"> 
+                                Нет                            
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="item">
+                        <h2>Коммерческое предложение</h2>
+                        <div class="row text">
+                            Коммерческие предложения Вы так же можете направлять на электронную почту Отдела.
+                            материально-технического снабжения <a href="mailto:snab@spmk.group">snab@spmk.group</a>, тел. +7 (800) 250-76-97 (доб.2)<br/>
+                            В коммерческом предложении просьба указывать: цену, условия и сроки поставки в г. Рязань, формы оплаты и контактную информацию.
+                            <div class="file-upload">      
+                                <input type="file" name="file_upload[]" id="file_upload-{$random}" class="inputfile-{$random}" data-multiple-caption="files selected" multiple="">
+                                <label for="file_upload-{$random}" class="button big main-color attach-file " data-icon="attach_file">
+                                    <strong class="br3 transition">Прикрепить файл</strong>
+                                </label>      
+                                <span class="text-overflow" data-icon="attach_file"></span> 
+                                <i class="close" data-icon="close"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row terms">                        
+                        <span class="text">Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c <a href="#modal-terms" class="modal-open-btn">политикой конфиденциальности</a></span>
+                    </div>
+                    <div class="row">
+                        <span class="button big">Отправить заявку</span>
+                    </div> 
+                    
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</section> 

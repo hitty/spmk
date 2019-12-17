@@ -267,6 +267,7 @@ switch(true){
     ////////////////////////////////////////////////////////////////////////////////////////////////////////    
     case $action == 'popup':
         Response::SetString( 'form_title', $application['form_title'] );
+        Response::SetString( 'button_title', $application['button_title'] ?? ''  );
         Response::SetString( 'form_text', $application['form_text'] );
         switch( true ){
             ///////////////////////////////////////////////////////////////

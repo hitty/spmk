@@ -266,6 +266,16 @@ jQuery(document).ready(function(){
         e.preventDefault();
         $('html, body').animate({scrollTop:0}, '300');
     });
+    
+    /* free gift banner */
+    var f_g = getspmkCookie( 'free_gift_banner' );    
+    if(  f_g === null ){
+        setTimeout( function(){
+            jQuery('.kmd-gift-button').click();
+            setspmkCookie( 'free_gift_banner', true, 60 );
+        }, 13000 )
+    }
+    
 })          
 function stickyActions( _el, _bound ) {
     if( _el > _bound ) jQuery('.sticky-actions').addClass('hidden');

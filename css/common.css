@@ -716,3 +716,94 @@ h1 + .navigation{
 .item{
     border-radius: 3px;
 }
+
+/* Kmd Free Form */
+.kmd-gift-button{
+    display: none;
+}
+.kmd-gift.modal {
+    width: 980px;
+    padding: 0;
+}
+
+.kmd-gift.modal .inner {
+    width: 100%;
+    display: flex;
+}
+
+.kmd-gift.modal .inner .tiser {
+    width: calc( 100% - 320px );
+    position: relative;
+    background-image: url('/img/free-kmd-bg.jpg');
+    background-size: cover;
+}
+
+.kmd-gift.modal .inner .tiser:before {
+    content: "";
+    position: absolute;
+    background: rgba(0,0,0,.68);
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.kmd-gift.modal .inner .tiser .title {
+    position: absolute;
+    color: var(--white);
+    font-size: 30px;
+    left: 40px;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.kmd-gift.modal .inner form {
+    width: 320px;
+    padding: 20px;
+    background: var(--main-color);
+}
+
+.kmd-gift.modal .inner form .annotation {
+    font-size: 16px;
+}
+
+.kmd-gift.modal .inner form .terms {
+    margin-top: 80px;
+}
+
+.kmd-gift.modal .inner form .terms .button {
+    padding: 0;
+    display: block;
+}
+
+@media(max-width: 1024px) {
+    .kmd-gift.modal {
+        width: calc( 100% - 40px );
+    }
+    .kmd-gift.modal .inner .tiser .title {
+        left: 20px;
+        right: 20px;
+        font-size: 26px;
+    }
+}
+
+@media(max-width: 767px) {
+    .kmd-gift.modal .inner {
+        display: block;
+    }
+    .kmd-gift.modal .inner .tiser {
+        width: 100%;
+        height: 200px;
+    }
+    .kmd-gift.modal .inner .tiser .title {
+        text-align: center;
+    }
+    .kmd-gift.modal .inner form {
+        width: 100%;
+    }
+    .kmd-gift.modal .inner form .terms {
+        margin-top: 40px;
+    }
+}

@@ -57,7 +57,8 @@ if($)(function(window, document, $, undefined){
                 
             o.button.on( 'click', function(e){
                 
-                if( jQuery(this).hasClass( 'disabled' )) return false;
+                if( jQuery(this).hasClass( 'disabled' ) || jQuery(this).hasClass( 'waiting' )) return false;
+                jQuery(this).addClass( 'waiting' );
                 
                 e.stopPropagation();
                 e.preventDefault();
@@ -75,7 +76,10 @@ if($)(function(window, document, $, undefined){
                     
                 }
                 o.f_values['popup_redirect'] = o.popup_redirect;
-                if( jQuery( '.error', init_selector ).length ) return false;
+                if( jQuery( '.error', init_selector ).length ) {
+                    jQuery(this).removeClass( 'waiting' );
+                    return false;
+                }
                 var _form = jQuery(this).closest('form');  
                 
                 _form.on('submit', function(e) {
@@ -101,7 +105,7 @@ if($)(function(window, document, $, undefined){
                                     init_selector.find( 'input, textarea' ).addClass('success');
                                     if( msg.success ) jQuery( '.button-container', init_selector ).html ( msg.success ).addClass( 'notifications success' );
 
-                                    if( jQuery( '.modal-inner .closebutton, .modal-inner .modal-close-btn' ).length > 0) {
+                                    if( jQuery( '.modal-inner .closebutton, .modal-inner .modal-close-btn' ).length > 0 && !_debug ) {
                                         setTimeout(function(){
                                             jQuery( '.modal-inner .closebutton, .modal-inner .modal-close-btn' ).click();
                                         }, typeof msg.html == 'string' && msg.html.length > 20 ? 5200 : 3500 );
@@ -110,9 +114,11 @@ if($)(function(window, document, $, undefined){
                                     if( typeof msg.html == 'string' && msg.html.length > 20 ) init_selector.parent( 'div' ).html(msg.html);
 
                                     if(o.popup_redirect == true || o.popup_redirect == 'true' || msg.popup_redirect == true){
-                                        setTimeout(function(){
-                                            window.location.href = msg.redirect_url ? msg.redirect_url : location.href.replace(location.hash, "");
-                                        }, typeof msg.html == 'string' && msg.html.length > 20 ? 500 : 1700 )
+                                        if( !_debug ){
+                                            setTimeout(function(){
+                                                window.location.href = msg.redirect_url ? msg.redirect_url : location.href.replace(location.hash, "");
+                                            }, typeof msg.html == 'string' && msg.html.length > 20 ? 500 : 1700 )
+                                        }
                                     } 
                                                               
                                 } else jQuery( '.modal-inner .closebutton, .modal-inner .modal-close-btn' ).click();
