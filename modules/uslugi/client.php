@@ -72,8 +72,9 @@ switch( true ){
         break;
 }
 //хлебные крошки
+/*
 $this_page->clearBreadcrumbs();
 $this_page->addBreadcrumbs( 'Услуги', 'uslugi' );
 if( !empty( $item ) ) $this_page->addBreadcrumbs( $item['title'], $item['chpu_title'] );
-
+*/
 ?>

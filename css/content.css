@@ -90,7 +90,7 @@
     text-align: center;
 }
 
-.content p,.content div,.content ul,.content ol {
+.content p,.content div,.content ul,.content ol,.content table {
     padding: 0;
     margin: 0 0 20px 0;
     font-size: 18px;
@@ -210,7 +210,7 @@
         margin: 20px auto
     }
 
-    .content p,.content div,.content ul,.content ol {
+    .content p,.content div,.content ul,.content ol,.content table {
         font-size: 18px;
         line-height: 28px
     }
@@ -251,7 +251,7 @@
         max-width: calc( 100% + 40px )
     }
 
-    .content p,.content div,.content ul,.content ol {
+    .content p,.content div,.content ul,.content ol,.content table {
         font-size: 16px;
         line-height: 24px;
         margin: 0 0 20px 0
@@ -317,7 +317,7 @@
 }
 
 @media (max-width: 536px) {
-    .content p,.content div,.content ul,.content ol {
+    .content p,.content div,.content ul,.content ol,.content table {
         font-size: 14px;
         line-height: 22px;
         margin: 0 0 15px 0;
@@ -359,3 +359,36 @@
         margin: 5px 0;
     }
 }
+
+/* price page */
+table.price {
+    border-spacing: 10px;  
+    width: 100%;
+}
+
+table.price thead {
+    background: var(--main-color);
+    color: var(--white);
+}
+
+table.price thead td {
+}
+
+table.price tr {
+    border-bottom: 1px solid var(--gray-light);
+}
+table.price tbody tr:nth-child(even){
+    background-color: var(--gray-light-bg);
+}
+table.price td {
+    padding: 10px;
+    width: 60%;
+}
+
+table.price td + td {
+    width: 40%;
+}
+.content table + table,
+.content table + p{
+    margin-top: 40px;
+},

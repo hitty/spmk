@@ -10,10 +10,10 @@
 @media (min-width: 481px) and (max-width: 767px) {
 }
 
-@media (max-width: 1640px) {
+@media (max-width: 1720px) {
     nav a,nav span {
         padding: 3px 10px;
-        font-size: 16px;
+        font-size: 15px;
         border-width: 2px;
     }
 
@@ -39,7 +39,7 @@
     }
 }
 
-@media (max-width: 1420px) {
+@media (max-width: 1500px) {
     .breadcrumbs {
         transform: translate(-50%, 44px);
     }
@@ -65,7 +65,7 @@
 @media (max-width: 1400px) {
     header nav .container {
         display: flex;
-        width: 470px;
+        width: 520px;
         justify-content: center;
         flex-wrap: wrap;
         margin-right: 130px;

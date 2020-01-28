@@ -612,3 +612,111 @@ h2 + .contacts .address {
         font-size: 14px;
     }
 }
+
+/* applications-block */
+.applications-block{
+    width: 38%;
+    color: var(--white);
+    padding: 40px 20px;
+    -webkit-box-shadow: 0px 0px 10px rgba(0,0,0,.25);
+    box-shadow: 0px 0px 10px rgba(0,0,0,.25);
+    font-size: 18px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: column;
+    flex-flow: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.applications-block .blured {
+    z-index: 0;
+    background-image: url(/img/appliction-hero-bg-sm.jpg);
+    cursor: default;
+    -webkit-filter: blur(4px);
+    filter: blur(4px);
+    top: -20px;
+    right: -20px;
+    bottom: -20px;
+    left: -20px;
+}
+
+.applications-block div {
+    margin-bottom: 20px;
+}
+
+.applications-block div,
+.applications-block .button {
+    position: relative;
+    z-index: 10;
+}
+
+.applications-block span + div {
+    margin-top: 60px;
+}
+
+.applications-block.full-width,
+.applications-block .flex {
+    width: 100%;
+    align-items: baseline;
+}
+
+.applications-block.full-width .block {
+    width: 50%;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+@media(max-width: 1024px) {
+    .applications-block {
+        padding: 30px 15px;
+        font-size: 16px;
+        width: 48%;
+    }
+
+    .applications-block div {
+        margin-bottom: 15px;
+    }
+
+    .applications-block span + div {
+        margin-top: 50px;
+    }
+}
+
+@media(max-width: 767px) {
+    .applications-block {
+        width: auto;
+        margin: 20px -10px;
+    }
+
+    .applications-block div {
+        margin-bottom: 10px;
+    }
+
+    .applications-block span + div {
+        margin-top: 30px;
+    }
+    .applications-block .flex{
+        display: block;
+        padding: 20px 0;
+    }
+    .applications-block.full-width{
+        width: auto;
+    }
+    .applications-block.full-width .block{
+        width: 100%;
+    }
+    .applications-block.full-width .block + .block{
+        margin-top: 30px;
+    }
+}

@@ -1,4 +1,13 @@
-.modal-container {
+.modal-active {
+    overflow: hidden;
+}
+body.modal-active{
+    margin-right:0!important;
+}
+html.modal-active{
+    margin-right: 17px;
+}
+.modal-container{
     position: fixed;
     top: 0;
     left: 0;
@@ -11,12 +20,10 @@
     transform: translateZ(0);
     -webkit-tap-highlight-color: transparent;
 }
-
 .modal-container-opened {
     overflow: hidden;
 }
-
-.modal-bg {
+.modal-bg{
     position: absolute;
     top: 0;
     right: 0;
@@ -35,18 +42,17 @@
     -webkit-transition-timing-function: cubic-bezier(.22,.61,.36,1);
     -o-transition-timing-function: cubic-bezier(.22,.61,.36,1);
     transition-timing-function: cubic-bezier(.22,.61,.36,1);
-    opacity: .6;
-    background: #000;
+    opacity: .8;
+    background: #000;           
 }
-
-.modal-stage,.modal-inner {
+.modal-stage,
+.modal-inner{
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
 }
-
 .modal-stage {
     overflow: hidden;
     direction: ltr;
