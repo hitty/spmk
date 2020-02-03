@@ -114,10 +114,14 @@
     display: none;
     
 }
+.content h2{
+    font-size: 28px;
+}
 .content ol li,
 .content ul li {
     padding-left: 30px;
     margin: 15px 0;
+    position: relative;
 }
 
 .content ol li::before,.content ul li:before {
@@ -138,6 +142,7 @@
     color: var(--main-color);
     transform: translate(0);
     margin-right: 15px;
+    left: 0;
 }
 
 .content blockquote {
@@ -282,9 +287,11 @@
     }
 
     .content h2,.content h3,.content h4 {
-        font-size: 22px
+        font-size: 19px
     }
-
+    .content h2{
+        font-size: 22px;
+    }
     .content-item .left-part {
         width: 100%
     }

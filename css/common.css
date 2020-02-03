@@ -777,6 +777,12 @@ h1 + .navigation{
     padding: 0;
     display: block;
 }
+.text-color{
+    color: var(--text);
+}
+.no-border{
+    border: none;
+}
 
 @media(max-width: 1024px) {
     .kmd-gift.modal {

@@ -154,6 +154,7 @@ switch(true){
                     'region' => !empty( $parameters['region'] ) ? $parameters['region'] : '',
                     'user_comment' => !empty( $parameters['comment'] ) ? $parameters['comment'] : '',
                     'date' => !empty( $parameters['date'] ) ? $parameters['date'] : '',
+                    'application_type' => !empty( $parameters['application_type'] ) ?? '',
                     'files' => !empty( $files ) ? $files : '',
                     'ip' => $ip,
                     'ref' => !empty( Host::getRefererURL() ) ? Host::getRefererURL() : '',

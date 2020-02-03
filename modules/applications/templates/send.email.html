@@ -61,6 +61,11 @@
                 Комментарий: <strong>{$data['user_comment']}</strong>
             </span>
             {/if}
+            {if!empty $data['application_type']}
+            <span style="display: block; text-align: left; margin-top: 20px; font-size: 12px">
+                Тип заявки: <strong>{$data['application_type']}</strong>
+            </span>
+            {/if}
         {/if}
         {if!empty $data['files']}
             <span style="display: block; text-align: left; margin-top: 20px;">

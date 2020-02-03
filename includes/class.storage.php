@@ -183,7 +183,7 @@ class Cookie {
         $line = null;
         if( is_array( $value ) ) {
             $value = serialize( $value );
-            if(!get_magic_quotes_gpc()) $value = addslashes($value);
+            $value = addslashes($value);
         } else {       
             $value = Convert::ToString( $value );
         }
