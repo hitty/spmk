@@ -5,6 +5,9 @@
         <h2 class="invert">{if!empty $form_title}{$form_title}{else}Оставить заявку{/if}</h2>
         {if!empty $form_text}<div class="annotation">{$form_text}</div>{/if}
         
+            {if!empty $get_parameters}
+                {loop $get_parameters,$p,$parameter}<input type="hidden" name="{$p}" value="{$parameter}">{/loop $get_parameters}
+            {/if}
         {if!empty $application_type}<input type="hidden" name="application_type" value="{$application_type}">{/if}
         {if!empty $application_type_id}<input type="hidden" name="application_type_id" value="{$application_type_id}">{/if}
         {php:$random=randomstring(10)}
@@ -12,7 +15,7 @@
             <input type="text" name="name" placeholder="Ваше имя *" required="required" autocomplete="{$random}">
         </div>
         <div class="row">
-            <input type="phone" name="phone" placeholder="Ваш телефон" maxlength="17" autocomplete="{$random}">
+            <input type="phone" name="phone" placeholder="Ваш телефон *" required="required"  maxlength="17" autocomplete="{$random}">
         </div>
         <div class="row">
             <input type="email" name="email" placeholder="Ваш email*" required="required" autocomplete="{$random}">

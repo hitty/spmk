@@ -1,6 +1,7 @@
 <?php
 $GLOBALS['js_set'][] = '/modules/news/js/script.js';
 
+$get_parameters = Request::GetParameters( METHOD_GET );
 $post_parameters = Request::GetParameters( METHOD_POST );
 Response::SetArray( 'parameters', $post_parameters );
 
@@ -14,7 +15,8 @@ switch( true ){
         // блок
         ////////////////////////////////////////////////////////////////////////////////////////////////////////
         case $action == 'block':
-            $list = CommonDb::getList( 'news', false, $sys_tables['news'] . '.published = 1', 'date DESC', 'id' );
+            $count = !empty( $get_parameters['count'] ) ? $get_parameters['count'] : 30;
+            $list = CommonDb::getList( 'news', '0,' . $count, $sys_tables['news'] . '.published = 1', 'date DESC', 'id' );
             Response::SetArray( 'list', $list );
             $module_template = 'block.html';
             if( $ajax_mode ) $ajax_result['ok'] = true;
@@ -39,7 +41,7 @@ switch( true ){
             $description =  !empty( $item['seo_description'] ) ? $item['seo_description'] : ( empty( $this_page->page_seo_description ) ? $item['content_short'] : $this_page->page_seo_description );
             $this_page->manageMetadata(
                 array(
-                    'title' => !empty( $item['seo_title'] ) ? $item['seo_title'] : ( empty( $this_page->page_seo_title ) ? $item['title'] . ' - продукция завода «Конструктив»' : $this_page->page_seo_title ),
+                    'title' => !empty( $item['seo_title'] ) ? $item['seo_title'] : ( empty( $this_page->page_seo_title ) ? $item['title']  : $this_page->page_seo_title ),
                     'description' =>  $description ,
                 ), true
             );

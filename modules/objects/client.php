@@ -34,7 +34,6 @@ switch( true ){
             $module_template = 'block.html';
             if( $ajax_mode ) $ajax_result['ok'] = true;
             $get_parameters = Request::GetParameters( METHOD_GET );
-            if( !empty( $get_parameters['v'] ) && $get_parameters['v'] == '2' ) Response::SetBoolean( 'ab', true );
             break;
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -54,7 +53,7 @@ switch( true ){
             $description =  !empty( $item['seo_description'] ) ? $item['seo_description'] : ( empty( $this_page->page_seo_description ) ? $item['content_short'] : $this_page->page_seo_description );
             $this_page->manageMetadata(
                 array(
-                    'title' => !empty( $item['seo_title'] ) ? $item['seo_title'] : ( empty( $this_page->page_seo_title ) ? $item['title'] . ' - продукция завода «Конструктив»' : $this_page->page_seo_title ),
+                    'title' => !empty( $item['seo_title'] ) ? $item['seo_title'] : ( empty( $this_page->page_seo_title ) ? $item['title']  : $this_page->page_seo_title ),
                     'description' =>  $description ,
                 ), true
             );
@@ -85,7 +84,7 @@ switch( true ){
     case empty( $action ):
         $GLOBALS['css_set'][] = '/css/objects.css';
         if( $this_page->first_instance ){
-            $types = CommonDb::getList( 'objects_types' );
+            $types = CommonDb::getList( 'objects_types', false, $sys_tables['objects_types'] . ".id NOT IN (4,6) " );
             Response::SetArray( 'types', $types );
         }
         $parameters = Request::GetParameters();
@@ -93,6 +92,15 @@ switch( true ){
         $conditions = [];
         $conditions[] = $sys_tables['objects'] . '.published = 1';
 
+        Response::SetString( 'service', '' );
+        if( !empty( $parameters['service'] ) ) {
+            if( in_array( $parameters['service'], ['proektirovanie','izgotovlenie','dostavka','montazh','podkluch']) ) {
+                Response::SetString( 'service', $parameters['service'] );
+                $conditions['service'] = $sys_tables['objects']. '.' . $parameters['service'] . ' = 1';
+            }
+            else Host::Redirect( '/objekty/');
+            
+        }
         if( !empty( $parameters['type'] ) ) {
             $type = CommonDb::getItem( 'objects_types', $sys_tables['objects_types'] . '.id = ' . $db->real_escape_string( $parameters['type'] ));
             if( empty( $type ) ) Host::Redirect( '/objekty/' );
@@ -108,7 +116,7 @@ switch( true ){
         } else Response::SetInteger( 'type', 0 );
         
         
-        $list = CommonDb::getList( 'objects', false, implode( " AND ", $conditions ) , 'position DESC', 'id' );
+        $list = CommonDb::getList( 'objects', false, implode( " AND ", $conditions ) , 'id DESC', 'id' );
         foreach( $list as $k => $item ) $list[$k]['photos'] = Photos::getList( 'objects', $item['id'], 5 );
         Response::SetArray( 'list', $list );
         $module_template = 'list.html';

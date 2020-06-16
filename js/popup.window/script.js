@@ -16,7 +16,7 @@ if($)(function(window, document, $, undefined){
         
         /* функция стартовой инициализации */
         var start = function(){
-            o.button = jQuery( 'button, span.button', init_selector);
+            o.button = jQuery( 'input[type=submit], button, .button', init_selector);
             
             grecaptcha.ready(function () {
                 var _input = $('input[name=recaptcha_response]', init_selector);
@@ -54,11 +54,9 @@ if($)(function(window, document, $, undefined){
                 
             } ) ;
 
-                
-            o.button.on( 'click', function(e){
-                
-                if( jQuery(this).hasClass( 'disabled' ) || jQuery(this).hasClass( 'waiting' )) return false;
-                jQuery(this).addClass( 'waiting' );
+            init_selector.on('submit', function(e) {
+                if( jQuery( o.button, jQuery(this) ).hasClass( 'disabled' ) || jQuery( o.button, jQuery(this) ).hasClass( 'waiting' )) return false;
+                jQuery( o.button, jQuery(this) ).addClass( 'waiting' );
                 
                 e.stopPropagation();
                 e.preventDefault();
@@ -80,68 +78,64 @@ if($)(function(window, document, $, undefined){
                     jQuery(this).removeClass( 'waiting' );
                     return false;
                 }
-                var _form = jQuery(this).closest('form');  
-                
-                _form.on('submit', function(e) {
-                    
-                    jQuery.ajax({
-                        type: "POST", 
-                        async: true,
-                        contentType: false,
-                        processData:false, 
-                        dataType: 'json', 
-                        url: init_selector.attr('action'),
-                        data: new FormData( this ),
-                        cache: false,
-                        success: function(msg){ 
-                            var _error_notification = jQuery( '.' + o.notification_class.split(' ').join('.'), init_selector );
-                            o.button.removeClass( 'waiting' );
-                            if( msg.ok == true ) {
-                                counterGoals( 'send_' + o.f_values['application_type'] )
-                                if(typeof o.onFormSuccess == "function") o.onFormSuccess.call(this, msg);
-                                //вывод уведомления
-                                if( typeof msg.html == 'string' || typeof msg.html_additional == 'string' ) {
-                                    _error_notification.remove();
-                                    init_selector.find( 'input, textarea' ).addClass('success');
-                                    if( msg.success ) jQuery( '.button-container', init_selector ).html ( msg.success ).addClass( 'notifications success' );
+                jQuery.ajax({
+                    type: "POST", 
+                    async: true,
+                    contentType: false,
+                    processData:false, 
+                    dataType: 'json', 
+                    url: init_selector.attr('action'),
+                    data: new FormData( this ),
+                    cache: false,
+                    success: function(msg){ 
+                        var _error_notification = jQuery( '.' + o.notification_class.split(' ').join('.'), init_selector );
+                        o.button.removeClass( 'waiting' );
+                        if( msg.ok == true ) {
+                            counterGoals( 'send_' + o.f_values['application_type'] )
+                            if(typeof o.onFormSuccess == "function") o.onFormSuccess.call(this, msg);
+                            //вывод уведомления
+                            if( typeof msg.html == 'string' || typeof msg.html_additional == 'string' ) {
+                                _error_notification.remove();
+                                init_selector.find( 'input, textarea' ).addClass('success');
+                                if( msg.success ) jQuery( '.button-container', init_selector ).html ( msg.success ).addClass( 'notifications success' );
 
-                                    if( jQuery( '.modal-inner .closebutton, .modal-inner .modal-close-btn' ).length > 0 && !_debug ) {
-                                        setTimeout(function(){
-                                            jQuery( '.modal-inner .closebutton, .modal-inner .modal-close-btn' ).click();
-                                        }, typeof msg.html == 'string' && msg.html.length > 20 ? 5200 : 3500 );
-                                    }
-
-                                    if( typeof msg.html == 'string' && msg.html.length > 20 ) init_selector.parent( 'div' ).html(msg.html);
-
-                                    if(o.popup_redirect == true || o.popup_redirect == 'true' || msg.popup_redirect == true){
-                                        if( !_debug ){
-                                            setTimeout(function(){
-                                                window.location.href = msg.redirect_url ? msg.redirect_url : location.href.replace(location.hash, "");
-                                            }, typeof msg.html == 'string' && msg.html.length > 20 ? 500 : 1700 )
-                                        }
-                                    } 
-                                                              
-                                } else jQuery( '.modal-inner .closebutton, .modal-inner .modal-close-btn' ).click();
-                                    if( jQuery( '.result-html', init_selector ).length > 0 && msg.success_text.length > 0 ) {
-                                        jQuery( '.result-html', init_selector ).html( msg.success_text ).addClass( 'success' );
-                                        jQuery( 'input,textarea,.list-selector', init_selector ).attr('disabled', 'disabled').addClass('disabled');
-                                    }
-
-                            } else if( msg.error ||  msg.errors )  {
-                                if( _error_notification.length > 0 ) _error_notification.html( msg.error ).addClass('active');
-                                else jQuery( '<div class="' + o.notification_class + '">' + msg.error + '</div>' ).insertBefore( jQuery('.form-block', init_selector ).first() ) ;
-                                if( msg.errors ){
-                                    for(var index in msg.errors) { 
-                                        notification( jQuery( '[name=' + index + ']', init_selector ),  true, msg.error != msg.errors[index] ? '<span class="error">' + msg.errors[index] + '</span>' : '' )
-                                    }
+                                if( jQuery( '.modal-inner .closebutton, .modal-inner .modal-close-btn' ).length > 0 && !_debug ) {
+                                    setTimeout(function(){
+                                        jQuery( '.modal-inner .closebutton, .modal-inner .modal-close-btn' ).click();
+                                    }, typeof msg.html == 'string' && msg.html.length > 20 ? 5200 : 3500 );
                                 }
-                            } 
-                        }
-                    })    
-                    return false;                    
-                })         
-                _form.submit(); 
-            })
+
+                                if( typeof msg.html == 'string' && msg.html.length > 20 ) init_selector.parent( 'div' ).html(msg.html);
+
+                                if(o.popup_redirect == true || o.popup_redirect == 'true' || msg.popup_redirect == true){
+                                    if( !_debug ){
+                                        setTimeout(function(){
+                                            window.location.href = msg.redirect_url ? msg.redirect_url : location.href.replace(location.hash, "");
+                                        }, typeof msg.html == 'string' && msg.html.length > 20 ? 500 : 1700 )
+                                    }
+                                } 
+                                                          
+                            } else jQuery( '.modal-inner .closebutton, .modal-inner .modal-close-btn' ).click();
+                                if( jQuery( '.result-html', init_selector ).length > 0 && msg.success_text.length > 0 ) {
+                                    jQuery( '.result-html', init_selector ).html( msg.success_text ).addClass( 'success' );
+                                    jQuery( 'input,textarea,.list-selector', init_selector ).attr('disabled', 'disabled').addClass('disabled');
+                                }
+
+                        } else if( msg.error ||  msg.errors )  {
+                            if( _error_notification.length > 0 ) _error_notification.html( msg.error ).addClass('active');
+                            else jQuery( '<div class="' + o.notification_class + '">' + msg.error + '</div>' ).insertBefore( jQuery('.form-block', init_selector ).first() ) ;
+                            if( msg.errors ){
+                                for(var index in msg.errors) { 
+                                    notification( jQuery( '[name=' + index + ']', init_selector ),  true, msg.error != msg.errors[index] ? '<span class="error">' + msg.errors[index] + '</span>' : '' )
+                                }
+                            }
+                        } 
+                    }
+                })    
+                return false;                    
+            })         
+                
+            
             if(typeof o.onInit == "function"){
                 o.onInit();
             }    
@@ -328,7 +322,6 @@ if($)(function(window, document, $, undefined){
                 //эффект появления заднего фона
                 $( o.background_container ).fadeIn(100);
                     
-                return false;  
             });
             //закрытие формы
             $(document).on("click", o.close_container + ', ' + o.inner_container + ' ' + o.closebutton, closePopupWindow );

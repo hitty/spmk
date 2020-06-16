@@ -67,7 +67,7 @@ function getPending(_url, _params, _func_on_success, _func_on_error){
         });
 }
 /* cookie functions */
-function setspmkCookie(name, value, expiredays, path, domain, secure){
+function setSpmkCookie(name, value, expiredays, path, domain, secure){
     var cookie_string = name+"="+escape(value);
     if(expiredays){
         var exdate=new Date();
@@ -79,7 +79,7 @@ function setspmkCookie(name, value, expiredays, path, domain, secure){
     if(secure) cookie_string += "; secure";
     document.cookie = cookie_string;
 }
-function getspmkCookie(name){
+function getSpmkCookie(name){
     var cookie=" "+document.cookie;
     var search=" "+name+"=";
     var setStr=null;
@@ -178,59 +178,48 @@ jQuery(document).ready(function(){
     
     $('.carousel').each( function(){
         _this = jQuery(this);
-        if( _this.hasClass('flicky') || _this.closest('section').hasClass('flicky') ){
-            $(this).carousel({
-                freeScroll: !0,
-                contain: !0,
-                pageDots: !1,
-                cellAlign: 'left',
-                prevNextButtons: true,
-                autoPlay: 2200,
-                wrapAround: true
-            })    
-        } else {
-            $(this).carousel({
-                pageDots: false,
-                draggable: true,
-                wrapAround: true,
-                slidesToShow: _this.data('count-1280') > 0 ? _this.data('count-1280') : 1,
-                slidesToScroll: _this.data('count-1280') > 0 ? _this.data('count-1280') : 1,
-                responsive: [
-                    {
-                      breakpoint: 1280,
-                      settings: {
-                        slidesToShow: _this.data('count-1280') > 0 ? _this.data('count-1280') : 1,
-                        slidesToScroll: _this.data('count-1280') > 0 ? _this.data('count-1280') : 1,
-                        infinite: true,
-                        dots: true
-                      }
-                    },
-                    {
-                      breakpoint: 1024,
-                      settings: {
-                        slidesToShow: _this.data('count-1024') > 0 ? _this.data('count-1024') : 1,
-                        slidesToScroll: _this.data('count-1024') > 0 ? _this.data('count-1024') : 1,
-                        infinite: true,
-                        dots: true
-                      }
-                    },
-                    {
-                      breakpoint: 768,
-                      settings: {
-                        slidesToShow: _this.data('count-768') > 0 ? _this.data('count-768') : 1,
-                        slidesToScroll: _this.data('count-768') > 0 ? _this.data('count-768') : 1
-                      }
-                    },
-                    {
-                      breakpoint: 480,
-                      settings: {
-                        slidesToShow: _this.data('count-480') > 0 ? _this.data('count-480') : 1,
-                        slidesToScroll: _this.data('count-480') > 0 ? _this.data('count-480') : 1
-                      }
-                    }
-                ]  
-            });
-        }
+
+        $(this).slick({
+            pageDots: false,
+            draggable: true,
+            wrapAround: true,
+            slidesToShow: _this.data('count-1280') > 0 ? _this.data('count-1280') : 1,
+            slidesToScroll: _this.data('count-1280') > 0 ? _this.data('count-1280') : 1,
+            responsive: [
+                {
+                  breakpoint: 1280,
+                  settings: {
+                    slidesToShow: _this.data('count-1280') > 0 ? _this.data('count-1280') : 1,
+                    slidesToScroll: _this.data('count-1280') > 0 ? _this.data('count-1280') : 1,
+                    infinite: true,
+                    pageDots: false,
+                  }
+                },
+                {
+                  breakpoint: 1024,
+                  settings: {
+                    slidesToShow: _this.data('count-1024') > 0 ? _this.data('count-1024') : 1,
+                    slidesToScroll: _this.data('count-1024') > 0 ? _this.data('count-1024') : 1,
+                    infinite: true,
+                    pageDots: false,
+                  }
+                },
+                {
+                  breakpoint: 768,
+                  settings: {
+                    slidesToShow: _this.data('count-768') > 0 ? _this.data('count-768') : 1,
+                    slidesToScroll: _this.data('count-768') > 0 ? _this.data('count-768') : 1
+                  }
+                },
+                {
+                  breakpoint: 480,
+                  settings: {
+                    slidesToShow: _this.data('count-480') > 0 ? _this.data('count-480') : 1,
+                    slidesToScroll: _this.data('count-480') > 0 ? _this.data('count-480') : 1
+                  }
+                }
+            ]  
+        });
     })                    
     
     if( jQuery('.sticky-actions').length ){
@@ -267,15 +256,15 @@ jQuery(document).ready(function(){
         $('html, body').animate({scrollTop:0}, '300');
     });
     
-    /* free gift banner 
-    var f_g = getspmkCookie( 'free_gift_banner' );    
-    if(  f_g === null ){
+    /* free gift banner */
+    var f_g = getSpmkCookie( 'new_buildings_banner' );    
+    if(  f_g === null && jQuery('.new-buildings-button').length > 0 ){
         setTimeout( function(){
-            jQuery('.kmd-gift-button').click();
-            setspmkCookie( 'free_gift_banner', true, 60 );
-        }, 13000 )
+            jQuery('.new-buildings-button').click();
+            setSpmkCookie( 'new_buildings_banner', true, 60 );
+        }, 1300 )
     }
-    */
+    
 })          
 function stickyActions( _el, _bound ) {
     if( _el > _bound ) jQuery('.sticky-actions').addClass('hidden');

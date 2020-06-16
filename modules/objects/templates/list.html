@@ -8,11 +8,31 @@
      <div class="search inner">
         
         <ul class="services">
-            <li class="project">Проектирование</li>
-            <li class="production">Изготовление</li>
-            <li class="delivery">Доставка</li>
-            <li class="crane">Монтаж</li>
-            <li class="key">«Под ключ»</li>
+            <li>
+                {ifempty $service}<span>Все</span>
+                {else}<a href="/objekty/">Все</a>
+                {/if}
+            </li>
+            <li class="project">
+                {ifeq $service,'proektirovanie'}<span>Разработка КМД</span>
+                {else}<a href="/objekty/?service=proektirovanie">Разработка КМД</a>
+                {/if}
+            </li>
+            <li class="production">
+                {ifeq $service,'izgotovlenie'}<span>Изготовление</span>
+                {else}<a href="/objekty/?service=izgotovlenie">Изготовление</a>
+                {/if}
+            </li>
+            <li class="delivery">
+                {ifeq $service,'dostavka'}<span>Доставка</span>
+                {else}<a href="/objekty/?service=dostavka">Доставка</a>
+                {/if}
+            </li>
+            <li class="crane">
+                {ifeq $service,'montazh'}<span>Монтаж</span>
+                {else}<a href="/objekty/?service=montazh">Монтаж</a>
+                {/if}
+            </li>
         </ul>
         
         <div class="list-selector" id="types-selector" data-url="/objekty/">
@@ -54,11 +74,10 @@
                     <span class="place icon" data-icon="placeholder">{$item['place']}</span>
                     <span class="weight icon">{$item['object_weight']} т</span>
                     <ul class="services">
-                        <li class="project{ifeq $item['proektirovanie'],2} inactive{/if}" data-content="Проектирование"></li>
+                        <li class="project{ifeq $item['proektirovanie'],2} inactive{/if}" data-content="Разработка КМД"></li>
                         <li class="production{ifeq $item['izgotovlenie'],2} inactive{/if}" data-content="Изготовление"></li>
                         <li class="delivery{ifeq $item['dostavka'],2} inactive{/if}" data-content="Доставка"></li>
                         <li class="crane{ifeq $item['montazh'],2} inactive{/if}" data-content="Монтаж"></li>
-                        <li class="key{ifeq $item['podkluch'],2} inactive{/if}" data-content="«Под ключ»"></li>
                     </ul>
                 </div>
                 <span class="details" data-icon="arrow_right_alt">Детали объекта</span>

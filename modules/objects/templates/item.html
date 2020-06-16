@@ -17,11 +17,10 @@
                             <div class="item">
                                 <span class="title">Выполненные работы:</span>
                                 <ul class="services">
-                                    <li class="project{ifeq $item['proektirovanie'],2} inactive{/if}">Проектирование</li>
+                                    <li class="project{ifeq $item['proektirovanie'],2} inactive{/if}">Разработка КМД</li>
                                     <li class="production{ifeq $item['izgotovlenie'],2} inactive{/if}">Изготовление</li>
                                     <li class="delivery{ifeq $item['dostavka'],2} inactive{/if}">Доставка</li>
                                     <li class="crane{ifeq $item['montazh'],2} inactive{/if}">Монтаж</li>
-                                    <li class="key{ifeq $item['podkluch'],2} inactive{/if}">«Под ключ»</li>
                                 </ul>
                             </div>
                         </div>
@@ -32,12 +31,9 @@
                         <h2>Описание проекта</h2>
                         {$item['content']}
                     </div>
-                    <!--div class="company">
-                        <h2>Заказчик</h2>
-                        <img src="/img/object-company.png" alt="" />
-                        <span>Агропромышленный холдинг «Мираторг»</span>
-                    </div-->
                 </div>
+                <span class="send popup button main-color " data-url="/applications/popup/?application_type=ask_question_objekty&source=Объекты&title={$item['title']}" data-goal="ask_question_objekty">Задать вопрос</span>
+                <span class="send popup button main-color" data-url="/applications/popup/?application_type=inner_raschet_objekty&source=Объекты&title={$item['title']}" data-goal="inner_raschet_objekty">Получить расчет</span>
                 {include /templates/gallery.html}
                 
                 {include /templates/includes/schema.html}
@@ -46,7 +42,7 @@
 </section> 
 <section class="content-list similar">
     <div class="inner">
-        <h2>Похожие объекты</h2>
+        <h2>Другие объекты</h2>
         {block objekty/block/similar/{$item['id']}}
     </div>
 </section>

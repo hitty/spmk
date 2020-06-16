@@ -1,6 +1,23 @@
-.search #types-selector{
+.search {
+    margin: 40px auto;
+    min-height: 40px;
+    background: var(--gray-light);
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    border-radius: 3px;
+}
+
+@media(max-width: 767.98px) {
+    .search {
+        display: block;
+    }
+}
+
+.search #types-selector {
     width: 310px;
 }
+
 .search .services {
     position: relative;
     left: auto;
@@ -21,9 +38,14 @@
     margin-right: 15px;
 }
 
-.search .services li:before{
+.search .services li:first-of-type {
+    padding-left: 0;
+}
+
+.search .services li:before {
     display: none;
 }
+
 @media (max-width: 1280px) {
 }
 
@@ -43,10 +65,15 @@
 }
 
 @media (max-width: 767px) {
+    .search #types-selector {
+        margin: 50px 0 0 0;
+    }
+
     .search .services {
         width: 100%;
         flex-wrap: wrap;
         height: auto;
+        justify-content: flex-start;
     }
 
     .search .services li {
@@ -63,4 +90,23 @@
         justify-content: flex-start;
         text-align: left;
     }
+}
+
+.search .services,#types-selector {
+    position: relative;
+    margin-top: 30px;
+}
+
+.search .services:before,#types-selector:before {
+    content: "Выберите услугу:";
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: -30px;
+}
+
+#types-selector:before {
+    content: "Выберите назначение:";
 }

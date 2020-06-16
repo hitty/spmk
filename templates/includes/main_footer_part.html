@@ -2,7 +2,7 @@
 <footer >
     <div class="inner">
         <a href="/" class="logo">
-            <img src="/img/logo-big.svg" alt="" />
+            <img src="/img/logo.svg" alt="" />
         </a>
         
         <div class="menu flex">
@@ -67,12 +67,12 @@
 </footer>
 {ifempty $no_sticky_actions}
 <ul class="sticky-actions" id="sticky-actions">
-    <li class="excursion popup main" data-url="/applications/popup/?application_type=excursion_sticky">Записаться на экскурсию</li>
-    <li class="raschet popup" data-url="/applications/popup/?application_type=raschet_sticky">Получить расчет</li>
-    <li class="price popup" data-url="/applications/popup/?application_type=price_sticky">Запросить прайс</li>
-    <li class="call popup" data-url="/applications/popup/?application_type=order_call_sticky">Заказать звонок</li>
-    <li class="ask-question popup" data-url="/applications/popup/?application_type=ask_question_sticky">Задать вопрос</li>
-    <li class="application popup"  data-url="/applications/popup/?application_type=application_sticky">Оставить заявку</li>
+    <li class="excursion popup main" data-goal="click_excursion_sticky" data-url="/applications/popup/?application_type=excursion_sticky">Записаться на экскурсию</li>
+    <li class="raschet popup"  data-goal="click_raschet_sticky" data-url="/applications/popup/?application_type=raschet_sticky">Получить расчет</li>
+    <!--li class="price popup"  data-goal="click_price_sticky" data-url="/applications/popup/?application_type=price_sticky">Запросить прайс</li-->
+    <li class="call popup"  data-goal="click_order_call_sticky" data-url="/applications/popup/?application_type=order_call_sticky">Заказать звонок</li>
+    <li class="ask-question popup"  data-goal="click_ask_question_sticky" data-url="/applications/popup/?application_type=ask_question_sticky">Задать вопрос</li>
+    <li class="application popup"   data-goal="click_application_sticky" data-url="/applications/popup/?application_type=application_sticky">Оставить заявку</li>
 </ul>
 {/if}
 <div class="search-form-container transition">
@@ -91,6 +91,9 @@
 
 
 <!--span class="kmd-gift-button popup"  data-url="/applications/popup/?application_type=kmd_gift">КМД в подарок</span-->
+{if!empty $new_buildings_banner}
+    <span class="new-buildings-button popup"  data-url="/applications/popup/?application_type=new_buildings">КМД в подарок</span>
+{/if}
 
 {ifempty $debug}
     <script>{$js_content}</script>
@@ -101,14 +104,12 @@
 
 <script>
     function counterGoals( _a ) {
-        try{ yaCounter54690451.reachGoal(_a); console.log( 'yandex: ' + _a ); }catch(err){ }
-        
+        try{ ym(54690451,'reachGoal',_a); console.log( 'yandex: ' + _a ); }catch(err){ }
         try{ gtag('event', _a); console.log( 'google:' + _a ); }catch(err){ }
         
     }
     document.body.addEventListener('click', function(e){
         if( typeof e.target.getAttribute('data-goal') == 'string' ){
-            console.log( e.target.getAttribute('data-goal') );
             counterGoals( e.target.getAttribute('data-goal') );
         }
     });
@@ -119,7 +120,7 @@
        disable: 'mobile'
     });
 </script>
-{/literal}
+{/literal}    
 <a href="#" class="to-top-btn transition br3" data-icon="arrow_upward">
 </a>
 

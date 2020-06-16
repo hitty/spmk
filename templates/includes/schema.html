@@ -12,12 +12,14 @@
     <meta itemprop="name" content="ГК СПМК">
 </div> 
 
-<meta itemprop="author" content="СПМК">
-<meta itemscope itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" itemid="{$current_page['full_host']}{$meta_canonical}"/>
-<span itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
-    <img itemprop="image url" alt="" width="1280" height="960" src="{static:/}/img/uploads/big/{$item['subfolder']}/{$item['photo']}" style="display: none;"/>
+    {if!empty $item['subfolder']}
+    <meta itemprop="author" content="СПМК">
+    <meta itemscope itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" itemid="{$current_page['full_host']}{$meta_canonical}"/>
+    <span itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+    <img itemprop="image url" alt="" width="1280" height="960" src="/img/uploads/big/{$item['subfolder']}/{$item['photo']}" style="display: none;"/>
     <meta itemprop="width" content="1280">
     <meta itemprop="height" content="960">
+    {/if}
 </span>
 
 {if!empty $item['datetime']}

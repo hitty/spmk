@@ -4,18 +4,20 @@
         <div class="tiser">
             <span class="title">{$form_title}</span>
         </div>
-        <form class="send-message ajaxed" action="/applications/add/" method="POST" autocomplete="off" enctype="multipart/form-data">
+        <form class="send-message ajaxed" action="/applications/add/" method="POST" id="application-form" autocomplete="off" enctype="multipart/form-data">
             <input type="hidden" name="recaptcha_response" data-public="{php:echo Config::Get('recaptcha/public')}">
             
             {if!empty $form_text}<div class="annotation">{$form_text}</div>{/if}
-            {if!empty $application_type}<input type="hidden" name="application_type" value="{$application_type}">{/if}
+            {if!empty $get_parameters}
+                {loop $get_parameters,$p,$parameter}<input type="hidden" name="{$p}" value="{$parameter}">{/loop $get_parameters}
+            {/if}
             {php:$random=randomstring(10)}
             <div class="row">
                 <input type="phone" name="phone" placeholder="Ваш телефон *" required="required" maxlength="17" autocomplete="{$random}">
             </div>
             
             <div class="row terms">                        
-                <span class="button big">{ifempty $button_title}Отправить{else}{$button_title}{/if}</span>
+                <input type="submit" class="button big" value="{ifempty $button_title}Отправить{else}{$button_title}{/if}">
                 <span class="text">Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c <a href="/terms/" target="_blank"  class="modal-open-btn">политикой конфиденциальности</a></span>
             </div> 
         </form>

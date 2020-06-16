@@ -355,6 +355,7 @@ class Page {
                 //шаблон окружения получения html аякс-запросом
                 if( $ajax_mode && $this->clean_html ) $this->page_template = 'templates/ajax.html';
                 
+                
                 // результат работы модуля
                 if( $this->http_code==200){
                     if( $this->first_instance){
@@ -364,7 +365,12 @@ class Page {
                         // главное меню
                         if( !empty( $this->menu[1] ) ) Response::SetArray( 'mainmenu', $this->menu[1] );
                         if( !empty( $this->menu[2] ) ) Response::SetArray( 'mainmenu_second', $this->menu[2] );
-                        
+                        //вывод баннера
+                        $new_buildings_banner = Session::GetBoolean( 'new_buildings_banner' );
+                        if( !empty( $new_buildings_banner ) && in_array( $this->page_breadcrumbs[0]['url'], [ '', 'uslugi', 'zavod', 'lndng', 'price' ] ) ) {
+                            Session::SetBoolean( 'new_buildings_banner', true );
+                            Response::SetBoolean( 'new_buildings_banner', true );
+                        }
                     }
                     if( !empty( $this->page_seo_title ) ) $this->metadata['title'] = $this->page_seo_title;
                     if( !empty( $this->page_seo_description) ) $this->metadata['description'] = $this->page_seo_description;

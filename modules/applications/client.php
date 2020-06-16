@@ -11,7 +11,7 @@ $from=0;
 
 $parameters = Request::GetParameters( METHOD_POST );
 $get_parameters = Request::GetParameters( METHOD_GET );
-$application_type = !empty( $parameters['application_type'] ) ? $parameters['application_type'] : ( !empty( $get_parameters['application_type'] ) ? $get_parameters['application_type'] : '' );
+$application_type = $parameters['application_type'] ?? ( $get_parameters['application_type'] ?? ( $action == 'block' ? $this_page->page_parameters[1] :  '' ) );
 if( !empty( $application_type ) ) {
     $forms = Config::Get('forms');
     foreach( $forms as $application_index => $form ){
@@ -21,7 +21,8 @@ if( !empty( $application_type ) ) {
         }
     }
 }
-   
+//передача GET - параметров в форму / отправку письма
+if( !empty( $get_parameters ) ) Response::SetArray( 'get_parameters', $get_parameters );
 switch(true){
     ////////////////////////////////////////////////////////////////////////////////////////////////////////
     // отправка заявки
@@ -145,22 +146,24 @@ switch(true){
                 $time = Time::get();
                 
                 $data = array(
-                    'name' => !empty( $parameters['name'] ) ? $parameters['name'] : '',
-                    'phone' => !empty( $parameters['phone'] ) ? $parameters['phone'] : '',
-                    'email' => !empty( $parameters['email'] ) ? $parameters['email'] : '',
-                    'company' => !empty( $parameters['company'] ) ? $parameters['company'] : '',
-                    'production' => !empty( $parameters['production'] ) ? $parameters['production'] : '',
-                    'service' => !empty( $parameters['service_set'] ) ? implode( ", ", array_keys( $parameters['service_set'] ) ) : '',
-                    'region' => !empty( $parameters['region'] ) ? $parameters['region'] : '',
-                    'user_comment' => !empty( $parameters['comment'] ) ? $parameters['comment'] : '',
-                    'date' => !empty( $parameters['date'] ) ? $parameters['date'] : '',
-                    'application_type' => !empty( $parameters['application_type'] ) ?? '',
-                    'files' => !empty( $files ) ? $files : '',
-                    'ip' => $ip,
-                    'ref' => !empty( Host::getRefererURL() ) ? Host::getRefererURL() : '',
-                    'browser' => !empty( $_SERVER['HTTP_USER_AGENT'] ) ? $_SERVER['HTTP_USER_AGENT'] : '',
-                    'city' => !empty( $city ) ? $city ['city']: '',
-                    'type' => 2
+                    'name'              => $parameters['name']              ?? '',
+                    'phone'             => $parameters['phone']             ?? '',
+                    'email'             => $parameters['email']             ?? '',
+                    'company'           => $parameters['company']           ?? '',
+                    'production'        => $parameters['production']        ?? '',
+                    'service'           => !empty( $parameters['service_set'] ) ? implode( ", ", array_keys( $parameters['service_set'] ) ) : '',
+                    'region'            => $parameters['region']            ?? '',
+                    'user_comment'      => $parameters['comment']           ?? '',
+                    'date'              => $parameters['date']              ?? '',
+                    'application_type'  => $parameters['application_type']  ?? '',
+                    'source'            => $parameters['source']  ?? '',
+                    'title'             => $parameters['title']  ?? '',
+                    'files'             => $files ?? '',
+                    'ip'                => $ip,
+                    'ref'               => !empty( Host::getRefererURL() ) ? Host::getRefererURL() : '',
+                    'browser'           => $_SERVER['HTTP_USER_AGENT']      ?? '',
+                    'city'              => $city                            ?? '',
+                    'type'              => 2
                 );
                 Response::SetArray( 'data', $data );
                 Time::clear();
@@ -232,7 +235,7 @@ switch(true){
                         ]
                     ];
                     
-                    if( !DEBUG_MODE ) {
+                    if( !DEBUG_MODE && $data['phone'] != '+7 (111) 111-1111') {
                         if( !empty( $application_type ) && in_array( $application_type, [ 'tendery', 'postavschikam' ] ) ){
                             $emails[] = ['name' => 'Е.С.А.',            'email'=> "aae1958@inbox.ru" ];    
                             $emails[] = ['name' => 'Отдел снабжения',   'email'=> "snab@spmk.group" ];    
@@ -266,6 +269,7 @@ switch(true){
     ////////////////////////////////////////////////////////////////////////////////////////////////////////
     // форма заявки
     ////////////////////////////////////////////////////////////////////////////////////////////////////////    
+    case $action == 'block':
     case $action == 'popup':
         Response::SetString( 'form_title', $application['form_title'] );
         Response::SetString( 'button_title', $application['button_title'] ?? ''  );
@@ -284,6 +288,9 @@ switch(true){
                 }                
                 break;
         }
+        Response::SetString( 'action', $action );
+        if( $action == 'block' ) Response::SetString( 'application_type', $this_page->page_parameters[1] );
+        
         $ajax_result['ok'] = true;
         $module_template = $application['template'];
         break;

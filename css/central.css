@@ -28,7 +28,8 @@ footer .inner{
 }
 footer .logo img{
     display: block;
-    margin: 0 auto;    
+    margin: 0 auto; 
+    width: 260px;   
 }
 footer .menu{
     margin: 60px auto 80px auto;    
@@ -221,7 +222,7 @@ footer .social li + li{
 /* calculator-form */
 .application-lead,
 .calculator-form {
-    margin-top: -100px;
+    margin-top: -60px;
     width: 1240px;
     position: relative;
     margin-left: auto;
@@ -652,6 +653,7 @@ h2 + .contacts .address {
 
 .applications-block div {
     margin-bottom: 20px;
+    font-size: 17px;
 }
 
 .applications-block div,
@@ -719,4 +721,65 @@ h2 + .contacts .address {
     .applications-block.full-width .block + .block{
         margin-top: 30px;
     }
+}
+
+/* new buildings popup banner */
+.new-buildings-button{
+    display: none;
+}
+#banner {
+    color: #fff;
+    margin: -30px;
+    background-color: var(--main-color);
+    text-align: center;
+    padding: 40px 20px;
+    transition: var(--transition);
+    border: none;
+    overflow: hidden;
+    position: relative;
+}
+
+#banner:before {
+    content: "";
+    -webkit-mask-size: auto 300px;
+    mask-size: auto 300px;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    mask-size: contain;
+    background-color: #4492d4;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    width: 1200px;
+    height: 327px;
+    -webkit-mask-image: url(/img/logo.svg);
+    mask-image: url(/img/logo.svg);
+    position: absolute;
+    left: 50%;
+    margin-left: -600px;
+    z-index: 1;
+    transform: rotate(-6deg);
+    top: -44px;
+    transition: 1s all cubic-bezier(0, 0.25, 0.35, 1.07);
+}
+
+#banner div {
+    display: block;
+    position: relative;
+    z-index: 2;
+    margin: 10px auto;
+}
+
+#banner b {
+    display: block;
+    position: relative;
+    z-index: 2;
+}
+
+#banner .button {
+    z-index: 10;
+    position: relative;
+    margin-top: 40px;
 }

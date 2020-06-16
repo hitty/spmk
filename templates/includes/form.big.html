@@ -1,9 +1,12 @@
 <div class="invert-form">
-    <form class="send-message big ajaxed" action="/applications/add/" method="POST" autocomplete="off" enctype="multipart/form-data" data-scroll_to_error="true">
+    <form class="send-message big ajaxed" action="/applications/add/" method="POST" id="application-form" autocomplete="off" enctype="multipart/form-data" data-scroll_to_error="true">
         <input type="hidden" name="recaptcha_response" data-public="{php:echo Config::Get('recaptcha/public')}">
         {php:$random=randomstring(10)}
         <fieldset>
-        {if!empty $application_type}<input type="hidden" name="application_type" value="{$application_type}">{/if}
+            {if!empty $get_parameters}
+                {loop $get_parameters,$p,$parameter}<input type="hidden" name="{$p}" value="{$parameter}">{/loop $get_parameters}
+            {/if}
+
         {if!empty $application_type_id}<input type="hidden" name="application_type_id" value="{$application_type_id}">{/if}
         <div class="item">
             <h2>Основные сведения</h2>
@@ -95,7 +98,8 @@
         <div class="item">
             <h2>Коммерческое предложение</h2>
             <div class="row text">
-                Коммерческие предложения Вы так же можете направлять на электронную почту отдела материально-технического снабжения <a href="mailto:snab@spmk.group">snab@spmk.group</a>, <span class="phone icon callibri_phone" data-goal="call" onclick="try{ document.location.href='tel:+78002507697#2'; return true; }catch(err){ }">тел. +7 (800) 250-76-97 (доб.2)</span><br/>
+                Коммерческие предложения Вы так же можете направлять на электронную почту отдела материально-технического снабжения <a href="mailto:snab@spmk.group">snab@spmk.group</a>, 
+                <span class="phone icon callibri_phone" data-goal="call" onclick="try{ document.location.href='tel:+78002507697#2'; return true; }catch(err){ }">тел. +7 (800) 250-76-97 (доб.2)</span><br/>
                 В коммерческом предложении просьба указывать: цену, условия и сроки поставки в г. Рязань, формы оплаты и контактную информацию.
                 <div class="file-upload">      
                     <input type="file" name="file_upload[]" id="file_upload-{$random}" class="inputfile-{$random}" data-multiple-caption="files selected" multiple="">
@@ -109,7 +113,7 @@
         </div>
         
         <div class="row">
-            <span class="button big">Отправить заявку</span>
+            <input type="submit" class="button big" value="{ifempty $button_title}Отправить заявку{else}{$button_title}{/if}">
         </div> 
         <div class="row terms">                        
             <span class="text">Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c <a href="/terms/" target="_blank"  class="modal-open-btn">политикой конфиденциальности</a></span>

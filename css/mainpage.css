@@ -234,22 +234,9 @@ nav {
     .hero .text .inner {
         width: 415px;
     }
-
-    .hero .text .lid {
-    }
-
     nav {
         width: 230px;
         margin-left: 30px;
-    }
-
-    .mainpage nav a {
-    }
-
-    .hero .copyright {
-    }
-
-    .hero .text .inner a {
     }
 }
 @media (max-width: 768px) {
@@ -262,7 +249,3 @@ nav {
     }
     
 }
-@media (max-width: 576px) {
-    
-}
-

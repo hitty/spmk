@@ -163,6 +163,10 @@
 .content .similar-links .title{
     font-size: 150%;
 }
+.content img{
+    max-width: 100%;
+    display: block;
+}
 #social-buttons-content .ya-share2__list {
     display: block;
     width: 40px;
@@ -188,6 +192,7 @@
 #social-buttons-content .ya-share2__list li a .ya-share2__badge .ya-share2__icon {
     width: 40px;
     height: 40px;
+    background-size: 40px;
 }
 
 @media (max-width: 1280px) {

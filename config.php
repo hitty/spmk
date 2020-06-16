@@ -161,6 +161,16 @@ return array(
             'mailer_title' => 'Запрос на КМД в подарок',
             'button_title' => 'Хочу подарок'
         ]
+        ,
+        'new_buildings' => [  //кмд в подарок - форма лояльным пользователям
+            'form_title' => 'Поддержка строительства',
+            'form_text' => '',
+            'success_title' => '',
+            'success_text' => '',
+            'template' => 'templates/includes/form.new.buildings.html',
+            'mailer_title' => '',
+            'button_title' => ''
+        ]
         
                                   
     ],
@@ -192,6 +202,7 @@ return array(
         'users_photos' => 'users_photos',
         'users_groups' => 'common_groups',
         'users_restore' => 'users_restore',
+        
         'common_pages' => 'common_pages',
         'common_pages_seo' => 'common_pages_seo',
         'common_pages_map' => 'common_pages_map',

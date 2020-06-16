@@ -16,23 +16,25 @@
             <p>Завод металлоконструкций - ключевое предприятие Группы компаний "Союз производителей металлоконструкций".</p>
             <p>Технологические мощности завода и профессионализм персонала позволяют брать в работу сложные, трудоемкие проекты, выпускать металлические конструкции в требуемые Заказчиком сроки. Надежность и безопасность будущих объектов металлокаркасного строительства обеспечивает неукоснительное следование требованиям СНиПов и ГОСТов, а так же собственная лаборатория УЗК. Ассортимент продукции завода металлических конструкций ГК "СПМК" (г. Рязань) закрывает основную часть потребностей строительной отрасли. Предлагаем металлоконструкции для промышленных, гражданских, коммерческих объектов и других на заказ. Запросите расчет на изготовление металлоконструкций сейчас и получите предложение, от которого невозможно отказаться.</p>
             <div class="to-center">
-                <span class="button big popup" data-url="/applications/popup/?application_type=raschet">Запросить расчет</span>
+                <span class="button big popup" data-url="/applications/popup/?application_type=raschet" data-goal="raschet">Запросить расчет</span>
             </div>
         </div>        
     </div>
 </section>
 
-<section class="production" id="assortment">
+<section class="production flicky" id="assortment">
     <div class="inner">
         <h2>Популярный ассортимент</h2>
     </div>
-    {block assortment/block}
+    <div class="inner">{block assortment/block}</div>
 </section>
 
-<section class="application-lead">
-    <span class="button popup" data-url="/applications/popup/?application_type=zavod_price">Оставить заявку</span>
-    <b>Оптовый прайс и условия работы по запросу</b>
-    Оставьте заявку и получите оптовый прайс на продукцию с оптимальными вариантами сотрудничества!
+<section class="application-lead ">
+    <div class="inner">
+        <span class="button popup" data-url="/applications/popup/?application_type=zavod_price" data-goal="zavod_price">Оставить заявку</span>
+        <b>Оптовый прайс и условия работы по запросу</b>
+        Оставьте заявку и получите оптовый прайс на продукцию с оптимальными вариантами сотрудничества!
+    </div>
 </section>
 
 <section class="workshops bg-cover carousel-vertical main-color dark-bg" id="workshops" style="background-image:url(/img/workshops-bg.jpg)">
@@ -74,8 +76,9 @@
                 <span class="annotation"></span>
                 <ul>
                     <li>Автоматическая газовая резка, сборка и сварка балки под флюсом</li>
-                    <li>Max длина 16 000 мм, толщины от 4 до 50 мм, высота стенки от 200 до 2000 мм</li>
-                    <li>Ультразвуковой контроль сварочного шва</li>
+                    <li>Основные параметры: длина до 16 000 мм, толщины от 4 до 50 мм, высота стенки от 200 до 2 000 мм, вес до 10 тонн.</li>
+                    <li>Удаление деформации полок балки на стане исправления «грибовидности»</li>
+                    <li>Стыковые швы выполняются с полным проваром и проходят 100% ультразвуковой контроль</li>
                 </ul>
                 <!--span class="button big popup main-color" data-url="/applications/popup/?application_type=zavod_ceha_raschet">Получить расчет</span-->
             </div>
@@ -172,6 +175,12 @@
         </ul>
     </div>
 </section>
+ <section class="news flicky" id="news">
+    <div class="inner" data-aos="fade">
+        <h2>Новости</h2>
+        {block news/block/?count=4}
+    </div>
+</section>
 
 <section class="preferences bg-cover" id="preferences" style="background-image:url(/img/preferences-bg.jpg)">
     <div class="inner">
@@ -205,12 +214,12 @@
     </div>
 </section>
 
-<section class="objects" id="objects">
-    <div class="inner">
+<section class="objects flicky" id="objects">
+    <div class="inner" data-aos="fade">
         <h2>Выполненные проекты</h2>
+        {block objekty/block/?v=2}
     </div>
-    {block objekty/block}
-</section>
+</section> 
 
 
 

@@ -488,7 +488,7 @@ switch( $action ){
             exit(0);
         }
         // формирование списка
-        $list = CommonDb::getList( 'objects', $paginator->getLimitString($page), $condition, 'position DESC', 'id' );
+        $list = CommonDb::getList( 'objects', $paginator->getLimitString($page), $condition, 'id DESC', 'id' );
         //подсчет курсов
         Response::SetArray( 'list', $list );
         Response::SetArray( 'paginator', $paginator->Get($page) );

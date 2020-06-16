@@ -1,7 +1,7 @@
 {if!empty $list}
-    <div class="list flex">
-    {loop $list,$k,$item}
-        {include /modules/news/templates/block.item.html}
-    {/loop $list}
+    <div class="{ifempty $similar}carousel clearfix flicky{else}list flex{/if}"  data-count-1280="4" data-count-1024="4" data-count-768="2" data-count-480="1">
+        {loop $list,$k,$item}
+            {include /modules/news/templates/block.item.html}
+        {/loop $list}
     </div>
-{/if}
+{/if}  

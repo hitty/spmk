@@ -173,27 +173,15 @@
     top: 50%;
     transform: translateY(-50%);
 }
-.clients .list {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-top: 60px;
-}
 
-.clients .item {
-    margin: 30px;
-    max-width: 20%;
+.clients svg,
+.clients img {
     border: none;
-    display: block;
-}
-
-.clients svg,.clients img {
     display: block;
     height: auto;
     max-height: 60px;
-    max-width: 100%;
-    margin: 0 auto;
+    max-width: 90%;
+    margin: 30px auto;
     text-align: center;
 }
 

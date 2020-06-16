@@ -80,12 +80,10 @@ if( empty( $ajax_mode ) ) {
     $GLOBALS['js_set'][] = '/js/form.validate.js';
     $GLOBALS['css_set'][] = '/js/carousel.vertical/styles.css';
     $GLOBALS['js_set'][] = '/js/carousel.vertical/script.js';
-    
-    if( $_SERVER['REQUEST_URI'] != '/lndng/' ){
-        $GLOBALS['css_set'][] = '/js/carousel/styles.css';
-        $GLOBALS['js_set'][] = '/js/carousel/script.js';
-    }
-    
+
+    $GLOBALS['css_set'][] = '/js/slick/slick.css';
+    $GLOBALS['js_set'][] = '/js/slick/slick.min.js';
+
     $GLOBALS['css_set'][] = '/js/aos/styles.css';
     $GLOBALS['js_set'][] = '/js/aos/script.js';
     

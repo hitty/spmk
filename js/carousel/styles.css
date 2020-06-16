@@ -71,7 +71,6 @@
     top: 50%;
     width: 60px;
     height: 60px;
-    border-radius: 50%;
     transform: translateY(-50%);
 }
 
@@ -94,11 +93,7 @@
 }
 
 .carousel-prev-next-button .carousel-button-icon {
-    position: absolute;
-    left: 20%;
-    top: 20%;
-    width: 60%;
-    height: 60%;
+
 }
 
 .carousel-page-dots {

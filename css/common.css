@@ -2,6 +2,15 @@
 
 * {
     -webkit-overflow-scrolling: touch;
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;    
+}
+*:after,
+*:before {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
 }
 /* common correction elements */
 html{
@@ -103,11 +112,11 @@ sub {
 
 
 h1 {
-    font-size: 54px;
+    font-size: 44px;
+    line-height: 54px;
     font-weight: 500;
     margin: 0px 0 40px 0;
     display: block;
-    line-height: 62px;
     color: var(--brown);
     text-align: center;
     text-transform: uppercase;

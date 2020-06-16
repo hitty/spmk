@@ -23,6 +23,6 @@
         {/if}
     {/if}
 {/if}
-<form class="form-default objects-add" method="post" action="/manage/objects/types/{ifempty $data_mapping['id']['value']}add{else}edit/{$data_mapping['id']['value']}{/if}/">
+<form class="form-default objects-add" method="post" action="/manage/objects/{ifempty $data_mapping['id']['value']}add{else}edit/{$data_mapping['id']['value']}{/if}/">
     {include /manage/templates/form.default.html}
 </form>

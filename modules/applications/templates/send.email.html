@@ -66,6 +66,11 @@
                 Тип заявки: <strong>{$data['application_type']}</strong>
             </span>
             {/if}
+            {if!empty $data['source']}
+            <span style="display: block; text-align: left; margin-top: 20px; font-size: 12px">
+                Источник: <strong>{$data['source']}{if!empty $data['title']}. {$data['title']}.{/if}</strong>
+            </span>
+            {/if}
         {/if}
         {if!empty $data['files']}
             <span style="display: block; text-align: left; margin-top: 20px;">

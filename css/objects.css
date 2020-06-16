@@ -87,7 +87,8 @@
     display: block;
     float: left;
     margin-right: 30px;
-    background: url('/img/project-icon.svg') no-repeat 0 0;
+    background-repeat: no-repeat;
+    background-position: 0 0;
     height: 34px;
     width: 34px;
     z-index: 100;
@@ -95,6 +96,9 @@
 }
 .services li.inactive{
     opacity: .2;
+}
+.services li.project {
+    background-image: url('/img/project-icon.svg');
 }
 .services li.production {
     background-image: url('/img/production-icon.svg');

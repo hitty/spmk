@@ -91,7 +91,7 @@ return [
             'fieldtype' => 'switcher',
             'parent_class' => 'quater-width', 
             'values' => [1=>'Да',2=>'Нет'],
-            'label' => 'Проектирование'
+            'label' => 'Разработка КМД'
         ]
         ,'izgotovlenie' => [
             'type' => TYPE_INTEGER,
