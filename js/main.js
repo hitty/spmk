@@ -174,6 +174,7 @@ jQuery(document).ready(function(){
     })    
     
     jQuery('.popup').each(function(){ jQuery(this).popupWindow(); } )
+    jQuery('.calculator').each(function(){ jQuery(this).calculatorSPMK(); } )
     
     
     $('.carousel').each( function(){
@@ -233,6 +234,7 @@ jQuery(document).ready(function(){
     
     
     $('form.ajaxed').each( function(){
+        console.log( $(this).html() );
         $(this).formSubmit({
             'scroll_to_error': $(this).data('scroll_to_error')
         });
@@ -257,11 +259,11 @@ jQuery(document).ready(function(){
     });
     
     /* free gift banner */
-    var f_g = getSpmkCookie( 'new_buildings_banner' );    
+    var f_g = getSpmkCookie( 'new_buildings_banner_new' );    
     if(  f_g === null && jQuery('.new-buildings-button').length > 0 ){
         setTimeout( function(){
             jQuery('.new-buildings-button').click();
-            setSpmkCookie( 'new_buildings_banner', true, 60 );
+            setSpmkCookie( 'new_buildings_banner_new', 60, '/' );
         }, 1300 )
     }
     

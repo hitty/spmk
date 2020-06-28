@@ -366,10 +366,10 @@ class Page {
                         if( !empty( $this->menu[1] ) ) Response::SetArray( 'mainmenu', $this->menu[1] );
                         if( !empty( $this->menu[2] ) ) Response::SetArray( 'mainmenu_second', $this->menu[2] );
                         //вывод баннера
-                        $new_buildings_banner = Session::GetBoolean( 'new_buildings_banner' );
-                        if( !empty( $new_buildings_banner ) && in_array( $this->page_breadcrumbs[0]['url'], [ '', 'uslugi', 'zavod', 'lndng', 'price' ] ) ) {
-                            Session::SetBoolean( 'new_buildings_banner', true );
-                            Response::SetBoolean( 'new_buildings_banner', true );
+                        $new_buildings_banner_new = Session::GetString( 'new_buildings_banner_new' );
+                        if( empty( $new_buildings_banner_new ) && in_array( $this->page_breadcrumbs[0]['url'], [ '', 'uslugi', 'zavod', 'lndng', 'price' ] ) ) {
+                            Session::SetString( 'new_buildings_banner_new', 'alreay_shown' );
+                            Response::SetBoolean( 'new_buildings_banner_new', true );
                         }
                     }
                     if( !empty( $this->page_seo_title ) ) $this->metadata['title'] = $this->page_seo_title;
@@ -491,7 +491,9 @@ class Page {
     private function addScriptsAndCss(){
         global $memcache;
         $js_array = array_unique( $GLOBALS['js_set'], SORT_REGULAR);
+        Response::SetArray( 'js_array', $js_array );
         $css_array = array_unique( $GLOBALS['css_set'], SORT_REGULAR);
+        Response::SetArray( 'css_array', $css_array );
         $js_key  = md5('js::'.implode('|',$js_array ) );
         $css_key = md5('css::'.implode('|',$css_array ) );
         // ожидание освобождения файла с наборами js и css

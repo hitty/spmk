@@ -23,8 +23,14 @@
     <meta name="format-detection" content="telephone=no">
 
     {if!empty $debug}
-        <script src="/js/{$js_id}.js"></script>
-        <link rel="stylesheet" href="/css/{$css_id}.css" media="all">
+        {loop $js_array,$k,$js}
+            <script src="{$js}"></script>
+        {/loop $js_array}
+        {loop $css_array,$k,$css}
+            <link rel="stylesheet" href="{$css}" media="all">
+        {/loop $css_array}
+        
+        
         
     {elseif!empty $id_admin}
         <script src="/js/{$js_id}.js"></script>

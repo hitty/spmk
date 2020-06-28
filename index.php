@@ -116,7 +116,7 @@ if( empty( $ajax_mode ) ) {
         $GLOBALS['css_set'][] = '/manage/css/content.css';
         $GLOBALS['css_set'][] = '/manage/css/popup.window.css';    
     }
-    $GLOBALS['js_set'][] = '/js/popup.window/script.js';
+    $GLOBALS['js_set'][] = '/js/popup.window/script.js';    
 }
 Response::SetBoolean('debug',DEBUG_MODE);
 $content = $requested_page->Render();
