@@ -84,15 +84,15 @@ jQuery(document).ready(function(){
             captureLength: 3
         }).blur(function(){
             setTimeout(function(){hidePopupList(_input)}, 350);
-        });        
-    })
+        });
+    });
     
  jQuery('.clear-input').on('click', function(){
        var _class = jQuery(this).prev('input').attr('name');
         jQuery('input[name='+_class+']').attr('value','').val('').siblings('input').val('');
         jQuery(this).addClass('hidden');
-    });    
-})
+ });
+});
 
 
 function showPopupList(_el,_list, _type){
@@ -114,7 +114,7 @@ function showPopupList(_el,_list, _type){
         
     }
     function hidePopupList(_wrapper){
-        console.log('123')
+        console.log('123');
         if(!_wrapper) _wrapper = jQuery(document);
         jQuery(".typewatch_popup_list li", _wrapper).unbind('click');
         jQuery(".typewatch_popup_list", _wrapper).remove();

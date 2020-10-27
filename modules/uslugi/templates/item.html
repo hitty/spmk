@@ -9,19 +9,7 @@
                 <div class="content"  itemprop="articleBody">
                     {$item['content']}
                     <h2>Всегда на связи</h2>
-                    <p>Мы открыты к диалогу и готовы обсудить вопросы сотрудничества по 
-                        <a title="Проектирование металлоконструкций" href="/uslugi/proektirovanie/">проектированию</a>, 
-                        <a title="Изготовление металлоконструкций" href="/uslugi/izgotovlenie/">изготовлению</a>, 
-                        <a title="Доставка металлоконструкций" href="/uslugi/dostavka/">доставке</a> и 
-                        <a title="Монтаж металлоконструкций" href="/uslugi/montazh/">монтажу</a> 
-                        металлоконструкций по:</p>
-                        
-                        
-                        
-                    <p>- телефону <span data-goal="call" class="callibri_phone" onclick="try{ document.location.href='tel:+78002507697#1'; return true; }catch(err){ }">8-800-250-76-97 (доб.1);</span></p>
-                    <p>- электронной почте <a href="mailto:market@spmk.group">market@spmk.group</a>;</p>
-                    <p><span class="send popup" data-url="/applications/popup/?application_type=inner_application" data-goal="inner_application">- заявке на консультацию.</span></p>
-                    <p>Если у вас уже есть проектная документация АР, КМ, КМД и вас интересует стоимость реализации проекта, пожалуйста, заполните форму <span class="send popup" data-url="/applications/popup/?application_type=inner_raschet" data-goal="inner_raschet">Получить расчет</span> и мы оперативно сформируем предложение, от которого не захочется отказываться.</p>
+                    {include templates/includes/contacts.block.html}
                 </div>
             </div>
             <div class="right-part">
@@ -33,5 +21,7 @@
             {include /templates/includes/schema.html}
         </article>
         {include /templates/gallery.html}
+
+        {include modules/calculator/templates/calculator.block.html}        
     </div>
 </section>

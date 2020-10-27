@@ -1,9 +1,10 @@
-<header class="flex" data-aos="fade-down">
+<header $header_clear}class="flex" class="header-clear" data-aos="fade-down" { {else}{ifempty/if}>
     {php:$url = Session::getString('main_url');}
     <a href="/lndng/" title="СПМК" class="logo">
-        <img src="/img/logo.svg" alt="" />
-        <span>Стальные металлоконструкции<br/> от проекта до монтажа</span>
+        <img alt="" src="/img/logo-clean.svg"/>
+        <span>Производство и монтаж<br>зданий из металлоконструкций</span>
     </a>
+{ifempty $header_clear}
     <nav>
         <ul class="container">
             {loop $mainmenu,$k,$menu}
@@ -39,14 +40,15 @@
         <span class="send button popup icon" data-goal="click_header_raschet" data-url="/applications/popup/?application_type=header_raschet">
             Получить расчет
         </span>
-        <a href="mailto:market@spmk.group" class="email icon" title="">market@spmk.group</a>
+        <a class="email icon" data-goal="send_email" href="mailto:market@spmk.group" title="">market@spmk.group</a>
         <span class="phone icon callibri_phone" data-goal="call" onclick="try{ document.location.href='tel:+78002507697'; return true; }catch(err){ }">8 (800) 250-76-97</span>
     </div>
-    <span class="search-button" data-icon="search"></span>
+<!--span class="search-button" data-icon="search"></span-->
     
     <span class="burger mobile">
         <span></span>
         <span></span>
         <span></span>
     </span>
+{/if}
 </header> 

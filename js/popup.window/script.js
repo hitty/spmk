@@ -10,7 +10,7 @@ if($)(function(window, document, $, undefined){
             uploader_index        : 0,
             onInit                : function(){},
             onFormSuccess         : function(data){}
-        }
+        };
         var o = $.extend(defaults, opts || {});
         var init_selector = null;                           /* Элемент, к которому назначен вызов */
         
@@ -38,14 +38,14 @@ if($)(function(window, document, $, undefined){
                         validateUnique( _input )
                     }, 250);
                 });
-            })
+            });
             
             init_selector.find( 'input, textarea' ).each(function(){ 
                 jQuery(this).on( 'change', function(){
                     checkEl( jQuery(this) );    
                 })
-                
-            })
+
+            });
             
             //обработка прикрепленных файлов
             
@@ -91,7 +91,7 @@ if($)(function(window, document, $, undefined){
                         var _error_notification = jQuery( '.' + o.notification_class.split(' ').join('.'), init_selector );
                         o.button.removeClass( 'waiting' );
                         if( msg.ok == true ) {
-                            counterGoals( 'send_' + o.f_values['application_type'] )
+                            counterGoals('send_' + o.f_values['application_type']);
                             if(typeof o.onFormSuccess == "function") o.onFormSuccess.call(this, msg);
                             //вывод уведомления
                             if( typeof msg.html == 'string' || typeof msg.html_additional == 'string' ) {
@@ -131,9 +131,9 @@ if($)(function(window, document, $, undefined){
                             }
                         } 
                     }
-                })    
-                return false;                    
-            })         
+                });
+                return false;
+            });
                 
             
             if(typeof o.onInit == "function"){
@@ -146,8 +146,8 @@ if($)(function(window, document, $, undefined){
                     case 13: o.button.click();
                     case 27: jQuery( '#background-shadow-inner .closebutton' ).click();
                 }
-            });        
-        }             
+            });
+        };
         //проверка на уникальность
         var validateUnique = function( _this ){
             var _params = {};
@@ -157,7 +157,7 @@ if($)(function(window, document, $, undefined){
                     notification( _this,  !data.ok, '<span class="error">' + data.error + '</span>' );
                 } 
             );
-        }
+        };
         //обработка элементов формы
         var checkEl = function( _this ){
             _this.removeClass('error').next('span').remove();
@@ -183,8 +183,8 @@ if($)(function(window, document, $, undefined){
                     o.f_values[_name] = _value;
                     if( !_this.hasClass( 'unique' ) ) notification( _this, false, '' );
                 }
-            }            
-        }
+            }
+        };
         //уведомления
         var notification = function( _this, _error, _text ){
             
@@ -193,8 +193,8 @@ if($)(function(window, document, $, undefined){
             } else {
                 _this.removeClass( 'error' ).parents( '.row' ).find( '.error' ).remove();
             }
-            
-        }
+
+        };
         //мультизагрузка файлов
         var manageUpload = function( input ){
             
@@ -203,7 +203,7 @@ if($)(function(window, document, $, undefined){
             var _clone = _parent.clone();
             jQuery( '.close', _parent ).on( 'click', function(){
                 _parent.remove();
-            })
+            });
             var label = jQuery( 'label', _parent );  
             labelVal  = label.html();
             input.on('change', function(e){   
@@ -222,15 +222,15 @@ if($)(function(window, document, $, undefined){
                 jQuery( '[id*="file_upload"]', _clone ).attr( 'id', _identificator + o.uploader_index );
                 jQuery( 'label[for*="file_upload"]', _clone ).attr( 'for', _identificator + o.uploader_index );
                 manageUpload( jQuery( 'input', _clone ) )
-            })  
-            
-            
-        }
+            })
+
+
+        };
         return this.each(function(){
             init_selector = $(this);
             start();   
         });
-    }
+    };
 
     $.fn.popupWindow = function(opts) {
         var defaults = {
@@ -326,7 +326,7 @@ if($)(function(window, document, $, undefined){
             //закрытие формы
             $(document).on("click", o.close_container + ', ' + o.inner_container + ' ' + o.closebutton, closePopupWindow );
 
-       }
+        };
        var closePopupWindow = function(){
             //эффект исчезания контентной части
             $( o.inner_container ).removeClass( 'active' ).addClass('inactive');
@@ -341,13 +341,13 @@ if($)(function(window, document, $, undefined){
                         jQuery( 'body' ).css( { 'overflow' : 'auto' } );
                     })
                 }, 250
-            )
+            );
             _gpval = '';
             //setGPval();
             return false;
-       }
+       };
        $.fn.popupWindow.destroy = function() {
-       }
+       };
        
        return this.each(function(){
             init_selector = $(this);

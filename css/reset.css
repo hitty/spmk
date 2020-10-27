@@ -47,8 +47,18 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
-small{font-size: 80%;}
+
+small {
+    font-size: 70%;
+    opacity: .6
+}
 big{font-size: 120%;}
 strong,b{font-weight: bold;}
 em,cite{font-style: italic;}
 textarea, input { outline: none; }
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}

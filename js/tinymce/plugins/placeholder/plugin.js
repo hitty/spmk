@@ -40,11 +40,11 @@ tinymce.PluginManager.add('placeholder', function(editor) {
 
         // Create label el
         this.el = tinymce.DOM.add( contentAreaContainer, editor.settings.placeholder_tag || "label", placeholder_attrs, placeholder_text );
-    }
+    };
 
     Label.prototype.hide = function(){
         tinymce.DOM.setStyle( this.el, 'display', 'none' );
-    }
+    };
 
     Label.prototype.show = function(){
         tinymce.DOM.setStyle( this.el, 'display', '' );

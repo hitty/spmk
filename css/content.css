@@ -10,7 +10,7 @@
     position: relative;
     margin-bottom: 50px;
     transition: --link-transition;
-    margin: 10px;
+    margin: 40px 10px;
 }
 
 .content-list .item .img {
@@ -33,20 +33,21 @@
     display: block;
     padding: 20px 0 40px 0;
 }
-.content-list.similar .item .title{
+
+.content-list.similar .item .title {
     padding: 20px 0;
 }
 
-.content-list .item:hover .category,
-.content-list .item:hover .bottom,
-.content-list .item:hover .title {
+.content-list .item:hover .category, .content-list .item:hover .bottom, .content-list .item:hover .title {
     color: var(--secondary-color);
 }
-.content-list .item .category{
+
+.content-list .item .category {
     color: var(--gray);
     position: relative;
     z-index: 100;
 }
+
 .content-list .item .bottom {
     font-size: 16px;
     color: var(--gray);
@@ -68,9 +69,11 @@
     color: var(--gray);
     font-size: calc(14px + 4 * ((100vw - 768px) / 1132));
 }
-.content-item .info a{
+
+.content-item .info a {
     color: var(--gray);
 }
+
 .content-item .main-photo {
     max-width: 100%;
     display: block;
@@ -110,15 +113,16 @@
     text-align: left;
     text-transform: none;
 }
-.content h2:before,.content h3:before,.content h4:before{
+
+.content h2:before, .content h3:before, .content h4:before {
     display: none;
-    
 }
-.content h2{
+
+.content h2 {
     font-size: 28px;
 }
-.content ol li,
-.content ul li {
+
+.content ol li, .content ul li {
     padding-left: 30px;
     margin: 15px 0;
     position: relative;
@@ -146,27 +150,34 @@
 }
 
 .content blockquote {
-    padding: 30px 30px 1px 30px;
+    padding: 30px;
     font-style: italic;
     background: var(--gray-light-bg);
     display: block;
     margin: 0 0 30px 0;
+    border-left: 5px solid var(--main-color);
+    line-height: 1.4;
 }
-.content .similar-links{
-    background-color: var(--main-color);  
+
+.content .similar-links {
+    background-color: var(--main-color);
     padding: 20px;
-    border-radius: 3px;  
+    border-radius: 3px;
 }
-.content .similar-links a{
+
+.content .similar-links a {
     color: var(--white);
-} 
-.content .similar-links .title{
+}
+
+.content .similar-links .title {
     font-size: 150%;
 }
-.content img{
+
+.content img {
     max-width: 100%;
     display: block;
 }
+
 #social-buttons-content .ya-share2__list {
     display: block;
     width: 40px;
@@ -198,8 +209,8 @@
 @media (max-width: 1280px) {
     .content-list .item {
         flex:0 1 calc(33.3333333333% - 10px);
-        margin-bottom: 40px;
-        margin: 5px;
+        margin: 5px 5px 40px 5px;
+        /* margin: 5px; */
     }
 
     .content-list .item .bottom {
@@ -294,9 +305,11 @@
     .content h2,.content h3,.content h4 {
         font-size: 19px
     }
-    .content h2{
+
+    .content h2 {
         font-size: 22px;
     }
+
     .content-item .left-part {
         width: 100%
     }
@@ -320,12 +333,12 @@
 
     .content-item #social-buttons-content .ya-share2__list li {
         width: 100%
-    }      
-    .content ol li,
-    .content ul li {
+    }
+
+    .content ol li, .content ul li {
         padding-left: 20px;
         margin: 10px 0;
-    }   
+    }
 }
 
 @media (max-width: 536px) {
@@ -339,7 +352,6 @@
         padding: 15px 15px 1px 15px;
         margin: 0 0 15px 0;
     }
-
 
     .content-list .list {
         display: block;
@@ -364,9 +376,9 @@
     .content-item .right-part {
         width: 100%;
         margin-top: 40px;
-    }    
-    .content ol li,
-    .content ul li {
+    }
+
+    .content ol li, .content ul li {
         padding-left: 10px;
         margin: 5px 0;
     }
@@ -374,7 +386,7 @@
 
 /* price page */
 table.price {
-    border-spacing: 10px;  
+    border-spacing: 10px;
     width: 100%;
 }
 
@@ -389,9 +401,11 @@ table.price thead td {
 table.price tr {
     border-bottom: 1px solid var(--gray-light);
 }
-table.price tbody tr:nth-child(even){
+
+table.price tbody tr:nth-child(even) {
     background-color: var(--gray-light-bg);
 }
+
 table.price td {
     padding: 10px;
     width: 60%;
@@ -400,7 +414,9 @@ table.price td {
 table.price td + td {
     width: 40%;
 }
-.content table + table,
-.content table + p{
+
+.content table + table, .content table + p {
     margin-top: 40px;
-},
+}
+
+,

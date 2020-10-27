@@ -26,7 +26,8 @@
         {/if}
         {if!empty $middle}</div>{/if}
         <div class="upload-container row br3">
-            <textarea name="comment" placeholder="Описание запроса, дополнительные данные"></textarea>
+            <textarea name="comment"
+                      placeholder="Опишите детали заказа, прикрепите техническую документацию марки КМ"></textarea>
             <div class="file-upload">      
                 <input type="file" name="file_upload[]" id="file_upload-{$random}" class="inputfile-{$random}" data-multiple-caption="files selected" multiple="">
                 <label for="file_upload-{$random}" class="br4 attach-file " data-icon="attach_file">

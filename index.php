@@ -78,8 +78,12 @@ if( empty( $ajax_mode ) ) {
     $GLOBALS['js_set'][] = '/js/datetimepicker/jquery.datetimepicker.js';
     $GLOBALS['js_set'][] = '/js/inputmask/inputmask.min.js';
     $GLOBALS['js_set'][] = '/js/form.validate.js';
+
     $GLOBALS['css_set'][] = '/js/carousel.vertical/styles.css';
     $GLOBALS['js_set'][] = '/js/carousel.vertical/script.js';
+
+    $GLOBALS['css_set'][] = '/js/quiz/style.css';
+    $GLOBALS['js_set'][] = '/js/quiz/script.js';
 
     $GLOBALS['css_set'][] = '/js/slick/slick.css';
     $GLOBALS['js_set'][] = '/js/slick/slick.min.js';
@@ -108,7 +112,15 @@ if( empty( $ajax_mode ) ) {
         $GLOBALS['css_set'][] = '/css/central.css';
         $GLOBALS['css_set'][] = '/css/header.css';
         $GLOBALS['css_set'][] = '/css/content.css';
-        $GLOBALS['css_set'][] = '/js/popup.window/styles.css';    
+        $GLOBALS['css_set'][] = '/js/popup.window/styles.css';
+        //калькулятор
+        $GLOBALS['css_set'][] = '/modules/calculator/css/style.css';
+        $GLOBALS['js_set'][] = '/modules/calculator/js/script.js';
+        //калькулятор:регионы
+        $regions = Config::Get('working_regions');
+        ksort($regions);
+        Response::SetArray('regions', $regions);
+        
     } else {
         $GLOBALS['css_set'][] = '/manage/css/reset.css';
         $GLOBALS['css_set'][] = '/manage/css/fonts.css';

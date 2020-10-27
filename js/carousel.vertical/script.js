@@ -17,7 +17,7 @@ $(document).ready(function(){
             buttons               : '.buttons',
             onInit                : function(){},
             onFormSuccess         : function(data){}
-        }
+        };
         var o = $.extend(defaults, opts || {});
         var init_selector = null; 
         
@@ -32,29 +32,32 @@ $(document).ready(function(){
             $( o.filter + ' ' + o.filter_el, init_selector).on( 'click', function(){
                 changeSlide( $(this).attr( o.attr ) );
             })
-        }
+        };
         var changeSlide = function( pos ){
             var old_active_slide =  $( o.slide + '.active', init_selector);
             o.current_pos = parseInt( pos );
             //слайд
-            $( o.filter + ' ' + o.filter_el + '[' + o.attr + '=' + o.current_pos + ']', init_selector).addClass( o.active_class ).siblings( o.filter_el ).removeClass( 'active' );
+            var active_el = $(o.filter + ' ' + o.filter_el + '[' + o.attr + '=' + o.current_pos + ']', init_selector);
+            active_el.addClass(o.active_class).siblings(o.filter_el).removeClass('active');
 
             var new_active_slider = $( o.slide + '[' + o.attr + '=' + o.current_pos + ']', init_selector);
             new_active_slider.addClass( o.active_class );
 
             old_active_slide.removeClass( o.active_class ).addClass( o.inactive_class );
             setTimeout( function(){
-                old_active_slide.removeClass( o.inactive_class );    
-            }, 600 )
+                old_active_slide.removeClass(o.inactive_class);
+            }, 600);
             
             o.active_slider = new_active_slider;
-        }
+
+            init_selector.css('background-image', 'url(' + active_el.data('bg') + ')');
+        };
         
         return this.each(function(){
             init_selector = $(this);
             start();   
         });
-    }
+    };
     
     $('.carousel-vertical').each( function(){
         $(this).verticalCarousel();

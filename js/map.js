@@ -3,7 +3,7 @@ jQuery(document).ready(function(){
 
         ymaps.ready(function(){
             jQuery('.map').each(function(){
-                var _this = jQuery(this)
+                var _this = jQuery(this);
                 _lat = _this.data('lat') ;
                 _lng = _this.data('lng') ;
 
@@ -30,4 +30,4 @@ jQuery(document).ready(function(){
             })
         });
     }
-})
+});

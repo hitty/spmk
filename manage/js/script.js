@@ -3,13 +3,13 @@ jQuery(document).ready(function(){
     jQuery('.item.add-button,.item .edit').each(function(){
         var _el = jQuery(this);
         initAddPopup( _el );
-    })
+    });
     
     //удаление проекта
     jQuery('.item .del').each(function(){
         var _el = jQuery(this);
         initDelPopup( _el );
-    })
+    });
     
     //статус страницы
     jQuery('.item .archive, .item .publish').each(function(){
@@ -23,9 +23,9 @@ jQuery(document).ready(function(){
                     else _parent.removeClass('inactive');
                 }
             }
-            
-        })    
-    })
+
+        })
+    });
     
     
     //обработка формы редактирования
@@ -36,8 +36,8 @@ jQuery(document).ready(function(){
     
     //поисковый фильтр
     jQuery('.list-container').listManager();
-    
-}) 
+
+});
  
 function initDelPopup( _el ){
     _el.popupWindow({

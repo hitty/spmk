@@ -16,7 +16,7 @@ switch( true ){
         ////////////////////////////////////////////////////////////////////////////////////////////////////////
         case $action == 'block':
             $count = !empty( $get_parameters['count'] ) ? $get_parameters['count'] : 30;
-            $list = CommonDb::getList( 'news', '0,' . $count, $sys_tables['news'] . '.published = 1', 'date DESC', 'id' );
+            $list = CommonDb::getList('news', '0,' . $count, $sys_tables['news'] . '.published = 1 AND ' . $sys_tables['news'] . '.date <= CURDATE()', 'date DESC', 'id');
             Response::SetArray( 'list', $list );
             $module_template = 'block.html';
             if( $ajax_mode ) $ajax_result['ok'] = true;
@@ -80,6 +80,7 @@ switch( true ){
         $conditions = [];
         $sortby = Request::GetInteger( 'sort', METHOD_GET );
         $conditions['published'] = $sys_tables['news'] . ".`published` = 1";
+        $conditions['date'] = $sys_tables['news'] . ".`date` <= CURDATE()";
         if( !empty( $action ) ) {
             $category = CommonDb::getItem( 'news_categories', "`chpu_title` = '" . $db->real_escape_string( $action ) . "'" );
             if( empty( $category ) ) Host::RedirectLevelUp();

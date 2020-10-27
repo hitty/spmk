@@ -94,7 +94,7 @@ switch( true ){
 
         Response::SetString( 'service', '' );
         if( !empty( $parameters['service'] ) ) {
-            if( in_array( $parameters['service'], ['proektirovanie','izgotovlenie','dostavka','montazh','podkluch']) ) {
+            if (in_array($parameters['service'], ['proektirovanie', 'izgotovlenie', 'dostavka', 'montazh', 'podkluch', 'komplektaciya'])) {
                 Response::SetString( 'service', $parameters['service'] );
                 $conditions['service'] = $sys_tables['objects']. '.' . $parameters['service'] . ' = 1';
             }
@@ -108,8 +108,8 @@ switch( true ){
             $conditions[] = $sys_tables['objects'] . '.id_type = ' . $type['id'];
             $this_page->manageMetadata(
                 [
-                    'title' => !empty( $this_page->page_seo_title ) ? $this_page->page_seo_title : $type['title'] . ' - объекты ГК «СПМК». Изготовление металлоконструкций от 100 тонн',
-                    'description' =>  !empty( $this_page->page_seo_description ) ? $this_page->page_seo_description : $type['title'] . ' - объекты ГК «СПМК».'
+                    'title' => !empty($this_page->page_seo_title) ? $this_page->page_seo_title : $type['title'] . ' - объекты компании «СПМК». Изготовление металлоконструкций от 200 тонн',
+                    'description' => !empty($this_page->page_seo_description) ? $this_page->page_seo_description : $type['title'] . ' - объекты компании «СПМК».'
                 ], true
             );
             Response::SetString( 'h1', $type['title'] );

@@ -9,7 +9,7 @@ class Template {
     private $templates_folder = "templates";
     public $template = '';
     private $recursive_counter = 0;
-
+    const TPL_COMPACT = 1;
     public function __construct($template_filename, $path='', $counter = 0, $content = false) {
         $this->recursive_counter = $counter;
         $this->template = $this->Load( $template_filename , $path, $content);
@@ -26,7 +26,8 @@ class Template {
         $this->Combine();
         $phptemplate_path = FileCache::GetCachedPath($this->template);
         if( empty( $phptemplate_path ) ) {
-            $php_template = $this->CreatePHP($this->template);
+            //$php_template = $this->CreatePHP($this->template);
+            $php_template = $this->CreatePHP($this->CompressTPL($this->template));
             $phptemplate_path = FileCache::Write($this->template, $php_template);
         }
         $html_contents = $this->CreateHTML($phptemplate_path);
@@ -39,10 +40,8 @@ class Template {
     * @return string
     */
     public function CompressTPL($tpl){
-        if(TPL_COMPACT==1){
-            $tpl = preg_replace('|[\s\t\n\r]+|umsi', ' ', $tpl);
-            $tpl = preg_replace('|>[\s\t\n\r]+<|umsi', "><", $tpl);
-        }
+        $tpl = preg_replace('|[\s\t\n\r]+|umsi', ' ', $tpl);
+        $tpl = preg_replace('|>[\s\t\n\r]+<|umsi', "><", $tpl);
         return $tpl;
     }
 

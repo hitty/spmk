@@ -30,9 +30,9 @@
 				timer.text = elTxt.toUpperCase();
 				timer.cb(elTxt);
 			}
-		};
+        }
 
-		function watchElement(elem) {
+        function watchElement(elem) {
 			// Must be text or textarea
 			if (elem.type.toUpperCase() == "TEXT" || elem.nodeName.toUpperCase() == "TEXTAREA") {
 
@@ -65,7 +65,7 @@
 
 					var timerCallbackFx = function() {
 						checkElement(timer, overrideBool)
-					}
+                    };
 
 					// Clear timer					
 					clearTimeout(timer.timer);
@@ -74,9 +74,9 @@
 
 				jQuery(elem).keydown(startWatch);
 			}
-		};
+        }
 
-		// Watch Each Element
+        // Watch Each Element
 		return this.each(function(index) {
 			watchElement(this);
 		});

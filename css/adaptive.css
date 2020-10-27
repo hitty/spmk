@@ -1,7 +1,6 @@
-
 @media (max-width: 1720px) {
     nav a,nav span {
-        padding: 3px 10px;
+        padding: 3px 5px;
         font-size: 15px;
         border-width: 2px;
     }
@@ -12,7 +11,7 @@
     }
 
     header .actions a, header .actions span {
-        font-size: 16px;
+        font-size: 15px;
     }
 
     header .actions .email,header .actions .phone {
@@ -39,7 +38,7 @@
     }
 
     header .actions a, header .actions span {
-        font-size: 14px;
+        font-size: 13px;
     }
 
     header .actions a:before, header .actions span:before {
@@ -47,53 +46,20 @@
     }
 
     header .actions .phone {
-        margin-left: 30px;
+        margin-left: 10px;
     }
 }
 
 @media (max-width: 1400px) {
-    header nav .container {
-        display: flex;
-        width: 520px;
-        justify-content: center;
-        flex-wrap: wrap;
-        margin-right: 130px;
-    }
-
-    header .actions {
-        display: block;
-        margin-top: -10px;
-    }
-
-    header .actions .email, header .actions .phone {
-        display: block;
-        margin: 0;
-    }
-
-    header .actions .send {
-        position: absolute;
-        transform: translate(-158px, 9px);
-        height: 30px;
-        line-height: 30px;
-        padding: 0 5px;
-    }
-
-    header .actions a:before, header .actions span:before {
-    }
-
-    header .actions .phone {
-        margin-left: 0;
-        margin-top: 10px;
-    }
-
     header .logo span {
         display: none;
         margin-left: 5px;
     }
 }
+
 @media (max-width: 1280px) {
     section {
-        margin: 60px 0;
+        margin: 80px 0;
     }
 
     .breadcrumbs {
@@ -101,14 +67,14 @@
     }
 
     .application-lead,.calculator-form {
-        width: calc( 100% - 20px );   
+        width: calc(100% - 20px);
     }
 
-    .application-lead b {   
+    .application-lead b {
     }
 
     section.hero-title h1 {
-        margin: 40px 0;
+        margin: 50px 0;
     }
 
     .how-we-work ul li {
@@ -152,9 +118,48 @@
     }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
+    header nav .container {
+        display: flex;
+        width: 570px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-right: 130px;
+    }
+
+    header .actions {
+        display: block;
+        margin-top: -10px;
+    }
+
+    header .actions .email, header .actions .phone {
+        display: block;
+        margin: 0;
+    }
+
+    header .actions .email:after {
+        display: none;
+    }
+
+    header .actions .send {
+        position: absolute;
+        transform: translate(-158px, 9px);
+        height: 30px;
+        line-height: 30px;
+        padding: 0 5px;
+    }
+
+    header .actions .phone {
+        margin-left: 0;
+        margin-top: 10px;
+        font-size: 17px;
+        transform: translateY(-1px);
+    }
+}
+
+@media (max-width: 1100px) {
     section {
-        margin: 50px 0;
+        margin: 65px 0;
     }
 
     .breadcrumbs {
@@ -165,10 +170,12 @@
         font-size: 40px;
         line-height: 50px;
     }
-    header{
+
+    header {
         padding-left: 15px;
         padding-right: 15px;
     }
+
     header nav .container {
         margin: 0;
     }
@@ -195,9 +202,11 @@
         font-size: 12px;
         width: 115px;
     }
-    header .search-button{
+
+    header .search-button {
         right: 10px;
     }
+
     section.hero-title h1 {
         margin: 30px 0;
     }
@@ -333,13 +342,18 @@
         left: 50%;
     }
 
+    .contacts .phone-email {
+        font-size: 20px;
+    }
     .contacts .address {
-        font-size: 16px;
+        font-size: 14px;
         margin-bottom: 40px;
     }
-    .contacts .schedule{
+
+    .contacts .schedule {
         font-size: 16px;
     }
+
     .contacts ul {
         flex-wrap: wrap;
         margin-bottom: 30px;
@@ -399,11 +413,12 @@
         top: auto;
         right: auto;
     }
-    .sticky-actions li.main:nth-child(1){
+
+    .sticky-actions li.main:nth-child(1) {
     }
 }
 
-@media (max-width: 767.98px) {
+@media (max-width: 992px) {
     h1 {
         font-size: 28px;
         line-height: 32px;
@@ -434,7 +449,7 @@
     }
 
     section {
-        margin: 40px auto;
+        margin: 50px auto;
     }
 
     .breadcrumbs span[itemscope] {
@@ -458,7 +473,7 @@
     }
 
     section.bg-cover {
-        padding: 40px 0;
+        padding: 50px 0;
     }
 
     .inner {
@@ -618,9 +633,11 @@
         padding: 10px;
         border-radius: 3px;
     }
-    header .search-button{
+
+    header .search-button {
         display: none;
     }
+
     .burger::before {
         content: "Меню";
         float: right;
@@ -670,9 +687,7 @@
         height: 2px;
     }
 
-    .navigation a, 
-    .navigation.links a, 
-    .navigation span {
+    .navigation a, .navigation.links a, .navigation span {
         margin: 0 10px;
         font-size: 14px;
     }
@@ -873,7 +888,7 @@
         ;}
 
     .application-form .file-upload + .file-upload {
-        margin-top: 5px;
+        margin-bottom: 5px;
     }
 
     .calculator-form form .item {
@@ -968,9 +983,21 @@
     .clients svg, .clients img {
         margin: 10px auto;
     }
+
+    .page-info .annotation p {
+    }
 }
 
+@media (max-width: 767.98px) {
+    .desktop-version {
+        display: none;
+    }
+}
 @media (max-width: 576px) {
+    body, p, div {
+        font-size: 16px;
+    }
+
     h2 {
         font-size: 21px;
         line-height: 1.4;
@@ -988,21 +1015,24 @@
         font-size: 18px;
         margin: 5px 0;
     }
+
     .preferences ul li {
         flex: 0 1 100%;
     }
+
     .contacts .map .image {
         display: none;
     }
+
     .contacts ul li {
-        flex: 1 1 100%; 
+        flex: 1 1 100%;
         margin-bottom: 20px;
     }
-    .contacts .title{
+
+    .contacts .title {
         margin-top: 20px;
         font-size: 20px;
     }
-
 
     .calculator-form form .item {
         padding: 20px 10px;
@@ -1065,5 +1095,11 @@
         line-height: 30px;
         font-size: 12px;
         width: 30px;
+    }
+}
+
+@media (max-width: 360px) {
+    h1 {
+        font-size: 24px;
     }
 }

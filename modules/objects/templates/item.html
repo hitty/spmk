@@ -30,10 +30,9 @@
                     <div class="text" itemprop="articleBody">
                         <h2>Описание проекта</h2>
                         {$item['content']}
+                        {include templates/includes/contacts.block.html}
                     </div>
                 </div>
-                <span class="send popup button main-color " data-url="/applications/popup/?application_type=ask_question_objekty&source=Объекты&title={$item['title']}" data-goal="ask_question_objekty">Задать вопрос</span>
-                <span class="send popup button main-color" data-url="/applications/popup/?application_type=inner_raschet_objekty&source=Объекты&title={$item['title']}" data-goal="inner_raschet_objekty">Получить расчет</span>
                 {include /templates/gallery.html}
                 
                 {include /templates/includes/schema.html}

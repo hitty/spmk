@@ -1,25 +1,14 @@
 /* common forms */
-textarea,
-input[type="number"],
-input[type="text"],
-input[type="email"],
-input[type="phone"],
-input[type="password"]
-{
+textarea, input[type="number"], input[type="url"], input[type="text"], input[type="email"], input[type="phone"], input[type="password"] {
     font-family: var(--font), Tahoma;
-    box-sizing:border-box;
-    -moz-box-sizing:border-box;
-    -webkit-box-sizing:border-box;    
-    -ms-box-sizing:border-box;    
-    -o-box-sizing:border-box;      
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
 }
 
-textarea,
-input[type="number"],
-input[type="text"],
-input[type="email"],
-input[type="phone"],
-input[type="password"]{
+textarea, input[type="number"], input[type="url"], input[type="text"], input[type="email"], input[type="phone"], input[type="password"] {
     display: block;
     background: #fff;
     font-size: 14px;
@@ -43,41 +32,56 @@ input[type="password"]{
     font-family: var(--font);
     box-shadow: none;
 }
-@media (hover:hover){
-    textarea:hover,
-    input[type="text"]:hover:not(.disabled),
-    input[type="number"]:hover:not(.disabled),
-    input[type="email"]:hover:not(.disabled),
-    input[type="phone"]:hover:not(.disabled),
-    input[type="password"]:hover:not(.disabled){
+
+@media (hover: hover) {
+    textarea:hover, input[type="text"]:hover:not(.disabled), input[type="url"]:hover:not(.disabled), input[type="number"]:hover:not(.disabled), input[type="email"]:hover:not(.disabled), input[type="phone"]:hover:not(.disabled), input[type="password"]:hover:not(.disabled) {
         background-color: rgba(255,255,255,1);
     }
 }
-textarea:focus,
-input[type="text"]:focus,
-input[type="number"]:focus,
-input[type="email"]:focus,
-input[type="phone"]:focus,
-input[type="password"]:focus,
-.list-selector.dropped{
-    border-color:#00ACBC;    
+
+textarea:focus, input[type="text"]:focus, input[type="url"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="phone"]:focus, input[type="password"]:focus, .list-selector.dropped {
+    border-color: #00ACBC;
 }
 
-::-webkit-input-placeholder {color:var(--gray); font-size: 14px;font-family: var(--font);font-weight: 400;}
-::-moz-placeholder          {color:var(--gray); font-size: 14px;font-family: var(--font);font-weight: 400;}/* Firefox 19+ */
-:-moz-placeholder           {color:var(--gray); font-size: 14px;font-family: var(--font);font-weight: 400;}/* Firefox 18- */
-:-ms-input-placeholder      {color:var(--gray); font-size: 14px;font-family: var(--font);font-weight: 400;}
-textarea{
+::-webkit-input-placeholder {
+    color: var(--gray);
+    font-size: 14px;
+    font-family: var(--font);
+    font-weight: 400;
+}
+
+::-moz-placeholder {
+    color: var(--gray);
+    font-size: 14px;
+    font-family: var(--font);
+    font-weight: 400;
+}
+
+/* Firefox 19+ */
+:-moz-placeholder {
+    color: var(--gray);
+    font-size: 14px;
+    font-family: var(--font);
+    font-weight: 400;
+}
+
+/* Firefox 18- */
+:-ms-input-placeholder {
+    color: var(--gray);
+    font-size: 14px;
+    font-family: var(--font);
+    font-weight: 400;
+}
+
+textarea {
     font-family: var(--font), Tahoma;
     padding: 15px 30px;
     min-height: 80px;
     min-width: 300px;
 }
 
-/* checkbox, radio */  
-.checkbox:before,
-.radio:before,
-.list-selector .select:before{
+/* checkbox, radio */
+.checkbox:before, .radio:before, .list-selector .select:before {
     font-family: 'Material Icons';
     font-weight: normal;
     font-style: normal;
@@ -97,9 +101,9 @@ textarea{
     -moz-osx-font-smoothing: grayscale;
     font-feature-settings: 'liga';
     float: left;
-        
 }
-.checkbox{
+
+.checkbox {
     padding: 0 5px;
     margin: 3px 0;
     line-height: 19px;
@@ -108,38 +112,41 @@ textarea{
     height: 19px;
     cursor: pointer;
 }
- 
-.checkbox input[type="checkbox"]{
+
+.checkbox input[type="checkbox"] {
     margin: 0 5px 0 -3px;
     vertical-align: middle;
-    padding:0;
+    padding: 0;
     cursor: pointer;
-    opacity:0;
-    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+    opacity: 0;
+    filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
     display: none;
 }
+
 .checkbox:before {
     content: "check_box_outline_blank";
     font-size: 24px;
     margin: -4px 4px 0 -7px;
 }
-.checkbox:hover{
-    color:var(--main-color);
+
+.checkbox:hover {
+    color: var(--main-color);
 }
+
 .checkbox.on:before {
-    color:var(--main-color);
-    content:"check_box";
-    
+    color: var(--main-color);
+    content: "check_box";
 }
-.checkbox.disabled{
+
+.checkbox.disabled {
     cursor: default;
     color: #9B9B9B;
 }
-form .row .checkbox.on:before,
-form .row .checkbox:hover,
-form .row .checkbox{
+
+form .row .checkbox.on:before, form .row .checkbox:hover, form .row .checkbox {
     color: var(--white);
 }
+
 input[type=radio] {
     display: none;
 }
@@ -153,7 +160,7 @@ label.radio {
     margin: 0 10px 10px 0;
 }
 
-@media (hover:hover){
+@media (hover: hover) {
     label.radio:hover {
         color: var(--main-color);
     }
@@ -172,7 +179,7 @@ label.radio:before {
     margin-right: 5px;
 }
 
-@media (hover:hover){
+@media (hover: hover) {
     label.radio:hover:before {
         color: var(--main-color);
     }
@@ -186,34 +193,32 @@ label.radio.on:before {
     content: "radio_button_checked";
     color: var(--main-color);
 }
-form label.error,
-input.error{
+
+form label.error, input.error {
     color: var(--error);
 }
-.list-selector.error:not(.disabled),
-input[type="text"].error,
-input[type="number"].error,
-input[type="phone"].error,
-input[type="email"].error,
-input[type="password"].error{
+
+.list-selector.error:not(.disabled), input[type="text"].error, input[type="number"].error, input[type="phone"].error, input[type="email"].error, input[type="password"].error {
     background: #FFE1E7;
 }
-form textarea.error{
-    border:1px solid var(--error);
-    color:var(--error);
+
+form textarea.error {
+    border: 1px solid var(--error);
+    color: var(--error);
     background: #FFE1E7;
 }
-.list-selector.disabled,
-input[disabled="disabled"]{
+
+.list-selector.disabled, input[disabled="disabled"] {
     opacity: .5;
 }
-@media (hover:hover){
-    input[disabled="disabled"]:hover{
+
+@media (hover: hover) {
+    input[disabled="disabled"]:hover {
         border: 1px solid #e6e6e6;
     }
 }
-.button,
-button{
+
+.button, button {
     display: inline-block;
     height: 40px;
     line-height: 40px;
@@ -240,59 +245,46 @@ button{
     font-family: var(--secondary-font);
     border-radius: 3px;
 }
-@media (hover:hover){
-    .button:hover:not(.disabled),
-    .button:active:not(.disabled),
-    .button:focus:not(.disabled),
-    button:hover:not(.disabled),
-    button:active:not(.disabled),
-    button:focus:not(.disabled){
+
+@media (hover: hover) {
+    .button:hover:not(.disabled), .button:active:not(.disabled), .button:focus:not(.disabled), button:hover:not(.disabled), button:active:not(.disabled), button:focus:not(.disabled) {
         background: var(--secondary-color-hover);
-        color:#fff;    
-        
-    } 
+        color: #fff;
+    }
 }
-.button.disabled,
-button.disabled{
+
+.button.disabled, button.disabled {
     cursor: default;
     opacity: .4;
     pointer-events: none;
-} 
-.button.white,
-button.white{
+}
+
+.button.white, button.white {
     color: #000;
     background: #FFF;
 }
-@media (hover:hover){
-    .button.white:hover:not(.disabled),
-    .button.white:active:not(.disabled),
-    .button.white:focus:not(.disabled),
-    button.white:hover:not(.disabled),
-    button.white:active:not(.disabled),
-    button.white:focus:not(.disabled){
+
+@media (hover: hover) {
+    .button.white:hover:not(.disabled), .button.white:active:not(.disabled), .button.white:focus:not(.disabled), button.white:hover:not(.disabled), button.white:active:not(.disabled), button.white:focus:not(.disabled) {
         background: #e5e5e5;
         color: #000;
     }
 }
-.button.main-color,
-button.main-color{
+
+.button.main-color, button.main-color {
     color: var(--white);
     background: var(--main-color);
     border: none;
 }
-@media (hover:hover){
-    .button.main-color:hover:not(.disabled),
-    .button.main-color:active:not(.disabled),
-    .button.main-color:focus:not(.disabled),
-    button.main-color:hover:not(.disabled),
-    button.main-color:active:not(.disabled),
-    button.main-color:focus:not(.disabled){
+
+@media (hover: hover) {
+    .button.main-color:hover:not(.disabled), .button.main-color:active:not(.disabled), .button.main-color:focus:not(.disabled), button.main-color:hover:not(.disabled), button.main-color:active:not(.disabled), button.main-color:focus:not(.disabled) {
         background: var(--main-color-hover);
         border: none;
     }
 }
-.button.big,
-button.big{
+
+.button.big, button.big {
     height: 50px;
     line-height: 50px;
     text-transform: uppercase;
@@ -302,48 +294,47 @@ button.big{
     display: inline-block;
     width: auto;
 }
+
 /* form */
-form,
-.form{
+form, .form {
     position: relative;
-    z-index: 10;    
+    z-index: 10;
 }
 
-
-.form .row button,
-form .row .button{
-    
+.form .row button, form .row .button {
 }
-.form .row:before{
-    content:"";
+
+.form .row:before {
+    content: "";
     display: table;
     clear: both;
 }
-form .flex{
+
+form .flex {
     margin: 0 -10px;
 }
-form .flex .row,
-form .flex .row:last-of-type{
+
+form .flex .row, form .flex .row:last-of-type {
     margin: 0 10px;
 }
-form .row .title{
+
+form .row .title {
     font-size: 18px;
     border-bottom: 1px solid rgba(255,255,255,.47);
     color: var(--white);
     padding-bottom: 5px;
     margin-bottom: 10px;
 }
-form .row i[data-icon],
-.form .row i[data-icon]{
+
+form .row i[data-icon], .form .row i[data-icon] {
     position: absolute;
     top: 50%;
     right: 10px;
     transform: translateY(-50%);
-    color: var(--gray);    
+    color: var(--gray);
 }
-input + .error, 
-textarea + .error, 
-.list-selector + .error {
+
+input + .error, textarea + .error, .list-selector + .error {
     position: absolute;
     filter: alpha(opacity=0);
     top: 50%;
@@ -353,17 +344,17 @@ textarea + .error,
     height: 20px;
     margin-top: -10px;
 }
+
 input + .error, .list-selector + .error.active, textarea + .error.active, input + .error.active {
     opacity: 1;
     filter: alpha(opacity=100);
 }
-textarea.success,
-input.success,
-.list-selector.success{
-    border-color:var(--green)!important;
+
+textarea.success, input.success, .list-selector.success {
+    border-color: var(--green) !important;
 }
-form .notifications,
-.form .notifications{
+
+form .notifications, .form .notifications {
     color: var(--white);
     background: var(--error);
     padding: 10px;
@@ -373,27 +364,30 @@ form .notifications,
     text-transform: uppercase;
     display: none;
 }
-form .notifications.success,
-.form .notifications.success{
+
+form .notifications.success, .form .notifications.success {
     background: var(--green);
 }
-form .notifications.active,
-.form .notifications.active{
+
+form .notifications.active, .form .notifications.active {
     display: block;
 }
 
-form .row{
+form .row {
     width: 100%;
     margin: 20px 0;
     position: relative;
 }
-form .col{
+
+form .col {
     width: 32%;
 }
-form input{
+
+form input {
     width: 100%;
 }
-form textarea{
+
+form textarea {
     min-height: 180px;
     width: 100%;
     min-width: 100px;
@@ -403,13 +397,12 @@ form textarea{
     z-index: 10;
 }
 
-form button,
-form .button{
+form button, form .button {
     display: block;
     text-align: center;
     margin: 0 auto;
     width: 100%;
-}     
+}
 
 form .terms {
     text-align: center;
@@ -426,10 +419,12 @@ form .terms .text {
     margin-top: 20px;
     text-align: left;
 }
-form .terms .text a{
+
+form .terms .text a {
     color: var(--gray-light);
 }
-.form-bg{
+
+.form-bg {
     position: absolute;
     left: 0;
     right: 0;
@@ -448,26 +443,34 @@ form .terms .text a{
     height: 300%;
     z-index: 0;
 }
-form .list-selector{
+
+form .list-selector {
     width: 100%;
-}      
-#background-shadow-inner h1{
+}
+
+#background-shadow-inner h1 {
     margin: 0 0 40px 0;
-    font-size: 36px;    
+    font-size: 36px;
 }
+
 {
-    margin: 15px 0;    
+    margin: 15px 0
+;
 }
-#background-shadow-inner form .row.file-upload{
+
+#background-shadow-inner form .row.file-upload {
     height: auto;
 }
-#background-shadow-inner .col.upload-container{
+
+#background-shadow-inner .col.upload-container {
     min-height: 60px;
 }
-#background-shadow-inner form .row.file-upload:first-of-type{
+
+#background-shadow-inner form .row.file-upload:first-of-type {
     height: 40px;
     margin: 0 0 10px 0;
 }
+
 #background-shadow-inner .col {
     width: 100%;
     margin-bottom: 15px;
@@ -492,13 +495,17 @@ form .list-selector{
     min-height: 80px;
     max-height: 80px;
 }
+
 .file-upload {
     max-height: 40px;
     position: relative;
+    margin-bottom: 30px;
 }
-.file-upload + .file-upload{
-    margin-top: 20px;
+
+.file-upload + .file-upload {
+    margin-top: 0;
 }
+
 .file-upload input {
     width: 0.1px;
     height: 0.1px;
@@ -515,6 +522,7 @@ form .list-selector{
 .file-upload label * {
     pointer-events: none;
 }
+
 .file-upload span {
     font-size: 14px;
     font-weight: normal;
@@ -523,16 +531,18 @@ form .list-selector{
     cursor: pointer;
     padding: 0;
 }
-.file-upload span:before{
+
+.file-upload span:before {
     font-size: 20px;
     transform: translateY(1px);
-    display: none;    
+    display: none;
 }
-.file-upload.active span:before{
+
+.file-upload.active span:before {
     display: block;
 }
-.file-upload label,
-.file-upload label:hover {
+
+.file-upload label, .file-upload label:hover {
     border: none;
     cursor: pointer;
     z-index: 1000;
@@ -551,7 +561,7 @@ form .list-selector{
     cursor: pointer;
     z-index: 1000;
     text-align: left;
-    margin: 0;
+    margin: 0 0 24px 0;
     position: relative;
     display: inline-block;
     font-family: var(--secondary-font);
@@ -606,8 +616,6 @@ form .list-selector{
     display: none;
 }
 
-
-
 .list-selector .select:hover {
     color: #000;
 }
@@ -615,7 +623,7 @@ form .list-selector{
 .list-selector:not(.disabled) {
     display: inline-block;
     padding: 0;
-    height: 40px;
+    height: 42px;
     vertical-align: middle;
     position: relative;
     min-width: 40px;
@@ -646,12 +654,14 @@ form .list-selector{
     text-overflow: ellipsis;
     border-radius: 3px;
 }
-.list-selector:hover a.pick{
+
+.list-selector:hover a.pick {
     color: var(--secondary-color);
 }
+
 .list-selector .pick::-webkit-input-placeholder {
-    color: var(--black);
-    font-size: 18px;
+    color: var(--gray);
+    font-size: 14px;
 }
 
 .list-selector .select {
@@ -763,28 +773,32 @@ form .list-selector{
     cursor: default;
 }
 
-#background-shadow form .title{
+#background-shadow form .title {
     margin: 10px 0;
     text-align: left;
-    font-size: 20px;    
+    font-size: 20px;
 }
-form .flex input{
+
+form .flex input {
     margin: 0 10px;
     display: block;
 }
-form .flex input:first-of-type{
+
+form .flex input:first-of-type {
     margin-left: 0;
 }
-form .flex input:last-of-type{
+
+form .flex input:last-of-type {
     margin-right: 0;
 }
+
 @media (max-width: 1024px) {
     form .row {
     }
 
     textarea, input[type="number"], input[type="text"], input[type="email"], input[type="phone"], input[type="password"] {
         line-height: 50px;
-        height: 50px;
+        height: 40px;
         padding: 0 15px;
     }
 
@@ -807,31 +821,52 @@ form .flex input:last-of-type{
     form .row {
         margin: 15px 0;
     }
-    form .flex .row:last-of-type,
-    form .row + .row{
+
+    form .flex .row:last-of-type, form .row + .row {
         margin-top: 15px;
     }
 
     textarea, input[type="number"], input[type="text"], input[type="email"], input[type="phone"], input[type="password"] {
         line-height: 40px;
         height: 40px;
-        padding: 0 10px; 
-        font-size: 14px;   
+        padding: 0 10px;
+        font-size: 14px;
     }
-    form textarea{
-        padding: 10px; 
-        font-size: 14px;    
+
+    .list-selector:not(.disabled) {
+        line-height: 42px;
+        height: 42px;
     }
-    ::-webkit-input-placeholder {font-size: 14px;}
-    ::-moz-placeholder          {font-size: 14px;}/* Firefox 19+ */
-    :-moz-placeholder           {font-size: 14px;}/* Firefox 18- */
-    :-ms-input-placeholder      {font-size: 14px;}
+
+    form textarea {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    ::-webkit-input-placeholder {
+        font-size: 14px;
+    }
+
+    ::-moz-placeholder {
+        font-size: 14px;
+    }
+
+    /* Firefox 19+ */
+    :-moz-placeholder {
+        font-size: 14px;
+    }
+
+    /* Firefox 18- */
+    :-ms-input-placeholder {
+        font-size: 14px;
+    }
 
     .button, button {
         height: 40px;
         line-height: 40px;
         font-size: 15px;
     }
+
     .button.big, button.big {
         height: 40px;
         line-height: 40px;
@@ -839,7 +874,8 @@ form .flex input:last-of-type{
         padding-left: 60px;
         padding-right: 60px;
     }
-    form .terms .text{
+
+    form .terms .text {
         font-size: 12px;
         line-height: 1.4;
     }
@@ -849,10 +885,11 @@ form .flex input:last-of-type{
     form .row {
         margin: 10px 0;
     }
-    form .flex .row:last-of-type,
-    form .row + .row{
+
+    form .flex .row:last-of-type, form .row + .row {
         margin-top: 10px;
     }
+
     .button.big, button.big {
         height: 40px;
         line-height: 40px;
@@ -860,11 +897,11 @@ form .flex input:last-of-type{
         padding-left: 40px;
         padding-right: 40px;
     }
-    form .terms .text{
+
+    form .terms .text {
         font-size: 11px;
         line-height: 1.4;
     }
-
 }
 
 .modal .form-success-container {
@@ -878,7 +915,8 @@ form .flex input:last-of-type{
     width: 100%;
     margin: 20px auto;
 }
-.form-success-container i:before{
+
+.form-success-container i:before {
     font-size: 100px;
     margin: 20px auto;
     display: block;
@@ -887,9 +925,11 @@ form .flex input:last-of-type{
     height: 64px;
     color: var(--main-color);
 }
-.modal .form-success-container i:before{
+
+.modal .form-success-container i:before {
     color: var(--white);
 }
+
 .form-success-container .title {
     display: block;
     width: 220px;
@@ -911,23 +951,27 @@ form .flex input:last-of-type{
     width: 270px;
     color: var(--white);
 }
-a.closebutton.button{
+
+a.closebutton.button {
     display: none;
     margin: 0 auto;
     width: 260px;
     padding-left: 40px;
     padding-right: 40px;
 }
-.modal a.closebutton.button{
+
+.modal a.closebutton.button {
     display: block;
 }
-.invert-form .form-success-container i{
+
+.invert-form .form-success-container i {
     color: var(--main-color);
 }
-.invert-form .form-success-container .title,
-.invert-form .form-success-container .text{
+
+.invert-form .form-success-container .title, .invert-form .form-success-container .text {
     color: var(--text);
 }
+
 /* form big */
 form.big {
     /* padding: 30px; */
@@ -1005,8 +1049,7 @@ form.big fieldset .row input:not([type="file"]) {
     font-weight: normal;
 }
 
-form.big fieldset .row input[type="submit"],
-form.big fieldset .row button {
+form.big fieldset .row input[type="submit"], form.big fieldset .row button {
     margin-top: 60px;
 }
 
@@ -1217,77 +1260,84 @@ form.big fieldset .row .switcher + .switcher-label {
 form.big fieldset .row label.radio {
     flex: 0 1 auto;
 }
-form.big fieldset .row.text{
+
+form.big fieldset .row.text {
     display: block;
-    
 }
-form.big fieldset .row.text .file-upload{
+
+form.big fieldset .row.text .file-upload {
     margin: 20px 0 10px 0;
     max-height: 60px;
-} 
-form.big fieldset .row.text .file-upload + .file-upload{
+}
+
+form.big fieldset .row.text .file-upload + .file-upload {
     max-height: 20px;
 }
+
 form.big fieldset .row.text .file-upload .close:before {
     font-size: 16px;
     margin: -25px 0 0 20px;
     line-height: 35px;
 }
-form.big fieldset .row.text .file-upload input{
+
+form.big fieldset .row.text .file-upload input {
     z-index: 1001;
     height: 70px;
     width: 260px;
     cursor: pointer;
 }
-form.big fieldset .row.text .file-upload.active input{
+
+form.big fieldset .row.text .file-upload.active input {
     display: none;
-    
 }
-form.big fieldset .row.text .file-upload label.attach-file{
+
+form.big fieldset .row.text .file-upload label.attach-file {
     height: 60px;
     line-height: 60px;
     background: var(--main-color);
     color: var(--white);
     width: 260px;
 }
-form.big fieldset .row.text .file-upload label.attach-file:before{
+
+form.big fieldset .row.text .file-upload label.attach-file:before {
     margin-top: 20px;
 }
-form.big fieldset .row.terms{
+
+form.big fieldset .row.terms {
     padding: 0;
     border: 0;
     background: #fff;
     position: relative;
     z-index: 10;
-    transform: translateY(1px);    
-}
-form .row.service-container{
-    
-}
-form .row.service-container .title{
-    
-}
-form .row.service-container{
-    
+    transform: translateY(1px);
 }
 
-@media( max-width: 1280px ){
-    form.big fieldset .item{
-        
+form .row.service-container {
+}
+
+form .row.service-container .title {
+}
+
+form .row.service-container {
+}
+
+@media ( max-width: 1280px ) {
+    form.big fieldset .item {
     }
-    form.big fieldset .item h2{
-        
+
+    form.big fieldset .item h2 {
     }
-    form.big fieldset .row label{
-        
+
+    form.big fieldset .row label {
     }
-    form.big fieldset .row input:not([type="file"]){
-        
+
+    form.big fieldset .row input:not([type="file"]) {
     }
-    form.big fieldset .row.text{
-        
+
+    form.big fieldset .row.text {
     }
 }
+
 @media( max-width: 1024px ) {
     form.big fieldset .row {
     }
@@ -1339,85 +1389,96 @@ form .row.service-container{
 
     form.big fieldset .row.text {
     }
-    form.big fieldset .row .button.big{
+
+    form.big fieldset .row .button.big {
         display: block;
     }
 }
 
-.waiting{
-  animation: waitingFrames linear 1s;
-  animation-iteration-count: infinite;
-  transform-origin: 50% 50%;
-  -webkit-animation: waitingFrames linear 1s;
-  -webkit-animation-iteration-count: infinite;
-  -webkit-transform-origin: 50% 50%;
-  -moz-animation: waitingFrames linear 1s;
-  -moz-animation-iteration-count: infinite;
-  -moz-transform-origin: 50% 50%;
-  -o-animation: waitingFrames linear 1s;
-  -o-animation-iteration-count: infinite;
-  -o-transform-origin: 50% 50%;
-  -ms-animation: waitingFrames linear 1s;
-  -ms-animation-iteration-count: infinite;
-  -ms-transform-origin: 50% 50%;
+.waiting {
+    animation: waitingFrames linear 1s;
+    animation-iteration-count: infinite;
+    transform-origin: 50% 50%;
+    -webkit-animation: waitingFrames linear 1s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-transform-origin: 50% 50%;
+    -moz-animation: waitingFrames linear 1s;
+    -moz-animation-iteration-count: infinite;
+    -moz-transform-origin: 50% 50%;
+    -o-animation: waitingFrames linear 1s;
+    -o-animation-iteration-count: infinite;
+    -o-transform-origin: 50% 50%;
+    -ms-animation: waitingFrames linear 1s;
+    -ms-animation-iteration-count: infinite;
+    -ms-transform-origin: 50% 50%;
 }
 
-@keyframes waitingFrames{
-  0% {
-    opacity:1;
-  }
-  50% {
-    opacity:0.6;
-  }
-  100% {
-    opacity:1;
-  }
+@keyframes waitingFrames {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
-@-moz-keyframes waitingFrames{
-  0% {
-    opacity:1;
-  }
-  50% {
-    opacity:0.6;
-  }
-  100% {
-    opacity:1;
-  }
+@-moz-keyframes waitingFrames {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 @-webkit-keyframes waitingFrames {
-  0% {
-    opacity:1;
-  }
-  50% {
-    opacity:0.6;
-  }
-  100% {
-    opacity:1;
-  }
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 @-o-keyframes waitingFrames {
-  0% {
-    opacity:1;
-  }
-  50% {
-    opacity:0.6;
-  }
-  100% {
-    opacity:1;
-  }
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 @-ms-keyframes waitingFrames {
-  0% {
-    opacity:1;
-  }
-  50% {
-    opacity:0.6;
-  }
-  100% {
-    opacity:1;
-  }
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }

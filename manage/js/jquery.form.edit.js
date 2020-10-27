@@ -100,7 +100,7 @@ if($)(function(window, document, $, undefined){
                         xhr.send(formData);
                     },
                 });
-            })
+            });
             
             //files upload
             if( jQuery( o.fileupload_selector, selector ).length > 0 ){
@@ -130,7 +130,7 @@ if($)(function(window, document, $, undefined){
                     else _value = _this.data('false-value');
                     jQuery('input#'+_this.attr('rel')).val(_value);
                 })
-            })
+            });
             //datepicker
             if( jQuery( o.datepicker_selector, selector ).length > 0 ){
                 jQuery( o.datepicker_selector, selector ).each( function(){
@@ -151,7 +151,7 @@ if($)(function(window, document, $, undefined){
                     var _length = jQuery(this).val().length;
                     jQuery(this).siblings('span.count-letters').text(_length);
                 })
-            })
+            });
             //pending blocks
             if( jQuery( o.ajax_pending_selector, selector ).length > 0 ){
                 jQuery( o.ajax_pending_selector, selector ).each( function(){
@@ -196,7 +196,7 @@ if($)(function(window, document, $, undefined){
                         _values[_id] = item_values;
                     }); 
                     getPending( _pending_parent.data( 'url') + 'edit/' + _pending_parent.data('id') + '/', {values: _values } );
-                })
+                });
                 
                 //add pending block
                 jQuery( '.add', _pending_parent ).on( 'click', function(){
@@ -209,7 +209,7 @@ if($)(function(window, document, $, undefined){
                             init( _pending_parent );
                         }
                     )
-                })
+                });
                 //delete pending block
                 jQuery( '.delete', _pending_parent ).on( 'click', function(){
                     var _item = jQuery( this ).closest( '.item' );
@@ -251,7 +251,7 @@ if($)(function(window, document, $, undefined){
                         _this.toggleClass('active');
                         jQuery( 'input', _this ).attr( 'value', _this.hasClass( 'active' ) ? 1 : 2 );
                         if( typeof jQuery( this ).attr( o.visibility_attr ) != 'undefined' ) checkElVisibility( _this );
-                    })
+                    });
                     if( typeof jQuery( this ).attr( o.visibility_attr ) != 'undefined' ) checkElVisibility( jQuery( this ) );
                 })
             }          
@@ -299,7 +299,7 @@ if($)(function(window, document, $, undefined){
                     );
                     _input.on('keypress', function (e) {
                          if(e.which === 13) {
-                             addVideo( _input,  _this )
+                             addVideo(_input, _this);
                              return false;
                          }
                    });
@@ -308,13 +308,13 @@ if($)(function(window, document, $, undefined){
             }
             
             jQuery.each(jQuery('textarea'), function() {
-                resizeTextarea(this)
+                resizeTextarea(this);
                 jQuery(this).on('keyup input', function() { resizeTextarea(this); });
-            });  
-        }
+            });
+        };
         addVideo = function( input, _this ){
              input.removeClass( 'red-border' ).next('span').text('');
-             console.log( input )
+            console.log(input);
              var _link = input.val();
              if( _link == '' ) {
                  input.addClass( 'red-border' ).next('span').text('Пустое поле');
@@ -335,15 +335,15 @@ if($)(function(window, document, $, undefined){
                 function( data ) {
                     input.addClass( 'red-border' ).next('span').text( data.error );
                 }
-             ); 
-            
-         }
+             );
+
+        };
         //проверка на лимит видео
         checkVideoLimit = function( ) {  
             var _el = jQuery( 'input[name=video_upload]' );
             if( o.video_limit <= o.video_count ) _el.hide().siblings('.button').hide();
             else _el.show().siblings('.button').show();
-        }            
+        };
         //добавление блока управления видео
         videoShowInfo = function( _parent, _data ) {                
             _parent.append( '<div class="item" data-id="' + _data.id + '">\
@@ -370,12 +370,12 @@ if($)(function(window, document, $, undefined){
                     return false;
                  }
            });
-           
-        } 
+
+        };
         videoSetTitle = function( _this ) {
-            getPending( o.video_list_url + 'setTitle/', {id: _this.parent().attr('data-id'), title: _this.val( ) } )   
+            getPending(o.video_list_url + 'setTitle/', {id: _this.parent().attr('data-id'), title: _this.val()});
             _this.trigger('blur');
-        }
+        };
                 
         videoDeleteFile = function( _this ) {
             getPending( 
@@ -386,9 +386,9 @@ if($)(function(window, document, $, undefined){
                     o.video_count--;
                     checkVideoLimit( );
                 }
-            )   
+            );
             _this.trigger('blur');
-        }
+        };
                 
         /* проверка полей на видимость */
         var checkElVisibility = function( _el ){
@@ -399,7 +399,7 @@ if($)(function(window, document, $, undefined){
                 
                 jQuery(this).toggleClass( 'disabled', !_active );
             })
-        }  
+        };
         /* управление зависимыми выпадающими списками */
         var selectFilterVisibility = function( _el, _value ){
             if( _value == 0 ) jQuery( 'li', _el).first().click().siblings().removeClass('active');
@@ -407,7 +407,7 @@ if($)(function(window, document, $, undefined){
                 jQuery( 'li:not(:first)', _el).removeClass('active').siblings( 'li:not(:first)[data-parent-id=' + _value + ']').addClass('active');
                 if( !jQuery( 'li.selected', _el).hasClass('active') ) jQuery( 'li', _el).first().click()
             }
-        }
+        };
 
         /* textarea resize*/
         var resizeTextarea = function(el) {
@@ -415,7 +415,7 @@ if($)(function(window, document, $, undefined){
             jQuery(el).css('height', 'auto').css('height', el.scrollHeight + offset);
         };
         $.fn.formEdit.destroy = function() {
-        }
+        };
        
         return this.each(function(){
             init_selector = $(this);

@@ -19,7 +19,7 @@ jQuery(function(){    //datepicker init
                 if(_this.parent('label').hasClass('on')) _form_values.push(_name+'='+_val);
             }
             else if(_val!='') _form_values.push(_name+'='+_val);
-        })
+        });
         if(_form_values.length > 0) _parameters = '?'+_form_values.join("&");
         _url =  _form.attr('action')+_parameters;
         document.location = _url;

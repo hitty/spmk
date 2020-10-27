@@ -91,7 +91,7 @@ class sitemap
     */
     public function add_sitemap_url($url,$lastmod,$changefreq,$priority,$is404=FALSE){
         $this->sitemap_urls[]=$url;
-        $this->lastmod[]=$lastmod;
+        $this->lastmod[] = $lastmod == '0000-00-00 00:00:00' ? '2020-05-04 00:00:00' : $lastmod;
         $this->changefreq[]=$changefreq;
         $this->priority[]=$priority;
         if ($is404) ++$this->links404_total;

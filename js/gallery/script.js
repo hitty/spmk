@@ -2010,7 +2010,7 @@
     });
 
 }(window, document, jQuery));
-;(function ($) {
+(function ($) {
     //Shortcut for gallery object
     var F = $.gallery;
 

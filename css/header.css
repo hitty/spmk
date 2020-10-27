@@ -2,7 +2,7 @@ header {
     background: var(--main-color);
     height: 70px;
     align-items: center;
-    padding: 0 30px;
+    padding: 0 16px;
     position: fixed;
     left: 0;
     right: 0;
@@ -31,6 +31,7 @@ header .logo span {
     display: block;
     line-height: 1.2;
     margin-left: 10px;
+    max-width: 160px;
 }
 
 header .actions {
@@ -39,7 +40,6 @@ header .actions {
     font-size: 18px;
     line-height: 1;
     text-transform: uppercase;
-    margin-right: 20px;
 }
 
 header .actions .send:before {
@@ -58,8 +58,9 @@ header .actions .email:before {
     background-image: url('/img/email-icon.svg');
 }
 
+header .actions .email:after,
 header .actions .phone:after {
-    content: "Звонки по России бесплатно";
+    content: "Звоните бесплатно по России";
     display: block;
     font-size: 9px;
     position: absolute;
@@ -70,8 +71,13 @@ header .actions .phone:after {
     text-transform: none;
     font-family: var(--main-font);
     font-weight: normal;
+
 }
 
+header .actions .email:after {
+    content: "Заказ металлоконструкций от 200 т";
+    white-space: nowrap;
+}
 header .actions a,header .actions span {
     border: none;
     padding-left: 22px;
@@ -307,5 +313,33 @@ header:before {
 @media(max-width: 480px) {
     header .ny {
         top: 35%;
+    }
+}
+
+header.header-clear .logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+header.header-clear .logo span {
+    display: block;
+    margin-left: 10px;
+}
+
+@media (max-width: 700px) {
+    header.header-clear .logo {
+        left: 10%;
+        right: 10%;
+        transform: translate(0, -50%);
+    }
+}
+
+@media (max-width: 420px) {
+    header.header-clear .logo {
+        left: 2%;
+        right: 2%;
+        transform: translate(0, -50%);
     }
 }

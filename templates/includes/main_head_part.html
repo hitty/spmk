@@ -8,7 +8,6 @@
     <meta name="revisit-after" content="14 days">
     <meta name="alternateName" content="" />
     <meta name="robots" content="index,follow">
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:700|Roboto:400,500,900&display=block&subset=cyrillic" rel="stylesheet">
     <link type="image/x-icon" rel="shortcut icon" href="/favicon.ico">
     <link type="image/x-icon" rel="icon" href="/favicon.ico">
 
@@ -29,9 +28,6 @@
         {loop $css_array,$k,$css}
             <link rel="stylesheet" href="{$css}" media="all">
         {/loop $css_array}
-        
-        
-        
     {elseif!empty $id_admin}
         <script src="/js/{$js_id}.js"></script>
         <link rel="stylesheet" href="/css/{$css_id}.css" media="all">
@@ -50,24 +46,5 @@
         <meta content="{quoted:$open_graph['description']}" property="og:description"/>
     {/if}
     <meta name="yandex-verification" content="a39a2fc90afbe336" />
-
     
     
-    {ifempty $debug}
-    
-    {literal}
-    <!-- Yandex.Metrika counter --> <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(54690451, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/54690451" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
-    
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-117369936-3"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'UA-117369936-3');
-    </script>
-    
-    {/literal}
-    {/if}
-    <script src="https://www.google.com/recaptcha/api.js?render={php:echo Config::Get('recaptcha/public')}"></script>

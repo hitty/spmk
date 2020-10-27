@@ -244,14 +244,15 @@ class Page {
         $this->menuClear( 1 );
         $this->menuAdd( 'Завод МК', 'zavod', 1 );
             $this->menuAdd( 'Продукция', 'assortment', 2, false, false, 'zavod' );
-        $this->menuAdd( 'Услуги', 'uslugi', 1, 'inactive' );
+        $this->menuAdd('Услуги', 'uslugi', 1);
             $this->menuAdd( 'Проектирование', 'uslugi/proektirovanie', 2, false, false, 'uslugi' );
             $this->menuAdd( 'Изготовление', 'uslugi/izgotovlenie', 2, false, false, 'uslugi'  );
             $this->menuAdd( 'Доставка', 'uslugi/dostavka', 2, false, false, 'uslugi'  );
             $this->menuAdd( 'Монтаж', 'uslugi/montazh', 2, false, false, 'uslugi'  );
-            //$this->menuAdd( '«Под ключ»', '', 2, false, false, 'uslugi'  );
+        $this->menuAdd('Комплектация', 'uslugi/komplektaciya', 2, false, false, 'uslugi');
         $this->menuAdd( 'Объекты', 'objekty', 1 );
         $this->menuAdd( 'Прайс', 'price', 1 );
+        $this->menuAdd('Новости', 'news', 1);
         $this->menuAdd( 'Закупки', 'zakupki', 1, 'inactive' );
             $this->menuAdd( 'Поставщикам', 'zakupki/postavschikam', 2, false, false, 'zakupki'  );
             $this->menuAdd( 'Тендеры', 'zakupki/tendery', 2, false, false, 'zakupki'  );
@@ -447,7 +448,7 @@ class Page {
                 $GLOBALS['css_set'][] = '/css/common.css';
                 $GLOBALS['css_set'][] = '/css/central.css';
                 $GLOBALS['css_set'][] = '/css/header.css';
-                $GLOBALS['css_set'][] = '/css/404.css';
+                $GLOBALS['css_set'][] = '/css/errors.css';
                 $GLOBALS['css_set'][] = '/css/adaptive.css';
                 $this->metadata['title'] = 'Ошибка 404. Страница не найдена.';
                 Response::SetArray('metadata', $this->metadata);
@@ -463,7 +464,7 @@ class Page {
                 $GLOBALS['css_set'][] = '/manage/css/style.css';
                 $GLOBALS['css_set'][] = '/manage/css/controls.css';
                 $GLOBALS['css_set'][] = '/manage/css/form.css';
-                $GLOBALS['css_set'][] = '/css/403.css';
+                $GLOBALS['css_set'][] = '/css/errors.css';
                 
                 sendHTTPStatus(403);
                 $error_template = '/templates/403.html';

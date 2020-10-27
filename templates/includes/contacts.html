@@ -1,81 +1,144 @@
 <section class="contacts">
-        {if!empty $contacts_page}
-            <h1>{if!empty $h1}{$h1}{else}Контакты{/if}</h1>
-        {/if}
-
-    <div class="inner" itemscope itemtype="http://schema.org/Organization">
-        <meta itemprop="name" content="ГК «СПМК». Офис продаж. Производство в г.Рязани" />
+    {if!empty $contacts_page}
+    <h1>{if!empty $h1}{$h1}{else}Контакты{/if}</h1>
+    {/if}
+    <div class="inner">
         {ifempty $contacts_page}
             <h2>Контакты</h2>
         {else}
-            <span class="title" data-icon="room">Фактический адрес:</span>
-            <span class="address" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-            <span itemprop="postalCode">390042</span>,
-            <span itemprop="addressLocality">г. Рязань</span>,
-            <span itemprop="streetAddress">ул. Станкозаводская, д.7, стр.3 (территория Индустриального парка «Станкозаводской»)</span>
-            </span>
-        <span class="title" data-icon="person">Телефоны и электронные адреса:</span>
-        {/if}
-        <ul class="flex">
-            <li>
-                Отдел продаж
-                <b class="phone" itemprop="telephone">8 (800) 250-76-97 <i>(доб.1)</i></b>
-                <a href="mailto:market@spmk.group">market@spmk.group</a>
-            </li>
-            <li>
-                Отдел снабжения
-                <b class="phone" itemprop="telephone">8 (800) 250-76-97 <i>(доб.2)</i></b>
-                <a href="mailto:snab@spmk.group">snab@spmk.group</a>
-            </li>
-            <li>
-                Отдел кадров
-                <b class="phone" itemprop="telephone">8 (800) 250-76-97 <i>(доб.3)</i></b>
-                <a href="mailto:hr@spmk.group">hr@spmk.group</a>
-            </li>
-            <li>
-                Приемная
-                <b class="phone" itemprop="telephone">8 (800) 250-76-97 <i>(доб.4)</i></b>
-                <a href="mailto:info@spmk.group">info@spmk.group</a>
-            </li>
-        </ul>
-        {if!empty $contacts_page}
+        <div class="phone-email">
+            <span class="phone" itemprop="telephone"
+                  onclick="try{ document.location.href='tel:+78002507697'; return true; }catch(err){ }">8 (800) 250-76-97</b>
+                |
+            <a data-goal="send_email" href="mailto:info@spmk.group" itemprop="email">info@spmk.group<i
+                    class="copy-to-buffer" data-content="info@spmk.group" data-goal="send_copy_email"
+                    data-icon="content_copy" title="Скопировать email"></i></a>
 
-        <span class="title" data-icon="calendar_today">Время работы ИТР:</span>
-        <span class="schedule">Понедельник - пятница: с 8:30 до 17:30</span>
-        <span class="schedule day-off">Суббота, воскресенье: выходной</span>
+        </div>
+        <div class="addresses flex" itemscope itemtype="http://schema.org/Organization">
+
+            <div class="address-wrap">
+                <meta content=" «СПМК». Представительство в г. Москве." itemprop="name"/>
+                <span class="title" data-icon="room">Офис в Москве:</span>
+                <span class="address" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                    <span itemprop="postalCode">125371</span>,
+                    <span itemprop="addressLocality">г. Москва</span>,
+                    <span itemprop="streetAddress">Волоколамское шоссе, д.89</span>
+                </span>
+                <span class="title" data-icon="phone">Телефон:</span>
+                <ul class="flex moscow-phones">
+                    <li>
+                        <span class="phone" itemprop="telephone"
+                              onclick="try{ document.location.href='tel:+74997034857'; return true; }catch(err){ }">+7 (499) 703-48-57</b>
+                    </li>
+                </ul>
+                <span class="title" data-icon="calendar_today">Время работы:</span>
+                <span class="schedule">Понедельник - пятница: с 9:00 до 18:00</span>
+                <span class="schedule day-off">Суббота, воскресенье: выходной</span>
+
+            </div>
+
+            <div class="address-wrap" itemscope itemtype="http://schema.org/Organization">
+                <meta content="Производственная площадка в Рязани" itemprop="name"/>
+                <span class="title" data-icon="room">Производственная площадка в Рязани:</span>
+                <span class="address" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                    <span itemprop="postalCode">390042</span>,
+                    <span itemprop="addressLocality">г. Рязань</span>,
+                    <span itemprop="streetAddress">ул. Станкозаводская, д.7, стр.3 (территория Индустриального парка «Станкозаводской»)</span>
+                </span>
+
+                <span class="title" data-icon="calendar_today">Время работы:</span>
+                <span class="schedule">Понедельник - пятница: с 8:30 до 17:30</span>
+                <span class="schedule day-off">Суббота, воскресенье: выходной</span>
+
+            </div>
+        </div>
+
+
+        <div class="inner" itemscope itemtype="http://schema.org/Organization">
+            <span class="title" data-icon="person">Телефоны и электронные адреса:</span>
+        {/if}
+
+            <ul class="flex">
+                <li>
+                    Отдел продаж
+                    <span class="phone" itemprop="telephone"
+                          onclick="try{ document.location.href='tel:+78002507697#1'; return true; }catch(err){ }">8 (800) 250-76-97<i>(доб.1)</i></span>
+                    <a data-goal="send_email" href="mailto:market@spmk.group">market@spmk.group<i class="copy-to-buffer"
+                                                                                                  data-content="market@spmk.group"
+                                                                                                  data-goal="send_copy_email"
+                                                                                                  data-icon="content_copy"
+                                                                                                  title="Скопировать email"></i></a>
+
+
+                </li>
+                <li>
+                    Отдел снабжения
+                    <span class="phone" itemprop="telephone"
+                          onclick="try{ document.location.href='tel:+78002507697#2'; return true; }catch(err){ }">8 (800) 250-76-97 <i>(доб.2)</i></span>
+                    <a data-goal="send_email" href="mailto:snab@spmk.group">snab@spmk.group<i class="copy-to-buffer"
+                                                                                              data-content="snab@spmk.group"
+                                                                                              data-goal="send_copy_email"
+                                                                                              data-icon="content_copy"
+                                                                                              title="Скопировать email"></i></a>
+
+
+                </li>
+                <li>
+                    Отдел кадров
+                    <span class="phone" itemprop="telephone"
+                          onclick="try{ document.location.href='tel:+78002507697#3'; return true; }catch(err){ }">8 (800) 250-76-97 <i>(доб.3)</i></span>
+                    <a data-goal="send_email" href="mailto:hr@spmk.group">hr@spmk.group<i class="copy-to-buffer"
+                                                                                          data-content="hr@spmk.group"
+                                                                                          data-goal="send_copy_email"
+                                                                                          data-icon="content_copy"
+                                                                                          title="Скопировать email"></i></a>
+
+
+                </li>
+                <li>
+                    Отдел логистики
+                    <span class="phone" itemprop="telephone"
+                          onclick="try{ document.location.href='tel:+78002507697'; return true; }catch(err){ }">8 (800) 250-76-97</span>
+                    <a data-goal="send_email" href="mailto:logist@spmk.group">logist@spmk.group<i class="copy-to-buffer"
+                                                                                                  data-content="logist@spmk.group"
+                                                                                                  data-goal="send_copy_email"
+                                                                                                  data-icon="content_copy"
+                                                                                                  title="Скопировать email"></i></a>
+
+
+                </li>
+                <li>
+                    Приемная
+                    <span class="phone" itemprop="telephone"
+                          onclick="try{ document.location.href='tel:+78002507697#4'; return true; }catch(err){ }">8 (800) 250-76-97 <i>(доб.4)</i></span>
+                    <a data-goal="send_email" href="mailto:info@spmk.group">info@spmk.group<i class="copy-to-buffer"
+                                                                                              data-content="info@spmk.group"
+                                                                                              data-goal="send_copy_email"
+                                                                                              data-icon="content_copy"
+                                                                                              title="Скопировать email"></i></a>
+
+
+                </li>
+            </ul>
+            {if!empty $contacts_page}
+        </div>
 
         <script src="//api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
+
+        <div class="map" data-lat="55.829067" data-lng="37.410556" id="map-production">
+            <div class="image bg-cover" style="background-image: url('/img/map-production.jpg');">
+                <span class="title">Офис в Москве</span>
+            </div>
+        </div>
         <div class="map" id="map-office" data-lat="54.668207" data-lng="39.635799">
             <div class="image bg-cover" style="background-image: url('/img/map-office.png');">
                 <span class="title">Офис продаж. Производство в г.Рязани</span>
             </div>
-        </div>   
+        </div>
     </div>
-    
-    <div class="inner" itemscope itemtype="http://schema.org/Organization">
-        <meta itemprop="name" content=" ГК «СПМК». Представительство в г. Москве." />
-        <span class="title" data-icon="room">Представительство в г. Москве:</span>
-        <span class="address" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-            <span itemprop="postalCode">125371</span>,
-            <span itemprop="addressLocality">г. Москва</span>,
-            <span itemprop="streetAddress">Волоколамское шоссе, д.89</span>
-        </span>
-        <span class="title" data-icon="phone">Телефон:</span>
-        <ul class="flex moscow-phones">
-            <li>
-                <b class="phone" itemprop="telephone">+7 (499) 703-48-57</b>
-            </li>
-        </ul>
-        
-        <span class="title" data-icon="calendar_today">Время работы:</span>
-        <span class="schedule">Понедельник - пятница: с 9:00 до 18:00</span>
-        <span class="schedule day-off">Суббота, воскресенье: выходной</span>
-         
-        <div class="map" id="map-production" data-lat="55.829067" data-lng="37.410556">
-            <div class="image bg-cover" style="background-image: url('/img/map-production.jpg');">
-                <span class="title">Представительство в г.Москве</span>
-            </div>
-        </div>   
-        {/if} 
+    {include /templates/includes/block.form.html}
+    {else}
     </div>
+    {/if}
 </section>

@@ -8,7 +8,7 @@ jQuery(document).ready(function(){
         var _this = jQuery(this);
         _this.addClass( 'active' ).siblings().removeClass( 'active' );
         jQuery("html,body").animate({ scrollTop: jQuery( _this.data( 'element' ) ).offset().top }, "slow");
-    })
+    });
 
     if( typeof jQuery('.search') == "object" ){
         var _s = jQuery('.search');
@@ -29,7 +29,7 @@ function checkBoxesInit(parent_object){
             if(_type == 'checkbox'){
                 if(jQuery(this).is(":checked")) jQuery(this).parent().addClass("on");
                 else jQuery(this).parent().removeClass("on");
-            } else jQuery(this).parent().addClass("on").siblings('label').removeClass('on')
+            } else jQuery(this).parent().addClass("on").siblings('label').removeClass('on')  
         });
         if(_type == 'checkbox') jQuery("input[type='"+_type+"']", parent_object).each(function(){jQuery(this).change()});
     });
@@ -83,7 +83,7 @@ function listSelectorInit( parent_object ){
             else {
                 jQuery( '.list-data li', _selector ).each( function(){
                     var _this = jQuery(this);
-                    if( parseInt( _this.data( 'value' ) ) > 0 ) {
+                    if (_this.data('value').length > 0) {
                         if( parseInt( ( jQuery(this).text().toLowerCase() ).indexOf(_picker) ) >= 0 ) _this.removeClass('hidden');
                         else _this.addClass('hidden');
                     }

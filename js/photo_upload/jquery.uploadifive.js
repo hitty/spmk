@@ -5,8 +5,7 @@ var _idObject = 0;
 var _qu = [];
 var xhr = [];
 _settings = '';
-;(function($) {
-
+(function ($) {
     var methods = {
 
         init : function(options) {
@@ -92,7 +91,7 @@ _settings = '';
                 _settings = settings;
                 // Calculate the file size limit
                 if (isNaN(settings.fileSizeLimit)) {
-                    var fileSizeLimitBytes = parseInt(settings.fileSizeLimit) * 1.024
+                    var fileSizeLimitBytes = parseInt(settings.fileSizeLimit) * 1.024;
                     if (settings.fileSizeLimit.indexOf('KB') > -1) {
                         settings.fileSizeLimit = fileSizeLimitBytes * 1000;
                     } else if (settings.fileSizeLimit.indexOf('MB') > -1) {
@@ -157,15 +156,15 @@ _settings = '';
                         $data.currentInput.remove();
                     }
                     $data.uploadli.append(input);
-                    $data.currentInput = input; 
-                }
+                    $data.currentInput = input;
+                };
 
                 // Remove an input
                 $data.destroyInput = function(key) {
                     $($data.inputs[key]).remove();
                     delete $data.inputs[key];
                     $data.inputCount--;
-                }
+                };
 
                 // Drop a file into the queue
                 $data.drop = function(e) {
@@ -212,7 +211,7 @@ _settings = '';
                     // Stop FireFox from opening the dropped file(s)
                     e.preventDefault();
                     e.stopPropagation();
-                }
+                };
 
                 // Check if a filename exists in the queue
                 $data.fileExistsInQueue = function(file) {
@@ -228,7 +227,7 @@ _settings = '';
                         }
                     }
                     return false;
-                }
+                };
 
                 // Remove an existing file in the queue
                 $data.removeExistingFile = function(file) {
@@ -244,7 +243,7 @@ _settings = '';
                             }
                         }
                     }
-                }
+                };
 
                 // Create the file item template
                 if (settings.itemTemplate == false) {
@@ -302,18 +301,18 @@ _settings = '';
                             var isValidFileType = false;
                             for (var n = 0; n < settings.fileType.length; n++) {
                                 if (file.type.indexOf(settings.fileType[n]) > -1) {
-                                    console.log(file.type)
+                                    console.log(file.type);
                                     isValidFileType = true;
                                 }
                             }
                             if (!isValidFileType) {
-                                console.log(file.type)
+                                console.log(file.type);
                                 $data.error('Недопустимый тип файла', file);
                                 $data.queue.count++;
                             }
                         } else {
                             if (file.type.indexOf(settings.fileType) < 0) {
-                                console.log(file.type)
+                                console.log(file.type);
                                 $data.error( 'FORBIDDEN_FILE_TYPE', file);
                                 $data.queue.count++;
                             }
@@ -325,7 +324,7 @@ _settings = '';
                     } else {
                         $data.queue.queued++;
                     }
-                }
+                };
 
                 // Remove an item from the queue
                 $data.removeQueueItem = function(file, instant, delay) {
@@ -344,7 +343,7 @@ _settings = '';
                         delete file.queueItem;
                         $data.queue.count--;
                     }
-                }
+                };
 
                 // Count the number of files that need to be uploaded
                 $data.filesToUpload = function() {
@@ -360,7 +359,7 @@ _settings = '';
                         }
                     }
                     return filesToUpload;
-                }
+                };
 
                 // Check if a file exists
                 $data.checkExists = function(file) {
@@ -387,7 +386,7 @@ _settings = '';
                         settings.onCheck.call($this, file, file.exists);
                     }
                     return false;
-                }
+                };
 
                 // Upload a single file
                 $data.uploadFile = function(file, uploadAll) {
@@ -455,7 +454,7 @@ _settings = '';
 
                         }
                     }
-                }
+                };
 
                 // Update a file upload's progress
                 $data.progress = function(e, file) {
@@ -470,7 +469,7 @@ _settings = '';
                     if (typeof settings.onProgress === 'function') {
                         settings.onProgress.call($this, file, e);
                     }
-                }
+                };
 
                 // Trigger an error
                 $data.error = function(errorType, file, uploadAll) {
@@ -516,7 +515,7 @@ _settings = '';
                     if (uploadAll) {
                         methods.upload.call($this, null, true);
                     }
-                }
+                };
 
                 // Trigger when a single file upload is complete
                 $data.uploadComplete = function(e, file, uploadAll) {
@@ -529,7 +528,7 @@ _settings = '';
                                 var _this_item = file.queueItem.children( 'div.itemsContainer' );
                                 _this_item.attr( 'data-id_obj', obj1.list.file_id )
                                     .attr( 'data-img', obj1.list.fullname  )
-                                    .attr( 'style', 'background-image:url(' + obj1.list.fullname + ')' )
+                                    .attr('style', 'background-image:url(' + obj1.list.fullname + ')');
                                 _this_item.children( '.filename_wrap, .fileinfo_wrap, .progressbar-container').remove();
                                 $data.appendManagePart( _this_item,obj1.list.file_id );
                                 file.queueItem.addClass( 'complete');
@@ -559,7 +558,7 @@ _settings = '';
                     if (uploadAll) {
                         methods.upload.call($this, null, true);
                     }
-                }
+                };
 
                 // Trigger when all the files are done uploading
                 $data.queueComplete = function() {
@@ -567,13 +566,13 @@ _settings = '';
                     if (typeof settings.onQueueComplete === 'function') {
                         settings.onQueueComplete.call($this, $data.uploads);
                     }
-                }
+                };
                 
     
     
                 // show Uploaded photos 
-                $data.showUploadedPhotos = function(_idobject) {                
-                    console.log( init_selector.attr('name') ) 
+                $data.showUploadedPhotos = function (_idobject) {
+                    console.log(init_selector.attr('name'));
                     jQuery.ajax({
                         type: "POST", async: true,
                         dataType: 'json', url: settings.uploadUrl+'list/',
@@ -609,11 +608,11 @@ _settings = '';
                         complete: function(){
                         }
                     });
-                }
+                };
                 //добавление блока управления фотографиями
                 $data.appendManagePart = function(_this_item, list) {                
                     $data.queue.count++;
-                    jQuery('input#'+settings.id).siblings('.fileUploadStat').children('.totalObjects').html($data.queue.count)
+                    jQuery('input#' + settings.id).siblings('.fileUploadStat').children('.totalObjects').html($data.queue.count);
                     if($data.queue.count>1) {jQuery('.fileSorting').show();}
                     if($data.queue.count>settings.queueSizeLimit-1) {
                         jQuery('#'+settings.id+'_queue').children('.uploadifyButton').addClass('inactive');
@@ -647,8 +646,8 @@ _settings = '';
                            $data.rotateFile(jQuery(this));
                            return false;
                     });
-                   
-                }
+
+                };
                 $data.deleteFile = function(file) {
                     var _this_elm = file;
                     var _objectId = _this_elm.parent().siblings('div.itemsContainer').attr('data-id_obj');
@@ -688,8 +687,8 @@ _settings = '';
                         },
                         complete: function(){
                         }
-                    });  
-                }             
+                    });
+                };
                 $data.makeMainFile = function(file) {
                     var _this_elm = file.parent();
                     var _input = _this_elm.parents('li').parents('ul').prev('.mUploadImg').children('input[type=file]');
@@ -709,8 +708,8 @@ _settings = '';
                         },
                         complete: function(){
                         }
-                    });                  
-                }
+                    });
+                };
                 
                 
                 $data.rotateFile = function(file) {
@@ -733,12 +732,12 @@ _settings = '';
                         },
                         complete: function(){
                         }
-                    });                  
-                }
+                    });
+                };
                 
                 $data.saveFileTitle = function(file) {
 
-                }                               
+                };
                 // ----------------------
                 // Initialize UploadiFive
                 // ----------------------
@@ -1008,7 +1007,7 @@ _settings = '';
 
         }
 
-    }
+    };
 
     $.fn.uploadifive = function(method) {
         init_selector = $(this);

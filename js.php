@@ -47,16 +47,12 @@ if(empty($md5)) {
                 $_content .= file_get_contents( $_file)."\n";
             }
         }
-        
-        /*
-        if(!DEBUG_MODE && !TEST_MODE){
-            include(ROOT_PATH.'/includes/minify-master/Minify.php');
-            include(ROOT_PATH.'/includes/minify-master/JS.php');
+
+        include(ROOT_PATH . '/includes/minify-master/src/Minify.php');
+        include(ROOT_PATH . '/includes/minify-master/src/JS.php');
             
             $minifier = new MatthiasMullie\Minify\JS( $_content );
             $_content = $minifier->minify();
-        }
-        */
         if(file_exists($cached_filename)) unlink($cached_filename);
         $fpointer = fopen($cached_filename,'w');
         fwrite($fpointer,$_content);

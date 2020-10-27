@@ -12,12 +12,13 @@
             <input type="phone" name="phone" placeholder="Ваш телефон для связи *" required="required" maxlength="17" autocomplete="{$random}">
         </div>
         <div class="row">
-            <input type="email" name="email" placeholder="На какую эл.почту направить расчет?{if!empty $email_required}*{/if}"{if!empty $email_required} required="required"{/if} autocomplete="{$random}">
+            <input autocomplete="{$random}" name="email" placeholder="На какую эл.почту направить расчет?*"
+                   required="required" type="email">
         </div>
         {php:$service_list = Config::Get('forms/raschet/service_list')}
         {if!empty $service_list}
             <div class="row service-container">
-                <div class="title">Какие услуги включить в проект? Изготовление уже включено.</div>
+                <div class="title">Что нужно сделать?</div>
                 <input type="hidden" name="service" value="" />
                 {loop $service_list,$k,$i}
                     <label class="checkbox {if!empty $i['toggle_element']}toggle{/if}" {if!empty $i['toggle_element']}data-target="{$i['toggle_element']}"{/if}>
@@ -31,22 +32,29 @@
         </div>
 
         <div class="upload-container row br3">
-            <textarea name="comment" placeholder="Описание проекта, доп.требования"></textarea>
+            <textarea name="comment"
+                      placeholder="Кратко опишите задачу. Прикрепите файл с ТЗ или укажите ссылку на техническую документацию."></textarea>
             <div class="file-upload">      
                 <input type="file" name="file_upload[]" id="file_upload-{$random}" class="inputfile-{$random}" data-multiple-caption="files selected" multiple="">
                 <label for="file_upload-{$random}" class="br4 attach-file " data-icon="attach_file">
                     <strong class="br3 transition">Прикрепить ТЗ</strong>
-                </label>      
+                    <div style="font-size: 9px;color: #bbb;position: absolute;top: 20px;left: 0;">Максимальный размер
+                        файла: 25 МБ
+                    </div>
+                </label>
+
                 <span class="text-overflow" data-icon="attach_file"></span> 
                 <i class="close" data-icon="close"></i>
             </div>
-        </div>     
+        </div>
+
+        <div class="row terms"><span class="text">* поля, обязательные для заполнения</span></div>
+
         <div class="row form-block notifications"></div>    
         <div class="row terms">                        
             <input type="submit" class="button big" value="{ifempty $button_title}Отправить{else}{$button_title}{/if}">
             <span class="text">Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c <a href="/terms/" target="_blank"  class="modal-open-btn">политикой конфиденциальности</a></span>
         </div> 
-        
         <input type="hidden" name="recaptcha_response" data-public="{php:echo Config::Get('recaptcha/public')}">
     </form>
     

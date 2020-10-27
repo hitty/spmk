@@ -196,12 +196,12 @@ sup {
     vertical-align: top;
 }
 section{
-    margin: 80px 0;
+    margin: 120px 0;
     position: relative;
 }
 section.bg-cover{
     margin: 0;
-    padding: 80px 0;
+    padding: 120px 0;
 }
 /* фиксированный размер блока */
 .bbox{
@@ -516,7 +516,7 @@ h1 + .navigation{
     content:"";
     position: absolute;
     z-index: 0;
-    background: rgba(0,0,0,.4);
+    background: rgba(0, 0, 0, .6);
     left: 0;
     top: 0;
     right: 0;
@@ -718,6 +718,14 @@ h1 + .navigation{
 }
 .to-left{
     text-align: left!important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+}
+
+.to-right {
+    align-items: flex-end !important;
+    justify-content: flex-end !important;
+    text-align: right !important;
 }
 .to-center{
     text-align: center!important;
@@ -821,4 +829,34 @@ h1 + .navigation{
     .kmd-gift.modal .inner form .terms {
         margin-top: 40px;
     }
+}
+
+.mb-0 {
+    margin-bottom: 0 !important;
+}
+
+.mt-0 {
+    margin-top: 0 !important;
+}
+
+.d-none {
+    display: none !important;
+}
+
+.d-flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.simple-form {
+    background: #eee;
+    padding: 40px 0;
+    margin-bottom: 0;
+}
+
+.simple-form input[type="text"],
+.simple-form input[type="phone"] {
+    height: 50px;
+    line-height: 50px;
 }
