@@ -44,9 +44,9 @@ if($)(function(window, document, $, undefined){
                             _parent.fadeOut(200) ;
                         }
                     }
-
-                })
-            });
+                    
+                })  
+            })
             //видимость записей
             jQuery(o.item + ' .change-params').on( 'click', function(){
                 var _this = jQuery(this);
@@ -56,7 +56,7 @@ if($)(function(window, document, $, undefined){
                 _this.toggleClass('active');
                 
                 getPending( _this.data('url') + 'edit_params/', _params );
-            });
+            })
             //сортировка записей
             if( jQuery( o.sort_selector, init_selector ).length > 0 ) {
                 jQuery( o.sort_selector, init_selector ).each( function(){
@@ -86,7 +86,7 @@ if($)(function(window, document, $, undefined){
                 });    
             })
             */
-        };
+        }
         return this.each(function(){
             init_selector = jQuery( this );
             init();         

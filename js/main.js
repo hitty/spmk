@@ -2,7 +2,7 @@
 
 function getPendingContent( _element, _url, _params, _cached, _effect, _func_on_success, _func_on_complete ){
     var elem = _element;
-    if (typeof (_element) == 'string') elem = $(_element);
+    if(typeof(_element) == 'string') elem = $(_element);     
     if(_element.length > 0){
         if(typeof(_params) == 'undefined' || !_params) _params = {ajax: true};
         else{
@@ -52,7 +52,7 @@ function getPendingContent( _element, _url, _params, _cached, _effect, _func_on_
 function getPending(_url, _params, _func_on_success, _func_on_error){
     if(typeof(_params) == 'undefined' || !_params) _params = {ajax: true};
     else _params.ajax = true;
-    $.ajax({
+        $.ajax({
             type: "POST", async: true,
             dataType: 'json', cache: true,
             url: _url, data: _params,
@@ -103,9 +103,9 @@ function getParameterByName(name)
         );
 }
 
-$(document).ready(function () {
-    $('.thumbs-list').each(function () {
-        var _this = $(this);
+$(document).ready(function(){
+    $('.thumbs-list').each( function(){
+        var _this = $( this );
     
         var gallery = [];
         $(".thumbs-list a" ).each(function (i) {
@@ -140,45 +140,41 @@ $(document).ready(function () {
     }); 
     
     /* span links manage */
-    $(document).on("click", ".external-link", function (e) {
-        if ($(this).hasClass('disabled')) return true;
-        var _link = $(this).data('link');
+    $(document).on("click",  ".external-link",  function(e){
+       if($(this).hasClass('disabled')) return true;
+       var _link = $(this).data('link');  
        if(_link.indexOf('http://') == -1 && _link.indexOf('https://') == -1) _link = 'http://'+_link; 
        window.open(_link);
       
     });
-
-    $(document).on("click", ".internal-link", function (e) {
+   
+    $(document).on("click", ".internal-link", function(e){
         var _link = "";
-        if ($(this).hasClass('disabled')) return true;
-        if ($(this).data('link') !== undefined)
+        if($(this).hasClass('disabled')) return true;
+        if ($(this).data('link')!== undefined)
             _link = $(this).data('link');
         else
             _link = $(this).parent('.star').data('link'); 
         //если указано, открываем в новой вкладке
-        if ($(this).data('new-tab') !== undefined)
+        if($(this).data('new-tab')!==undefined)
             window.open(_link);
         else
             document.location.href = _link;
         return false; 
     });
-
-    $('button.disabled, .button.disabled').on('click', function () {
+    
+    $('button.disabled, .button.disabled').on('click', function(){
         return false;
-    });
-
+    })
+    
     _debug = $('#debug').length > 0;
-
-    $('.switcher i').on('click', function () {
+            
+    $('.switcher i').on('click', function(){
         $(this).toggleClass('active');
-    });
-
-    $('.popup').each(function () {
-        $(this).popupWindow();
-    });
-    $('.calculator').each(function () {
-        $(this).calculatorSPMK();
-    });
+    })    
+    
+    $('.popup').each(function(){ $(this).popupWindow(); } )
+    $('.calculator').each(function(){ $(this).calculatorSPMK(); } )
     
     
     $('.carousel').each( function(){
@@ -225,23 +221,23 @@ $(document).ready(function () {
                 }
             ]  
         });
-    });
-
-    $('.navigation a').each(function () {
+    })                    
+    
+    $('.navigation a').each(function(){
         var t = $(this);
-        t.on('click', function (e) {
+        t.on('click', function(e){
             e.preventDefault();
-            if ($(t.attr('href')).length)
-                $('html, body').animate({scrollTop: $(t.attr('href')).offset().top - $('header').height() - 30}, '300');
+            if( $(t.attr('href')).length )
+                $('html, body').animate({scrollTop: $(t.attr('href')).offset().top - $('header').height() - 30 }, '300');
             return false;
         })
-    });
-
-    if ($('.sticky-actions').length) {
+    })
+    
+    if( $('.sticky-actions').length ){
         var _bound_top = $('.sticky-actions-bound').offset().top;
         var _top = parseInt($(window).scrollTop());
-        $(window).scroll(function () {
-            stickyActions($('.sticky-actions li:last-child').offset().top, _bound_top);
+        $(window).scroll(function(){
+            stickyActions(  $('.sticky-actions li:last-child').offset().top, _bound_top );
             return false;
         });
     }
@@ -251,10 +247,10 @@ $(document).ready(function () {
         $(this).formSubmit({
             'scroll_to_error': $(this).data('scroll_to_error')
         });
-    });
+    })
     $('header .burger').on( 'click', function(){
         $('body').toggleClass('menu-top-is-open modal-active')    ;
-    });
+    })
     
     const btn = $('.to-top-btn');
     const h = $(window).height();
@@ -272,8 +268,8 @@ $(document).ready(function () {
     });
     
     /* free gift banner */
-    var f_g = getSpmkCookie('new_buildings_banner_new');
-    if (f_g === null && $('.new-buildings-button').length > 0) {
+    var f_g = getSpmkCookie( 'new_buildings_banner_new' );    
+    if(  f_g === null && $('.new-buildings-button').length > 0 ){
         setTimeout( function(){
             $('.new-buildings-button').click();
             setSpmkCookie( 'new_buildings_banner_new', 60, '/' );
@@ -281,7 +277,7 @@ $(document).ready(function () {
     }
 
     /* copy email to clipboard */
-    $('.copy-to-buffer').on('click', function () {
+    $('.copy-to-buffer').on('click', function(){
         var $this = $(this);
         var value = $this.data('content');
         var $temp = $("<input>");
@@ -290,15 +286,16 @@ $(document).ready(function () {
         document.execCommand("copy");
         $temp.remove();
         $this.addClass('copied');
-        setTimeout(function () {
+        setTimeout(function(){
             $this.removeClass('copied');
-        }, 2500);
+        }, 2500 )
+        counterGoals( $this.data('goal') )
         return false;
     })
-
-});
+    
+})          
 function stickyActions( _el, _bound ) {
-    if (_el > _bound) $('.sticky-actions').addClass('hidden');
+    if( _el > _bound ) $('.sticky-actions').addClass('hidden');
     else $('.sticky-actions').removeClass('hidden')
 }
 function validateEmail(email) { 

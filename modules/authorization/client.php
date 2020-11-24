@@ -368,7 +368,7 @@ switch( true ){
                                 if( !class_exists('Sendpulse') ) require_once("includes/class.sendpulse.php");
                                 //отправка письма
                                 $sendpulse = new Sendpulse( 'subscriberes' );
-                                $result = $sendpulse->sendMail( 'Регистрация на сайте ' . Host::$host, $html, $reg_name, $reg_email );
+                                //$result = $sendpulse->sendMail( 'Регистрация на сайте ' . Host::$host, $html, $reg_name, $reg_email );
                                 //добавление подписчика
                                 $email = array(
                                     array(
@@ -386,7 +386,7 @@ switch( true ){
                                 $eml_tpl = new Template('registration_email.manager.html', $this_page->module_path);
                                 // формирование html-кода письма по шаблону
                                 $html = $eml_tpl->Processing();         
-                                $result = $sendpulse->sendMail( 'Регистрация на сайте ' . Host::$host, $html, 'Менеджеру БСН', 'scald@bsn.ru' );
+                                //$result = $sendpulse->sendMail( 'Регистрация на сайте ' . Host::$host, $html, 'Менеджеру БСН', 'scald@bsn.ru' );
                                 
                                 Session::SetArray(
                                     'fields',
@@ -494,7 +494,7 @@ switch( true ){
                         if( !class_exists('Sendpulse') ) require_once("includes/class.sendpulse.php");
                         //отправка письма
                         $sendpulse = new Sendpulse( 'subscriberes' );
-                        $result = $sendpulse->sendMail( 'Член жюри ' . $login . ' просит восстановить пароль ', $html, $user_row['name'], $email );
+                        //$result = $sendpulse->sendMail( 'Член жюри ' . $login . ' просит восстановить пароль ', $html, $user_row['name'], $email );
                     }
                 }
             }

@@ -16,7 +16,7 @@ switch( true ){
         ////////////////////////////////////////////////////////////////////////////////////////////////////////
         case $action == 'block':
             $count = !empty( $get_parameters['count'] ) ? $get_parameters['count'] : 30;
-            $list = CommonDb::getList('news', '0,' . $count, $sys_tables['news'] . '.published = 1 AND ' . $sys_tables['news'] . '.date <= CURDATE()', 'date DESC', 'id');
+            $list = CommonDb::getList( 'news', '0,' . $count, $sys_tables['news'] . '.published = 1 AND ' . $sys_tables['news'] . '.date <= CURDATE()', 'date DESC', 'id' );
             Response::SetArray( 'list', $list );
             $module_template = 'block.html';
             if( $ajax_mode ) $ajax_result['ok'] = true;

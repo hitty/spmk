@@ -281,7 +281,7 @@ switch( $action ){
             exit(0);
         }
         // формирование списка
-        $list = CommonDb::getList('news', $paginator->getLimitString($page), $condition, 'date DESC, id DESC', 'id');
+        $list = CommonDb::getList( 'news', $paginator->getLimitString($page), $condition, 'date DESC, id DESC', 'id' );
         //подсчет курсов
         Response::SetArray( 'list', $list );
         Response::SetArray( 'paginator', $paginator->Get($page) );

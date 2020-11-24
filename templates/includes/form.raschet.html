@@ -12,8 +12,7 @@
             <input type="phone" name="phone" placeholder="Ваш телефон для связи *" required="required" maxlength="17" autocomplete="{$random}">
         </div>
         <div class="row">
-            <input autocomplete="{$random}" name="email" placeholder="На какую эл.почту направить расчет?*"
-                   required="required" type="email">
+            <input type="email" name="email" placeholder="На какую эл.почту направить расчет?*" required="required" autocomplete="{$random}">
         </div>
         {php:$service_list = Config::Get('forms/raschet/service_list')}
         {if!empty $service_list}
@@ -32,22 +31,19 @@
         </div>
 
         <div class="upload-container row br3">
-            <textarea name="comment"
-                      placeholder="Кратко опишите задачу. Прикрепите файл с ТЗ или укажите ссылку на техническую документацию."></textarea>
+            <textarea name="comment" placeholder="Кратко опишите задачу. Прикрепите файл с ТЗ или укажите ссылку на техническую документацию."></textarea>
             <div class="file-upload">      
                 <input type="file" name="file_upload[]" id="file_upload-{$random}" class="inputfile-{$random}" data-multiple-caption="files selected" multiple="">
                 <label for="file_upload-{$random}" class="br4 attach-file " data-icon="attach_file">
                     <strong class="br3 transition">Прикрепить ТЗ</strong>
-                    <div style="font-size: 9px;color: #bbb;position: absolute;top: 20px;left: 0;">Максимальный размер
-                        файла: 25 МБ
-                    </div>
-                </label>
-
+                    <div style="font-size: 9px;color: #bbb;position: absolute;top: 20px;left: 0;">Максимальный размер файла: 25 МБ</div>    
+                </label>      
+                
                 <span class="text-overflow" data-icon="attach_file"></span> 
                 <i class="close" data-icon="close"></i>
             </div>
-        </div>
-
+        </div>     
+        
         <div class="row terms"><span class="text">* поля, обязательные для заполнения</span></div>
 
         <div class="row form-block notifications"></div>    

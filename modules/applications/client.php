@@ -1,6 +1,6 @@
 <?php
 require_once('includes/class.paginator.php');
-require_once('includes/class.sendpulse.php');
+require_once('includes/Mandrill.php');
 
 Response::SetString('img_folder',Config::$values['img_folders']);
 $action = empty($this_page->page_parameters[0]) ? "" : $this_page->page_parameters[0];
@@ -189,43 +189,11 @@ switch(true){
                     $recaptcha = json_decode($recaptcha);
                  
                     // Take action based on the score returned
-                    $check_recaptcha = $recaptcha->score >= 0.5;
+                    $check_recaptcha = $recaptcha->score >= 0.65;
                 }
-                //отправка письма спамерам
-                if( empty( $check_recaptcha ) ) {
-                    $db->insertFromArray( $sys_tables['applications_spam'], $data );
-                    $id = $db->insert_id;
-                    Response::SetInteger( 'id', $id );
-                    $mailer_title = 'Интересный запрос от спамеров #' . $id . ' - '.date('d.m.Y');
-                    Response::SetString( 'mailer_title', $mailer_title );
+                //отправка письма
+                if( !empty( $check_recaptcha ) ) {
 
-                    $eml_tpl = new Template('send.email.spam.html', 'modules/applications/');
-                    $html = $eml_tpl->Processing();
-
-                    $emails = [
-                        [
-                            'name' => '',
-                            'email'=> 'kya82@mail.ru'
-                        ],
-                        [
-                            'name' => '',
-                            'email'=> $parameters['email']
-                        ]
-                    ];
-                    
-                    $sendpulse = new Sendpulse( );
-                    /*
-                    $result = $sendpulse->sendMail(
-                        $mailer_title,
-                        $html,
-                        false,
-                        false,
-                        $mailer_title .' через сайт ' . Host::$host,
-                        'no-reply@' . Host::$host,
-                        $emails
-                    );
-                    */
-                } else {
                     $db->insertFromArray( $sys_tables['applications'], $data );
                     $id = $db->insert_id;
                     Response::SetInteger( 'id', $id );
@@ -253,8 +221,7 @@ switch(true){
                             $emails[] = ['name' => 'Отдел продаж',  'email'=> "market@spmk.group" ];    
                         }
                         $emails[] = ['name' => 'Новицкая Лилия',  'email'=> "novitskaya@spmk.group" ];    
-                    }    
-                    
+                    }
                     $sendpulse = new Sendpulse( );
                     $result = $sendpulse->sendMail(
                         $mailer_title,
@@ -265,6 +232,7 @@ switch(true){
                         'no-reply@spmk.group',
                         $emails
                     );
+
                     // отправка письма заполнившему калькулятор
                     if ($application_type == 'calculator' && Validate::isEmail($data['email'])) {
                         $eml_tpl = new Template('send.calculator.email.html', 'modules/applications/');

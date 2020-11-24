@@ -3,13 +3,13 @@
         {ifempty $application_type}
             <h2 class="invert">Нужна консультация?</h2>
             <span class="annotation white">Заполните заявку - на ваши вопросы ответит куратор профильного отдела, с опытом работы в металлоконструкциях более 5 лет!</span>
-        {php:$get_parameters['application_type'] = $application_type}
+            {php:$get_parameters['application_type'] = $application_type}
         {elseifeq $application_type,'mainpage_middle_second_have_questions_new'}
             <h2 class="invert">Остались вопросы?</h2>
             <span class="annotation white">Оставьте заявку, и на ваш вопрос ответит консультант с 5-летним стажем работы в металлоконструкциях.</span>
-        {php:$get_parameters['application_type'] = 'have_questions'}
-        {else}
-        {php:$get_parameters['application_type'] = 'consultation'}
+            {php:$get_parameters['application_type'] = 'have_questions'}
+        {else}        
+            {php:$get_parameters['application_type'] = 'consultation'}
             <h2 class="invert">Нужна консультация?</h2>
             <span class="annotation white">Заполните заявку - на ваши вопросы ответит куратор профильного отдела, с опытом работы в металлоконструкциях более 5 лет!</span>
         {/if}

@@ -20,7 +20,7 @@ switch( true ){
         $description =  empty( $this_page->page_seo_description ) ? "" : $this_page->page_seo_description;
         $this_page->manageMetadata(
             [
-                'title' => empty($this_page->page_seo_title) ? 'Вакансии компании «СПМК»' : $this_page->page_seo_title,
+                'title' => empty( $this_page->page_seo_title ) ? 'Вакансии компании «СПМК»' : $this_page->page_seo_title,
                 'description' =>  $description ,
             ], true
         );

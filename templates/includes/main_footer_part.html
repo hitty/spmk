@@ -2,7 +2,7 @@
 <footer >
     <div class="inner">
         <a href="/" class="logo">
-            <img alt="" src="/img/logo-clean.svg"/>
+            <img src="/img/logo-clean.svg" alt="" />
         </a>
         
         <div class="menu flex">
@@ -31,20 +31,12 @@
             <ul>
                 <li class="title"><a href="/contacts/">Контакты</a></li>
                 <li>
-                    <a data-goal="send_email" href="mailto:market@spmk.group">market@spmk.group<i class="copy-to-buffer"
-                                                                                                  data-content="market@spmk.group"
-                                                                                                  data-goal="send_copy_email"
-                                                                                                  data-icon="content_copy"
-                                                                                                  title="Скопировать email"></i></a>
+                    <a href="mailto:market@spmk.group" data-goal="send_email">market@spmk.group<i class="copy-to-buffer" data-icon="content_copy" data-content="market@spmk.group" data-goal="send_copy_email" title="Скопировать email"></i></a>
 
 
                     <span class="small">отдел продаж</span></li>
                 <li>
-                    <a data-goal="send_email" href="mailto:info@spmk.group">info@spmk.group<i class="copy-to-buffer"
-                                                                                              data-content="info@spmk.group"
-                                                                                              data-goal="send_copy_email"
-                                                                                              data-icon="content_copy"
-                                                                                              title="Скопировать email"></i></a>
+                    <a href="mailto:info@spmk.group" data-goal="send_email">info@spmk.group<i class="copy-to-buffer" data-icon="content_copy" data-content="info@spmk.group" data-goal="send_copy_email" title="Скопировать email"></i></a>
 
 
                     <span class="small">общие вопросы</span>
@@ -92,9 +84,8 @@
     <li class="ask-question popup"  data-goal="click_ask_question_sticky" data-url="/applications/popup/?application_type=ask_question_sticky">Задать вопрос</li>
     <li class="application popup"   data-goal="click_application_sticky" data-url="/applications/popup/?application_type=application_sticky">Оставить заявку</li>
 </ul>
-{/if}
-<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:700|Roboto:400,500,900&display=block&subset=cyrillic"
-      rel="stylesheet">
+{/if}                                        
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:700|Roboto:400,500,900&display=block&subset=cyrillic" rel="stylesheet">
 <div class="search-form-container transition">
     <span class="closebutton" data-icon="close"></span>
     {literal}
@@ -112,41 +103,26 @@
 
 <!--span class="kmd-gift-button popup"  data-url="/applications/popup/?application_type=kmd_gift">КМД в подарок</span-->
 {if!empty $new_buildings_banner_new}
-<!--span class="new-buildings-button popup"  data-url="/applications/popup/?application_type=new_buildings">КМД в подарок</span-->
+    <!--span class="new-buildings-button popup"  data-url="/applications/popup/?application_type=new_buildings">КМД в подарок</span-->
 {/if}
 {ifempty $debug}
-
-{literal}
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript"> (function (m, e, t, r, i, k, a) {
-    m[i] = m[i] || function () {
-        (m[i].a = m[i].a || []).push(arguments)
-    };
-    m[i].l = 1 * new Date();
-    k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
-})(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-ym(54690451, "init", {clickmap: true, trackLinks: true, accurateTrackBounce: true, webvisor: true}); </script>
-<noscript>
-    <div><img alt="" src="https://mc.yandex.ru/watch/54690451" style="position:absolute; left:-9999px;"/></div>
-</noscript> <!-- /Yandex.Metrika counter -->
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-117369936-3"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-    gtag('config', 'UA-117369936-3');
-    gtag('config', 'AW-801329321');
-</script>
-
-{/literal}
-{/if}
-<script src="https://www.google.com/recaptcha/api.js?render={php:echo Config::Get('recaptcha/public')}"></script>
+    
+    {literal}
+    <!-- Yandex.Metrika counter --> <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(54690451, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/54690451" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-117369936-3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-117369936-3');
+      gtag('config', 'AW-801329321');
+    </script>
+    
+    {/literal}
+    {/if}
+    <script src="https://www.google.com/recaptcha/api.js?render={php:echo Config::Get('recaptcha/public')}"></script>
 {ifempty $debug}
     <script>{$js_content}</script>
 {else}
@@ -158,7 +134,7 @@ ym(54690451, "init", {clickmap: true, trackLinks: true, accurateTrackBounce: tru
     function counterGoals( _a ) {
         try{ ym(54690451,'reachGoal',_a); console.log( 'yandex: ' + _a ); }catch(err){ }
         try{ gtag('event', _a); console.log( 'google:' + _a ); }catch(err){ }
-        console.log(_a)
+        console.log( _a )
     }
     document.body.addEventListener('click', function(e){
         if( typeof e.target.getAttribute('data-goal') == 'string' ){

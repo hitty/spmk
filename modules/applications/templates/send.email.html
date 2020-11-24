@@ -13,14 +13,14 @@
         {ifeq $application_type, 'zakupki'}
                 {$data['user_comment']}
         {else}
-        {if!empty $data['quiz_step']}
-        {php:$quiz_steps = $data['quiz_step']}
-        {loop $quiz_steps,$q,$quiz_step}
-        <span style="display: block; text-align: left; margin-top: 20px;">
+            {if!empty $data['quiz_step']}
+                {php:$quiz_steps = $data['quiz_step']}
+                {loop $quiz_steps,$q,$quiz_step}
+                    <span style="display: block; text-align: left; margin-top: 20px;">
                         {$q}: <strong>{$quiz_step}</strong>
                     </span>
-        {/loop $quiz_steps}
-        {/if}
+                {/loop $quiz_steps}
+            {/if}
             {if!empty $data['company']}
             <span style="display: block; text-align: left; margin-top: 20px;">
                 Компания: <strong>{$data['company']}</strong>
@@ -47,50 +47,50 @@
                 <span style="display: block; text-align: left; margin-top: 20px;">
                     Услуги: <strong>{$data['service']}</strong>
                 </span>
-        {/if}
-        {if!empty $data['region']}
-        <span style="display: block; text-align: left; margin-top: 20px;">
+            {/if}
+            {if!empty $data['region']}
+                <span style="display: block; text-align: left; margin-top: 20px;">
                     Регион: <strong>{$data['region']}</strong>
                 </span>
-        {/if}
-        {if!empty $data['type']}
-        <span style="display: block; text-align: left; margin-top: 20px;">
+            {/if}
+            {if!empty $data['type']}
+                <span style="display: block; text-align: left; margin-top: 20px;">
                     Тип здания: <strong>{$data['type']}</strong>
                 </span>
-        {/if}
-        {if!empty $data['subtype']}
-        <span style="display: block; text-align: left; margin-top: 20px;">
+            {/if}
+            {if!empty $data['subtype']}
+                <span style="display: block; text-align: left; margin-top: 20px;">
                     Назначение здания: <strong>{$data['subtype']}</strong>
                 </span>
-        {/if}
-        {if!empty $data['weight']}
-        <span style="display: block; text-align: left; margin-top: 20px;">
+            {/if}
+            {if!empty $data['weight']}
+                <span style="display: block; text-align: left; margin-top: 20px;">
                     Вес, т: <strong>{$data['weight']}</strong>
                 </span>
-        {/if}
-        {if!empty $data['square']}
-        <span style="display: block; text-align: left; margin-top: 20px;">
+            {/if}
+            {if!empty $data['square']}
+                <span style="display: block; text-align: left; margin-top: 20px;">
                     Площадь: <strong>{$data['square']}</strong>
                 </span>
-        {/if}
-        {if!empty $data['documentation']}
-        <span style="display: block; text-align: left; margin-top: 20px;">
+            {/if}
+            {if!empty $data['documentation']}
+                <span style="display: block; text-align: left; margin-top: 20px;">
                     Наличие документации марки КМ: <strong>{$data['documentation']}</strong>
                 </span>
-        {/if}
-
-        {if!empty $data['cost']}
-        <span style="display: block; text-align: left; margin-top: 20px;">
+            {/if}
+            
+            {if!empty $data['cost']}
+                <span style="display: block; text-align: left; margin-top: 20px;">
                     Ориентировочная стоимость: <strong>{$data['cost']} тыс.руб.</strong>
                 </span>
-        {/if}
-        {if!empty $data['delivery']}
-        <span style="display: block; text-align: left; margin-top: 20px;">
+            {/if}
+            {if!empty $data['delivery']}
+                <span style="display: block; text-align: left; margin-top: 20px;">
                     Примерный срок доставки: <strong>{$data['delivery']} д.</strong> 
                 </span>
             {/if}
 
-        {if!empty $data['date']}
+            {if!empty $data['date']}
             <span style="display: block; text-align: left; margin-top: 20px;">
                 Дата посещения: <strong>{$data['date']}</strong>
             </span>

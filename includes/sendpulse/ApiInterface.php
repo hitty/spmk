@@ -11,8 +11,6 @@
 
 namespace Sendpulse\RestApi;
 
-use stdClass;
-
 interface ApiInterface
 {
 
@@ -386,7 +384,7 @@ interface ApiInterface
      * @Author Maksym Dzhym m.jim@sendpulse.com
      * @param $eventName
      * @param array $variables
-     * @return stdClass
+     * @return \stdClass
      */
     public function startEventAutomation360($eventName, array $variables);
 }

@@ -14,21 +14,21 @@ use Sendpulse\RestApi\ApiClient;
 use Sendpulse\RestApi\Storage\FileStorage;
 
 class Sendpulse extends ApiClient {
-    public $user_id = 'a948e75060800296a3d4fb7eff526405';          
-    public $secret = '78ac080a335efb8e2eec50ec66f7a0b5';         
+    public $user_id = '9d2c21e08253fbe3599900b1017da5ea';          
+    public $secret = 'fa90068984959da4b6c9c702f689b1a4';         
     public $path_to_attached_files = '';         
     public $books =  array( 
-        'my' => 1866411,
-        'test' => 1852192,
-        'subscriberes' => 1852595
+        'my' => 21499,
+        'test' => 21499,
+        'subscriberes' => 21499
     );
           
-    public $book_id = 1852192 ;        
-    public $bsn_subscriberes_book_id = 1852595 ;        
-    public $sender_email = 'no-reply@spmk.group' ;        
-    public $sender_name = 'spmk.group' ;        
+    public $book_id = 21499 ;        
+    public $bsn_subscriberes_book_id = 21499 ;        
+    public $sender_email = 'no-reply@manswell.ru' ;
+    public $sender_name = 'Manswell' ;
     
-    public $website_id = 3676 ;        
+    public $website_id = 7529068 ;        
     
     public function __construct( $book_type = false){
         parent::__construct( $this->user_id, $this->secret, new FileStorage() );
