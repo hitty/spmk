@@ -1,32 +1,28 @@
 @charset "UTF-8";
-
 @font-face {
-  font-family: 'Material Icons';
-  font-style: normal;
-  font-weight: 400;
-  src: url(/fonts/MaterialIcons-Regular.eot); /* For IE6-8 */
-  src: local('Material Icons'),
-       local('MaterialIcons-Regular'),
-       url(/fonts/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2'),
-       url(/fonts/MaterialIcons-Regular.woff) format('woff'),
-       url(/fonts/MaterialIcons-Regular.ttf) format('truetype');
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(/fonts/MaterialIcons-Regular.eot);
+    src: local('Material Icons'), local('MaterialIcons-Regular'), url(/fonts/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2'), url(/fonts/MaterialIcons-Regular.woff) format('woff'), url(/fonts/MaterialIcons-Regular.ttf) format('truetype');
 }
 .icons{
-  font-family: 'Material Icons';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 24px;  /* Preferred icon size */
-  display: inline-block;
-  line-height: 1;
-  text-transform: none;
-  letter-spacing: normal;
-  word-wrap: normal;
-  white-space: nowrap;
-  direction: ltr;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  -moz-osx-font-smoothing: grayscale;
-  font-feature-settings: 'liga';
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-feature-settings: 'liga';
+    font-feature-settings: 'liga';
 }
 [data-icon]::before {
     content: attr(data-icon);
@@ -47,73 +43,67 @@
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     -moz-osx-font-smoothing: grayscale;
+    -webkit-font-feature-settings: 'liga';
     font-feature-settings: 'liga';
     float: left;
-    margin: 0; 
+    margin: 0;
 }
-
 @font-face {
-  font-family: 'socicon';
-  src:  url('/fonts/socicon.eot');
-  src:  url('/fonts/socicon.eot#iefix') format('embedded-opentype'),
-    url('/fonts/socicon.woff2') format('woff2'),
-    url('/fonts/socicon.ttf') format('truetype'),
-    url('/fonts/socicon.woff') format('woff'),
-    url('/fonts/socicon.svg#socicon') format('svg');
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'socicon';
+    src: url('/fonts/socicon.eot');
+    src: url('/fonts/socicon.eot#iefix') format('embedded-opentype'), url('/fonts/socicon.woff2') format('woff2'), url('/fonts/socicon.ttf') format('truetype'), url('/fonts/socicon.woff') format('woff'), url('/fonts/socicon.svg#socicon') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
-
 [class^="socicon-"], [class*=" socicon-"] {
-  /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'socicon' !important;
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    font-family: 'socicon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
-
 .socicon-vkontakte:before {
-  content: "\e095";
+    content: "\e095";
 }
 .socicon-vkontakte:hover:before{
     color: #4C75A3;
 }
 .socicon-facebook:before {
-  content: "\e028";
+    content: "\e028";
 }
 .socicon-facebook:hover:before {
     color: #3e5b98;
 }
 .socicon-telegram:before {
-  content: "\e087";
+    content: "\e087";
 }
 .socicon-telegram:hover:before {
-  color: #0088cc;
+    color: #0088cc;
 }
 .socicon-youtube:before {
-  content: "\e0a5";
+    content: "\e0a5";
 }
 .socicon-youtube:hover:before {
-  color: #DA2724;
+    color: #DA2724;
 }
-
 .socicon-twitter:before {
-  content: "\e08d";
+    content: "\e08d";
 }
-
 .socicon-twitter:hover:before {
-  color: #3AA9DE;
+    color: #3AA9DE;
 }
 .socicon-instagram:before {
-  content: "\e044";
+    content: "\e044";
 }
 .socicon-instagram:hover:before {
-  color: #3AA9DE;
+    background: #d6249f;
+    background: -o-radial-gradient(30% 107%, circle, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
 }

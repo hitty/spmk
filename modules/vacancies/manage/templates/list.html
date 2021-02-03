@@ -22,6 +22,10 @@
                     <div class="title"><a href="/manage/vacancies/edit/{$item['id']}/">{$item['title']}</a></div>
                     <div class="city">{$item['city']}</div>
                     <div class="salary">{$item['salary']}</div>
+                    <div class="visibility">
+                        <span class="change-params {ifeq $item['published'],1} active{/if}" data-field="published"
+                              data-icon="visibility_off" data-id="{$item['id']}" data-url="/manage/vacancies/"></span>
+                    </div>
                     <span data-icon="delete" class="delete red" data-url="/manage/vacancies/delete/{$item['id']}/"></span>
                 </div>
             {/loop $list}

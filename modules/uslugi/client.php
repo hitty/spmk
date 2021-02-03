@@ -65,7 +65,7 @@ switch( true ){
     ////////////////////////////////////////////////////////////////////////////////////////////////////////
     case 
         empty( $action ) :
-        $h1 = empty($this_page->page_seo_h1) ? 'Услуги компании «СПМК»' : $this_page->page_seo_h1;;
+        $h1 = empty($this_page->page_seo_h1) ? 'Услуги завода металлоконструкций «СПМК»' : $this_page->page_seo_h1;;
         Response::SetString('h1', $h1);  
         
         $module_template = 'mainpage.html';

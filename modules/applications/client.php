@@ -107,7 +107,7 @@ switch(true){
                     if( !empty( $parameters['cooperation'] )) $comment[] = 'Вариант сотрудничества: ' . ( $parameters['cooperation'] == 1 ? 'Поставка материалов' : 'Работы и услуги' ); 
                     if( !empty( $parameters['activity'] )) $comment[] = 'Направление деятельности: ' . $parameters['activity']; // 1-2; 
                 if (!empty($parameters['regions'])) $comment[] = 'Регионы осуществления поставок: ' . $parameters['regions'];
-                if (!empty($parameters['partnership'])) $comment[] = 'Уже работали с компанией «СПМК»: ' . ($parameters['partnership'] == 1 ? 'Да' : 'Нет'); //1-2;
+                if (!empty($parameters['partnership'])) $comment[] = 'Уже работали с «СПМК»: ' . ($parameters['partnership'] == 1 ? 'Да' : 'Нет'); //1-2;
                     //заголовок
                     if( $application_type == 'postavschikam' ) $mailer_title = 'Запрос со страницы «Закупки»' . ' - '.date('d.m.Y');
                     else if( $application_type == 'tendery' ){
@@ -192,6 +192,7 @@ switch(true){
                     $check_recaptcha = $recaptcha->score >= 0.65;
                 }
                 //отправка письма
+                $ajax_result['captcha_score'] = $recaptcha->score;
                 if( !empty( $check_recaptcha ) ) {
 
                     $db->insertFromArray( $sys_tables['applications'], $data );
@@ -214,14 +215,16 @@ switch(true){
                         if( !empty( $application_type ) && in_array( $application_type, [ 'tendery', 'postavschikam' ] ) ){
                             $emails[] = ['name' => 'Е.С.А.',            'email'=> "aae1958@inbox.ru" ];    
                             $emails[] = ['name' => 'Отдел снабжения',   'email'=> "snab@spmk.group" ];    
-                        }    
-                        else if( !empty( $application_type ) && in_array( $application_type, [ 'vacancies' ] ) ){
-                            $emails[] = ['name' => 'HR',  'email'=> "hr@spmk.group" ];    
+                        } else if (!empty($application_type) && in_array($application_type, ['vacancies'])) {
+                            $emails[] = ['name' => 'HR', 'email' => "hr@spmk.group"];
+                        } else if (!empty($application_type) && in_array($application_type, ['raschet'])) {
+                            $emails[] = ['name' => 'Лиды', 'email' => "spmk@spmk.group"];
                         } else {
                             $emails[] = ['name' => 'Отдел продаж',  'email'=> "market@spmk.group" ];    
                         }
                         $emails[] = ['name' => 'Новицкая Лилия',  'email'=> "novitskaya@spmk.group" ];    
                     }
+                    if (!class_exists('Sendpulse')) require_once('includes/class.sendpulse.php');
                     $sendpulse = new Sendpulse( );
                     $result = $sendpulse->sendMail(
                         $mailer_title,
@@ -229,16 +232,16 @@ switch(true){
                         false,
                         false,
                         $mailer_title . " на сайте " . Host::$host,
-                        'no-reply@spmk.group',
+                        'noreply@spmk.group',
                         $emails
                     );
-
+                    $ajax_result['response'] = $result;
                     // отправка письма заполнившему калькулятор
                     if ($application_type == 'calculator' && Validate::isEmail($data['email'])) {
                         $eml_tpl = new Template('send.calculator.email.html', 'modules/applications/');
                         $html = $eml_tpl->Processing();
                         // параметры письма
-                        Response::SetString('mailer_title', 'Расчет стоимости изготовления МК от ООО «СПМК» ');
+                        Response::SetString('mailer_title', 'Расчет стоимости изготовления МК от «СПМК» ');
                         $emails = [
                             [
                                 'name' => $data['name'],
@@ -253,7 +256,7 @@ switch(true){
                             false,
                             false,
                             "Расчет стоимости изготовления МК на сайте " . Host::$host,
-                            'no-reply@spmk.group',
+                            'noreply@spmk.group',
                             $emails
                         );
                     }

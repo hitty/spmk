@@ -18,8 +18,34 @@ header .logo {
     display: flex;
     border: none;
     align-items: center;
+    position: relative;
 }
 
+/*
+header:before{
+    content:"";
+    position: absolute;
+    left: 0;
+    right: 0;
+
+    top: 0;
+    bottom: 0;
+    background: url(https://i.ytimg.com/vi/wRDaG_dvsGg/maxresdefault.jpg);
+    opacity: .2;
+    background-size: 200px auto
+}
+header .logo:before{
+    content:"";
+    display: block;
+    width: 32px;
+    height: 20px;
+    position: absolute;
+    left: -11px;
+    top: -8px;
+    background: url('/img/santa-hat.svg') no-repeat top left;
+    background-size: 32px auto;
+}
+ */
 header .logo img {
     display: block;
     width: 164px;
@@ -31,7 +57,7 @@ header .logo span {
     display: block;
     line-height: 1.2;
     margin-left: 10px;
-    max-width: 160px;
+    max-width: 180px;
 }
 
 header .actions {
@@ -125,7 +151,7 @@ nav {
 nav span,nav a {
     font-family: var(--secondary-font);
     color: var(--white);
-    font-size: 18px;
+    font-size: 16px;
     text-transform: uppercase;
     font-weight: bold;
     margin: 0;
@@ -292,21 +318,12 @@ header:before {
         top: 54%;
     }
 
-    header:before {
-        left: 151px;
-        background-size: 27px auto;
-    }
+
 }
 
 @media(max-width: 767px) {
     header .ny {
         top: 51%;
-    }
-
-    header:before {
-        left: 0px;
-        top: -23px;
-        background-size: 25px auto;
     }
 }
 

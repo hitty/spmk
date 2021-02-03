@@ -1,44 +1,54 @@
 <section class="object-item">
-    <div class="inner" >
-        <article itemscope itemtype="http://schema.org/NewsArticle" class="col-3">
-                <h1 itemprop="headline">{if!empty $h1}{$h1}{else}{$item['title']}{/if}</h1></h1>
-                {if!empty $item['photo']}
-                    <div class="info">
-                        <div class="main-photo bg-cover" style="background-image: url(/img/uploads/big/{$item['subfolder']}/{$item['photo']});"></div>
-                        <div class="object-info">
-                            <div class="item">
-                                <span class="title">Адрес:</span>
-                                <span class="place icon" data-icon="placeholder">{$item['place']}</span>
-                            </div>
-                            <div class="item">
-                                <span class="title">Вес МК:</span>
-                                <span class="weight icon">{$item['object_weight']} т</span>
-                            </div>
-                            <div class="item">
-                                <span class="title">Выполненные работы:</span>
-                                <ul class="services">
-                                    <li class="project{ifeq $item['proektirovanie'],2} inactive{/if}">Разработка КМД</li>
-                                    <li class="production{ifeq $item['izgotovlenie'],2} inactive{/if}">Изготовление</li>
-                                    <li class="delivery{ifeq $item['dostavka'],2} inactive{/if}">Доставка</li>
-                                    <li class="crane{ifeq $item['montazh'],2} inactive{/if}">Монтаж</li>
-                                </ul>
-                            </div>
-                        </div>
+    <div class="inner">
+        <article class="col-3 content-item " itemscope itemtype="http://schema.org/NewsArticle">
+            <h1 itemprop="headline">{if!empty $h1}{$h1}{else}{$item['title']}{/if}</h1></h1>
+            {if!empty $item['photo']}
+            <div class="info">
+                <div class="main-photo bg-cover"
+                     style="background-image: url(/img/uploads/big/{$item['subfolder']}/{$item['photo']});"></div>
+                <div class="object-info">
+                    <div class="item">
+                        <span class="title">Адрес:</span>
+                        <span class="place icon" data-icon="placeholder">{$item['place']}</span>
                     </div>
-                {/if}
-                <div class="content">
+                    <div class="item">
+                        <span class="title">Вес МК:</span>
+                        <span class="weight icon">{$item['object_weight']} т</span>
+                    </div>
+                    <div class="item">
+                        <span class="title">Выполненные работы:</span>
+                        <ul class="services">
+                            <li class="project{ifeq $item['proektirovanie'],2} inactive{/if}">Разработка КМД</li>
+                            <li class="production{ifeq $item['izgotovlenie'],2} inactive{/if}">Изготовление</li>
+                            <li class="delivery{ifeq $item['dostavka'],2} inactive{/if}">Доставка</li>
+                            <li class="crane{ifeq $item['montazh'],2} inactive{/if}">Монтаж</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            {/if}
+            <div class="flex">
+                <div class="left-part">
                     <div class="text" itemprop="articleBody">
                         <h2>Описание проекта</h2>
                         {$item['content']}
                         {include templates/includes/contacts.block.html}
                     </div>
                 </div>
-                {include /templates/gallery.html}
-                
-                {include /templates/includes/schema.html}
+                <div class="right-part">
+                    <div id="social-buttons-content">
+                        <script async="async" src="https://yastatic.net/share2/share.js"></script>
+                        <div class="ya-share2" data-counter data-services="vkontakte,facebook,twitter"
+                             data-size="s"></div>
+                    </div>
+                </div>
+            </div>
+            {include /templates/gallery.html}
+
+            {include /templates/includes/schema.html}
         </article>
     </div>
-</section> 
+</section>
 <section class="content-list similar">
     <div class="inner">
         <h2>Другие объекты</h2>
@@ -50,4 +60,3 @@
 {include /templates/includes/block.form.html}
 
 {include /templates/includes/contacts.html}
-

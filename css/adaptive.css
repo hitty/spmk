@@ -916,7 +916,7 @@
 
     footer .menu ul {
         margin-bottom: 60px;
-        width: 50%;
+        width: calc(50% - 40px);
     }
 
     footer .menu ul li {
@@ -1061,6 +1061,9 @@
         font-size: 12px;
     }
 
+    footer .menu ul {
+        width: 100%;
+    }
     footer .menu ul li + li {
         margin-top: 10px;
     }

@@ -1,163 +1,303 @@
 <div class="sticky-actions-bound"></div>
-<footer >
+<footer>
     <div class="inner">
         <a href="/" class="logo">
-            <img src="/img/logo-clean.svg" alt="" />
+            <img alt="" src="/img/logo-clean.svg"/>
         </a>
-        
+
         <div class="menu flex">
             <ul>
-                <li class="title"><a href="/" title="О компании СПМК">О компании</a></li>
-                <li><a href="/zavod/">О заводе</a></li>
-                <li><a href="/objekty/">Объекты</a></li>
-                <li><a href="/zakupki/">Закупки</a></li>
+                <li class="title"><a href="/" title="О нас">О нас</a></li>
+                <li><a href="/zavod/">Завод МК</a></li>
                 <li><a href="/price/">Прайс</a></li>
-                <!--li><a href="/structure/">Структура</a></li-->
                 <li><a href="/news/">Новости</a></li>
+                <li><a class="popup" data-goal="click_footer_raschet"
+                       data-url="/applications/popup/?application_type=footer_raschet" style="white-space: nowrap">Получить
+                    расчет</a></li>
+                <li><a class="popup" data-goal="click_footer_ask_question"
+                       data-url="/applications/popup/?application_type=footer_ask_question" style="white-space: nowrap">Задать
+                    вопрос</a></li>
+                <li><a href="/zakupki/">Закупки</a></li>
                 <li><a href="/vacancies/">Вакансии</a></li>
             </ul>
-            
+
             <ul>
-                <li class="title">Услуги</li>
+                <li class="title"><a href="/services/" title="Услуги">Услуги</a></li>
                 <li><a href="/uslugi/proektirovanie/" title="Проектирование металлоконструкций">Проектирование</a></li>
                 <li><a href="/uslugi/izgotovlenie/" title="Изготовление металлоконструкций">Изготовление</a></li>
                 <li><a href="/uslugi/dostavka/" title="Доставка металлоконструкций">Доставка</a></li>
                 <li><a href="/uslugi/montazh/" title="Монтаж металлоконструкций">Монтаж</a></li>
                 <li><a href="/uslugi/komplektaciya/" title="Комплектация объектов">Комплектация</a></li>
-                <!--li><a href="#" class="inactive">Снабжение</a></li-->
-                <!--li><a href="#" class="inactive">«Под ключ»</a></li-->
             </ul>
-           
+            <ul>
+                <li class="title"><a href="/assortment/" title="Продукция">Продукция</a></li>
+                {loop $productions,$p,$production}
+                <li><a href="/assortment/{$production['chpu_title']}/" title="{$production['title']}">{$production['title']}</a>
+                </li>
+                {/loop $productions}
+            </ul>
+            <ul>
+                <li class="title"><a href="/objekty/" title="Объекты">Объекты</a></li>
+                {loop $objects,$p,$object}
+                <li><a href="/objekty/{$object['chpu_title']}/" title="{$object['title']}">{$object['title']}</a></li>
+                {/loop $objects}
+            </ul>
+
+
             <ul>
                 <li class="title"><a href="/contacts/">Контакты</a></li>
                 <li>
-                    <a href="mailto:market@spmk.group" data-goal="send_email">market@spmk.group<i class="copy-to-buffer" data-icon="content_copy" data-content="market@spmk.group" data-goal="send_copy_email" title="Скопировать email"></i></a>
+                    <a data-goal="send_email" href="mailto:market@spmk.group">market@spmk.group<i class="copy-to-buffer"
+                                                                                                  data-content="market@spmk.group"
+                                                                                                  data-goal="send_copy_email"
+                                                                                                  data-icon="content_copy"
+                                                                                                  title="Скопировать email"></i></a>
 
 
                     <span class="small">отдел продаж</span></li>
                 <li>
-                    <a href="mailto:info@spmk.group" data-goal="send_email">info@spmk.group<i class="copy-to-buffer" data-icon="content_copy" data-content="info@spmk.group" data-goal="send_copy_email" title="Скопировать email"></i></a>
+                    <a data-goal="send_email" href="mailto:info@spmk.group">info@spmk.group<i class="copy-to-buffer"
+                                                                                              data-content="info@spmk.group"
+                                                                                              data-goal="send_copy_email"
+                                                                                              data-icon="content_copy"
+                                                                                              title="Скопировать email"></i></a>
 
 
                     <span class="small">общие вопросы</span>
                 </li>
-                <li data-goal="call" class="callibri_phone"  onclick="document.location.href='tel:+78002507697';">+7 (800) 250-76-97</li>
+                <li class="callibri_phone" data-goal="call" onclick="document.location.href='tel:+78002507697';">+7
+                    (800) 250-76-97
+                </li>
+                <li><a class="button popup" data-goal="click_footer_raschet"
+                       data-url="/applications/popup/?application_type=footer_raschet" style="white-space: nowrap">Получить
+                    расчет</a></li>
                 <li>
                     <ul class="social">
-                        <li class="socicon-facebook"> <a href="" target="_blank" title="SPMK.group Facebook"></a></li>
-                        <li class="socicon-vkontakte"><a href="" target="_blank" title="SPMK.group VK"></a></li>
-                        <li class="socicon-twitter"><a href="" target="_blank" title="SPMK.group Twitter"></a></li>
-                        <li class="socicon-youtube"><a href="" target="_blank" title="SPMK.group Youtube"></a></li>
+                        <li>
+                            <a class="socicon-facebook" href="https://www.facebook.com/spmk.group/" target="_blank"
+                               title="SPMK.group Facebook"></a>
+                        </li>
+                        <li>
+                            <a class="socicon-instagram" href="https://instagram.com/spmk.group" target="_blank"
+                               title="SPMK.group Instagram"></a>
+                        </li>
                     </ul>
+                </li>
+                <li>
+                    {literal}
+                    <div class="ya-site-form ya-site-form_inited_no"
+                         data-bem="{&quot;action&quot;:&quot;https://spmk.group/search/&quot;,&quot;arrow&quot;:false,&quot;bg&quot;:&quot;transparent&quot;,&quot;fontsize&quot;:12,&quot;fg&quot;:&quot;#000000&quot;,&quot;language&quot;:&quot;ru&quot;,&quot;logo&quot;:&quot;rb&quot;,&quot;publicname&quot;:&quot;Поиск по spmk.group&quot;,&quot;suggest&quot;:true,&quot;target&quot;:&quot;_self&quot;,&quot;tld&quot;:&quot;ru&quot;,&quot;type&quot;:3,&quot;usebigdictionary&quot;:true,&quot;searchid&quot;:2361438,&quot;input_fg&quot;:&quot;#000000&quot;,&quot;input_bg&quot;:&quot;#ffffff&quot;,&quot;input_fontStyle&quot;:&quot;normal&quot;,&quot;input_fontWeight&quot;:&quot;normal&quot;,&quot;input_placeholder&quot;:&quot;поиск по сайту&quot;,&quot;input_placeholderColor&quot;:&quot;#000000&quot;,&quot;input_borderColor&quot;:&quot;#7f9db9&quot;}">
+                        <form accept-charset="utf-8" action="https://yandex.ru/search/site/" method="get"
+                              target="_self"><input name="searchid" type="hidden" value="2361438"/><input name="l10n"
+                                                                                                          type="hidden"
+                                                                                                          value="ru"/><input
+                                name="reqenc" type="hidden" value=""/><input name="text" type="search" value=""/><input
+                                type="submit" value="Найти"/></form>
+                    </div>
+                    <style type="text/css">.ya-page_js_yes .ya-site-form_inited_no {
+                        display: none;
+                    }</style>
+                    <script type="text/javascript">(function (w, d, c) {
+                        var s = d.createElement('script'), h = d.getElementsByTagName('script')[0],
+                            e = d.documentElement;
+                        if ((' ' + e.className + ' ').indexOf(' ya-page_js_yes ') === -1) {
+                            e.className += ' ya-page_js_yes';
+                        }
+                        s.type = 'text/javascript';
+                        s.async = true;
+                        s.charset = 'utf-8';
+                        s.src = (d.location.protocol === 'https:' ? 'https:' : 'http:') + '//site.yandex.net/v2.0/js/all.js';
+                        h.parentNode.insertBefore(s, h);
+                        (w[c] || (w[c] = [])).push(function () {
+                            Ya.Site.Form.init()
+                        })
+                    })(window, document, 'yandex_site_callbacks');</script>
+                    {/literal}
                 </li>
             </ul>
         </div>
-        
-        
+
+
         <div class="bottom flex">
-            <div class="payment-info">
-                <div class="title">ООО «Союз производителей металлоконструкций»</div>
-                <div class="flex">
-                    <div>
-                    ИНН 7703463781<br/>КПП 770301001
-                    </div>
-                    <div>
-                    125371, <b>Москва</b>,<br />Волоколамское шоссе, д. 89,<br /> +7(499)703-48-57
-                    </div>
-                    <div>
-                    <b>Рязань</b><br/>Станкозаводская, 7 стр.3
-                    </div>
-                </div>
-            </div>
             <p class="copyright">
                 {php:echo date('Y')} год. Все права защищены<br/>
                 <a href="/terms/">Политика конфиденциальности</a>
+                <br><br>
+                О возможностях работы с нами узнайте по телефону <span class="phone" itemprop="telephone"
+                                                                       onclick="try{ document.location.href='tel:+78002507697'; return true; }catch(err){ }">8 (800) 250-76-97</b>
+                или напишите нам по почте <a data-goal="send_email" href="mailto:market@spmk.group" itemprop="email">market@spmk.group<i
+                        class="copy-to-buffer" data-content="market@spmk.group" data-goal="send_copy_email"
+                        data-icon="content_copy" title="Скопировать email"></i></a>
+                <br><br>
+                Обращаем ваше внимание на то, что данный Интернет-сайт, носит исключительно информационный характер и ни при каких условиях не является публичной офертой, определяемой положениями Статьи 437 Гражданского кодекса Российской Федерации.
+
             </p>
-    </div>
-</footer> 
+        </div>
+</footer>
 {ifempty $no_sticky_actions}
 <ul class="sticky-actions" id="sticky-actions">
-    <li class="excursion popup main" data-goal="click_excursion_sticky" data-url="/applications/popup/?application_type=excursion_sticky">Записаться на экскурсию</li>
-    <li class="raschet popup"  data-goal="click_raschet_sticky" data-url="/applications/popup/?application_type=raschet_sticky">Получить расчет</li>
+    <li class="excursion popup main" data-goal="click_excursion_sticky"
+        data-url="/applications/popup/?application_type=excursion_sticky">Записаться на экскурсию
+    </li>
+    <li class="raschet popup" data-goal="click_raschet_sticky"
+        data-url="/applications/popup/?application_type=raschet_sticky">Получить расчет
+    </li>
     <!--li class="price popup"  data-goal="click_price_sticky" data-url="/applications/popup/?application_type=price_sticky">Запросить прайс</li-->
-    <li class="call popup"  data-goal="click_order_call_sticky" data-url="/applications/popup/?application_type=order_call_sticky">Заказать звонок</li>
-    <li class="ask-question popup"  data-goal="click_ask_question_sticky" data-url="/applications/popup/?application_type=ask_question_sticky">Задать вопрос</li>
-    <li class="application popup"   data-goal="click_application_sticky" data-url="/applications/popup/?application_type=application_sticky">Оставить заявку</li>
+    <li class="call popup" data-goal="click_order_call_sticky"
+        data-url="/applications/popup/?application_type=order_call_sticky">Заказать звонок
+    </li>
+    <li class="ask-question popup" data-goal="click_ask_question_sticky"
+        data-url="/applications/popup/?application_type=ask_question_sticky">Задать вопрос
+    </li>
+    <li class="application popup" data-goal="click_application_sticky"
+        data-url="/applications/popup/?application_type=application_sticky">Оставить заявку
+    </li>
 </ul>
-{/if}                                        
-<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:700|Roboto:400,500,900&display=block&subset=cyrillic" rel="stylesheet">
+{/if}
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:700|Roboto:400,500,900&display=block&subset=cyrillic"
+      rel="stylesheet">
 <div class="search-form-container transition">
     <span class="closebutton" data-icon="close"></span>
     {literal}
-    <div class="ya-site-form ya-site-form_inited_no" onclick="return {'action':'https://spmk.group/search/','arrow':false,'bg':'transparent','fontsize':14,'fg':'#000000','language':'ru','logo':'rb','publicname':'Поиск по сайту','suggest':true,'target':'_self','tld':'ru','type':3,'usebigdictionary':true,'searchid':2361438,'input_fg':'#000000','input_bg':'#ffffff','input_fontStyle':'normal','input_fontWeight':'normal','input_placeholder':'Поиск по сайту','input_placeholderColor':'#9fa3b0','input_borderColor':'#405B72'}">
-    <form action="https://yandex.ru/search/site/" method="get" target="_self" accept-charset="utf-8">
-    <input type="hidden" name="searchid" value="2361438"/><input type="hidden" name="l10n" value="ru"/>
-    <input type="hidden" name="reqenc" value=""/>
-    <input type="search" name="text" value=""/>
-    <input type="submit" value="Найти" data-icon="search"/>
-    </form>
+    <div class="ya-site-form ya-site-form_inited_no"
+         onclick="return {'action':'https://spmk.group/search/','arrow':false,'bg':'transparent','fontsize':14,'fg':'#000000','language':'ru','logo':'rb','publicname':'Поиск по сайту','suggest':true,'target':'_self','tld':'ru','type':3,'usebigdictionary':true,'searchid':2361438,'input_fg':'#000000','input_bg':'#ffffff','input_fontStyle':'normal','input_fontWeight':'normal','input_placeholder':'Поиск по сайту','input_placeholderColor':'#9fa3b0','input_borderColor':'#405B72'}">
+        <form accept-charset="utf-8" action="https://yandex.ru/search/site/" method="get" target="_self">
+            <input name="searchid" type="hidden" value="2361438"/><input name="l10n" type="hidden" value="ru"/>
+            <input name="reqenc" type="hidden" value=""/>
+            <input name="text" type="search" value=""/>
+            <input data-icon="search" type="submit" value="Найти"/>
+        </form>
     </div>
-    <script type="text/javascript">(function(w,d,c){var s=d.createElement('script'),h=d.getElementsByTagName('script')[0],e=d.documentElement;if((' '+e.className+' ').indexOf(' ya-page_js_yes ')===-1){e.className+=' ya-page_js_yes';}s.type='text/javascript';s.async=true;s.charset='utf-8';s.src=(d.location.protocol==='https:'?'https:':'http:')+'//site.yandex.net/v2.0/js/all.js';h.parentNode.insertBefore(s,h);(w[c]||(w[c]=[])).push(function(){Ya.Site.Form.init()})})(window,document,'yandex_site_callbacks');</script>{/literal}
+    <script type="text/javascript">(function (w, d, c) {
+        var s = d.createElement('script'), h = d.getElementsByTagName('script')[0], e = d.documentElement;
+        if ((' ' + e.className + ' ').indexOf(' ya-page_js_yes ') === -1) {
+            e.className += ' ya-page_js_yes';
+        }
+        s.type = 'text/javascript';
+        s.async = true;
+        s.charset = 'utf-8';
+        s.src = (d.location.protocol === 'https:' ? 'https:' : 'http:') + '//site.yandex.net/v2.0/js/all.js';
+        h.parentNode.insertBefore(s, h);
+        (w[c] || (w[c] = [])).push(function () {
+            Ya.Site.Form.init()
+        })
+    })(window, document, 'yandex_site_callbacks');</script>
+    {/literal}
 </div>
 
 
 <!--span class="kmd-gift-button popup"  data-url="/applications/popup/?application_type=kmd_gift">КМД в подарок</span-->
 {if!empty $new_buildings_banner_new}
-    <!--span class="new-buildings-button popup"  data-url="/applications/popup/?application_type=new_buildings">КМД в подарок</span-->
+<!--span class="new-buildings-button popup"  data-url="/applications/popup/?application_type=new_buildings">КМД в подарок</span-->
 {/if}
 {ifempty $debug}
-    
-    {literal}
-    <!-- Yandex.Metrika counter --> <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(54690451, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/54690451" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
-    
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-117369936-3"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'UA-117369936-3');
-      gtag('config', 'AW-801329321');
-    </script>
-    
-    {/literal}
-    {/if}
-    <script src="https://www.google.com/recaptcha/api.js?render={php:echo Config::Get('recaptcha/public')}"></script>
-{ifempty $debug}
-    <script>{$js_content}</script>
+
+{literal}
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript"> (function (m, e, t, r, i, k, a) {
+    m[i] = m[i] || function () {
+        (m[i].a = m[i].a || []).push(arguments)
+    };
+    m[i].l = 1 * new Date();
+    k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+})(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+ym(54690451, "init", {clickmap: true, trackLinks: true, accurateTrackBounce: true, webvisor: true}); </script>
+<noscript>
+    <div><img alt="" src="https://mc.yandex.ru/watch/54690451" style="position:absolute; left:-9999px;"/></div>
+</noscript> <!-- /Yandex.Metrika counter -->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-117369936-3"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'UA-117369936-3');
+    gtag('config', 'AW-801329321');
+</script>
+
+{/literal}
+<script src="https://www.google.com/recaptcha/api.js?render={php:echo Config::Get('recaptcha/public')}"></script>
+<script>
+    {
+        $js_content
+    }
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+            n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = '2.0';
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s)
+    }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '713793242854065');
+    fbq('track', 'PageView');
+    fbq('track', 'ViewContent');
+</script>
+<noscript>
+    <img height="1" src="https://www.facebook.com/tr?id=713793242854065&ev=PageView&noscript=1" width="1"/>
+</noscript>
+<!-- End Facebook Pixel Code -->
+
 {else}
-    <div id="debug"></div>
-{/if}    
+<div id="debug"></div>
+{/if}
 {literal}
 
 <script>
-    function counterGoals( _a ) {
-        try{ ym(54690451,'reachGoal',_a); console.log( 'yandex: ' + _a ); }catch(err){ }
-        try{ gtag('event', _a); console.log( 'google:' + _a ); }catch(err){ }
-        console.log( _a )
+    function counterGoals(_a) {
+        try {
+            ym(54690451, 'reachGoal', _a);
+            console.log('yandex: ' + _a);
+        } catch (err) {
+        }
+        try {
+            gtag('event', _a);
+            console.log('google:' + _a);
+        } catch (err) {
+        }
+        console.log(_a)
     }
-    document.body.addEventListener('click', function(e){
-        if( typeof e.target.getAttribute('data-goal') == 'string' ){
-            counterGoals( e.target.getAttribute('data-goal') );
+
+    document.body.addEventListener('click', function (e) {
+        if (typeof e.target.getAttribute('data-goal') == 'string') {
+            counterGoals(e.target.getAttribute('data-goal'));
         }
     });
     AOS.init({
-       duration: 600,
-       delay: 150,
-       once: true,
-       disable: 'mobile'
+        duration: 600,
+        delay: 150,
+        once: true,
+        disable: 'mobile'
     });
-</script>  
-{/literal}    
+</script>
+{/literal}
 <a href="#" class="to-top-btn transition br3" data-icon="arrow_upward">
 </a>
 
 <!--Rating::top.agroserver.ru counter-->
 <a href="https://agroserver.ru/" target="_blank" style="position: absolute;opacity: 0;bottom: 0;right: 0;">
-<script language="javascript">
-var r = escape(document.referrer);
-var rd = Math.random();
-var pr = 'https://top.agroserver.ru/ct/';
-document.write('<img src="'+pr+'?uid=15003&ref='+r+'&rd='+rd+'" width="88" height="31" border="0">');
-</script></a>
+    <script language="javascript">
+        var r = escape(document.referrer);
+        var rd = Math.random();
+        var pr = 'https://top.agroserver.ru/ct/';
+        document.write('<img src="' + pr + '?uid=15003&ref=' + r + '&rd=' + rd + '" width="88" height="31" border="0">');
+    </script>
+</a>
 <!--// Rating::top.agroserver.ru counter-->

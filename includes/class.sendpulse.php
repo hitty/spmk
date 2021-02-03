@@ -24,8 +24,8 @@ class Sendpulse extends ApiClient {
     );
           
     public $book_id = 21499 ;        
-    public $bsn_subscriberes_book_id = 21499 ;        
-    public $sender_email = 'no-reply@manswell.ru' ;
+    public $bsn_subscriberes_book_id = 21499 ;
+    public $sender_email = 'noreply@spmk.group';
     public $sender_name = 'Manswell' ;
     
     public $website_id = 7529068 ;        

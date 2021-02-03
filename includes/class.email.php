@@ -59,7 +59,7 @@ class EMailer extends phpmailer {
                 $this->IsHTML(true);
                 if(isset($username[$key])) $this->AddAddress($email_address, iconv('UTF-8',$this->CharSet, $username[$key]));
                 else continue;
-                $this->From = (!empty($from_email) ? $from_email : 'no-reply@' . Host::$host);
+                $this->From = (!empty($from_email) ? $from_email : 'noreply@' . Host::$host);
                 $this->FromName = Host::$host;
                 $result *= $this->Send();
             }
@@ -71,8 +71,8 @@ class EMailer extends phpmailer {
             foreach($email as $key=>$email_address){
                 if(isset($username[$key])) $this->AddAddress($email_address, iconv('UTF-8',$this->CharSet, $username[$key]));
             }
-            
-            $this->From = (!empty($from_email) ? $from_email : 'no-reply@' . Host::$host);
+
+            $this->From = (!empty($from_email) ? $from_email : 'noreply@' . Host::$host);
             $this->FromName = Host::$host;
             return $this->Send();
         }

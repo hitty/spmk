@@ -132,7 +132,7 @@ if($)(function(window, document, $, undefined){
                         } 
                     }
                 });
-                return false;
+                return false;                    
             });
                 
             
@@ -146,7 +146,7 @@ if($)(function(window, document, $, undefined){
                     case 13: o.button.click();
                     case 27: jQuery( '#background-shadow-inner .closebutton' ).click();
                 }
-            });
+            });        
         };
         //проверка на уникальность
         var validateUnique = function( _this ){
@@ -183,7 +183,7 @@ if($)(function(window, document, $, undefined){
                     o.f_values[_name] = _value;
                     if( !_this.hasClass( 'unique' ) ) notification( _this, false, '' );
                 }
-            }
+            }            
         };
         //уведомления
         var notification = function( _this, _error, _text ){
@@ -222,9 +222,9 @@ if($)(function(window, document, $, undefined){
                 jQuery( '[id*="file_upload"]', _clone ).attr( 'id', _identificator + o.uploader_index );
                 jQuery( 'label[for*="file_upload"]', _clone ).attr( 'for', _identificator + o.uploader_index );
                 manageUpload( jQuery( 'input', _clone ) )
-            })
-
-
+            })  
+            
+            
         };
         return this.each(function(){
             init_selector = $(this);
