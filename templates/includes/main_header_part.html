@@ -2,7 +2,7 @@
     {php:$url = Session::getString('main_url');}
     <a href="/lndng/" title="СПМК" class="logo">
         <img src="/img/logo-clean.svg" alt=""  />
-        <span >Производство и монтаж<br>зданий из металлоконструкций</span>
+        <span>Производство и монтаж каркасов<br>зданий из металлоконструкций</span>
     </a>
     {ifempty $header_clear} 
     <nav>
@@ -38,7 +38,7 @@
     
     <div class="actions flex">
         <span class="send button popup icon" data-goal="click_header_raschet" data-url="/applications/popup/?application_type=header_raschet">
-            Получить расчет
+            Запросить расчет
         </span>
         <a href="mailto:market@spmk.group" class="email icon" title="" data-goal="send_email" >market@spmk.group</a>
         <span class="phone icon callibri_phone" data-goal="call" onclick="try{ document.location.href='tel:+78002507697'; return true; }catch(err){ }">8 (800) 250-76-97</span>

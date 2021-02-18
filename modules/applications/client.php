@@ -220,7 +220,7 @@ switch(true){
                         } else if (!empty($application_type) && in_array($application_type, ['raschet'])) {
                             $emails[] = ['name' => 'Лиды', 'email' => "spmk@spmk.group"];
                         } else {
-                            $emails[] = ['name' => 'Отдел продаж',  'email'=> "market@spmk.group" ];    
+                            $emails[] = ['name' => 'Отдел продаж', 'email' => "spmk@spmk.group"];
                         }
                         $emails[] = ['name' => 'Новицкая Лилия',  'email'=> "novitskaya@spmk.group" ];    
                     }

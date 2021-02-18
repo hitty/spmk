@@ -7,7 +7,8 @@
             {if!empty $get_parameters}
                 {loop $get_parameters,$p,$parameter}<input type="hidden" name="{$p}" value="{$parameter}">{/loop $get_parameters}
             {/if}
-
+        {if!empty $application_type}<input name="application_type" type="hidden" value="{$application_type}">{/if}
+        {if!empty $application_type_id}<input name="application_type_id" type="hidden" value="{$application_type_id}">{/if}
         {php:$random=randomstring(10)}
         <div class="row">
             <input type="text" name="name" placeholder="Ваше имя *" required="required" autocomplete="{$random}">

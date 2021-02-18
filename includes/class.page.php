@@ -250,6 +250,8 @@ class Page
         $this->menuClear(1);
         $this->menuAdd('Завод МК', 'zavod', 1);
         $this->menuAdd('Продукция', 'assortment', 2, false, false, 'zavod');
+        $this->menuAdd('Поставщикам', 'zakupki/postavschikam', 2, false, false, 'zavod');
+        $this->menuAdd('Тендеры', 'zakupki/tendery', 2, false, false, 'zavod');
         $this->menuAdd('Услуги', 'uslugi', 1);
         $this->menuAdd('Проектирование', 'uslugi/proektirovanie', 2, false, false, 'uslugi');
         $this->menuAdd('Изготовление', 'uslugi/izgotovlenie', 2, false, false, 'uslugi');
@@ -257,11 +259,11 @@ class Page
         $this->menuAdd('Монтаж', 'uslugi/montazh', 2, false, false, 'uslugi');
         $this->menuAdd('Комплектация', 'uslugi/komplektaciya', 2, false, false, 'uslugi');
         $this->menuAdd('Объекты', 'objekty', 1);
+        $objects_types = CommonDb::getList('objects_types', false, $sys_tables['objects_types'] . ".id NOT IN (4,6) ");
+        foreach ($objects_types as $o => $objects_type) $this->menuAdd($objects_type['title'], '/objekty/?type=' . $objects_type['id'], 2, false, false, 'objekty');
+        Response::SetArray('objects_types', $objects_types);
         $this->menuAdd('Прайс', 'price', 1);
         $this->menuAdd('Новости', 'news', 1);
-        $this->menuAdd('Закупки', 'zakupki', 1, 'inactive');
-        $this->menuAdd('Поставщикам', 'zakupki/postavschikam', 2, false, false, 'zakupki');
-        $this->menuAdd('Тендеры', 'zakupki/tendery', 2, false, false, 'zakupki');
         $this->menuAdd('Контакты', 'contacts', 1);
 
         //Продакция

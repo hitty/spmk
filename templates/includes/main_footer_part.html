@@ -11,18 +11,13 @@
                 <li><a href="/zavod/">Завод МК</a></li>
                 <li><a href="/price/">Прайс</a></li>
                 <li><a href="/news/">Новости</a></li>
-                <li><a class="popup" data-goal="click_footer_raschet"
-                       data-url="/applications/popup/?application_type=footer_raschet" style="white-space: nowrap">Получить
-                    расчет</a></li>
-                <li><a class="popup" data-goal="click_footer_ask_question"
-                       data-url="/applications/popup/?application_type=footer_ask_question" style="white-space: nowrap">Задать
-                    вопрос</a></li>
-                <li><a href="/zakupki/">Закупки</a></li>
+                <li><a href="/zakupki/postavschikam/">Поставщикам</a></li>
+                <li><a href="/zakupki/tendery/">Тендеры</a></li>
                 <li><a href="/vacancies/">Вакансии</a></li>
             </ul>
 
             <ul>
-                <li class="title"><a href="/services/" title="Услуги">Услуги</a></li>
+                <li class="title"><a href="/uslugi/" title="Услуги">Услуги</a></li>
                 <li><a href="/uslugi/proektirovanie/" title="Проектирование металлоконструкций">Проектирование</a></li>
                 <li><a href="/uslugi/izgotovlenie/" title="Изготовление металлоконструкций">Изготовление</a></li>
                 <li><a href="/uslugi/dostavka/" title="Доставка металлоконструкций">Доставка</a></li>
@@ -38,9 +33,9 @@
             </ul>
             <ul>
                 <li class="title"><a href="/objekty/" title="Объекты">Объекты</a></li>
-                {loop $objects,$p,$object}
-                <li><a href="/objekty/{$object['chpu_title']}/" title="{$object['title']}">{$object['title']}</a></li>
-                {/loop $objects}
+                {loop $objects_types,$p,$object}
+                <li><a href="/objekty/?type={$object['id']}" title="{$object['title']}">{$object['title']}</a></li>
+                {/loop $objects_types}
             </ul>
 
 
@@ -120,17 +115,18 @@
 
         <div class="bottom flex">
             <p class="copyright">
-                {php:echo date('Y')} год. Все права защищены<br/>
-                <a href="/terms/">Политика конфиденциальности</a>
-                <br><br>
                 О возможностях работы с нами узнайте по телефону <span class="phone" itemprop="telephone"
                                                                        onclick="try{ document.location.href='tel:+78002507697'; return true; }catch(err){ }">8 (800) 250-76-97</b>
                 или напишите нам по почте <a data-goal="send_email" href="mailto:market@spmk.group" itemprop="email">market@spmk.group<i
                         class="copy-to-buffer" data-content="market@spmk.group" data-goal="send_copy_email"
                         data-icon="content_copy" title="Скопировать email"></i></a>
+                <br>
+                Адрес офиса продаж и производства: 390042, г. Рязань, ул. Станкозаводская, 7
                 <br><br>
                 Обращаем ваше внимание на то, что данный Интернет-сайт, носит исключительно информационный характер и ни при каких условиях не является публичной офертой, определяемой положениями Статьи 437 Гражданского кодекса Российской Федерации.
-
+                <br><br>
+                {php:echo date('Y')} год. Все права защищены<br/>
+                <a href="/terms/">Политика конфиденциальности</a>
             </p>
         </div>
 </footer>

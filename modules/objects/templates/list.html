@@ -41,7 +41,8 @@
             <input type="hidden" name="type" value="{$type}" />
             {if!empty $types}
                 <ul class="list-data">
-                    <li data-value="" {ifeq $type,0}class="selected"{/if}>Все объекты</li>
+                    <li $type,0}class="selected" data-value="" {{ifeq
+                    /if}>Все</li>
                     {loop $types,$k,$i}
                         <li {ifeq $i['id'],$type}class="selected"{/if}data-value="{$i['id']}">{$i['title']}</li>
                     {/loop $types}
