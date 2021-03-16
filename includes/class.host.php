@@ -6,7 +6,7 @@
 class Host {
     public static $requested_uri = '';          // запрошенный uri
     public static $requested_path = '';          // запрошенный uri
-    public static $protocol = "http";           // протокол (как часть url)
+    public static $protocol = "https";           // протокол (как часть url)
     public static $host = "";                   // хост (как часть url)
     public static $port = "";                   // порт (как часть url)
     public static $path = "";                   // путь (как часть url)
