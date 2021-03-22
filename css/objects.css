@@ -66,13 +66,13 @@
     font-size: 18px;
     line-height: 1.4;
     margin: 20px 0 0 0;
-    background: url('/img/placeholder-icon.svg') no-repeat 0px 0px;
+    background: url('/img/placeholder-icon.svg') no-repeat 0 0;
     min-height: 32px;
     padding-top: 5px;
 }
 
 .object-info .weight {
-    background: url('/img/object-weight-icon.svg') no-repeat 0px 0px;
+    background: url('/img/object-weight-icon.svg') no-repeat 0 0;
 }
 
 .services {
@@ -129,7 +129,7 @@
     left: 50%;
     transform: translateX(-50%);
     opacity: 0;
-    visibility: 0;
+    visibility: hidden;
     transition: var(--transition);
     
 }
@@ -149,7 +149,6 @@
     color: #fff;
     height: 80px;
     width: 50%;
-    text-align: center;
     font-weight: bold;
     font-size: 20px;
     line-height: 80px;
@@ -325,7 +324,7 @@
         display: block;
         width: 100%;
         text-align: left;
-        padding-left: 0px;
+        padding-left: 0;
         font-size: 16px;
     }
 
@@ -375,6 +374,7 @@
     z-index: 10;
     height: auto;
     padding: 40px;
+    text-align: left;
 }
 
 .object-item .object-info .item + .item {
