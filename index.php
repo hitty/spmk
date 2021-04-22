@@ -3,13 +3,11 @@
 $overall_memory_usage = memory_get_peak_usage();
 $overall_time_counter = microtime(true);
 //DEBUG - local
-//define("DEBUG_MODE", (isset($_SERVER['SERVER_ADDR']) && isset($_SERVER['REMOTE_ADDR']) && $_SERVER['SERVER_ADDR']==$_SERVER['REMOTE_ADDR'] && $_SERVER['SERVER_ADDR']=="127.0.0.1") || (!empty($_SERVER['HTTP_HOST']) && substr($_SERVER['HTTP_HOST'], -4) == '.int'));
-define("DEBUG_MODE", true);
+define("DEBUG_MODE", (isset($_SERVER['SERVER_ADDR']) && isset($_SERVER['REMOTE_ADDR']) && $_SERVER['SERVER_ADDR'] == $_SERVER['REMOTE_ADDR'] && $_SERVER['SERVER_ADDR'] == "127.0.0.1") || (!empty($_SERVER['HTTP_HOST']) && substr($_SERVER['HTTP_HOST'], -4) == '.int'));
 
 //рутовый путь
 define( "ROOT_PATH", str_replace( "\\", '/', __DIR__ ) );
 
-/*
 if(DEBUG_MODE){
     // абсолютно все ошибки логируются и показываются в общем порядке, время исполнения скрипта увеличено
     error_reporting(E_ALL);
@@ -27,7 +25,6 @@ if(DEBUG_MODE){
 // абсолютно все ошибки логируются и показываются в общем порядке, время исполнения скрипта увеличено
 error_reporting( E_ALL );
 set_time_limit( 45 ); 
-*/
 
 
 // подключение классов ядра

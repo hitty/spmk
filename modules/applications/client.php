@@ -58,7 +58,7 @@ switch(true){
                         $_targetFile = md5( microtime() ) . '.' . $targetExt; // конечное имя файла
                         if ( in_array( strtolower( $targetExt ), $fileTypes ) ) {
                             move_uploaded_file( $file['tmp_name'], Host::$root_path . $_temp_folder . $_targetFile );
-                            $files[] = Host::$protocol . '://' . Host::$host . $_temp_folder . $_targetFile;
+                            $files[] = 'https://' . Host::$host . $_temp_folder . $_targetFile;
                         }
                     }
                 }
