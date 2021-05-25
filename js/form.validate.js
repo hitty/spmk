@@ -1,9 +1,23 @@
 var _emailTest = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i; 
 
 function formValidate(_selector){
-    
+
+    jQuery('.flags-container', _selector).each(function () {
+        var parent = $(this);
+        parent.on('click', function (e) {
+            console.log($(e.target).attr('class'));
+            parent.toggleClass('is-active');
+        });
+        $('.flags-item', parent).on('click', function () {
+            var input = parent.siblings('input');
+            input.val('').inputmask({"mask": $(this).data('mask')}).focus();
+            parent.toggleClass('is-active');
+            $('.flags-value', parent).html($(this).html());
+            return false;
+        })
+    });
+    jQuery('.form-phone,input[name="phone"]', _selector).inputmask({"mask": "+7 (999) 999-99-99"});
     jQuery("input.digit",_selector).attr('data-inputmask',"'mask': '9'");
-    jQuery("input[type=phone], input[name=phone]",_selector).attr('data-inputmask',"'mask': '+7 (999) 999-9999', 'greedy' : false"); //specifying options
     jQuery("input[type=email], input[name=email]",_selector).attr('data-inputmask',"'alias': 'email'"); //specifying options
     jQuery("input[name=date],input.datepicker",_selector).datetimepicker({
         timepicker:false,

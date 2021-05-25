@@ -12,7 +12,7 @@
             <input type="text" name="name" placeholder="Ваше имя *" required="required" autocomplete="{$random}">
         </div>
         <div class="row">
-            <input type="phone" name="phone" placeholder="Ваш телефон *" required="required" maxlength="17" autocomplete="{$random}">
+            {include /templates/includes/form.flags-phone.html}
         </div>
         <div class="upload-container row br3">
             <textarea name="comment" placeholder="Ваш вопрос*" required="required"></textarea>

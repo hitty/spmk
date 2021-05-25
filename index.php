@@ -76,9 +76,11 @@ $get_parameters = Request::GetParameters( METHOD_GET );
 if( empty( $ajax_mode ) ) {
     //подключение стилей и js-скриптов
     $GLOBALS['js_set'][] = '/js/jquery.min.js';
+
     $GLOBALS['css_set'][] = '/js/datetimepicker/jquery.datetimepicker.css';
     $GLOBALS['js_set'][] = '/js/datetimepicker/jquery.datetimepicker.js';
     $GLOBALS['js_set'][] = '/js/inputmask/inputmask.min.js';
+
     $GLOBALS['js_set'][] = '/js/form.validate.js';
 
     $GLOBALS['css_set'][] = '/js/carousel.vertical/styles.css';

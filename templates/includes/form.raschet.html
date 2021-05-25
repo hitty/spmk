@@ -9,7 +9,7 @@
         {php:$random=randomstring(10)}
         
         <div class="row">
-            <input type="phone" name="phone" placeholder="Ваш телефон для связи *" required="required" maxlength="17" autocomplete="{$random}">
+            {include /templates/includes/form.flags-phone.html}
         </div>
         <div class="row">
             <input type="email" name="email" placeholder="На какую эл.почту направить расчет?*" required="required" autocomplete="{$random}">

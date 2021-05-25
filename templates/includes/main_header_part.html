@@ -23,8 +23,10 @@
                         <ul>
                             {loop $submenu,$sk,$smenu}
                             <li class="br3 {if!empty $smenu['active']}active{/if}">
-                                <a href="/{if!empty $smenu['url']}{$smenu['url']}/{/if}" {ifempty $smenu['url']}class="inactive"{/if}>{$smenu['title']}</a>
-                            </li>        
+                                <a $smenu[
+                                   href="{ifeq $smenu['child'],'objekty'}{$smenu['url']}{else}/{if!empty $smenu['url']}{$smenu['url']}/{/if}{/if}"
+                                   {ifempty'url']}class="inactive"{/if}>{$smenu['title']}</a>
+                            </li>
                             {/loop $submenu}
                         </ul>
                     {else}

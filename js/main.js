@@ -104,6 +104,10 @@ function getParameterByName(name)
 }
 
 $(document).ready(function(){
+    jQuery('.form-phone,input[name="phone"]').each(function () {
+        formValidate($(this).parent());
+    });
+
     $('.thumbs-list').each( function(){
         var _this = $( this );
     
@@ -165,16 +169,20 @@ $(document).ready(function(){
     
     $('button.disabled, .button.disabled').on('click', function(){
         return false;
-    })
+    });
     
     _debug = $('#debug').length > 0;
             
     $('.switcher i').on('click', function(){
         $(this).toggleClass('active');
-    })    
-    
-    $('.popup').each(function(){ $(this).popupWindow(); } )
-    $('.calculator').each(function(){ $(this).calculatorSPMK(); } )
+    });
+
+    $('.popup').each(function () {
+        $(this).popupWindow();
+    });
+    $('.calculator').each(function () {
+        $(this).calculatorSPMK();
+    });
     
     
     $('.carousel').each( function(){
@@ -221,7 +229,7 @@ $(document).ready(function(){
                 }
             ]  
         });
-    })                    
+    });
     
     $('.navigation a').each(function(){
         var t = $(this);
@@ -231,7 +239,7 @@ $(document).ready(function(){
                 $('html, body').animate({scrollTop: $(t.attr('href')).offset().top - $('header').height() - 30 }, '300');
             return false;
         })
-    })
+    });
     
     if( $('.sticky-actions').length ){
         var _bound_top = $('.sticky-actions-bound').offset().top;
@@ -247,10 +255,10 @@ $(document).ready(function(){
         $(this).formSubmit({
             'scroll_to_error': $(this).data('scroll_to_error')
         });
-    })
+    });
     $('header .burger').on( 'click', function(){
         $('body').toggleClass('menu-top-is-open modal-active')    ;
-    })
+    });
     
     const btn = $('.to-top-btn');
     const h = $(window).height();
@@ -288,12 +296,12 @@ $(document).ready(function(){
         $this.addClass('copied');
         setTimeout(function(){
             $this.removeClass('copied');
-        }, 2500 )
-        counterGoals( $this.data('goal') )
+        }, 2500);
+        counterGoals($this.data('goal'));
         return false;
     })
-    
-})          
+
+});
 function stickyActions( _el, _bound ) {
     if( _el > _bound ) $('.sticky-actions').addClass('hidden');
     else $('.sticky-actions').removeClass('hidden')

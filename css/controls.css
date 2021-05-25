@@ -33,6 +33,14 @@ textarea, input[type="number"], input[type="url"], input[type="text"], input[typ
     box-shadow: none;
 }
 
+input[type="phone"], input[name="phone"] {
+    padding-left: 50px;
+    display: block;
+}
+
+.iti--allow-dropdown {
+    width: 100%;
+}
 @media (hover: hover) {
     textarea:hover, input[type="text"]:hover:not(.disabled), input[type="url"]:hover:not(.disabled), input[type="number"]:hover:not(.disabled), input[type="email"]:hover:not(.disabled), input[type="phone"]:hover:not(.disabled), input[type="password"]:hover:not(.disabled) {
         background-color: rgba(255,255,255,1);
@@ -1481,4 +1489,42 @@ form .row.service-container {
     100% {
         opacity: 1;
     }
+}
+
+.flags-container {
+    position: absolute;
+    cursor: pointer;
+    z-index: 100;
+    transform: translate(7px, 10px);
+}
+
+.flags-icon {
+    width: 30px;
+    height: auto;
+    height: 15px;
+    object-fit: cover;
+}
+
+.flags-list {
+    opacity: 0;
+    visibility: hidden;
+    background: var(--main-color-light);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    transform: translateX(-4px);
+    border-radius: 5px;
+}
+
+.is-active .flags-list {
+    opacity: 1;
+    visibility: visible;
+}
+
+.flags-item {
+    cursor: pointer;
+    padding: 4px 4px 0 4px;
+    display: block;
+}
+
+.flags-item:hover {
+    background: white;
 }

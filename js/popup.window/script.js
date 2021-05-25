@@ -17,14 +17,18 @@ if($)(function(window, document, $, undefined){
         /* функция стартовой инициализации */
         var start = function(){
             o.button = jQuery( 'input[type=submit], button, .button', init_selector);
-            
-            grecaptcha.ready(function () {
-                var _input = $('input[name=recaptcha_response]', init_selector);
-                grecaptcha.execute(_input.data('public'), { action: 'contact' }).then(function (token) {
-                    var recaptchaResponse = document.getElementById('recaptchaResponse');
-                    _input.attr( 'value', token );
+
+            try {
+                grecaptcha.ready(function () {
+                    var _input = $('input[name=recaptcha_response]', init_selector);
+                    grecaptcha.execute(_input.data('public'), {action: 'contact'}).then(function (token) {
+                        var recaptchaResponse = document.getElementById('recaptchaResponse');
+                        _input.attr('value', token);
+                    });
                 });
-            });
+            } catch (e) {
+                console.log('Recaptcha:' + e);
+            }
             
             formValidate( init_selector );
             
