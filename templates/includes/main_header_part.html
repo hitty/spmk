@@ -23,9 +23,8 @@
                         <ul>
                             {loop $submenu,$sk,$smenu}
                             <li class="br3 {if!empty $smenu['active']}active{/if}">
-                                <a $smenu[
-                                   href="{ifeq $smenu['child'],'objekty'}{$smenu['url']}{else}/{if!empty $smenu['url']}{$smenu['url']}/{/if}{/if}"
-                                   {ifempty'url']}class="inactive"{/if}>{$smenu['title']}</a>
+                                {php:$url = !empty($smenu['child']) && $smenu['child'] == 'objekty' ? $smenu['url'] : '/' . $smenu['url']}
+                                <a href="{$url}" {ifempty $smenu['url']}class="inactive"{/if}>{$smenu['title']}</a>
                             </li>
                             {/loop $submenu}
                         </ul>
