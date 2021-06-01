@@ -5,7 +5,7 @@ function formValidate(_selector){
     jQuery('.flags-container', _selector).each(function () {
         var parent = $(this);
         parent.on('click', function (e) {
-            console.log($(e.target).attr('class'));
+            console.log($(e.target).parent().attr('class'));
             parent.toggleClass('is-active');
         });
         $('.flags-item', parent).on('click', function () {

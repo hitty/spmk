@@ -3,6 +3,10 @@
 $item = $db->fetch( " SELECT * FROM " . $sys_tables['static_pages'] . " WHERE url = ?", $this_page->requested_url );
 if( empty( $item ) ) Host::RedirectLevelUp();
 Response::SetArray( 'item', $item );
+$photos = Photos::getList('static_pages', $item['id']);
+Response::SetArray('photos', $photos);
+
+
 //SEO данные
 $this_page->manageMetadata(
     array(

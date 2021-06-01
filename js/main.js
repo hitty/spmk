@@ -104,10 +104,6 @@ function getParameterByName(name)
 }
 
 $(document).ready(function(){
-    jQuery('.form-phone,input[name="phone"]').each(function () {
-        formValidate($(this).parent());
-    });
-
     $('.thumbs-list').each( function(){
         var _this = $( this );
     
@@ -276,11 +272,12 @@ $(document).ready(function(){
     });
     
     /* free gift banner */
-    var f_g = getSpmkCookie( 'new_buildings_banner_new' );    
-    if(  f_g === null && $('.new-buildings-button').length > 0 ){
+    var f_g = getSpmkCookie('zhelezobeton_banner_new');
+    if (f_g === null) f_g = 0;
+    if (f_g < 2 && $('.new-buildings-button').length > 0) {
         setTimeout( function(){
             $('.new-buildings-button').click();
-            setSpmkCookie( 'new_buildings_banner_new', 60, '/' );
+            setSpmkCookie('zhelezobeton_banner_new', ++f_g, '/');
         }, 1300 )
     }
 

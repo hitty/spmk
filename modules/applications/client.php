@@ -192,8 +192,8 @@ switch(true){
                     $check_recaptcha = $recaptcha->score >= 0.65;
                 }
                 //отправка письма
-                $ajax_result['captcha_score'] = $recaptcha->score;
-                if( !empty( $check_recaptcha ) ) {
+                $ajax_result['captcha_score'] = DEBUG_MODE ? 0.9 : $recaptcha->score;
+                if (!empty($check_recaptcha) || DEBUG_MODE) {
 
                     $db->insertFromArray( $sys_tables['applications'], $data );
                     $id = $db->insert_id;

@@ -40,8 +40,8 @@ class Template {
     * @return string
     */
     public function CompressTPL($tpl){
-        $tpl = preg_replace('|[\s\t\n\r]+|umsi', ' ', $tpl);
-        $tpl = preg_replace('|>[\s\t\n\r]+<|umsi', "><", $tpl);
+        //$tpl = preg_replace('|[\s\t\n\r]+|umsi', ' ', $tpl);
+        //$tpl = preg_replace('|>[\s\t\n\r]+<|umsi', "><", $tpl);
         return $tpl;
     }
 

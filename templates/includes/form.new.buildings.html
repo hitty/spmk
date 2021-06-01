@@ -1,9 +1,44 @@
-        
-<div class="application-form modal">      
+<div class="application-form modal">
     <div id="banner">
-        <b>ПОДДЕРЖИВАЕМ НОВОЕ СТРОИТЕЛЬСТВО В УСЛОВИЯХ КРИЗИСА</b>
-        <div>для проектов с металлоемкостью от 500 тонн</div>
-        <b>СНИЖАЕМ ЦЕНЫ НА УСЛУГИ НА ПЕРИОД МАЙ-ИЮНЬ 2020 г.</b>
-        <span class="button red internal-link" data-link="/news/company/podderzhivaem_novoe_stroitelstvo_v_usloviyah_krizisa_11/" >Подробнее</span>
+        <b>У вас проект здания из железобетона? Не спешите строить, пока не узнаете наши цены на металлокаркас!</b>
+
+        <div>Оставьте заявку с пометкой «железобетон» и мы бесплатно пересчитаем ваш проект в железобетоне на
+            полностью стальной. Выгода познается в сравнении!
+        </div>
+        <div>Предложение ограничено. Все подробности в отделе продаж <a href="tel:88002507697#1"> <b
+                style="color: #fff;">8-800-250-76-97 (доб.1)</b></a></div>
+
+        <form action="/applications/add/" autocomplete="off" class="send-message ajaxed" enctype="multipart/form-data"
+              id="application-form" method="POST">
+            <input data-public="{php:echo Config::Get('recaptcha/public')}" name="recaptcha_response" type="hidden">
+            <input name="application_type" type="hidden" value="zhelezobeton">
+            {php:$random=randomstring(10)}
+            <div class="row">
+                <input autocomplete="{$random}" name="name" placeholder="Ваше имя *" required="required" type="text">
+            </div>
+            <div class="row">
+                {include /templates/includes/form.flags-phone.html}
+            </div>
+            <div class="upload-container row br3">
+                <textarea name="comment" value="Железобетон. ...">Железобетон. ...</textarea>
+                <div class="file-upload">
+                    <input class="inputfile-{$random}" data-multiple-caption="files selected" id="file_upload-{$random}"
+                           multiple="" name="file_upload[]" type="file">
+                    <label class="br4 attach-file " data-icon="attach_file" for="file_upload-{$random}">
+                        <strong class="br3 transition">Добавить файл</strong>
+                    </label>
+                    <span class="text-overflow" data-icon="attach_file"></span>
+                    <i class="close" data-icon="close"></i>
+                </div>
+            </div>
+
+            <div class="row terms">
+                <input class="button big" type="submit"
+                       value="{ifempty $button_title}Отправить{else}{$button_title}{/if}">
+                <span class="text">Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c <a
+                        class="modal-open-btn" href="/terms/" target="_blank">политикой конфиденциальности</a></span>
+            </div>
+        </form>
+
     </div>
 </div> 

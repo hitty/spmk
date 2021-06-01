@@ -301,8 +301,6 @@ if($)(function(window, document, $, undefined){
                                     $(this).popupWindow();
                                 }
                             );
-                            formValidate( o.inner_container );
-                            
                             //closebutton
                             var _popup_redirect = o.popup_redirect && ( typeof init_selector.attr( 'data-redirect' ) == 'string' ? init_selector.attr( 'data-redirect' ) : false );
                             if( typeof $( o.inner_container + ' form' ).formEdit !== "undefined" ) $( o.inner_container + ' form' ).formEdit();

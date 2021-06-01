@@ -381,10 +381,10 @@ class Page
                         if (!empty($this->menu[1])) Response::SetArray('mainmenu', $this->menu[1]);
                         if (!empty($this->menu[2])) Response::SetArray('mainmenu_second', $this->menu[2]);
                         //вывод баннера
-                        $new_buildings_banner_new = Session::GetString('new_buildings_banner_new');
-                        if (empty($new_buildings_banner_new) && in_array($this->page_breadcrumbs[0]['url'], ['', 'uslugi', 'zavod', 'lndng', 'price'])) {
-                            Session::SetString('new_buildings_banner_new', 'alreay_shown');
-                            Response::SetBoolean('new_buildings_banner_new', true);
+                        $zhelezobeton_banner_new = Session::GetString('zhelezobeton_banner_new');
+                        if (empty($zhelezobeton_banner_new) && in_array($this->page_breadcrumbs[0]['url'], ['', 'uslugi', 'zavod', 'lndng', 'price'])) {
+                            Session::SetString('zhelezobeton_banner_new', 'alreay_shown');
+                            Response::SetBoolean('zhelezobeton_banner_new', true);
                         }
                     }
                     if (!empty($this->page_seo_title)) $this->metadata['title'] = $this->page_seo_title;

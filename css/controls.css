@@ -1492,10 +1492,11 @@ form .row.service-container {
 }
 
 .flags-container {
-    position: absolute;
+    position: absolute !important;
     cursor: pointer;
     z-index: 100;
     transform: translate(7px, 10px);
+    margin: 0 !important;
 }
 
 .flags-icon {
