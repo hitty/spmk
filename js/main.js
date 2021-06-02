@@ -274,11 +274,12 @@ $(document).ready(function(){
     /* free gift banner */
     var f_g = getSpmkCookie('zhelezobeton_banner_new');
     if (f_g === null) f_g = 0;
+    ++f_g;
     console.log(f_g);
-    if (f_g < 2 && $('.new-buildings-button').length > 0) {
+    if (f_g < 3 && $('.new-buildings-button').length > 0) {
+        setSpmkCookie('zhelezobeton_banner_new', f_g, 60, '/');
         setTimeout( function(){
             $('.new-buildings-button').click();
-            setSpmkCookie('zhelezobeton_banner_new', ++f_g, '/');
         }, 1300 )
     }
 
