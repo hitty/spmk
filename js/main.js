@@ -274,6 +274,7 @@ $(document).ready(function(){
     /* free gift banner */
     var f_g = getSpmkCookie('zhelezobeton_banner_new');
     if (f_g === null) f_g = 0;
+    alert(f_g);
     if (f_g < 2 && $('.new-buildings-button').length > 0) {
         setTimeout( function(){
             $('.new-buildings-button').click();
