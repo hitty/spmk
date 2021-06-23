@@ -166,7 +166,6 @@ nav span,nav a {
 }
 
 nav li.active a {
-    pointer-events: none;
     border-color: var(--white);
 }
 

@@ -13,12 +13,7 @@
                 <li class="{if!empty $menu['active']}active{/if}{if!empty $mainmenu_second[$menu['url']]} expanded{/if}">
                     
                     {if!empty $mainmenu_second[$menu['url']]}
-                        {ifempty $menu['active']}
-                            <a href="/{$menu['url']}/" class="submenu-title" title="{$menu['title']}">{$menu['title']}</a>
-                        {elseifeq $menu['active'],'inactive'}
-                            <span class="submenu-title">{$menu['title']}</span>
-                        {/if}
-                        
+                        <a href="/{$menu['url']}/" class="submenu-title" title="{$menu['title']}">{$menu['title']}</a>
                         {php:$submenu=$mainmenu_second[$menu['url']]}
                         <ul>
                             {loop $submenu,$sk,$smenu}
