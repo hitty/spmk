@@ -402,6 +402,7 @@ class sitemap
             //запускаем curl для этого url
             curl_exec($curl);
             //если получен ответ 0, то пробуем повторить
+            $j=0;
             while (curl_getinfo($curl, CURLINFO_HTTP_CODE)==0){
                 curl_exec($curl);
                 $log [] = "0 code";
