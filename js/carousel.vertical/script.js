@@ -50,7 +50,7 @@ $(document).ready(function(){
             
             o.active_slider = new_active_slider;
 
-            init_selector.css('background-image', 'url(' + active_el.data('bg') + ')');
+            if( active_el.data('bg').length > 15 ) init_selector.css('background-image', 'url(' + active_el.data('bg') + ')');
         };
         
         return this.each(function(){
