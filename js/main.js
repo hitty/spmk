@@ -272,6 +272,7 @@ $(document).ready(function(){
     });
     
     /* free gift banner */
+    /*
     var f_g = getSpmkCookie('zhelezobeton_banner_new');
     if (f_g === null) f_g = 0;
     ++f_g;
@@ -282,7 +283,7 @@ $(document).ready(function(){
             $('.new-buildings-button').click();
         }, 1300 )
     }
-
+    */
     /* copy email to clipboard */
     $('.copy-to-buffer').on('click', function(){
         var $this = $(this);
