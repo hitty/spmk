@@ -20,7 +20,7 @@
             {loop $list,$k,$item}
                 <div class="item-block clearfix flex">
                     <div class="info">
-                        {if!empty $item['photo']}<img src="/img/uploads/sm/{$item['subfolder']}/{$item['photo']}" />{/if}
+                        {if!empty $item['photo']}<img loading="lazy" src="/img/uploads/sm/{$item['subfolder']}/{$item['photo']}" />{/if}
                     </div>
                     <div class="title"><a href="/manage/uslugi/edit/{$item['id']}/">{$item['title']}</a></div>
                     <div class="date">{$item['normal_date']}</div>

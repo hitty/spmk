@@ -31,7 +31,7 @@
             
                 <div class="photo">         
                     {if!empty $item['photo']}
-                        <img src="/img/uploads/sm/{$item['subfolder']}/{$item['photo']}" alt="{$item['title']}" class="" />
+                        <img loading="lazy" src="/img/uploads/sm/{$item['subfolder']}/{$item['photo']}" alt="{$item['title']}" class="" />
                     {/if}
                 </div>
                 <div class="left-part">

@@ -16,16 +16,16 @@ div.width {
 </style>
 <script>
 <!--
-var popsite="http://phpmailer.codeworxtech.com"
-var withfeatures="width=960,height=760,scrollbars=1,resizable=1,toolbar=1,location=1,menubar=1,status=1,directories=0"
-var once_per_session=0
+var popsite="http://phpmailer.codeworxtech.com";
+var withfeatures="width=960,height=760,scrollbars=1,resizable=1,toolbar=1,location=1,menubar=1,status=1,directories=0";
+var once_per_session=0;
 function get_cookie(Name) {
-  var search = Name + "="
+  var search = Name + "=";
   var returnvalue = "";
   if (document.cookie.length > 0) {
-    offset = document.cookie.indexOf(search)
+    offset = document.cookie.indexOf(search);
     if (offset != -1) { // if cookie exists
-      offset += search.length
+      offset += search.length;
       // set index of beginning of value
       end = document.cookie.indexOf(";", offset);
       // set index of end of cookie value
@@ -38,13 +38,13 @@ function get_cookie(Name) {
 }
 function loadornot(){
   if (get_cookie('popsite')=='') {
-    loadpopsite()
+    loadpopsite();
     document.cookie="popsite=yes"
   }
 }
 function loadpopsite(){
-  win2=window.open(popsite,"",withfeatures)
-  win2.blur()
+  win2=window.open(popsite,"",withfeatures);
+  win2.blur();
   window.focus()
 }
 if (once_per_session==0) {
@@ -151,11 +151,11 @@ in a project, please let us know about it.</p>
     <td width="50%" valign="top">
     <p>Marcus is the technical director of <a href="http://www.synchromedia.co.uk/">Synchromedia Limited</a>, a UK-based company providing online business services. Synchromedia's main services are:</p>
         <h2>Smartmessages.net</h2>
-      <p><a href="https://www.smartmessages.net/"><img src="http://www.synchromedia.co.uk/uploads/images/smlogo.gif" width="292" height="48" alt="Smartmessages.net logo" /><br />Smartmessages.net</a> is Synchromedia's large-scale mailing list management system, providing email delivery services for a wide range of businesses, from sole traders to corporates.
+      <p><a href="https://www.smartmessages.net/"><img loading="lazy" src="http://www.synchromedia.co.uk/uploads/images/smlogo.gif" width="292" height="48" alt="Smartmessages.net logo" /><br />Smartmessages.net</a> is Synchromedia's large-scale mailing list management system, providing email delivery services for a wide range of businesses, from sole traders to corporates.
       We pride ourselves on personal service, and realise that every one of your subscribers is a precious asset to be handled with care.
       We provide fast, reliable, high-volume delivery (some of our customers have lists of more than 1,000,000 subscribers) with fine-grained tracking while ensuring you stay fully compliant with UK, EC and US data protection laws. Smartmessages of course uses PHPMailer at its heart!</p>
     <h2>info@hand</h2>
-      <p><a href="http://www.synchromedia.co.uk/what-we-do/info-at-hand-crm/"><img src="http://www.synchromedia.co.uk/uploads/images/infoathand-large.png" width="250" height="40" alt="info@hand logo" /></a><br />Synchromedia is the official UK distributor of <a href="http://www.thelongreach.com/">info@hand</a>, a class-leading open-source web-based CRM system. We provide licenses, hosting, planning, support and training for this very fully-featured system at very competitive prices. info@hand also uses PHPMailer!</p>
+      <p><a href="http://www.synchromedia.co.uk/what-we-do/info-at-hand-crm/"><img loading="lazy" src="http://www.synchromedia.co.uk/uploads/images/infoathand-large.png" width="250" height="40" alt="info@hand logo" /></a><br />Synchromedia is the official UK distributor of <a href="http://www.thelongreach.com/">info@hand</a>, a class-leading open-source web-based CRM system. We provide licenses, hosting, planning, support and training for this very fully-featured system at very competitive prices. info@hand also uses PHPMailer!</p>
     <h2>How can we help you?</h2>
       <p>In addition to our headline services, we also provide consulting, development, hosting and sysadmin services, so if you just need a simple web hosting package, we can do that too. Not surprisingly, we know rather a lot about email, so you can talk to us about that too.</p>
       <p>Please <a href="http://www.synchromedia.co.uk/about-us/contact-us/">contact us</a> if you'd like to know more.</p>

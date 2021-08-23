@@ -4,7 +4,7 @@
         {loop $photos,$p,$photo}
         {ifempty $current_page['is_amp']}
         <a href="/img/uploads/big/{$photo['subfolder']}/{$photo['name']}" title="{$item['title']}" data-icon="search">
-            <img src="/img/uploads/med/{$photo['subfolder']}/{$photo['name']}" alt="{$item['title']}" />
+            <img loading="lazy" src="/img/uploads/med/{$photo['subfolder']}/{$photo['name']}" alt="{$item['title']}" />
         </a>
         {else}
             <amp-img src="/img/uploads/med/{$photo['subfolder']}/{$photo['name']}"   title="{$item['title']}" layout="responsive" width="300" height="300"> </amp-img>

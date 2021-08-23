@@ -6,7 +6,7 @@
             <a href="/news/{$item['category_chpu_title']}/" title="{$item['category_title']}">{$item['category_title']}</a>
         </div>
         {if!empty $item['photo']}
-            <img class="main-photo" src="/img/uploads/big/{$item['subfolder']}/{$item['photo']}" />
+            <img loading="lazy" class="main-photo" src="/img/uploads/big/{$item['subfolder']}/{$item['photo']}" />
         {/if}
         <article  class=" flex">
             <div class="left-part">
